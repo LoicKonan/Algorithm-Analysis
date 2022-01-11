@@ -38,6 +38,25 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
     mutateBlob(world, currentRow, currentCol - 1);
 }
 
+// Count the number of blobs 
+int countBlobs(char world[ROWS][COLS])
+{
+    int numBlobs = 0;
+
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            if(world[i][j] == '*')
+            {
+                numBlobs++;
+                mutateBlob(world, i,j);
+            }
+        }
+    }
+
+    return numBlobs;
+}
 
 int main()
 {
