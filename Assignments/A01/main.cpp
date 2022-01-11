@@ -6,6 +6,33 @@ using namespace std;
 void openFileRead(ifstream &in);
 void openFileWrite(ofstream &out);
 
+const int ROWS = 22;
+const int COLS = 22;
+
+// Print out the content of the matrix to the console.
+void printWorld(char world[ROWS][COLS])
+{
+    for(int i = 0; i < ROWS; i++)
+    {
+        for(int j = 0; j < COLS; j++)
+        {
+            cout<<world[i][j]<< " ";
+        }
+        cout << '\n';
+    }
+}
+
+// Recursive method that would convert a blob * to a blob #
+void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
+{
+    if(currentRow < 0 || currentRow >= ROWS || 
+       currentCol < 0 || currentCol >= COLS || 
+       world[currentRow][currentRow] != '*')
+    {
+        return;
+    }
+}
+
 
 int main()
 {
