@@ -19,9 +19,9 @@ void printWorld(char world[ROWS][COLS], ofstream &out)
     {
         for(int j = 0; j < COLS; j++)
         {
-            outfile <<world[i][j]<< " ";
+            out << world[i][j]<< " ";
         }
-        outfile << '\n';
+        out << '\n';
     }
 }
 
@@ -62,11 +62,11 @@ int countBlobs(char world[ROWS][COLS])
 int main()
 {
     ifstream infile;
-    ofstream outfile;
+    ofstream out;
 
 
     openFileRead(infile);
-    openFileWrite(outfile);
+    openFileWrite(out);
 
     char world[ROWS][COLS];
     for (int i = 0; i < ROWS; i++)
@@ -79,8 +79,8 @@ int main()
 
 
     // Print out the original world  
-    outfile << '\n';
-    outfile << "Original world: \n";
+    out << '\n';
+    out << "Original world: \n";
     printWorld(world);
 
     // Now perform counting the number of blobs from the world
@@ -88,15 +88,15 @@ int main()
 
     // Print out the updated world
 
-    outfile << '\n';
-    outfile << "World with mutated blobs: \n";
+    out << '\n';
+    out << "World with mutated blobs: \n";
     printWorld(world);
 
-    outfile << '\n';
+    out << '\n';
 
-    outfile << numBlobs << " blobs were found.\n";
+    out << numBlobs << " blobs were found.\n";
     infile.close();
-    outfile.close();
+    out.close();
     return 0;
 }
 
@@ -118,8 +118,8 @@ void openFileRead(ifstream &in)
 
 void openFileWrite(ofstream &out)
 {
-    string outFileName;
+    string outName;
     cout << "Enter the output file name:  ";
-    cin >> outFileName;
-    out.open(outFileName);
+    cin >> outName;
+    out.open(outName);
 }
