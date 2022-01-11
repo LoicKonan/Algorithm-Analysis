@@ -3,20 +3,9 @@
 
 using namespace std;
 
-int main()
-{
-    ifstream infile;
-    ofstream outfile;
-    openFileRead(infile);
-    openFileWrite(outfile);
+void openFileRead(ifstream &in);
+void openFileWrite(ofstream &out);
 
-    // Other function calls go here.
-    // Pass file stream variables as needed.
-
-    infile.close();
-    outfile.close();
-    return 0;
-}
 
 void openFileRead(ifstream &in)
 {
@@ -39,4 +28,21 @@ void openFileWrite(ofstream &out)
     cout << "Enter the output file name:  ";
     cin >> outFileName;
     out.open(outFileName);
+}
+
+int main()
+{
+    ifstream infile;
+    ofstream outfile;
+
+    
+    openFileRead(infile);
+    openFileWrite(outfile);
+
+    // Other function calls go here.
+    // Pass file stream variables as needed.
+
+    infile.close();
+    outfile.close();
+    return 0;
 }
