@@ -1,15 +1,14 @@
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
 int main()
 {
     ifstream infile;
-	ofstream outfile;
-	openFileRead(infile);
-	openFileWrite(outfile);
-
+    ofstream outfile;
+    openFileRead(infile);
+    openFileWrite(outfile);
 
     // Other function calls go here.
     // Pass file stream variables as needed.
@@ -32,12 +31,12 @@ void openFileRead(ifstream &in)
         cout << "Could not open file. \n";
         cout << "Check file name and location. \n\n";
     }
+}
 
-    void openFileWrite(ofstream & out)
-    {
-        string outFileName;
-        cout << "Enter the output file name:  ";
-        cin >> outFileName;
-        out.open(outFileName);
-    }
+void openFileWrite(ofstream &out)
+{
+    string outFileName;
+    cout << "Enter the output file name:  ";
+    cin >> outFileName;
+    out.open(outFileName);
 }
