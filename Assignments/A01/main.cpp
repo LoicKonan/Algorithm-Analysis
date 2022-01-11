@@ -9,19 +9,19 @@ using namespace std;
 void openFileRead(ifstream &in);
 void openFileWrite(ofstream &out);
 
-const int ROWS = 22;
-const int COLS = 22;
+const int ROWS = 20;
+const int COLS = 20;
 
 // Print out the content of the matrix to the console.
-void printWorld(char world[ROWS][COLS], ofstream &out)
+void printWorld(char world[ROWS][COLS])
 {
     for(int i = 0; i < ROWS; i++)
     {
         for(int j = 0; j < COLS; j++)
         {
-            out << world[i][j]<< " ";
+            cout << world[i][j]<< " ";
         }
-        out << '\n';
+        cout << '\n';
     }
 }
 
@@ -61,11 +61,11 @@ int countBlobs(char world[ROWS][COLS])
 
 int main()
 {
-    ifstream infile;
+    ifstream in;
     ofstream out;
 
 
-    openFileRead(infile);
+    openFileRead(in);
     openFileWrite(out);
 
     char world[ROWS][COLS];
@@ -73,7 +73,7 @@ int main()
     {
         for (int j = 0; j < COLS; j++)
         {
-            infile >> world[i][j];
+            in >> world[i][j];
         }
     }
 
@@ -87,7 +87,6 @@ int main()
     int numBlobs = countBlobs(world);
 
     // Print out the updated world
-
     out << '\n';
     out << "World with mutated blobs: \n";
     printWorld(world);
@@ -95,7 +94,7 @@ int main()
     out << '\n';
 
     out << numBlobs << " blobs were found.\n";
-    infile.close();
+    in.close();
     out.close();
     return 0;
 }
@@ -103,10 +102,10 @@ int main()
 
 void openFileRead(ifstream &in)
 {
-    string inFileName;
+    string inName;
     cout << "Enter the input file name: ";
-    cin >> inFileName;
-    in.open(inFileName);
+    cin >> inName;
+    in.open(inName);
 
     // Print an error message if file fails to open.
     if (in.fail())
