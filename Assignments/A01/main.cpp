@@ -2,8 +2,9 @@
 #include <fstream>
 #include <string>
 
-
 using namespace std;
+
+
 
 void openFileRead(ifstream &in);
 void openFileWrite(ofstream &out);
@@ -12,15 +13,15 @@ const int ROWS = 22;
 const int COLS = 22;
 
 // Print out the content of the matrix to the console.
-void printWorld(char world[ROWS][COLS])
+void printWorld(char world[ROWS][COLS], ofstream &out)
 {
     for(int i = 0; i < ROWS; i++)
     {
         for(int j = 0; j < COLS; j++)
         {
-            cout<<world[i][j]<< " ";
+            outfile <<world[i][j]<< " ";
         }
-        cout << '\n';
+        outfile << '\n';
     }
 }
 
@@ -85,6 +86,15 @@ int main()
     // Now perform counting the number of blobs from the world
     int numBlobs = countBlobs(world);
 
+    // Print out the updated world
+
+    outfile << '\n';
+    outfile << "World with mutated blobs: \n";
+    printWorld(world);
+
+    outfile << '\n';
+
+    outfile << numBlobs << " blobs were found.\n";
     infile.close();
     outfile.close();
     return 0;
