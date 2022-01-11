@@ -67,8 +67,7 @@ int main()
     openFileRead(infile);
     openFileWrite(outfile);
 
-    // Other function calls go here.
-    // Pass file stream variables as needed.
+    
 
     infile.close();
     outfile.close();
