@@ -72,9 +72,18 @@ int main()
     {
         for (int j = 0; j < COLS; j++)
         {
-            
+            infile >> world[i][j];
         }
     }
+
+
+    // Print out the original world  
+    outfile << '\n';
+    outfile << "Original world: \n";
+    printWorld(world);
+
+    // Now perform counting the number of blobs from the world
+    int numBlobs = countBlobs(world);
 
     infile.close();
     outfile.close();
