@@ -67,7 +67,14 @@ int main()
     openFileRead(infile);
     openFileWrite(outfile);
 
-    
+    char world[ROWS][COLS];
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            
+        }
+    }
 
     infile.close();
     outfile.close();
