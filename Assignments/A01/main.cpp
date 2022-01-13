@@ -33,12 +33,17 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
     {
         return;
     }
-   
-    // mutateBlob(world, currentRow + 1, currentCol);
-    // mutateBlob(world, currentRow - 1, currentCol);
 
-    // mutateBlob(world, currentRow, currentCol + 1);
-    // mutateBlob(world, currentRow, currentCol - 1);
+   if (world[currentRow][currentCol] == '*')
+   {
+       world[currentRow][currentCol] == '#';
+   }
+
+    mutateBlob(world, currentRow + 1, currentCol);
+    mutateBlob(world, currentRow - 1, currentCol);
+
+    mutateBlob(world, currentRow, currentCol + 1);
+    mutateBlob(world, currentRow, currentCol - 1);
 
 }
 
