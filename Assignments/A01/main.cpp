@@ -13,6 +13,7 @@ const int COLS = 20;
 // Print out the content of the matrix to the console.
 void printWorld(char world[ROWS][COLS])
 {
+
     for(int i = 0; i < ROWS; i++)
     {
         for(int j = 0; j < COLS; j++)
@@ -33,11 +34,11 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
         return;
     }
    
-    mutateBlob(world, currentRow + 1, currentCol);
-    mutateBlob(world, currentRow - 1, currentCol);
+    // mutateBlob(world, currentRow + 1, currentCol);
+    // mutateBlob(world, currentRow - 1, currentCol);
 
-    mutateBlob(world, currentRow, currentCol + 1);
-    mutateBlob(world, currentRow, currentCol - 1);
+    // mutateBlob(world, currentRow, currentCol + 1);
+    // mutateBlob(world, currentRow, currentCol - 1);
 
 }
 
