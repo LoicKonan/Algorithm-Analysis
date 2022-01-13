@@ -9,16 +9,15 @@ const int ROWS = 20;
 const int COLS = 20;
 
 // Print out the content of the matrix to the console.
-void printWorld(char world[ROWS][COLS])
+void printWorld(char world[ROWS][COLS], ofstream &out)
 {
-
     for(int i = 0; i < ROWS; i++)
     {
         for(int j = 0; j < COLS; j++)
         {
-            cout << world[i][j]<< " ";
+            out << world[i][j]<< " ";
         }
-        cout << '\n';
+        out << '\n';
     }
 }
 
@@ -32,16 +31,16 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
         return;
     }
 
-   if (world[currentRow][currentCol] == '*')
-   {
+    else
+    {
        world[currentRow][currentCol] = '#';
-   }
+    }
 
-    mutateBlob(world, currentRow + 1, currentCol);
-    mutateBlob(world, currentRow - 1, currentCol);
+    // mutateBlob(world, currentRow + 1, currentCol);
+    // mutateBlob(world, currentRow - 1, currentCol);
 
-    mutateBlob(world, currentRow, currentCol + 1);
-    mutateBlob(world, currentRow, currentCol - 1);
+    // mutateBlob(world, currentRow, currentCol + 1);
+    // mutateBlob(world, currentRow, currentCol - 1);
 
 }
 
@@ -85,17 +84,17 @@ int main()
 
 
     // Print out the original world  
-    cout << "\nOriginal world: \n";
-    printWorld(world);
+    out << "\nOriginal world: \n";
+    printWorld(world, out);
 
     // Now perform counting the number of blobs from the world
     int numBlobs = countBlobs(world);
 
     // Print out the updated world
-    cout << "\nWorld with mutated blobs: \n";
-    printWorld(world);
+    out << "\nWorld with mutated blobs: \n";
+    printWorld(world,out);
 
-    cout << '\n'<< numBlobs << " blobs were found.\n";
+    out << '\n'<< numBlobs << " blobs were found.\n";
 
 
     in.close();
