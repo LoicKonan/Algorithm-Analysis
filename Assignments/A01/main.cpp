@@ -26,21 +26,16 @@ void printWorld(char world[ROWS][COLS], ofstream &out)
 void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
 {
     if(currentRow < 0 || currentRow >= ROWS || 
-       currentCol < 0 || currentCol >= COLS || 
-       world[currentRow][currentRow] != '*')
+       currentCol < 0 || currentCol >= COLS)
     {
         return;
     }
 
-    else if (world[currentRow][currentCol] == '*')
-    {
-        world[currentRow][currentCol] = '#';
+        mutateBlob(world, currentRow, currentCol + 1);
+        mutateBlob(world, currentRow - 1, currentCol);
         mutateBlob(world, currentRow + 1, currentCol);
         mutateBlob(world, currentRow, currentCol - 1);
-        mutateBlob(world, currentRow - 1, currentCol);
-        mutateBlob(world, currentRow, currentCol + 1);
 
-    }
 }
 
 // Count the number of blobs 
