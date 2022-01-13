@@ -1,9 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
 using namespace std;
-
 
 
 void openFileRead(ifstream &in);
@@ -34,6 +32,9 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
     {
         return;
     }
+    else
+    world[currentRow][currentRow] = '#';
+
 
     mutateBlob(world, currentRow + 1, currentCol);
     mutateBlob(world, currentRow, currentCol - 1);
@@ -79,21 +80,21 @@ int main()
 
 
     // Print out the original world  
-    out << '\n';
-    out << "Original world: \n";
+    cout << '\n';
+    cout << "Original world: \n";
     printWorld(world);
 
     // Now perform counting the number of blobs from the world
     int numBlobs = countBlobs(world);
 
     // Print out the updated world
-    out << '\n';
-    out << "World with mutated blobs: \n";
+    cout << '\n';
+    cout << "World with mutated blobs: \n";
     printWorld(world);
 
-    out << '\n';
+    cout << '\n';
 
-    out << numBlobs << " blobs were found.\n";
+    cout << numBlobs << " blobs were found.\n";
     in.close();
     out.close();
     return 0;
