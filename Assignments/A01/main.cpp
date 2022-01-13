@@ -33,11 +33,6 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
         return;
     }
    
-   else
-   {
-       world[currentRow][currentCol] = '#';
-   }
-
     mutateBlob(world, currentRow + 1, currentCol);
     mutateBlob(world, currentRow - 1, currentCol);
 
@@ -65,10 +60,13 @@ int countBlobs(char world[ROWS][COLS])
     return numBlobs;
 }
 
+
+
 int main()
 {
     ifstream in;
     ofstream out;
+
 
     openFileRead(in);
     openFileWrite(out);
