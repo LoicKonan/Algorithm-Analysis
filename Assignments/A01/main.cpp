@@ -21,7 +21,7 @@ void printWorld(char world[ROWS][COLS], ofstream &out)
     }
 }
 
-// Recursive method that would convert a blob * to a blob #
+// Recursive method to convert a blob * to a blob #
 void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
 {
     if(currentRow < 0 || currentRow >= ROWS || 
@@ -31,16 +31,16 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
         return;
     }
 
-    else
+    else if (world[currentRow][currentCol] == '*')
     {
        world[currentRow][currentCol] = '#';
     }
 
-    // mutateBlob(world, currentRow + 1, currentCol);
-    // mutateBlob(world, currentRow - 1, currentCol);
+    mutateBlob(world, currentRow + 1, currentCol);
+    mutateBlob(world, currentRow, currentCol - 1);
 
+    // mutateBlob(world, currentRow - 1, currentCol);
     // mutateBlob(world, currentRow, currentCol + 1);
-    // mutateBlob(world, currentRow, currentCol - 1);
 
 }
 
