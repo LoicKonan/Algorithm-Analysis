@@ -32,22 +32,18 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
     {
         return;
     }
-    else
-    world[currentRow][currentRow] = '#';
-
+   
+   else
+   {
+       world[currentRow][currentCol] = '#';
+   }
 
     mutateBlob(world, currentRow + 1, currentCol);
+    mutateBlob(world, currentRow - 1, currentCol);
+
+    mutateBlob(world, currentRow, currentCol + 1);
     mutateBlob(world, currentRow, currentCol - 1);
 
-
-    //  for(int i = 0; i < ROWS; i++)
-    // {
-    //     for(int j = 0; j < COLS; j++)
-    //     {
-    //         cout << world[i][j]<< " ";
-    //     }
-    //     cout << '\n';
-    // }
 }
 
 // Count the number of blobs 
@@ -66,7 +62,6 @@ int countBlobs(char world[ROWS][COLS])
             }
         }
     }
-
     return numBlobs;
 }
 
@@ -74,7 +69,6 @@ int main()
 {
     ifstream in;
     ofstream out;
-
 
     openFileRead(in);
     openFileWrite(out);
@@ -90,21 +84,21 @@ int main()
 
 
     // Print out the original world  
-    out << '\n';
-    out << "Original world: \n";
+    cout << '\n';
+    cout << "Original world: \n";
     printWorld(world);
 
     // Now perform counting the number of blobs from the world
     int numBlobs = countBlobs(world);
 
     // Print out the updated world
-    out << '\n';
-    out << "World with mutated blobs: \n";
+    cout << '\n';
+    cout << "World with mutated blobs: \n";
     printWorld(world);
 
-    out << '\n';
+    cout << '\n';
 
-    out << numBlobs << " blobs were found.\n";
+    cout << numBlobs << " blobs were found.\n";
     in.close();
     out.close();
     return 0;
