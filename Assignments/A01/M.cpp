@@ -3,45 +3,11 @@
 #include <string>
 using namespace std;
 
-
-void openFileRead(ifstream &in);
-void openFileWrite(ofstream &out);
+void openFile(ifstream &in, ofstream &out);
 
 const int ROWS = 20;
 const int COLS = 20;
 
-// Print out the content of the matrix to the console.
-void printWorld(char world[ROWS][COLS])
-{
-
-    for(int i = 0; i < ROWS; i++)
-    {
-        for(int j = 0; j < COLS; j++)
-        {
-            cout << world[i][j]<< " ";
-        }
-        cout << '\n';
-    }
-}
-
-
-// Count the number of blobs 
-int countBlobs(char world[ROWS][COLS])
-{
-    int numBlobs = 0;
-
-    for (int i = 0; i < ROWS; i++)
-    {
-        for (int j = 0; j < COLS; j++)
-        {
-            if(world[i][j] == '*')
-            {
-                numBlobs++;
-            }
-        }
-    }
-    return numBlobs;
-}
 
 
 
@@ -50,9 +16,9 @@ int main()
     ifstream in;
     ofstream out;
 
+    openFile(in,out);
 
-    openFileRead(in);
-    openFileWrite(out);
+    int numBlobs;
 
     char world[ROWS][COLS];
     for (int i = 0; i < ROWS; i++)
@@ -60,22 +26,40 @@ int main()
         for (int j = 0; j < COLS; j++)
         {
             in >> world[i][j];
+            if(world[i][j] == '*')
+            {
+                numBlobs++;
+            }
         }
     }
 
 
     // Print out the original world  
     out << "\nOriginal world: \n";
-    printWorld(world);
-
-    // Now perform counting the number of blobs from the world
+    for(int i = 0; i < ROWS; i++)
+    {
+        for(int j = 0; j < COLS; j++)
+        {
+            out << world[i][j]<< " ";
+        }
+        out << '\n';
+    }
 
     // Print out the updated world
-    cout << "\nWorld with mutated blobs: \n";
-    printWorld(world);
-
-    // cout << '\n'<< numBlobs << " blobs were found.\n";
-
+    out << "\nWorld with mutated blobs: \n";
+    for(int i = 0; i < ROWS; i++)
+    {
+        for(int j = 0; j < COLS; j++)
+        {
+            if(world[i][j] == '*')
+            {
+                numBlobs++;
+            }
+            out << world[i][j]<< " ";
+        }
+        out << '\n';
+    }
+    out << '\n'<< numBlobs << " blobs were found.\n";
 
     in.close();
     out.close();
@@ -83,7 +67,7 @@ int main()
 }
 
 
-void openFileRead(ifstream &in)
+void openFile(ifstream &in, ofstream &out)
 {
     string inName;
     cout << "Enter the input file name: ";
@@ -96,10 +80,7 @@ void openFileRead(ifstream &in)
         cout << "Could not open file. \n";
         cout << "Check file name and location. \n\n";
     }
-}
-
-void openFileWrite(ofstream &out)
-{
+    
     string outName;
     cout << "Enter the output file name:  ";
     cin >> outName;
