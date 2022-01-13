@@ -21,6 +21,7 @@ void printWorld(char world[ROWS][COLS], ofstream &out)
     }
 }
 
+
 // Recursive method to convert a blob * to a blob #
 void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
 {
@@ -33,15 +34,13 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
 
     else if (world[currentRow][currentCol] == '*')
     {
-       world[currentRow][currentCol] = '#';
+        world[currentRow][currentCol] = '#';
+        mutateBlob(world, currentRow + 1, currentCol);
+        mutateBlob(world, currentRow, currentCol - 1);
+        mutateBlob(world, currentRow - 1, currentCol);
+        mutateBlob(world, currentRow, currentCol + 1);
+
     }
-
-    mutateBlob(world, currentRow + 1, currentCol);
-    mutateBlob(world, currentRow, currentCol - 1);
-
-    // mutateBlob(world, currentRow - 1, currentCol);
-    // mutateBlob(world, currentRow, currentCol + 1);
-
 }
 
 // Count the number of blobs 
@@ -105,6 +104,8 @@ int main()
 void openFile(ifstream &in, ofstream &out)
 {
     string inName;
+    string outName;
+
     cout << "Enter the input file name: ";
     cin >> inName;
     in.open(inName);
@@ -116,7 +117,6 @@ void openFile(ifstream &in, ofstream &out)
         cout << "Check file name and location. \n\n";
     }
     
-    string outName;
     cout << "Enter the output file name:  ";
     cin >> outName;
     out.open(outName);
