@@ -53,7 +53,7 @@ int countBlobs(char world[ROWS][COLS])
             if(world[i][j] == '*')
             {
                 numBlobs++;
-                mutateBlob(world, i,j);
+                mutateBlob(world, i, j);
             }
         }
     }
@@ -94,7 +94,7 @@ int main()
 
     cout << '\n'<< numBlobs << " blobs were found.\n";
 
-    
+
     in.close();
     out.close();
     return 0;
