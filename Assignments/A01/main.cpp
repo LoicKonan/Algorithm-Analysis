@@ -3,9 +3,7 @@
 #include <string>
 using namespace std;
 
-
-void openFileRead(ifstream &in);
-void openFileWrite(ofstream &out);
+void openFile(ifstream &in, ofstream &out);
 
 const int ROWS = 20;
 const int COLS = 20;
@@ -36,7 +34,7 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
 
    if (world[currentRow][currentCol] == '*')
    {
-       world[currentRow][currentCol] == '#';
+       world[currentRow][currentCol] = '#';
    }
 
     mutateBlob(world, currentRow + 1, currentCol);
@@ -73,9 +71,8 @@ int main()
     ifstream in;
     ofstream out;
 
+    openFile(in,out);
 
-    openFileRead(in);
-    openFileWrite(out);
 
     char world[ROWS][COLS];
     for (int i = 0; i < ROWS; i++)
@@ -106,8 +103,7 @@ int main()
     return 0;
 }
 
-
-void openFileRead(ifstream &in)
+void openFile(ifstream &in, ofstream &out)
 {
     string inName;
     cout << "Enter the input file name: ";
@@ -120,10 +116,7 @@ void openFileRead(ifstream &in)
         cout << "Could not open file. \n";
         cout << "Check file name and location. \n\n";
     }
-}
-
-void openFileWrite(ofstream &out)
-{
+    
     string outName;
     cout << "Enter the output file name:  ";
     cin >> outName;
