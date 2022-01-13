@@ -80,21 +80,21 @@ int main()
 
 
     // Print out the original world  
-    cout << '\n';
-    cout << "Original world: \n";
+    out << '\n';
+    out << "Original world: \n";
     printWorld(world);
 
     // Now perform counting the number of blobs from the world
     int numBlobs = countBlobs(world);
 
     // Print out the updated world
-    cout << '\n';
-    cout << "World with mutated blobs: \n";
+    out << '\n';
+    out << "World with mutated blobs: \n";
     printWorld(world);
 
-    cout << '\n';
+    out << '\n';
 
-    cout << numBlobs << " blobs were found.\n";
+    out << numBlobs << " blobs were found.\n";
     in.close();
     out.close();
     return 0;
