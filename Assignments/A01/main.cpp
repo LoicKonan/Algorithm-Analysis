@@ -38,6 +38,16 @@ void mutateBlob( char world[ROWS][COLS], int currentRow, int currentCol)
 
     mutateBlob(world, currentRow + 1, currentCol);
     mutateBlob(world, currentRow, currentCol - 1);
+
+
+    //  for(int i = 0; i < ROWS; i++)
+    // {
+    //     for(int j = 0; j < COLS; j++)
+    //     {
+    //         cout << world[i][j]<< " ";
+    //     }
+    //     cout << '\n';
+    // }
 }
 
 // Count the number of blobs 
