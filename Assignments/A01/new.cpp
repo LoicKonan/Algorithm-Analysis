@@ -66,7 +66,8 @@ void open_File(ifstream &in, ofstream &out)
 
 void recursion_Blobs(string world[], int row, int col, int &count)
 {
-    if (!(row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]))   // If invalid row and col then return
+    // If invalid row and col then return
+    if (!(row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]))   
         return;
 
     visited[row][col] = 1;              // Making visited true
