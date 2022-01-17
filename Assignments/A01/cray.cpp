@@ -5,6 +5,7 @@ using namespace std;
 
 const int ROWS = 20;
 const int COLS = 20;
+int visited[ROWS][COLS];                        // 2-D array to store which cell is visited
 
 void open_File(ifstream &in, ofstream &out);
 void print_World(char world[ROWS][COLS], ofstream &out);
@@ -25,6 +26,7 @@ int main()
         }
     }
 
+    memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
     out << "Original world:\n";
     print_World(world,out);                      // Printing world before mutation
 
@@ -78,9 +80,10 @@ void print_World(char world[ROWS][COLS], ofstream &out)
 void recursion_Blobs(char world[ROWS][COLS], int row, int col, int &count)
 {
     // If invalid row and col then return
-    if (!(row >= 0 && col >= 0 && row < 20 && col < 20 && !world[row][col]))   
+    if (!(row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]))   
         return;
     
+    visited[row][col] = 1;
     if (world[row][col] == '*')
     {
         count++;                        // Blob found
