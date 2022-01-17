@@ -5,20 +5,17 @@ using namespace std;
 
 const int ROWS = 20;
 const int COLS = 20;
-int visited[ROWS][COLS];    // 2-D array to store which cell is visited
+int visited[ROWS][COLS];                        // 2-D array to store which cell is visited
 
-
-void openFile(ifstream &in, ofstream &out);
-void printWorld(string  world[], ofstream &out);
-void processBlob(string world[], int row, int col, int &count);
-bool valid(int row, int col);
-
+void open_File(ifstream &in, ofstream &out);
+void print_World(string  world[], ofstream &out);
+void recursion_Blobs(string world[], int row, int col, int &count);
 
 int main()
 {    
     ifstream in;
     ofstream out;
-    openFile(in, out);
+    open_File(in, out);
     string line;
     int i = 0;
     string world[20];                           // World array
@@ -32,20 +29,20 @@ int main()
 
 
     out << "Original world:\n";
-    printWorld(world,out);                      // Printing world before mutation
+    print_World(world,out);                      // Printing world before mutation
 
     int count = 0;                              // Count of blobs
-    processBlob(world, 0, 0, count);            // Processing blobs
+    recursion_Blobs(world, 0, 0, count);        // Processing blobs
 
     out << "\n\nWorld with mutated blobs:\n";
-    printWorld(world,out);                      // Printing world after mutation
+    print_World(world,out);                      // Printing world after mutation
 
     out << count << " blobs were found.";
     return 0;
 }
 
 
-void openFile(ifstream &in, ofstream &out)
+void open_File(ifstream &in, ofstream &out)
 {
     string inName;
     string outName;
@@ -67,7 +64,7 @@ void openFile(ifstream &in, ofstream &out)
 }
 
 
-void processBlob(string world[], int row, int col, int &count)
+void recursion_Blobs(string world[], int row, int col, int &count)
 {
     if (!(row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]))   // If invalid row and col then return
         return;
@@ -81,14 +78,14 @@ void processBlob(string world[], int row, int col, int &count)
     }
 
     // Process neighbouring cells
-    processBlob(world, row + 1, col, count);
-    processBlob(world, row - 1, col, count);
-    processBlob(world, row, col + 1, count);
-    processBlob(world, row, col - 1, count);
+    recursion_Blobs(world, row + 1, col, count);
+    recursion_Blobs(world, row - 1, col, count);
+    recursion_Blobs(world, row, col + 1, count);
+    recursion_Blobs(world, row, col - 1, count);
 }
 
 
-void printWorld(string world[], ofstream &out)
+void print_World(string world[], ofstream &out)
 {
     // Print the world
     for (int i = 0; i < ROWS; i++)
