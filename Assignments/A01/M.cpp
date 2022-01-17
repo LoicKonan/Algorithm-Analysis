@@ -38,7 +38,6 @@ int main()
     int numBlobs = 0;
     char world[ROWS][COLS];
     
-    
     for (int i = 0; i < ROWS; i++)
     {
         for (int j = 0; j < COLS; j++)

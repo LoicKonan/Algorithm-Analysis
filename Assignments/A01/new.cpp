@@ -2,33 +2,37 @@
 #include <fstream>
 #include <string.h>
 
-int visited[20][20];    // 2-D array to store which cell is visited
+
+const int ROWS = 20;
+const int COLS = 20;
+
+int visited[ROWS][COLS];    // 2-D array to store which cell is visited
 
 using namespace std;
 
-bool valid(int i, int j)
+bool valid(int row, int col)
 {
     // Checking if a cell is withing 2-D array
-    return (i >= 0 && j >= 0 && i < 20 && j < 20 && !visited[i][j]);
+    return (row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]);
 }
 
-void processBlob(string arr[], int i, int j, int &count)
+void processBlob(string arr[], int row, int col, int &count)
 {
-    if (!valid(i, j))   // If invalid i and j then return
+    if (!valid(row, col))   // If invalid i and j then return
         return;
 
-    visited[i][j] = 1;  // Making visited true
-    if (arr[i][j] == '*')
+    visited[row][col] = 1;  // Making visited true
+    if (arr[row][j] == '*')
     {
         count++;    // Blob found
-        arr[i][j] = '#';
+        arr[row][j] = '#';
     }
 
     // Process neighbouring cells
-    processBlob(arr, i + 1, j, count);
-    processBlob(arr, i - 1, j, count);
-    processBlob(arr, i, j + 1, count);
-    processBlob(arr, i, j - 1, count);
+    processBlob(arr, row + 1, j, count);
+    processBlob(arr, row - 1, j, count);
+    processBlob(arr, row, col + 1, count);
+    processBlob(arr, row, col - 1, count);
 }
 
 void printWorld(string arr[])
