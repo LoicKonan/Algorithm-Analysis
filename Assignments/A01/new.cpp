@@ -10,6 +10,7 @@ int visited[ROWS][COLS];    // 2-D array to store which cell is visited
 
 void openFile(ifstream &in, ofstream &out);
 void printWorld(string world[], ofstream &out);
+void processBlob(string world[], int row, int col, int &count);
 bool valid(int row, int col);
 
 
@@ -77,7 +78,7 @@ bool valid(int row, int col)
 
 void processBlob(string world[], int row, int col, int &count)
 {
-    if (!valid(row, col))   // If invalid i and j then return
+    if (!valid(row, col))   // If invalid row and col then return
         return;
 
     visited[row][col] = 1;  // Making visited true
