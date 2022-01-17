@@ -3,14 +3,14 @@
 #include <string.h>
 using namespace std;
 
-void openFile(ifstream &in, ofstream &out);
-void printWorld(string world[], ofstream &out);
-bool valid(int row, int col);
-
-
 const int ROWS = 20;
 const int COLS = 20;
 int visited[ROWS][COLS];    // 2-D array to store which cell is visited
+
+
+void openFile(ifstream &in, ofstream &out);
+void printWorld(string world[], ofstream &out);
+bool valid(int row, int col);
 
 
 int main()
@@ -74,6 +74,7 @@ bool valid(int row, int col)
     return (row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]);
 }
 
+
 void processBlob(string world[], int row, int col, int &count)
 {
     if (!valid(row, col))   // If invalid i and j then return
@@ -92,6 +93,7 @@ void processBlob(string world[], int row, int col, int &count)
     processBlob(world, row, col + 1, count);
     processBlob(world, row, col - 1, count);
 }
+
 
 void printWorld(string world[], ofstream &out)
 {
