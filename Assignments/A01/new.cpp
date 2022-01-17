@@ -64,6 +64,20 @@ void open_File(ifstream &in, ofstream &out)
 }
 
 
+void print_World(string world[], ofstream &out)
+{
+    // Print the world
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            out << world[i][j] << " ";
+        }
+        out << "\n";
+    }
+}
+
+
 void recursion_Blobs(string world[], int row, int col, int &count)
 {
     // If invalid row and col then return
@@ -83,18 +97,4 @@ void recursion_Blobs(string world[], int row, int col, int &count)
     recursion_Blobs(world, row - 1, col, count);
     recursion_Blobs(world, row, col + 1, count);
     recursion_Blobs(world, row, col - 1, count);
-}
-
-
-void print_World(string world[], ofstream &out)
-{
-    // Print the world
-    for (int i = 0; i < ROWS; i++)
-    {
-        for (int j = 0; j < COLS; j++)
-        {
-            out << world[i][j] << " ";
-        }
-        out << "\n";
-    }
 }
