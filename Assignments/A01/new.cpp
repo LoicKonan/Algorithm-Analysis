@@ -51,20 +51,10 @@ void printWorld(string world[])
 
 int main()
 {    
-    string filename;
-    cout << "Enter the filename:";  // Take input the file name
-    cin >> filename;
+    ifstream in;
+    ofstream out;
 
-    ifstream file;
-    file.open(filename);    // Open the file
-
-    if (!file.is_open())
-    {
-        // File doesn't exist
-        cout << "\nFile doesn't exist!";
-        exit(1);
-    }
-
+    openFile(in,out);
     string world[20]; // World array
 
     memset(visited, 0, sizeof(visited));    // Initializing visited with 0s
@@ -72,7 +62,7 @@ int main()
     string line;
 
     int i = 0;
-    while (getline(file, line))
+    while (getline(in, line))
     {
         world[i++] = line;    // Filling the world
     }
