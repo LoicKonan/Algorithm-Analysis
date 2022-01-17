@@ -31,8 +31,8 @@ int main()
     out << "Original world:\n";
     print_World(world,out);                      // Printing world before mutation
 
-    int count = 0;                              // Count of blobs
-    recursion_Blobs(world, 0, 0, count);        // Processing blobs
+    int count = 0;                               // Count of blobs
+    recursion_Blobs(world, 0, 0, count);         // Processing blobs
 
     out << "\n\nWorld with mutated blobs:\n";
     print_World(world,out);                      // Printing world after mutation
