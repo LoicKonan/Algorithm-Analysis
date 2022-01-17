@@ -16,15 +16,18 @@ int main()
     ifstream in;
     ofstream out;
     open_File(in, out);
-    string line;
+
+
+    string str;
     int i = 0;
+
     string world[20];                           // World array
 
     memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
 
-    while (getline(in, line))
+    while (getline(in, str))
     {
-        world[i++] = line;                      // Filling the world
+        world[i++] = str;                       // Filling the world
     }
 
 
