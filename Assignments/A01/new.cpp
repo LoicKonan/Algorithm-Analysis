@@ -69,22 +69,15 @@ void openFile(ifstream &in, ofstream &out)
 }
 
 
-bool valid(int row, int col)
-{
-    // Checking if a cell is withing 2-D array
-    return (row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]);
-}
-
-
 void processBlob(string world[], int row, int col, int &count)
 {
-    if (!valid(row, col))   // If invalid row and col then return
+    if (!(row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]))   // If invalid row and col then return
         return;
 
-    visited[row][col] = 1;  // Making visited true
+    visited[row][col] = 1;              // Making visited true
     if (world[row][col] == '*')
     {
-        count++;    // Blob found
+        count++;                        // Blob found
         world[row][col] = '#';
     }
 
