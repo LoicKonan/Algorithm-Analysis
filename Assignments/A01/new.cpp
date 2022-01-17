@@ -18,29 +18,27 @@ int main()
 {    
     ifstream in;
     ofstream out;
-
     openFile(in, out);
-    string world[20]; // World array
-
-    memset(visited, 0, sizeof(visited));    // Initializing visited with 0s
-
     string line;
     int i = 0;
+    string world[20];                           // World array
+
+    memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
 
     while (getline(in, line))
     {
-        world[i++] = line;    // Filling the world
+        world[i++] = line;                      // Filling the world
     }
 
 
     out << "Original world:\n";
-    printWorld(world,out);    // Printing world before mutation
+    printWorld(world,out);                      // Printing world before mutation
 
-    int count = 0;  // Count of blobs
-    processBlob(world, 0, 0, count);  // Processing blobs
+    int count = 0;                              // Count of blobs
+    processBlob(world, 0, 0, count);            // Processing blobs
 
     out << "\n\nWorld with mutated blobs:\n";
-    printWorld(world,out);    // Printing world after mutation
+    printWorld(world,out);                      // Printing world after mutation
 
     out << count << " blobs were found.";
     return 0;
