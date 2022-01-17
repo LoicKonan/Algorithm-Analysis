@@ -39,9 +39,9 @@ void processBlob(string world[], int row, int col, int &count)
 void printWorld(string world[])
 {
     // Print the world
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < ROWS; i++)
     {
-        for (int j = 0; j < 20; j++)
+        for (int j = 0; j < COLS; j++)
         {
             cout << world[i][j] << " ";
         }
@@ -60,12 +60,13 @@ int main()
     memset(visited, 0, sizeof(visited));    // Initializing visited with 0s
 
     string line;
-
     int i = 0;
+
     while (getline(in, line))
     {
         world[i++] = line;    // Filling the world
     }
+
 
     cout << "Original world:\n";
     printWorld(world);    // Printing world before mutation
