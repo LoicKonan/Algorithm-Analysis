@@ -7,7 +7,7 @@ using namespace std;
 
 int recursive(int numb)
 {
-    if(numb <= 0)
+    if(numb < 0)
         return 1;
 
     else 
