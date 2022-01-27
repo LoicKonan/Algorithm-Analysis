@@ -8,7 +8,7 @@ int recursive(int numb)
     if(numb < 1)
         return 1;
     else 
-        return numb + (recursive(numb/3));
+        return numb + (recursive(numb/1));
 
 }
 int main()
