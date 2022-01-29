@@ -10,7 +10,7 @@ int visited[ROWS][COLS];                        // 2-D array to store which cell
 
 void open_File(ifstream &in, ofstream &outfile);
 void print_World(string world[], ofstream &outfile);
-void recursion_Blobs(string world[], int row, int col, int &count);
+void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs);
 
 
 int main()
@@ -18,7 +18,7 @@ int main()
     ifstream infile;
     ofstream outfile;
     open_File(infile, outfile);
-    string arr[100];
+    string char_Array[100];
 
 
     memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
@@ -26,20 +26,20 @@ int main()
     int i = 0;
     while (getline(infile, line))
     {
-        arr[i++] = line;                        // Filling the world
+        char_Array[i++] = line;                        // Filling the world
     }
 
 
     outfile << "Original world:\n";
-    print_World(arr,outfile);                   // Printing world before mutation
+    print_World(char_Array,outfile);                   // Printing world before mutation
 
-    int count = 0;                             // Count of blobs
-    recursion_Blobs(arr, 0, 0, count);         // Processing blobs
+    int numb_Blobs = 0;                             // numb_Blobs of numb_Blobs
+    recursion_numb_Blobs(char_Array, 0, 0, numb_Blobs);         // Processing numb_Blobs
 
-    outfile << "\n\nWorld with mutated blobs:\n";
-    print_World(arr,outfile);                  // Printing world after mutation
+    outfile << "\n\nWorld with mutated numb_Blobs:\n";
+    print_World(char_Array,outfile);                  // Printing world after mutation
 
-    outfile << count << " blobs were found.";
+    outfile << numb_Blobs << " numb_Blobs were found.";
     return 0;
 }
 
@@ -79,8 +79,7 @@ void print_World(string world[], ofstream &outfile)
     }
 }
 
-
-void recursion_Blobs(string world[], int row, int col, int &count)
+void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs)
 {
     // If invalid row and col then return
     if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !visited[row][col]))   
@@ -89,13 +88,13 @@ void recursion_Blobs(string world[], int row, int col, int &count)
     visited[row][col] = 1;
     if (world[row][col] == '*')
     {
-        count++;                        // Blob found
+        numb_Blobs++;                        // Blob found
         world[row][col] = '#';
     }
 
     // Process neighbouring cells
-    recursion_Blobs(world, row + 1, col, count);
-    recursion_Blobs(world, row - 1, col, count);
-    recursion_Blobs(world, row, col + 1, count);
-    recursion_Blobs(world, row, col - 1, count);
+    recursion_numb_Blobs(world, row + 1, col, numb_Blobs);
+    recursion_numb_Blobs(world, row - 1, col, numb_Blobs);
+    recursion_numb_Blobs(world, row, col + 1, numb_Blobs);
+    recursion_numb_Blobs(world, row, col - 1, numb_Blobs);
 }
