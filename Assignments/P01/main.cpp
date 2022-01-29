@@ -44,14 +44,27 @@ int main()
 }
 
 
+/**
+ *  Function Name: openFiles
+ * 
+ *  Parameters: ifstream& infile, ofstream& outfile.	
+ * 
+ *  Purpose:  To prompt the user for the input and output files names.
+ * 						
+ * 	Returns:  Void.	
+ * 					 
+ */
 void open_File(ifstream &in, ofstream &outfile)
 {
-    string inName;
-    string outfileName;
+    string infile_Name;
+    string outfile_Name;
 
+    // Prompt the user input file name.
     cout << "Enter the input file name: ";
-    cin >> inName;
-    in.open(inName);
+    cin >> infile_Name;
+
+    // open input file
+    in.open(infile_Name);
 
     // Print an error message if file fails to open.
     if (in.fail())
@@ -60,12 +73,25 @@ void open_File(ifstream &in, ofstream &outfile)
         cout << "Check file name and location. \n\n";
     }
     
-    cout << "Enter the outfileput file name:  ";
-    cin >> outfileName;
-    outfile.open(outfileName);
+    // Prompt the user for the output file.
+    cout << "Enter the output file name:  ";
+    cin >> outfile_Name;
+
+    // open input file
+    outfile.open(outfile_Name);
 }
 
-
+/**
+ *  Function Name: print_World
+ * 
+ *  Parameters: string world[], ofstream &outfile	
+ * 
+ *  Purpose:  Using a nested for loop to display our 20 X 20 world.
+ *            - Time complexity  O(N^2)
+ * 		
+ * 	Returns:  Void.	
+ * 					 
+ */
 void print_World(string world[], ofstream &outfile)
 {
     // Print the world
@@ -79,6 +105,18 @@ void print_World(string world[], ofstream &outfile)
     }
 }
 
+
+/**
+ *  Function Name: recursion_numb_Blobs
+ * 
+ *  Parameters: string world[], int row, int col, int &numb_Blobs	
+ * 
+ *  Purpose: 
+ *            
+ * 		
+ * 	Returns:  Void.	
+ * 					 
+ */
 void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs)
 {
     // If invalid row and col then return
