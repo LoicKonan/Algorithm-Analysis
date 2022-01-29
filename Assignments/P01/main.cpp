@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#include <algorithm>
 using namespace std;
 
 const int ROWS = 20;
@@ -29,7 +30,7 @@ int main()
         char_Array[i++] = line;                        // Filling the world
     }
 
-
+    
     outfile << "Original world:\n";
     print_World(char_Array,outfile);                   // Printing world before mutation
 
