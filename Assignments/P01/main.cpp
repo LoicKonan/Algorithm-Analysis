@@ -16,10 +16,10 @@
 *                      (top, bottom, left or right)
 *                      This program uses 4 fuctions:
 *
-*                      1 - Main function which is the driver program.
-*                      2 - open_File function which will prompt the user for information.
-*                      3 - print_world which will print the original and mutated array.
-*                      4 - recursion_blobs which will recursively replace all *  
+*                      1 - Main function: is the driver program.
+*                      2 - open_File function: will prompt the user for information.
+*                      3 - print_world: will print the original and mutated array.
+*                      4 - recursion_blobs: will recursively replace all *  
 *                          of the *'s in the blob with #'s
 *
 *    Files:
@@ -53,12 +53,54 @@ void print_World(string world[], ofstream &outfile);
 void recursion_Blobs(string world[], int row, int col, int &numb_Blobs);
 
 
+void header(ofstream &outfile)
+{
+    outfile << "*****************************************************************************\n";
+    outfile << "*";
+    outfile << "\n*    Author:           Loic Konan";
+    outfile << "\n*    Email:            loickonan.lk@gmail.com";
+    outfile << "\n*    Label:            Recursion Blobs";
+    outfile << "\n*    Title:            Program 1";
+    outfile << "\n*    Course:           CMPS 5243";
+    outfile << "\n*    Semester:         Spring 2022";
+    outfile << "\n*    Description:";
+    outfile << "\n*";
+    outfile << "\n*                  This program use recursion to count the number";
+    outfile << "\n*                  of blobs in a 2D array. A text file containing"; 
+    outfile << "\n*                  a 2-D matrix of 0's and *'s is given.";
+    outfile << "\n*                  A blob is connected group of *'s.";
+    outfile << "\n*                  The *'s are connected if they are von Neumann neighbors";
+    outfile << "\n*                  (top, bottom, left or right)";
+    outfile << "\n*                  This program uses 4 fuctions:";
+    outfile << "\n*";
+    outfile << "\n*                   1 - Main: which is the driver program.";
+    outfile << "\n*                   2 - open_File: will prompt the user for information.";
+    outfile << "\n*                   3 - print_world: will print the original and mutated array.";
+    outfile << "\n*                   4 - recursion_blobs: will recursively replace all *"; 
+    outfile << "\n*                       of the *'s in the blob with #'s";
+    outfile << "\n*";
+    outfile << "\n*    Files:"; 
+    outfile << "\n*         main.cpp";
+    outfile << "\n*         outfile";
+    outfile << "\n*         infile";
+    outfile << "\n*";
+    outfile << "\n*    Usage:";
+    outfile << "\n*           main.cpp          : driver program";
+    outfile << "\n*";
+    outfile << "\n*";
+    outfile << "\n******************************************************************************\n\n";
+
+}
+
+
 int main()
 {    
     ifstream infile;
     ofstream outfile;
     open_File(infile, outfile);
     
+
+    header(outfile);
     // Variables declarations.
     string char_Array[100];                 // Declare and initialize our array.              
     string line;                            // Will be use to fill in our array.

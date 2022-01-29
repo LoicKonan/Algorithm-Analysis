@@ -1,3 +1,37 @@
+*****************************************************************************
+*
+*    Author:           Loic Konan
+*    Email:            loickonan.lk@gmail.com
+*    Label:            Recursion Blobs
+*    Title:            Program 1
+*    Course:           CMPS 5243
+*    Semester:         Spring 2022
+*    Description:
+*
+*                      This program use recursion to count the number
+*                      of blobs in a 2D array. A text file containing
+*                      a 2-D matrix of 0's and *'s is given.
+*                      A blob is connected group of *'s.
+*                      The *'s are connected if they are von Neumann neighbors
+*                      (top, bottom, left or right)
+*                      This program uses 4 fuctions:
+*
+*                      1 - Main function which is the driver program.
+*                      2 - open_File function which will prompt the user for information.
+*                      3 - print_world which will print the original and mutated array.
+*                      4 - recursion_blobs which will recursively replace all *
+*                          of the *'s in the blob with #'s
+*
+*    Files:
+*         main.cpp
+*         outfile
+*         infile
+*
+*    Usage:
+*           main.cpp          : driver program
+*
+*
+******************************************************************************
 Original world:
 0   0   0   *   0   0   *   0   0   0   
 0   0   0   0   0   0   *   0   *   *   
