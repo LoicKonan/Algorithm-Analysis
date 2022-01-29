@@ -8,39 +8,46 @@ const int COLS = 20;
 int visited[ROWS][COLS];                        // 2-D array to store which cell is visited
 
 
-void open_File(ifstream &in, ofstream &out);
-void print_World(char world[ROWS][COLS], ofstream &out);
-void recursion_Blobs(char world[ROWS][COLS], int row, int col, int &count);
+void open_File(ifstream &in, ofstream &outfile);
+void print_World(string world[], ofstream &outfile);
+void recursion_Blobs(string world[], int row, int col, int &count);
 
 
 int main()
 {    
-    ifstream in;
-    ofstream out;
-    open_File(in, out);
-
-
+    ifstream infile;
+    ofstream outfile;
+    open_File(infile, outfile);
     string arr[20];
 
+
     memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
-    out << "Original world:\n";
-    print_World(arr,out);                      // Printing world before mutation
+    string line;
+    int i = 0;
+    while (getline(infile, line))
+    {
+        arr[i++] = line;    // Filling the world
+    }
+
+
+    outfile << "Original world:\n";
+    print_World(arr,outfile);                      // Printing world before mutation
 
     int count = 0;                               // Count of blobs
     recursion_Blobs(arr, 0, 0, count);         // Processing blobs
 
-    out << "\n\nWorld with mutated blobs:\n";
-    print_World(world,out);                      // Printing world after mutation
+    outfile << "\n\nWorld with mutated blobs:\n";
+    print_World(arr,outfile);                      // Printing world after mutation
 
-    out << count << " blobs were found.";
+    outfile << count << " blobs were found.";
     return 0;
 }
 
 
-void open_File(ifstream &in, ofstream &out)
+void open_File(ifstream &in, ofstream &outfile)
 {
     string inName;
-    string outName;
+    string outfileName;
 
     cout << "Enter the input file name: ";
     cin >> inName;
@@ -53,22 +60,22 @@ void open_File(ifstream &in, ofstream &out)
         cout << "Check file name and location. \n\n";
     }
     
-    cout << "Enter the output file name:  ";
-    cin >> outName;
-    out.open(outName);
+    cout << "Enter the outfileput file name:  ";
+    cin >> outfileName;
+    outfile.open(outfileName);
 }
 
 
-void print_World(string world[], ofstream &out)
+void print_World(string world[], ofstream &outfile)
 {
     // Print the world
     for (int i = 0; i < ROWS; i++)
     {
         for (int j = 0; j < COLS; j++)
         {
-            out << world[i][j] << " ";
+            outfile << world[i][j] << " ";
         }
-        out << "\n";
+        outfile << "\n";
     }
 }
 
