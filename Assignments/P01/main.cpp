@@ -14,6 +14,13 @@
 *                      A blob is connected group of *'s.  
 *                      The *'s are connected if they are von Neumann neighbors 
 *                      (top, bottom, left or right)
+*                      This program uses 4 fuctions:
+*
+*                      1 - Main function which is the driver program.
+*                      2 - open_File function which will prompt the user for information.
+*                      3 - print_world which will print the original and mutated array.
+*                      4 - recursion_blobs which will recursively replace all *  
+*                          of the *'s in the blob with #'s
 *
 *    Files:
 *         main.cpp
@@ -59,10 +66,9 @@ int main()
     int numb_Blobs = 0;                     // Initialize the number of blobs to 0.       
 
 
-    // Initializing visited with 0s
+    // This will copies 0 and Initialize our array call visited with 0s.
     memset(visited, 0, sizeof(visited));        
     
-
     // Using this while loop to fill our array.
     while (getline(infile, line))
     {
