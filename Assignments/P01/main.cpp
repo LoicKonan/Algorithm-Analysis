@@ -26,18 +26,18 @@ int main()
     int i = 0;
     while (getline(infile, line))
     {
-        arr[i++] = line;    // Filling the world
+        arr[i++] = line;                        // Filling the world
     }
 
 
     outfile << "Original world:\n";
-    print_World(arr,outfile);                      // Printing world before mutation
+    print_World(arr,outfile);                   // Printing world before mutation
 
-    int count = 0;                               // Count of blobs
+    int count = 0;                             // Count of blobs
     recursion_Blobs(arr, 0, 0, count);         // Processing blobs
 
     outfile << "\n\nWorld with mutated blobs:\n";
-    print_World(arr,outfile);                      // Printing world after mutation
+    print_World(arr,outfile);                  // Printing world after mutation
 
     outfile << count << " blobs were found.";
     return 0;
@@ -83,7 +83,7 @@ void print_World(string world[], ofstream &outfile)
 void recursion_Blobs(string world[], int row, int col, int &count)
 {
     // If invalid row and col then return
-    if (!(row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]))   
+    if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !visited[row][col]))   
         return;
     
     visited[row][col] = 1;
