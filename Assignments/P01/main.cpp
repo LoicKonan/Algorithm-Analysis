@@ -18,7 +18,7 @@ int main()
     ifstream infile;
     ofstream outfile;
     open_File(infile, outfile);
-    string arr[20];
+    string arr[100];
 
 
     memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
