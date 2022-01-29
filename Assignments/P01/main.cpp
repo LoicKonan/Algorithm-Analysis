@@ -2,13 +2,18 @@
 *
 *    Author:           Loic Konan
 *    Email:            loickonan.lk@gmail.com
-*    Label:            
-*    Title:            
+*    Label:            Recursion Blobs
+*    Title:            Program 1
 *    Course:           CMPS 5243
 *    Semester:         Spring 2022
 *    Description:
 *
-*                      This program  
+*                      This program use recursion to count the number 
+*                      of "blobs" in a 2D array. A text file containing 
+*                      a 2-D matrix of 0's and *'s is given. 
+*                      A blob is connected group of *'s.  
+*                      The *'s are connected if they are von Neumann neighbors 
+*                      (top, bottom, left or right)
 *
 *    Files:
 *         main.cpp
