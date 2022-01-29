@@ -39,7 +39,7 @@ int main()
     outfile << "\n\nWorld with mutated numb_Blobs:\n";
     print_World(char_Array,outfile);                  // Printing world after mutation
 
-    outfile << numb_Blobs << " numb_Blobs were found.";
+    outfile << numb_Blobs << " Blobs were found.";
     return 0;
 }
 
