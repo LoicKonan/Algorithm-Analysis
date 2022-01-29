@@ -86,7 +86,7 @@ void open_File(ifstream &in, ofstream &outfile)
  * 
  *  Parameters: string world[], ofstream &outfile	
  * 
- *  Purpose:  Using a nested for loop to display our 20 X 20 world.
+ *  Purpose:  Using a nested for loop to print the 20 X 20 world.
  *            - Time complexity  O(N^2)
  * 		
  * 	Returns:  Void.	
@@ -94,7 +94,7 @@ void open_File(ifstream &in, ofstream &outfile)
  */
 void print_World(string world[], ofstream &outfile)
 {
-    // Print the world
+    // Printing the world to output file.
     for (int i = 0; i < ROWS; i++)
     {
         for (int j = 0; j < COLS; j++)
@@ -143,7 +143,7 @@ void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs)
         world[row][col] = '#';
     }
 
-    // Using The von Neumann neighbors to process neighbouring cells.
+    // Using a recursive call to process neighbouring cells.
     recursion_numb_Blobs(world, row + 1, col, numb_Blobs);
     recursion_numb_Blobs(world, row - 1, col, numb_Blobs);
     recursion_numb_Blobs(world, row, col + 1, numb_Blobs);
