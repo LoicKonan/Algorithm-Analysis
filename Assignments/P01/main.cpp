@@ -7,10 +7,10 @@ const int ROWS = 20;
 const int COLS = 20;
 int visited[ROWS][COLS];                        // 2-D array to store which cell is visited
 
+
 void open_File(ifstream &in, ofstream &out);
 void print_World(char world[ROWS][COLS], ofstream &out);
 void recursion_Blobs(char world[ROWS][COLS], int row, int col, int &count);
-
 
 
 int main()
