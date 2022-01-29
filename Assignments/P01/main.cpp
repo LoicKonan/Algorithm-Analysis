@@ -1,16 +1,44 @@
+/*****************************************************************************
+*
+*    Author:           Loic Konan
+*    Email:            loickonan.lk@gmail.com
+*    Label:            
+*    Title:            
+*    Course:           CMPS 5243
+*    Semester:         Spring 2022
+*    Description:
+*
+*                      This program  
+*
+*    Files:
+*         main.cpp
+*         outfile
+*         infile 
+*
+*    Usage:
+*           main.cpp          : driver program
+*
+*
+******************************************************************************/
+
 #include <iostream>
 #include <fstream>
 #include <string.h>
 #include <algorithm>
 using namespace std;
 
-const int ROWS = 20;
-const int COLS = 20;
+const int ROWS = 20;                            // Number of ROWS.
+const int COLS = 20;                            // Number of COLS.
 int visited[ROWS][COLS];                        // 2-D array to store which cell is visited
 
 
+// Function prototype to Prompt the user for the files names.
 void open_File(ifstream &in, ofstream &outfile);
+
+// Function prototype to print the our 2-D array on the output file.
 void print_World(string world[], ofstream &outfile);
+
+// Function prototype to recursively replace all *  of the *'s in the blob with #'s.
 void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs);
 
 
