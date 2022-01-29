@@ -112,25 +112,38 @@ void print_World(string world[], ofstream &outfile)
  *  Parameters: string world[], int row, int col, int &numb_Blobs	
  * 
  *  Purpose: 
+ *          - This is the recursive function that will replace all 
+ *            of the *'s in the blob with #'s.
+ *          - The base case will make sure that we are not out of bounds
+ *            and that it is part of the blob. 
+ *          - We then convert a blob * to a blob #.
+ *          - Also we counting te number of blobs and passing it by reference.
  *            
- * 		
+ * 
  * 	Returns:  Void.	
  * 					 
  */
 void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs)
 {
-    // If invalid row and col then return
+    // Base case: If invalid row, col and not part of the blob then return
     if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !visited[row][col]))   
         return;
     
+    // Set all the element in our array to 1. 
+    // Then in the main fuction we will use the 'memeset' to set it to zero.
     visited[row][col] = 1;
+
+    // This if statement check to see if we found a blob,
+    // by comparing the the row and col of our array to '*',
+    // if found we increment the number of blobs then
+    // we replace the *'s in the blob with #'s.
     if (world[row][col] == '*')
     {
-        numb_Blobs++;                        // Blob found
+        numb_Blobs++;                        
         world[row][col] = '#';
     }
 
-    // Process neighbouring cells
+    // Using The von Neumann neighbors to process neighbouring cells.
     recursion_numb_Blobs(world, row + 1, col, numb_Blobs);
     recursion_numb_Blobs(world, row - 1, col, numb_Blobs);
     recursion_numb_Blobs(world, row, col + 1, numb_Blobs);
