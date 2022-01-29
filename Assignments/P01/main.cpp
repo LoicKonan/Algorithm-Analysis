@@ -39,7 +39,7 @@ void open_File(ifstream &in, ofstream &outfile);
 void print_World(string world[], ofstream &outfile);
 
 // Function prototype to recursively replace all *  of the *'s in the blob with #'s.
-void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs);
+void recursion_Blobs(string world[], int row, int col, int &numb_Blobs);
 
 
 int main()
@@ -47,27 +47,36 @@ int main()
     ifstream infile;
     ofstream outfile;
     open_File(infile, outfile);
+    
+    // Variables declarations.
     string char_Array[100];
-
-
-    memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
     string line;
     int i = 0;
+    int numb_Blobs = 0;                             
+
+    memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
+    
+
+    // Using this while loop to fill our array.
     while (getline(infile, line))
     {
-        char_Array[i++] = line;                        // Filling the world
+        char_Array[i++] = line;                        
     }
 
     
+    // Display the  world before mutated blobs.
     outfile << "Original world:\n";
-    print_World(char_Array,outfile);                   // Printing world before mutation
+    print_World(char_Array,outfile);                   
 
-    int numb_Blobs = 0;                             // numb_Blobs of numb_Blobs
-    recursion_numb_Blobs(char_Array, 0, 0, numb_Blobs);         // Processing numb_Blobs
 
+    // Calling our recursive function numb_Blobs
+    recursion_Blobs(char_Array, 0, 0, numb_Blobs);         
+
+    // Display the mutated world to the output file.
     outfile << "\n\nWorld with mutated numb_Blobs:\n";
-    print_World(char_Array,outfile);                  // Printing world after mutation
+    print_World(char_Array,outfile);                 
 
+    // Print the number of blobs found.
     outfile << numb_Blobs << " Blobs were found.";
     return 0;
 }
@@ -136,7 +145,7 @@ void print_World(string world[], ofstream &outfile)
 
 
 /**
- *  Function Name: recursion_numb_Blobs
+ *  Function Name: recursion_Blobs
  * 
  *  Parameters: string world[], int row, int col, int &numb_Blobs	
  * 
@@ -152,7 +161,7 @@ void print_World(string world[], ofstream &outfile)
  * 	Returns:  Void.	
  * 					 
  */
-void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs)
+void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
 {
     // Base case: If invalid row, col and not part of the blob then return
     if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !visited[row][col]))   
@@ -173,8 +182,8 @@ void recursion_numb_Blobs(string world[], int row, int col, int &numb_Blobs)
     }
 
     // Using a recursive call to process neighbouring cells.
-    recursion_numb_Blobs(world, row + 1, col, numb_Blobs);
-    recursion_numb_Blobs(world, row - 1, col, numb_Blobs);
-    recursion_numb_Blobs(world, row, col + 1, numb_Blobs);
-    recursion_numb_Blobs(world, row, col - 1, numb_Blobs);
+    recursion_Blobs(world, row + 1, col, numb_Blobs);
+    recursion_Blobs(world, row - 1, col, numb_Blobs);
+    recursion_Blobs(world, row, col + 1, numb_Blobs);
+    recursion_Blobs(world, row, col - 1, numb_Blobs);
 }
