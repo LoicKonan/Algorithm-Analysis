@@ -214,11 +214,11 @@ void open_File(ifstream &in, ofstream &outfile)
 /**
  *  Function Name: header
  * 
- *  Parameters:    ofstream& outfile.	
+ *  Parameters: ofstream& outfile.	
  * 
- *  Purpose:       To display the heading and explanation of program to the output file.
+ *  Purpose: To display the heading and explanation of program to the output file.
  * 						
- * 	Returns:       Void.	
+ * 	Returns: Void.	
  * 					 
  */
 void header(ofstream &outfile)
@@ -259,6 +259,5 @@ void header(ofstream &outfile)
     outfile << "\n*";
     outfile << "\n*";
     outfile << "\n******************************************************************************\n\n";
-
 }
 
