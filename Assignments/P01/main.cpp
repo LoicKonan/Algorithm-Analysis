@@ -24,7 +24,6 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-#include <algorithm>
 using namespace std;
 
 const int ROWS = 20;                            // Number of ROWS.
@@ -49,12 +48,14 @@ int main()
     open_File(infile, outfile);
     
     // Variables declarations.
-    string char_Array[100];
-    string line;
-    int i = 0;
-    int numb_Blobs = 0;                             
+    string char_Array[100];                 // Declare and initialize our array.              
+    string line;                            // Will be use to fill in our array.
+    int i = 0;                              // Variable to use in the while loop below.
+    int numb_Blobs = 0;                     // Initialize the number of blobs to 0.       
 
-    memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
+
+    // Initializing visited with 0s
+    memset(visited, 0, sizeof(visited));        
     
 
     // Using this while loop to fill our array.
@@ -64,10 +65,9 @@ int main()
     }
 
     
-    // Display the  world before mutated blobs.
+    // Display the world before mutated blobs.
     outfile << "Original world:\n";
     print_World(char_Array,outfile);                   
-
 
     // Calling our recursive function numb_Blobs
     recursion_Blobs(char_Array, 0, 0, numb_Blobs);         
@@ -78,6 +78,7 @@ int main()
 
     // Print the number of blobs found.
     outfile << numb_Blobs << " Blobs were found.";
+
     return 0;
 }
 
