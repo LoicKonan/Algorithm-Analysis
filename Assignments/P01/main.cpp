@@ -19,21 +19,15 @@ int main()
     ofstream out;
     open_File(in, out);
 
-    char world[ROWS][COLS];
-    for (int i = 0; i < ROWS; i++)
-    {
-        for (int j = 0; j < COLS; j++)
-        {
-            in >> world[i][j];
-        }
-    }
+
+    string arr[20];
 
     memset(visited, 0, sizeof(visited));        // Initializing visited with 0s
     out << "Original world:\n";
-    print_World(world,out);                      // Printing world before mutation
+    print_World(arr,out);                      // Printing world before mutation
 
     int count = 0;                               // Count of blobs
-    recursion_Blobs(world, 0, 0, count);         // Processing blobs
+    recursion_Blobs(arr, 0, 0, count);         // Processing blobs
 
     out << "\n\nWorld with mutated blobs:\n";
     print_World(world,out);                      // Printing world after mutation
@@ -65,7 +59,7 @@ void open_File(ifstream &in, ofstream &out)
 }
 
 
-void print_World(char world[ROWS][COLS], ofstream &out)
+void print_World(string world[], ofstream &out)
 {
     // Print the world
     for (int i = 0; i < ROWS; i++)
@@ -79,7 +73,7 @@ void print_World(char world[ROWS][COLS], ofstream &out)
 }
 
 
-void recursion_Blobs(char world[ROWS][COLS], int row, int col, int &count)
+void recursion_Blobs(string world[], int row, int col, int &count)
 {
     // If invalid row and col then return
     if (!(row >= 0 && col >= 0 && row < 20 && col < 20 && !visited[row][col]))   
