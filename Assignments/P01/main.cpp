@@ -94,7 +94,7 @@ int main()
     recursion_Blobs(char_Array, 0, 0, numb_Blobs);         
 
     // Display the mutated world to the output file.
-    outfile << "\n\nWorld with mutated numb_Blobs:\n";
+    outfile << "\n\nWorld with mutated Blobs:\n";
     print_World(char_Array,outfile);                 
 
     // Print the number of blobs found.
