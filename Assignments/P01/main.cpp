@@ -42,7 +42,8 @@ using namespace std;
 
 const int ROWS = 20;                            // Number of ROWS.
 const int COLS = 20;                            // Number of COLS.
-int visited[ROWS][COLS];                        // 2-D array to store which cell is visited
+int traversed [ROWS][COLS];                     // array to store which cell
+                                                // has been traversed .
 
 
 // Function prototype to Prompt the user for the files names.
@@ -75,8 +76,8 @@ int main()
     int numb_Blobs = 0;                     // Initialize the number of blobs to 0.       
 
 
-    // This will fill the entire array call visited with bunch of 0s.
-    memset(visited, 0, sizeof(visited));        
+    // This will fill the entire array call traversed  with bunch of 0s.
+    memset(traversed , 0, sizeof(traversed ));        
     
     // Using this while loop to read in the data to fill our array of character.
     while (getline(infile, line))
@@ -148,12 +149,12 @@ void print_World(string world[], ofstream &outfile)
 void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
 {
     // Base case: If invalid row, col and not part of the blob then return
-    if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !visited[row][col]))   
+    if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !traversed [row][col]))   
         return;
     
     // Set all the element in our array to 1. 
     // Then in the main fuction we will use the 'memeset' to set it to zero.
-    visited[row][col] = 1;
+    traversed [row][col] = 1;
 
     // This if statement check to see if we found a blob,
     // by comparing the the row and col of our array to '*',
@@ -260,4 +261,3 @@ void header(ofstream &outfile)
     outfile << "\n*";
     outfile << "\n******************************************************************************\n\n";
 }
-
