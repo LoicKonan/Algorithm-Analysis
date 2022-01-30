@@ -75,10 +75,10 @@ int main()
     int numb_Blobs = 0;                     // Initialize the number of blobs to 0.       
 
 
-    // This will copies 0 and Initialize our array call visited with 0s.
+    // This will fill the entire array call visited with bunch of 0s.
     memset(visited, 0, sizeof(visited));        
     
-    // Using this while loop to fill our array.
+    // Using this while loop to read in the data to fill our array of character.
     while (getline(infile, line))
     {
         char_Array[i++] = line;                        
