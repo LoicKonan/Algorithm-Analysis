@@ -45,7 +45,6 @@ const int COLS = 20;                            // Number of COLS.
 int traversed [ROWS][COLS];                     // array to store which cell
                                                 // has been traversed .
 
-
 // Function prototype to Prompt the user for the files names.
 void open_File(ifstream &in, ofstream &outfile);
 
@@ -77,7 +76,7 @@ int main()
 
 
     // This will fill the entire array call traversed  with bunch of 0s.
-    memset(traversed , 0, sizeof(traversed ));        
+    memset(traversed , 0, sizeof(traversed));        
     
     // Using this while loop to read in the data to fill our array of character.
     while (getline(infile, line))
