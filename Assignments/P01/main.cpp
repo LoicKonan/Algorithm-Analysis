@@ -59,7 +59,11 @@ void recursion_Blobs(string world[], int row, int col, int &numb_Blobs);
 // Function prototype to display the heading and explanation of the program.
 void header(ofstream &outfile);
 
-
+/**
+ * 
+ * Main Function. 
+ * 
+ */
 int main()
 {    
     ifstream infile;
