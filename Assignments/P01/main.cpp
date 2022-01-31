@@ -83,7 +83,7 @@ int main()
     // Using this while loop to read in the data to fill our array of character.
     while (getline(infile, line))
     {
-       // line.erase( remove( line.begin(), line.end(), ' ' ), line.end() );
+        line.erase( remove( line.begin(), line.end(), ' ' ), line.end() );
         char_Array[i++] = line;     
     }
 
