@@ -38,6 +38,8 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#include <algorithm>
+
 using namespace std;
 
 const int ROWS = 20;                            // Number of ROWS.
@@ -69,7 +71,7 @@ int main()
 
 
     // Variables declarations.
-    string char_Array[100];                 // Declare and initialize our array.              
+    string char_Array[20];                  // Declare and initialize our array.              
     string line;                            // Will be use to fill in our array.
     int i = 0;                              // Variable to use in the while loop below.
     int numb_Blobs = 0;                     // Initialize the number of blobs to 0.       
@@ -81,13 +83,14 @@ int main()
     // Using this while loop to read in the data to fill our array of character.
     while (getline(infile, line))
     {
-        char_Array[i++] = line;                        
+       // line.erase( remove( line.begin(), line.end(), ' ' ), line.end() );
+        char_Array[i++] = line;     
     }
 
     
     // Display the world before mutated blobs.
     outfile << "Original world:\n";
-    print_World(char_Array,outfile);                   
+    print_World(char_Array, outfile);                   
 
     // Calling our recursive function numb_Blobs
     recursion_Blobs(char_Array, 0, 0, numb_Blobs);         
@@ -99,6 +102,9 @@ int main()
     // Print the number of blobs found.
     outfile << numb_Blobs << " Blobs were found.";
 
+
+    infile.close();
+    outfile.close();
     return 0;
 }
 
@@ -148,9 +154,12 @@ void print_World(string world[], ofstream &outfile)
 void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
 {
     // Base case: If invalid row, col and not part of the blob then return
-    if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !traversed [row][col]))   
-        return;
+    // if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !traversed [row][col]))   
+    //     return;
     
+    if (row < 0 || row >= ROWS || col < 0 || col >= COLS || traversed [row][col]) 
+        return;
+
     // Set all the element in our array to 1. 
     // Then in the main fuction we will use the 'memeset' to set it to zero.
     traversed [row][col] = 1;
