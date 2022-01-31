@@ -153,10 +153,8 @@ void print_World(string world[], ofstream &outfile)
  */
 void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
 {
-    // Base case: If invalid row, col and not part of the blob then return
-    // if (!(row >= 0 && col >= 0 && row < ROWS && col < COLS && !traversed [row][col]))   
-    //     return;
-    
+    // Base case: If the row or the col are less than 0 or greater 
+    // or equal to 20 or not part 20X20  then return
     if (row < 0 || row >= ROWS || col < 0 || col >= COLS || traversed [row][col]) 
         return;
 
