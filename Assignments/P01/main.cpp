@@ -45,7 +45,7 @@ using namespace std;
 const int ROWS = 20;                            // Number of ROWS.
 const int COLS = 20;                            // Number of COLS.
 int traversed [ROWS][COLS];                     // array to store which cell
-                                                // has been traversed .
+                                                // has been traversed.
 
 // Function prototype to Prompt the user for the files names.
 void open_File(ifstream &in, ofstream &outfile);
@@ -76,11 +76,12 @@ int main()
     int i = 0;                              // Variable to use in the while loop below.
     int numb_Blobs = 0;                     // Initialize the number of blobs to 0.       
 
+    string Array[20];
 
     // This will fill the entire array call traversed  with bunch of 0s.
     memset(traversed , 0, sizeof(traversed));        
     
-    // Using this while loop to read in the data to fill our array of character.
+    
     while (getline(infile, line))
     {
         line.erase( remove( line.begin(), line.end(), ' ' ), line.end() );
@@ -97,11 +98,10 @@ int main()
 
     // Display the mutated world to the output file.
     outfile << "\n\nWorld with mutated Blobs:\n";
-    print_World(char_Array,outfile);                 
+    print_World(char_Array, outfile);                 
 
     // Print the number of blobs found.
     outfile << numb_Blobs << " Blobs were found.";
-
 
     infile.close();
     outfile.close();
@@ -173,10 +173,11 @@ void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
     }
 
     // Using a recursive call to process neighbouring cells.
-    recursion_Blobs(world, row + 1, col, numb_Blobs);
-    recursion_Blobs(world, row - 1, col, numb_Blobs);
     recursion_Blobs(world, row, col + 1, numb_Blobs);
     recursion_Blobs(world, row, col - 1, numb_Blobs);
+    recursion_Blobs(world, row - 1, col, numb_Blobs);
+    recursion_Blobs(world, row + 1, col, numb_Blobs);
+
 }
 
 
