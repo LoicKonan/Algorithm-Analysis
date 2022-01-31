@@ -84,7 +84,7 @@ int main()
     
     while (getline(infile, line))
     {
-        line.erase( remove( line.begin(), line.end(), ' ' ), line.end() );
+        //line.erase( remove( line.begin(), line.end(), ' ' ), line.end() );
         char_Array[i++] = line;     
     }
 
