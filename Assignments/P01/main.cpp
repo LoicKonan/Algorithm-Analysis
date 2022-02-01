@@ -10,7 +10,7 @@
 *
 *                      This program use recursion to count the number 
 *                      of "blobs" in a 2D array. A text file containing 
-*                      a 2-D matrix of 0's and *'s is given. 
+*                      a 2D matrix of 0's and *'s is given. 
 *                      A blob is connected group of *'s.  
 *                      The *'s are connected if they are von Neumann neighbors 
 *                      (top, bottom, left or right)
@@ -50,7 +50,7 @@ int traversed [ROWS][COLS];                     // array to store which cell
 // Function prototype to Prompt the user for the files names.
 void open_File(ifstream &in, ofstream &outfile);
 
-// Function prototype to print the our 2-D array on the output file.
+// Function prototype to print the our 2D array on the output file.
 void print_World(string world[], ofstream &outfile);
 
 // Function prototype to recursively replace all *  of the *'s in the blob with #'s.
@@ -245,7 +245,7 @@ void header(ofstream &outfile)
     outfile << "\n*";
     outfile << "\n*                  This program use recursion to count the number";
     outfile << "\n*                  of blobs in a 2D array. A text file containing"; 
-    outfile << "\n*                  a 2-D matrix of 0's and *'s is given.";
+    outfile << "\n*                  a 2D matrix of 0's and *'s is given.";
     outfile << "\n*                  A blob is connected group of *'s.";
     outfile << "\n*                  The *'s are connected if they are von Neumann neighbors";
     outfile << "\n*                  (top, bottom, left or right)";
