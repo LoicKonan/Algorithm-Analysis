@@ -161,8 +161,7 @@ void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
     if (row < 0 || row >= ROWS || col < 0 || col >= COLS || traversed [row][col]) 
         return;
 
-    // Set all the element in our array to 1. 
-    // Then in the main fuction we will use the 'memeset' to set it to zero.
+    // Set all the element in our array to 1.
     traversed [row][col] = 1;
 
     // This if statement check to see if we found a blob,
@@ -176,10 +175,10 @@ void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
     }
 
     // Using a recursive call to process neighbouring cells.
-    recursion_Blobs(world, row, col + 1, numb_Blobs);
     recursion_Blobs(world, row + 1, col, numb_Blobs);
-    recursion_Blobs(world, row , col - 1, numb_Blobs);
     recursion_Blobs(world, row - 1 , col, numb_Blobs);
+    recursion_Blobs(world, row, col + 1, numb_Blobs);
+    recursion_Blobs(world, row , col - 1, numb_Blobs);
 
 }
 
