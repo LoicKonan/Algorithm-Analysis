@@ -86,7 +86,7 @@ int main()
     
     while (getline(infile, line))
     {
-        // remove any whitespace.
+        // This line will from our string remove any whitespace.
         // line.erase( remove(line.begin(), line.end(), ' ' ), line.end());
         char_Array[i++] = line;     
     }
