@@ -4,7 +4,7 @@
 *    Email:            loickonan.lk@gmail.com
 *    Label:            Recursion Blobs
 *    Title:            Program 1
-*    Course:           CMPS 5243
+*    Course:           CMPS 5243, Spring 2022, Dr. Johnson 
 *    Semester:         Spring 2022
 *    Description:
 *
@@ -80,19 +80,18 @@ int main()
     int i = 0;                              // Variable to use in the while loop below.
     int numb_Blobs = 0;                     // Initialize the number of blobs to 0.       
 
-    string Array[20];
 
     // This will fill the entire array call traversed  with bunch of 0s.
     memset(traversed , 0, sizeof(traversed));        
     
-    
     while (getline(infile, line))
     {
-        //line.erase( remove( line.begin(), line.end(), ' ' ), line.end() );
+        // remove any whitespace.
+        // line.erase( remove(line.begin(), line.end(), ' ' ), line.end());
         char_Array[i++] = line;     
     }
 
-    
+
     // Display the world before mutated blobs.
     outfile << "Original world:\n";
     print_World(char_Array, outfile);                   
@@ -129,7 +128,7 @@ void print_World(string world[], ofstream &outfile)
     // Printing the world to output file.
     for (int i = 0; i < ROWS; i++)
     {
-        for (int j = 0; j < COLS; j++)
+        for (int j = 0; j < 20; j++)
         {
             outfile << world[i][j] << " ";
         }
@@ -178,9 +177,9 @@ void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
 
     // Using a recursive call to process neighbouring cells.
     recursion_Blobs(world, row, col + 1, numb_Blobs);
-    recursion_Blobs(world, row, col - 1, numb_Blobs);
-    recursion_Blobs(world, row - 1, col, numb_Blobs);
     recursion_Blobs(world, row + 1, col, numb_Blobs);
+    recursion_Blobs(world, row , col - 1, numb_Blobs);
+    recursion_Blobs(world, row - 1 , col, numb_Blobs);
 
 }
 
@@ -241,7 +240,7 @@ void header(ofstream &outfile)
     outfile << "\n*    Email:            loickonan.lk@gmail.com";
     outfile << "\n*    Label:            Recursion Blobs";
     outfile << "\n*    Title:            Program 1";
-    outfile << "\n*    Course:           CMPS 5243";
+    outfile << "\n*    Course:           CMPS 5243,  Spring 2022, Dr. Johnson";
     outfile << "\n*    Semester:         Spring 2022";
     outfile << "\n*    Description:";
     outfile << "\n*";
