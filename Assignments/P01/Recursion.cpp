@@ -99,7 +99,6 @@ int main()
   // Count the number of blobs
   outfile << "Number of blobs: " << numBlobs << endl;
 
-
   infile.close();
   outfile.close();
   return 0;
