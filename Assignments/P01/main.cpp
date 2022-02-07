@@ -39,25 +39,27 @@
 #include <fstream>
 #include <string.h>
 #include <algorithm>
-
 using namespace std;
 
+// Constant size for the environment of the blobs.
 const int ROWS = 20;                            // Number of ROWS.
-const int COLS = 20;                            // Number of COLS.
-int traversed [ROWS][COLS];                     // array to store which cell
-                                                // has been traversed.
+const int COLS = 20;                            // Number of COLUMNS.
+
+
+// Function prototype to display the heading and explanation of the program.
+void header(ofstream &outfile);
 
 // Function prototype to Prompt the user for the files names.
 void open_File(ifstream &in, ofstream &outfile);
 
-// Function prototype to print the our 2D array on the output file.
-void print_World(string world[], ofstream &outfile);
+// Print out the content of the world to the console.
+void print_World(char world[ROWS][COLS], ofstream &outfile);
 
-// Function prototype to recursively replace all *  of the *'s in the blob with #'s.
-void recursion_Blobs(string world[], int row, int col, int &numb_Blobs);
+// A recursive method that would convert a blob * to a blob #
+void mutate_Blob(char world[ROWS][COLS],int row, int col);
 
-// Function prototype to display the heading and explanation of the program.
-void header(ofstream &outfile);
+// Count the number of blobs
+int count_Blobs(char world[ROWS][COLS]);
 
 /**
  * 
@@ -65,57 +67,48 @@ void header(ofstream &outfile);
  * 
  */
 int main()
-{    
-    ifstream infile;
-    ofstream outfile;
-    open_File(infile, outfile);
-    
-    // This function Display the heading and explanation of the program to the output file.
-    header(outfile);
+{
+  ifstream infile;
+  ofstream outfile;
+  open_File(infile, outfile);
+  
+  // This function Display the heading and explanation of the program to the output file.
+  header(outfile);
 
+  char world[ROWS][COLS];
 
-    // Variables declarations.
-    string char_Array[20];                  // Declare and initialize our array.              
-    string line;                            // Will be use to fill in our array.
-    int i = 0;                              // Variable to use in the while loop below.
-    int numb_Blobs = 0;                     // Initialize the number of blobs to 0.       
-
-
-    // This will fill the entire array call traversed  with bunch of 0s.
-    memset(traversed , 0, sizeof(traversed));        
-    
-    while (getline(infile, line))
+  for (int i = 0; i < ROWS; i++)
+  {
+    for (int j = 0; j < COLS; j++)
     {
-        // This line will from our string remove any whitespace.
-        // line.erase( remove(line.begin(), line.end(), ' ' ), line.end());
-        char_Array[i++] = line;     
+      infile >> world[i][j];
     }
+  }
 
+  // Display the world before mutated blobs.
+  outfile << "Original world:\n";
+  print_World(world, outfile); 
 
-    // Display the world before mutated blobs.
-    outfile << "Original world:\n";
-    print_World(char_Array, outfile);                   
+  int numBlobs = count_Blobs(world);
 
-    // Calling our recursive function numb_Blobs
-    recursion_Blobs(char_Array, 0, 0, numb_Blobs);         
+  outfile << endl << endl;
 
-    // Display the mutated world to the output file.
-    outfile << "\n\nWorld with mutated Blobs:\n";
-    print_World(char_Array, outfile);                 
+  // Mutated world
+  outfile << "Mutated world:\n";
+  print_World(world, outfile);
+  // Count the number of blobs
+  outfile << "Number of blobs: " << numBlobs << endl;
 
-    // Print the number of blobs found.
-    outfile << numb_Blobs << " Blobs were found.";
-
-    infile.close();
-    outfile.close();
-    return 0;
+  infile.close();
+  outfile.close();
+  return 0;
 }
 
 
 /**
  *  Function Name: print_World
  * 
- *  Parameters: string world[], ofstream &outfile	
+ *  Parameters: char world[][], ofstream &outfile	
  * 
  *  Purpose:  Using a nested for loop to print the 20 X 20 world.
  *            - Time complexity  O(N^2)
@@ -123,24 +116,23 @@ int main()
  * 	Returns:  Void.	
  * 					 
  */
-void print_World(string world[], ofstream &outfile)
+void print_World(char world[ROWS][COLS], ofstream &outfile)
 {
-    // Printing the world to output file.
     for (int i = 0; i < ROWS; i++)
     {
-        for (int j = 0; j < 20; j++)
+        for (int j = 0; j < COLS; j++)
         {
-            outfile << world[i][j] << " ";
+            outfile << world[i][j];
         }
-        outfile << "\n";
+        outfile << endl;
     }
 }
 
 
 /**
- *  Function Name: recursion_Blobs
+ *  Function Name: mutate_Blob
  * 
- *  Parameters: string world[], int row, int col, int &numb_Blobs	
+ *  Parameters: char world[][], int row, int col	
  * 
  *  Purpose: 
  *          - This is the recursive function that will replace all 
@@ -148,38 +140,62 @@ void print_World(string world[], ofstream &outfile)
  *          - The base case will make sure that we are not out of bounds
  *            and that it is part of the blob. 
  *          - We then convert a blob * to a blob #.
- *          - Also we counting te number of blobs and passing it by reference.
+ *          - Also we counting the number of blobs and passing it by reference.
  *            
  * 
  * 	Returns:  Void.	
  * 					 
  */
-void recursion_Blobs(string world[], int row, int col, int &numb_Blobs)
+void mutate_Blob(char world[ROWS][COLS],int row, int col)
 {
-    // Base case: If the row or the col are less than 0 or greater 
-    // or equal to 20 or not part 20X20  then return
-    if (row < 0 || row >= ROWS || col < 0 || col >= COLS || traversed [row][col]) 
+    // If the blob is out of bounds, return.
+    if (row < 0 || row >= ROWS || col < 0 || col >= COLS)
+    {
         return;
-
-    // Set all the element in our array to 1.
-    traversed [row][col] = 1;
-
-    // This if statement check to see if we found a blob,
-    // by comparing the the row and col of our array to '*',
-    // if found we increment the number of blobs then
-    // we replace the *'s in the blob with #'s.
+    }
+    // If the blob is not a *, return.
+    if (world[row][col] != '*')
+    {
+        return;
+    }
+    // If the blob is a *, convert it to a #.
     if (world[row][col] == '*')
     {
-        numb_Blobs++;                        
         world[row][col] = '#';
     }
+    // Recursively call mutate_Blob on the blob's neighbors.
+    mutate_Blob(world, row - 1, col);
+    mutate_Blob(world, row + 1, col);
+    mutate_Blob(world, row, col - 1);
+    mutate_Blob(world, row, col + 1);
+}
 
-    // Using a recursive call to process neighbouring cells.
-    recursion_Blobs(world, row + 1, col, numb_Blobs);
-    recursion_Blobs(world, row - 1 , col, numb_Blobs);
-    recursion_Blobs(world, row, col + 1, numb_Blobs);
-    recursion_Blobs(world, row , col - 1, numb_Blobs);
-
+/**
+ *  Function Name: count_Blobs
+ * 
+ *  Parameters: char world[][], ofstream &outfile	
+ * 
+ *  Purpose:  Using a nested for loop to print the 20 X 20 world.
+ *            - Time complexity  O(N^2)
+ * 		
+ * 	Returns:  Void.	
+ * 					 
+ */
+int count_Blobs(char world[ROWS][COLS])
+{
+  int count = 0;
+  for (int i = 0; i < ROWS; i++)
+  {
+    for (int j = 0; j < COLS; j++)
+    {
+      if (world[i][j] == '*')
+      {
+        count++;
+        mutate_Blob(world, i, j);
+      }
+    }
+  }
+  return count;
 }
 
 
