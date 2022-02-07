@@ -35,7 +35,6 @@
 *
 ******************************************************************************/
 
-
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -54,13 +53,13 @@ void header(ofstream &outfile);
 void open_File(ifstream &in, ofstream &outfile);
 
 // Print out the content of the world to the console.
-void printWorld(char world[ROWS][COLS], ofstream &outfile);
+void print_World(char world[ROWS][COLS], ofstream &outfile);
 
 // A recursive method that would convert a blob * to a blob #
-void mutateBlob(char world[ROWS][COLS],int row, int col);
+void mutate_Blob(char world[ROWS][COLS],int row, int col);
 
 // Count the number of blobs
-int countBlobs(char world[ROWS][COLS]);
+int count_Blobs(char world[ROWS][COLS]);
 
 /**
  * 
@@ -88,15 +87,15 @@ int main()
 
   // Display the world before mutated blobs.
   outfile << "Original world:\n";
-  printWorld(world, outfile); 
+  print_World(world, outfile); 
 
-  int numBlobs = countBlobs(world);
+  int numBlobs = count_Blobs(world);
 
   outfile << endl << endl;
 
   // Mutated world
   outfile << "Mutated world:\n";
-  printWorld(world, outfile);
+  print_World(world, outfile);
   // Count the number of blobs
   outfile << "Number of blobs: " << numBlobs << endl;
 
@@ -108,7 +107,7 @@ int main()
 
 
 /**
- *  Function Name: printWorld
+ *  Function Name: print_World
  * 
  *  Parameters: char world[][], ofstream &outfile	
  * 
@@ -118,7 +117,7 @@ int main()
  * 	Returns:  Void.	
  * 					 
  */
-void printWorld(char world[ROWS][COLS], ofstream &outfile)
+void print_World(char world[ROWS][COLS], ofstream &outfile)
 {
     for (int i = 0; i < ROWS; i++)
     {
@@ -130,8 +129,9 @@ void printWorld(char world[ROWS][COLS], ofstream &outfile)
     }
 }
 
+
 /**
- *  Function Name: mutateBlob
+ *  Function Name: mutate_Blob
  * 
  *  Parameters: char world[][], int row, int col	
  * 
@@ -141,13 +141,13 @@ void printWorld(char world[ROWS][COLS], ofstream &outfile)
  *          - The base case will make sure that we are not out of bounds
  *            and that it is part of the blob. 
  *          - We then convert a blob * to a blob #.
- *          - Also we counting te number of blobs and passing it by reference.
+ *          - Also we counting the number of blobs and passing it by reference.
  *            
  * 
  * 	Returns:  Void.	
  * 					 
  */
-void mutateBlob(char world[ROWS][COLS],int row, int col)
+void mutate_Blob(char world[ROWS][COLS],int row, int col)
 {
     // If the blob is out of bounds, return.
     if (row < 0 || row >= ROWS || col < 0 || col >= COLS)
@@ -164,15 +164,15 @@ void mutateBlob(char world[ROWS][COLS],int row, int col)
     {
         world[row][col] = '#';
     }
-    // Recursively call mutateBlob on the blob's neighbors.
-    mutateBlob(world, row - 1, col);
-    mutateBlob(world, row + 1, col);
-    mutateBlob(world, row, col - 1);
-    mutateBlob(world, row, col + 1);
+    // Recursively call mutate_Blob on the blob's neighbors.
+    mutate_Blob(world, row - 1, col);
+    mutate_Blob(world, row + 1, col);
+    mutate_Blob(world, row, col - 1);
+    mutate_Blob(world, row, col + 1);
 }
 
 /**
- *  Function Name: countBlobs
+ *  Function Name: count_Blobs
  * 
  *  Parameters: char world[][], ofstream &outfile	
  * 
@@ -182,7 +182,7 @@ void mutateBlob(char world[ROWS][COLS],int row, int col)
  * 	Returns:  Void.	
  * 					 
  */
-int countBlobs(char world[ROWS][COLS])
+int count_Blobs(char world[ROWS][COLS])
 {
   int count = 0;
   for (int i = 0; i < ROWS; i++)
@@ -192,7 +192,7 @@ int countBlobs(char world[ROWS][COLS])
       if (world[i][j] == '*')
       {
         count++;
-        mutateBlob(world, i, j);
+        mutate_Blob(world, i, j);
       }
     }
   }
