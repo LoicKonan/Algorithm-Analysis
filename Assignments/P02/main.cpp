@@ -24,13 +24,6 @@
  *
  ******************************************************************************/
 
-// Implement 3 different sorting algorithms on arrays of size 10. bubble sort, selection sort, merge sort.
-// Implement a separate counter for each sort. Initialize the counter to zero and increment inside loops of the associated sort.
-// For example in the bubblesort loop, increment the counter inside the inner loop.
-// Use a system clock timer to start the timer immediately before each sort and end immediately after each sort.
-// Once you have the code working for 1 run, average the time and counter results over 20 runs, using a different random seed for each run.
-// use the loop control variable as the random seed.Make sure that the arrays hold identical values before sorting.
-
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
