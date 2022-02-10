@@ -94,7 +94,6 @@ int main()
     printArray(arr, SIZE);
 
 
-
     // Call the selection sort function.
     int selection_counter = selection_Sort(arr, SIZE);
     cout << "\nSelection Sort: " << selection_counter << endl;
