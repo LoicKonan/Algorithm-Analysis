@@ -1,3 +1,29 @@
+/*****************************************************************************
+*
+*    Author:           Loic Konan
+*    Email:            loickonan.lk@gmail.com
+*    Label:            Sorting Algorithms
+*    Title:            Program 2
+*    Course:           CMPS 5243, Spring 2022, Dr. Johnson 
+*    Semester:         Spring 2022
+*    Description:
+*
+*                      This program implements the following sorting algorithms:
+*
+*                           - Selection Sort
+*                           - Bubble Sort
+*                           - Merge Sort
+*                      
+*                      
+*    Files:
+*         main.cpp
+*
+*    Usage:
+*           main.cpp          : driver program
+*
+*
+******************************************************************************/
+
 // Implement 3 different sorting algorithms on arrays of size 10. bubble sort, selection sort, merge sort.
 // Implement a separate counter for each sort. Initialize the counter to zero and increment inside loops of the associated sort.
 // For example in the bubblesort loop, increment the counter inside the inner loop.
