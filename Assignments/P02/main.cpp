@@ -153,13 +153,13 @@ int bubble_Sort(int arr[], int NUMBER)
             }
         }
     }
-    return counter;
 
-     time.End();
-
+    time.End();                             // End the timer.
     cout << termcolor::green << time.Seconds() 
          << termcolor::reset
          << " seconds to sort the Arrays." << endl;
+    
+    return counter;
 }
 
 
@@ -182,12 +182,14 @@ int selection_Sort(int arr[], int NUMBER)
         swap(arr[i], arr[min]);
         counter++;
     }
-    return counter;
 
-    time.End();
+    time.End();                            // End the timer.
     cout << termcolor::green << time.Seconds() 
          << termcolor::reset
          << " seconds to sort the Arrays." << endl;
+
+    return counter;
+
 }
 
 
@@ -255,12 +257,12 @@ int merge_sort(int arr[], int NUMBER)
         counter++;
     }
 
-    return counter;
-
-    time.End();
+    time.End();                       // End the timer.
     cout << termcolor::green << time.Seconds() 
          << termcolor::reset
          << " seconds to sort the Arrays." << endl;
+        
+    return counter;
 }
 
 
@@ -268,7 +270,6 @@ int quick_Sort(int arr[], int NUMBER)
 {
     Timer time;                             // Create a timer.
     time.Start();                           // Start the timer.
-
 
     int counter = 0;
     int pivot = arr[NUMBER - 1];
@@ -300,12 +301,13 @@ int quick_Sort(int arr[], int NUMBER)
     {
         quick_Sort(arr + j + 1, NUMBER - j - 2);
     }
-    return counter;
 
-    time.End();
+    time.End();                       // End the timer.
     cout << termcolor::green << time.Seconds() 
          << termcolor::reset
          << " seconds to sort the Arrays." << endl;
+
+    return counter;
 }
 
 
