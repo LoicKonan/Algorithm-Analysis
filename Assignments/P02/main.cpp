@@ -79,7 +79,7 @@ int main()
     // Print the array before sorting.
     header(outfile);
 
-    cout  << termcolor::magenta << "Before sorting: ";
+    cout  << termcolor::magenta << "Before sorting: \n";
     printArray(arr, NUMBER);
     cout  << termcolor::reset << endl;
 
