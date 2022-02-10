@@ -36,25 +36,27 @@
 #include "Timer.hpp"
 #include "termcolor.hpp"
 
-
 using namespace std;
 
-const int SIZE = 10;
+const int NUMBER = 10;
 
 // Function prototype to swap two integers.
 void swap(int &a, int &b);
 
 // Function prototype to
-int bubble_Sort(int arr[], int SIZE);
+int bubble_Sort(int arr[], int NUMBER);
 
 // Function prototype to
-int selection_Sort(int arr[], int SIZE);
+int selection_Sort(int arr[], int NUMBER);
 
 // Function prototype to
-int quick_Sort(int arr[], int SIZE);
+int quick_Sort(int arr[], int NUMBER);
 
 // Function prototype to
-void printArray(int arr[], int SIZE);
+int merge_sort(int arr[], int NUMBER);
+
+// Function prototype to
+void printArray(int arr[], int NUMBER);
 
 // Function prototype to
 void header(ofstream &outfile);
@@ -66,8 +68,9 @@ int main()
     ofstream outfile;
 
     // Initialize the array to random values.
-    int arr[SIZE];
-    for (int i = 0; i < SIZE; i++)
+    int arr[NUMBER];
+
+    for (int i = 0; i < NUMBER; i++)
     {
         arr[i] = rand() % 100;
     }
@@ -76,28 +79,36 @@ int main()
     header(outfile);
 
     cout << "Before sorting: \n";
-    printArray(arr, SIZE);
+    printArray(arr, NUMBER);
 
 
     // Call the Bubble sort function.
-    int bubble_counter = bubble_Sort(arr, SIZE);
+    int bubble_counter = bubble_Sort(arr, NUMBER);
     cout << "\nBubble Sort: " << bubble_counter << endl;
-    printArray(arr, SIZE);
-
-
-    // Call the Merge sort function.
-    int quick_sort_counter = quick_Sort(arr, SIZE);
-    cout << "\nQuick Sort: " << quick_sort_counter << endl;
-    printArray(arr, SIZE);
+    printArray(arr, NUMBER);
 
 
     // Call the selection sort function.
-    int selection_counter = selection_Sort(arr, SIZE);
+    int selection_counter = selection_Sort(arr, NUMBER);
     cout << "\nSelection Sort: " << selection_counter << endl;
-    printArray(arr, SIZE);
+    printArray(arr, NUMBER);
+
+
+    // // Call the Merge sort function.
+    int merge_counter = merge_sort(arr, NUMBER);
+    cout << "\nMerge Sort: " << merge_counter << endl;
+    printArray(arr, NUMBER);
+
+
+    // Call the Quick sort function.
+    int quick_sort_counter = quick_Sort(arr, NUMBER);
+    cout << "\nQuick Sort: " << quick_sort_counter << endl;
+    printArray(arr, NUMBER);
+
 
     return 0;
 }
+
 
 void swap(int &a, int &b)
 {
@@ -106,12 +117,13 @@ void swap(int &a, int &b)
     b = temp;
 }
 
-int bubble_Sort(int arr[], int SIZE)
+
+int bubble_Sort(int arr[], int NUMBER)
 {
     int counter = 0;
-    for (int i = 0; i < SIZE; i++)
+    for (int i = 0; i < NUMBER; i++)
     {
-        for (int j = 0; j < SIZE - 1; j++)
+        for (int j = 0; j < NUMBER - 1; j++)
         {
             if (arr[j] > arr[j + 1])
             {
@@ -123,13 +135,14 @@ int bubble_Sort(int arr[], int SIZE)
     return counter;
 }
 
-int selection_Sort(int arr[], int SIZE)
+
+int selection_Sort(int arr[], int NUMBER)
 {
     int counter = 0;
-    for (int i = 0; i < SIZE; i++)
+    for (int i = 0; i < NUMBER; i++)
     {
         int min = i;
-        for (int j = i + 1; j < SIZE; j++)
+        for (int j = i + 1; j < NUMBER; j++)
         {
             if (arr[j] < arr[min])
             {
@@ -142,12 +155,78 @@ int selection_Sort(int arr[], int SIZE)
     return counter;
 }
 
-int quick_Sort(int arr[], int SIZE)
+
+int merge_sort(int arr[], int NUMBER)
 {
     int counter = 0;
-    int pivot = arr[SIZE - 1];
+    int mid = NUMBER / 2;
+    int left[mid];
+    int right[NUMBER - mid];
+
+    for (int i = 0; i < NUMBER; i++)
+    {
+        if (i < mid)
+        {
+            left[i] = arr[i];
+        }
+        else
+        {
+            right[i - mid] = arr[i];
+        }
+    }
+
+    if (NUMBER > 1)
+    {
+        counter += merge_sort(left, mid);
+        counter += merge_sort(right, NUMBER - mid);
+    }
+
     int i = 0;
-    int j = SIZE - 1;
+    int j = 0;
+    int k = 0;
+
+    while (i < mid && j < NUMBER - mid)
+    {
+        if (left[i] < right[j])
+        {
+            arr[k] = left[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = right[j];
+            j++;
+        }
+        k++;
+        counter++;
+    }
+
+    while (i < mid)
+    {
+        arr[k] = left[i];
+        i++;
+        k++;
+        counter++;
+    }
+
+    while (j < NUMBER - mid)
+    {
+        arr[k] = right[j];
+        j++;
+        k++;
+        counter++;
+    }
+
+    return counter;
+}
+
+
+int quick_Sort(int arr[], int NUMBER)
+{
+    int counter = 0;
+    int pivot = arr[NUMBER - 1];
+    int i = 0;
+    int j = NUMBER - 1;
     while (i < j)
     {
         while (arr[i] < pivot)
@@ -170,17 +249,17 @@ int quick_Sort(int arr[], int SIZE)
     {
         quick_Sort(arr, i - 1);
     }
-    if (j + 1 < SIZE - 1)
+    if (j + 1 < NUMBER - 1)
     {
-        quick_Sort(arr + j + 1, SIZE - j - 2);
+        quick_Sort(arr + j + 1, NUMBER - j - 2);
     }
     return counter;
 }
 
 
-void printArray(int arr[], int SIZE)
+void printArray(int arr[], int NUMBER)
 {
-    for (int i = 0; i < SIZE; i++)
+    for (int i = 0; i < NUMBER; i++)
     {
         cout << arr[i] << " ";
     }
