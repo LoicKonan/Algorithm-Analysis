@@ -12,7 +12,7 @@
  *
  *                           - Selection Sort
  *                           - Bubble Sort
- *                           - Merge Sort
+ *                           - QuickSort
  *
  *
  *    Files:
@@ -82,19 +82,20 @@ int main()
     printArray(arr, SIZE);
 
 
-    // Call the merge sort function.
-    int quick_sort_counter = quick_Sort(arr, SIZE);
-    cout << "\nquick Sort: " << quick_sort_counter << endl;
-    printArray(arr, SIZE);
-
-
-    // Sort the array using bubble sort.
+    // Call the Bubble sort function.
     int bubble_counter = bubble_Sort(arr, SIZE);
     cout << "\nBubble Sort: " << bubble_counter << endl;
     printArray(arr, SIZE);
 
 
-    // Sort the array using selection sort.
+    // Call the Merge sort function.
+    int quick_sort_counter = quick_Sort(arr, SIZE);
+    cout << "\nquick Sort: " << quick_sort_counter << endl;
+    printArray(arr, SIZE);
+
+
+
+    // Call the selection sort function.
     int selection_counter = selection_Sort(arr, SIZE);
     cout << "\nSelection Sort: " << selection_counter << endl;
     printArray(arr, SIZE);
@@ -163,28 +164,19 @@ int quick_Sort(int arr[], int SIZE)
             j--;
             counter++;
         }
-
         if (i < j)
         {
             swap(arr[i], arr[j]);
             counter++;
         }
     }
-
-    if (i == j)
+    if (i - 1 > 0)
     {
-        swap(arr[i], arr[SIZE - 1]);
-        counter++;
+        quick_Sort(arr, i - 1);
     }
-
-    if (i < SIZE - 1)
+    if (j + 1 < SIZE - 1)
     {
-        quick_Sort(arr, i + 1);
-    }
-    
-    if (j > 0)
-    {
-        quick_Sort(arr + j, SIZE - j);
+        quick_Sort(arr + j + 1, SIZE - j - 2);
     }
     return counter;
 }
