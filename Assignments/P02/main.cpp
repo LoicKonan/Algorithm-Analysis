@@ -17,6 +17,7 @@
 
 using namespace std;
 
+const int SIZE = 5000;
 
 void swap(int &a, int &b);
 int bubblesort(int arr[], int n);
@@ -28,6 +29,12 @@ void copyArray(int arr[], int arr2[], int n);
 
 int main()
 {
+    int arr[SIZE];
+    int arr2[SIZE];
+    int n = SIZE;
+    
+    fillArray(arr, n);
+    copyArray(arr, arr2, n);
     
 }
 
@@ -45,7 +52,7 @@ void printArray(int arr[], int n)
     {
         cout << arr[i] << " ";
     }
-    cout << endl;
+    cout << endl; 
 }
 void copyArray(int arr[], int arr2[], int n)
 {
