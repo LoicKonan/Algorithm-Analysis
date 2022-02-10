@@ -6,6 +6,23 @@
 // Once you have the code working for one run, average the time and counter results over 20 runs, using a different random seed for each run. 
 // An easy way to do this is to use the loop control variable as the random seed, rather than time(NULL).Make sure that the arrays hold identical values before sorting.
 
+
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <cmath>
+#include <chrono>
+#include <random>
+
+using namespace std;
+
+
+void swap(int &a, int &b);
+int bubblesort(int arr[], int n);
+int selection(int arr[], int n);
+int merge(int arr[], int n);
+
+
 void swap(int &a, int &b)
 {
     int temp = a;
