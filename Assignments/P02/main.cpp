@@ -87,7 +87,7 @@ int main()
 
     // Call the Merge sort function.
     int quick_sort_counter = quick_Sort(arr, SIZE);
-    cout << "\nquick Sort: " << quick_sort_counter << endl;
+    cout << "\nQuick Sort: " << quick_sort_counter << endl;
     printArray(arr, SIZE);
 
 
