@@ -78,29 +78,24 @@ int main()
 
     // Print the array before sorting.
     header(outfile);
-    outfile << "Before sorting: " << endl;
-    cout << "Before sorting: " << endl;
-
+    cout << "Before sorting: \n";
     printArray(arr, SIZE);
 
     // Sort the array using bubble sort.
     int bubble_counter = bubble_Sort(arr, SIZE);
-    outfile << "Bubble sort counter: " << bubble_counter << endl;
-    cout << "Bubble Sort: " << bubble_counter << endl;
+    cout << "\nBubble Sort: " << bubble_counter << endl;
+    printArray(arr, SIZE);
+
 
     // Sort the array using selection sort.
     int selection_counter = selection_Sort(arr, SIZE);
-    cout << "Selection Sort: " << selection_counter << endl;
-    outfile << "Selection sort counter: " << selection_counter << endl;
+    cout << "\nSelection Sort: " << selection_counter << endl;
+    printArray(arr, SIZE);
+
 
     // Sort the array using merge sort.
     int merge_counter = merge_Sort(arr, SIZE);
-    cout << "Merge Sort: " << merge_counter << endl;
-    outfile << "Merge sort counter: " << merge_counter << endl;
-
-    // Print the array after sorting.
-    outfile << "After sorting: " << endl;
-    cout << "After sorting: " << endl;
+    cout << "\nMerge Sort: " << merge_counter << endl;
     printArray(arr, SIZE);
 
     return 0;
