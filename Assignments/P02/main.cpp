@@ -120,8 +120,12 @@ void swap(int &a, int &b)
 
 
 int bubble_Sort(int arr[], int NUMBER)
-{
-    int counter = 0;
+{   
+    Timer time;                             // Create a timer.
+    time.Start();                           // Start the timer.
+
+
+    int counter = 0;                        // Initialize the counter.
     for (int i = 0; i < NUMBER; i++)
     {
         for (int j = 0; j < NUMBER - 1; j++)
@@ -134,11 +138,20 @@ int bubble_Sort(int arr[], int NUMBER)
         }
     }
     return counter;
+
+     time.End();
+
+    cout << termcolor::green << time.Seconds() 
+         << termcolor::reset
+         << " seconds to sort the Arrays." << endl;
 }
 
 
 int selection_Sort(int arr[], int NUMBER)
 {
+    Timer time;                             // Create a timer.
+    time.Start();                           // Start the timer.
+
     int counter = 0;
     for (int i = 0; i < NUMBER; i++)
     {
@@ -154,11 +167,19 @@ int selection_Sort(int arr[], int NUMBER)
         counter++;
     }
     return counter;
+
+    time.End();
+    cout << termcolor::green << time.Seconds() 
+         << termcolor::reset
+         << " seconds to sort the Arrays." << endl;
 }
 
 
 int merge_sort(int arr[], int NUMBER)
 {
+    Timer time;                             // Create a timer.
+    time.Start();                           // Start the timer.
+
     int counter = 0;
     int mid = NUMBER / 2;
     int left[mid];
@@ -219,11 +240,20 @@ int merge_sort(int arr[], int NUMBER)
     }
 
     return counter;
+
+    time.End();
+    cout << termcolor::green << time.Seconds() 
+         << termcolor::reset
+         << " seconds to sort the Arrays." << endl;
 }
 
 
 int quick_Sort(int arr[], int NUMBER)
 {
+    Timer time;                             // Create a timer.
+    time.Start();                           // Start the timer.
+
+
     int counter = 0;
     int pivot = arr[NUMBER - 1];
     int i = 0;
@@ -255,6 +285,11 @@ int quick_Sort(int arr[], int NUMBER)
         quick_Sort(arr + j + 1, NUMBER - j - 2);
     }
     return counter;
+
+    time.End();
+    cout << termcolor::green << time.Seconds() 
+         << termcolor::reset
+         << " seconds to sort the Arrays." << endl;
 }
 
 
