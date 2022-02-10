@@ -38,7 +38,7 @@
 
 using namespace std;
 
-const int NUMBER = 10;
+const int NUMBER = 50;
 
 // Function prototype to swap two integers.
 void swap(int &a, int &b);
@@ -58,6 +58,9 @@ int merge_sort(int arr[], int NUMBER);
 // Function prototype to
 void printArray(int arr[], int NUMBER);
 
+// Function prototype to print the time.
+void printTime(int);
+
 // Function prototype to
 void header(ofstream &outfile);
 
@@ -69,11 +72,13 @@ int main()
 
     // Initialize the array to random values.
     int arr[NUMBER];
-
+    
+    // set seed to time(0)
+    srand(time(0));
 
     for (int i = 0; i < NUMBER; i++)
     {
-        arr[i] = rand() % 100;
+        arr[i] = rand() % 5000;
     }
 
     // Print the array before sorting.
@@ -87,15 +92,18 @@ int main()
     // Call the Bubble sort function.
     int bubble_counter = bubble_Sort(arr, NUMBER);
     cout << termcolor::red << "\nBubble Sort: " 
-         << bubble_counter << endl;
+         << bubble_counter << " ";
+    printTime(bubble_counter);
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
+    printTime(bubble_counter);
 
 
     // Call the selection sort function.
     int selection_counter = selection_Sort(arr, NUMBER);
     cout << termcolor::yellow << "\nSelection Sort: " 
-         << selection_counter << endl;
+         << selection_counter << " ";
+    printTime(selection_counter);
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
 
@@ -103,22 +111,27 @@ int main()
     // Call the Quick sort function.
     int quick_sort_counter = quick_Sort(arr, NUMBER);
     cout << termcolor::blue << "\nQuick Sort: " 
-         << quick_sort_counter << endl;
+         << quick_sort_counter << " ";
+    printTime(quick_sort_counter);
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
-
 
 
     // Call the Merge sort function.
     int merge_counter = merge_sort(arr, NUMBER);
     cout << termcolor::green << "\nMerge Sort: " 
-         << merge_counter << endl;
+         << merge_counter << " ";
+    printTime(merge_counter);
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
 
     return 0;
 }
 
+void printTime(int counter)
+{
+    cout << termcolor::cyan << "Time: " << counter << " ms" << endl;
+}
 
 void swap(int &a, int &b)
 {
@@ -132,7 +145,6 @@ int bubble_Sort(int arr[], int NUMBER)
 {   
     Timer time;                             // Create a timer.
     time.Start();                           // Start the timer.
-
 
     int counter = 0;                        // Initialize the counter.
     for (int i = 0; i < NUMBER; i++)
