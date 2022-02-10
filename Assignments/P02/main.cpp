@@ -21,6 +21,15 @@ void swap(int &a, int &b);
 int bubblesort(int arr[], int n);
 int selection(int arr[], int n);
 int merge(int arr[], int n);
+void fillArray(int arr[], int n);
+void printArray(int arr[], int n);
+void copyArray(int arr[], int arr2[], int n);
+
+int main()
+{
+    
+}
+
 
 
 void swap(int &a, int &b)
