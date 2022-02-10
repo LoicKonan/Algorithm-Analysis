@@ -70,6 +70,7 @@ int main()
     // Initialize the array to random values.
     int arr[NUMBER];
 
+
     for (int i = 0; i < NUMBER; i++)
     {
         arr[i] = rand() % 100;
@@ -94,17 +95,17 @@ int main()
     printArray(arr, NUMBER);
 
 
-    // // Call the Merge sort function.
-    int merge_counter = merge_sort(arr, NUMBER);
-    cout << "\nMerge Sort: " << merge_counter << endl;
-    printArray(arr, NUMBER);
-
-
     // Call the Quick sort function.
     int quick_sort_counter = quick_Sort(arr, NUMBER);
     cout << "\nQuick Sort: " << quick_sort_counter << endl;
     printArray(arr, NUMBER);
 
+
+
+    // Call the Merge sort function.
+    int merge_counter = merge_sort(arr, NUMBER);
+    cout << "\nMerge Sort: " << merge_counter << endl;
+    printArray(arr, NUMBER);
 
     return 0;
 }
