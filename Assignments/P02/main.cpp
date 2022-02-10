@@ -62,7 +62,6 @@ void printArray(int arr[], int SIZE);
 // Function prototype to
 void header(ofstream &outfile);
 
-
 int main()
 {
 
@@ -78,24 +77,25 @@ int main()
 
     // Print the array before sorting.
     header(outfile);
+
     cout << "Before sorting: \n";
     printArray(arr, SIZE);
+
+
+    // Call the merge sort function.
+    int merge_sort_counter = merge_Sort(arr, SIZE);
+    cout << "\nerge Sort: " << merge_sort_counter << endl;
+    printArray(arr, SIZE);
+
 
     // Sort the array using bubble sort.
     int bubble_counter = bubble_Sort(arr, SIZE);
     cout << "\nBubble Sort: " << bubble_counter << endl;
     printArray(arr, SIZE);
 
-
     // Sort the array using selection sort.
     int selection_counter = selection_Sort(arr, SIZE);
     cout << "\nSelection Sort: " << selection_counter << endl;
-    printArray(arr, SIZE);
-
-
-    // Sort the array using merge sort.
-    int merge_counter = merge_Sort(arr, SIZE);
-    cout << "\nMerge Sort: " << merge_counter << endl;
     printArray(arr, SIZE);
 
     return 0;
@@ -150,17 +150,22 @@ int merge_Sort(int arr[], int SIZE)
     int mid = SIZE / 2;
     int left[mid];
     int right[SIZE - mid];
+
     for (int i = 0; i < mid; i++)
     {
         left[i] = arr[i];
     }
+
     for (int i = mid; i < SIZE; i++)
     {
         right[i - mid] = arr[i];
     }
+
     merge_Sort(left, mid);
     merge_Sort(right, SIZE - mid);
+
     int i = 0, j = 0, k = 0;
+
     while (i < mid && j < SIZE - mid)
     {
         if (left[i] < right[j])
@@ -176,6 +181,7 @@ int merge_Sort(int arr[], int SIZE)
         k++;
         counter++;
     }
+
     while (i < mid)
     {
         arr[k] = left[i];
@@ -183,6 +189,7 @@ int merge_Sort(int arr[], int SIZE)
         k++;
         counter++;
     }
+
     while (j < SIZE - mid)
     {
         arr[k] = right[j];
@@ -190,6 +197,7 @@ int merge_Sort(int arr[], int SIZE)
         k++;
         counter++;
     }
+
     return counter;
 }
 
