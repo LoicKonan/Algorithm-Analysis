@@ -54,7 +54,7 @@ int bubble_Sort(int arr[], int SIZE);
 int selection_Sort(int arr[], int SIZE);
 
 // Function prototype to
-int merge_Sort(int arr[], int SIZE);
+int quick_Sort(int arr[], int SIZE);
 
 // Function prototype to
 void printArray(int arr[], int SIZE);
@@ -83,8 +83,8 @@ int main()
 
 
     // Call the merge sort function.
-    int merge_sort_counter = merge_Sort(arr, SIZE);
-    cout << "\nerge Sort: " << merge_sort_counter << endl;
+    int quick_sort_counter = quick_Sort(arr, SIZE);
+    cout << "\nquick Sort: " << quick_sort_counter << endl;
     printArray(arr, SIZE);
 
 
@@ -92,6 +92,7 @@ int main()
     int bubble_counter = bubble_Sort(arr, SIZE);
     cout << "\nBubble Sort: " << bubble_counter << endl;
     printArray(arr, SIZE);
+
 
     // Sort the array using selection sort.
     int selection_counter = selection_Sort(arr, SIZE);
@@ -144,62 +145,50 @@ int selection_Sort(int arr[], int SIZE)
     return counter;
 }
 
-int merge_Sort(int arr[], int SIZE)
+int quick_Sort(int arr[], int SIZE)
 {
     int counter = 0;
-    int mid = SIZE / 2;
-    int left[mid];
-    int right[SIZE - mid];
-
-    for (int i = 0; i < mid; i++)
+    int pivot = arr[SIZE - 1];
+    int i = 0;
+    int j = SIZE - 1;
+    while (i < j)
     {
-        left[i] = arr[i];
-    }
-
-    for (int i = mid; i < SIZE; i++)
-    {
-        right[i - mid] = arr[i];
-    }
-
-    merge_Sort(left, mid);
-    merge_Sort(right, SIZE - mid);
-
-    int i = 0, j = 0, k = 0;
-
-    while (i < mid && j < SIZE - mid)
-    {
-        if (left[i] < right[j])
+        while (arr[i] < pivot)
         {
-            arr[k] = left[i];
             i++;
+            counter++;
         }
-        else
+        while (arr[j] > pivot)
         {
-            arr[k] = right[j];
-            j++;
+            j--;
+            counter++;
         }
-        k++;
-        counter++;
+
+        if (i < j)
+        {
+            swap(arr[i], arr[j]);
+            counter++;
+        }
     }
 
-    while (i < mid)
+    if (i == j)
     {
-        arr[k] = left[i];
-        i++;
-        k++;
+        swap(arr[i], arr[SIZE - 1]);
         counter++;
     }
 
-    while (j < SIZE - mid)
+    if (i < SIZE - 1)
     {
-        arr[k] = right[j];
-        j++;
-        k++;
-        counter++;
+        quick_Sort(arr, i + 1);
     }
-
+    
+    if (j > 0)
+    {
+        quick_Sort(arr + j, SIZE - j);
+    }
     return counter;
 }
+
 
 void printArray(int arr[], int SIZE)
 {
