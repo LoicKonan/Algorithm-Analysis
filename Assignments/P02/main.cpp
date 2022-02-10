@@ -92,17 +92,16 @@ int main()
     // Call the Bubble sort function.
     int bubble_counter = bubble_Sort(arr, NUMBER);
     cout << termcolor::red << "\nBubble Sort: " 
-         << bubble_counter << " ";
+         << bubble_counter << endl;
     printTime(bubble_counter);
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
-    printTime(bubble_counter);
 
 
     // Call the selection sort function.
     int selection_counter = selection_Sort(arr, NUMBER);
     cout << termcolor::yellow << "\nSelection Sort: " 
-         << selection_counter << " ";
+         << selection_counter << endl;
     printTime(selection_counter);
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
@@ -111,7 +110,7 @@ int main()
     // Call the Quick sort function.
     int quick_sort_counter = quick_Sort(arr, NUMBER);
     cout << termcolor::blue << "\nQuick Sort: " 
-         << quick_sort_counter << " ";
+         << quick_sort_counter << endl;
     printTime(quick_sort_counter);
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
@@ -120,7 +119,7 @@ int main()
     // Call the Merge sort function.
     int merge_counter = merge_sort(arr, NUMBER);
     cout << termcolor::green << "\nMerge Sort: " 
-         << merge_counter << " ";
+         << merge_counter << endl;
     printTime(merge_counter);
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
