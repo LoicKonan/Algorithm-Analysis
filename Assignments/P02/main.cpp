@@ -18,13 +18,53 @@ using namespace std;
 
 const int SIZE = 10;
 
+// Function prototype to swap two integers.
 void swap(int &a, int &b);
+
+// Function prototype to 
 int bubble_Sort(int arr[], int SIZE);
+
+// Function prototype to 
 int selection_Sort(int arr[], int SIZE);
+
+// Function prototype to
 int merge_Sort(int arr[], int SIZE);
+
+// Function prototype to
+void printArray(int arr[], int SIZE);
+
+// Function prototype to
+void header();
+
 
 int main()
 {
+    // Initialize the array to random values.
+    int arr[SIZE];
+    for (int i = 0; i < SIZE; i++)
+    {
+        arr[i] = rand() % 100;
+    }
+
+    // Print the array before sorting.
+    header();
+    printArray(arr, SIZE);
+
+    // Sort the array using bubble sort.
+    int bubble_counter = bubble_Sort(arr, SIZE);
+    cout << "Bubble Sort: " << bubble_counter << endl;
+
+    // Sort the array using selection sort.
+    int selection_counter = selection_Sort(arr, SIZE);
+    cout << "Selection Sort: " << selection_counter << endl;
+
+    // Sort the array using merge sort.
+    int merge_counter = merge_Sort(arr, SIZE);
+    cout << "Merge Sort: " << merge_counter << endl;
+
+    // Print the array after sorting.
+    printArray(arr, SIZE);
+
     return 0;
 }
 
@@ -122,4 +162,20 @@ int merge_Sort(int arr[], int SIZE)
         counter++;
     }
     return counter;
+}
+
+
+void printArray(int arr[], int SIZE)
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+
+void header()
+{
+
 }
