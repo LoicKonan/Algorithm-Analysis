@@ -13,6 +13,7 @@
 #include <cmath>
 #include <chrono>
 #include <random>
+#include <iomanip>
 
 using namespace std;
 
@@ -30,6 +31,29 @@ int main()
     
 }
 
+
+void fillArray(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = rand() % 100;
+    }
+}
+void printArray(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+void copyArray(int arr[], int arr2[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        arr2[i] = arr[i];
+    }
+}
 
 
 void swap(int &a, int &b)
