@@ -35,7 +35,7 @@ int main()
     
     fillArray(arr, n);
     copyArray(arr, arr2, n);
-    
+
 }
 
 
@@ -54,6 +54,8 @@ void printArray(int arr[], int n)
     }
     cout << endl; 
 }
+
+
 void copyArray(int arr[], int arr2[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -69,6 +71,7 @@ void swap(int &a, int &b)
     a = b;
     b = temp;
 }
+
 
 int bubblesort(int arr[], int n)
 {
@@ -87,6 +90,7 @@ int bubblesort(int arr[], int n)
     }
     return counter;
 }
+
 
 int selection(int arr[], int n)
 {
@@ -107,6 +111,7 @@ int selection(int arr[], int n)
     }
     return counter;
 }
+
 
 int merge(int arr[], int n)
 {
