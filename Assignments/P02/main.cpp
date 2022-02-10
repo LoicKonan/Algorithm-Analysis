@@ -79,33 +79,42 @@ int main()
     // Print the array before sorting.
     header(outfile);
 
-    cout << "Before sorting: \n";
+    cout  << termcolor::magenta << "Before sorting: ";
     printArray(arr, NUMBER);
+    cout  << termcolor::reset << endl;
 
 
     // Call the Bubble sort function.
     int bubble_counter = bubble_Sort(arr, NUMBER);
-    cout << "\nBubble Sort: " << bubble_counter << endl;
+    cout << termcolor::red << "\nBubble Sort: " 
+         << bubble_counter << endl;
     printArray(arr, NUMBER);
+    cout << termcolor::reset << endl;
 
 
     // Call the selection sort function.
     int selection_counter = selection_Sort(arr, NUMBER);
-    cout << "\nSelection Sort: " << selection_counter << endl;
+    cout << termcolor::yellow << "\nSelection Sort: " 
+         << selection_counter << endl;
     printArray(arr, NUMBER);
+    cout << termcolor::reset << endl;
 
 
     // Call the Quick sort function.
     int quick_sort_counter = quick_Sort(arr, NUMBER);
-    cout << "\nQuick Sort: " << quick_sort_counter << endl;
+    cout << termcolor::blue << "\nQuick Sort: " 
+         << quick_sort_counter << endl;
     printArray(arr, NUMBER);
+    cout << termcolor::reset << endl;
 
 
 
     // Call the Merge sort function.
     int merge_counter = merge_sort(arr, NUMBER);
-    cout << "\nMerge Sort: " << merge_counter << endl;
+    cout << termcolor::green << "\nMerge Sort: " 
+         << merge_counter << endl;
     printArray(arr, NUMBER);
+    cout << termcolor::reset << endl;
 
     return 0;
 }
