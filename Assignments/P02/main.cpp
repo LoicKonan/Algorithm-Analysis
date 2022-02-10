@@ -38,6 +38,7 @@
 #include <cmath>
 #include <chrono>
 #include <random>
+#include <fstream>
 #include <iomanip>
 
 using namespace std;
@@ -60,11 +61,15 @@ int merge_Sort(int arr[], int SIZE);
 void printArray(int arr[], int SIZE);
 
 // Function prototype to
-void header();
+void header(ofstream &outfile);
 
 
 int main()
 {
+    
+    ifstream infile;
+    ofstream outfile;
+    
     // Initialize the array to random values.
     int arr[SIZE];
     for (int i = 0; i < SIZE; i++)
@@ -73,23 +78,28 @@ int main()
     }
 
     // Print the array before sorting.
-    header();
+    header(outfile);
+    outfile << "Before sorting: " << endl;
     printArray(arr, SIZE);
 
     // Sort the array using bubble sort.
     int bubble_counter = bubble_Sort(arr, SIZE);
+    outfile << "Bubble sort counter: " << bubble_counter << endl;
     cout << "Bubble Sort: " << bubble_counter << endl;
 
     // Sort the array using selection sort.
     int selection_counter = selection_Sort(arr, SIZE);
     cout << "Selection Sort: " << selection_counter << endl;
+    outfile << "Selection sort counter: " << selection_counter << endl;
 
     // Sort the array using merge sort.
     int merge_counter = merge_Sort(arr, SIZE);
     cout << "Merge Sort: " << merge_counter << endl;
+    outfile << "Merge sort counter: " << merge_counter << endl;
 
     // Print the array after sorting.
     printArray(arr, SIZE);
+
 
     return 0;
 }
@@ -201,7 +211,33 @@ void printArray(int arr[], int SIZE)
 }
 
 
-void header()
-{
 
+void header(ofstream &outfile)
+{
+    outfile << "*****************************************************************************\n";
+    outfile << "*";
+    outfile << "\n*    Author:           Loic Konan";
+    outfile << "\n*    Email:            loickonan.lk@gmail.com";
+    outfile << "\n*    Label:            Sorting Algorithms";
+    outfile << "\n*    Title:            Program 2";
+    outfile << "\n*    Course:           CMPS 5243,  Spring 2022, Dr. Johnson";
+    outfile << "\n*    Semester:         Spring 2022";
+    outfile << "\n*    Description:";
+    outfile << "\n*";
+    outfile << "\n*                  This program implements the following sorting algorithms:";
+    outfile << "\n*";
+    outfile << "\n*                     - Bubble Sort";
+    outfile << "\n*                     - Selection Sort";
+    outfile << "\n*                     - Merge Sort"; 
+    outfile << "\n*";                    
+    outfile << "\n*";               
+    outfile << "\n*;";                    
+    outfile << "\n*    Files:"; 
+    outfile << "\n*         main.cpp";
+    outfile << "\n*";
+    outfile << "\n*    Usage:";
+    outfile << "\n*           main.cpp          : driver program";
+    outfile << "\n*";
+    outfile << "\n*";
+    outfile << "\n******************************************************************************\n\n";
 }
