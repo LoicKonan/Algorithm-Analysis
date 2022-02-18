@@ -112,7 +112,6 @@ int main()
     printArray(arr, NUMBER);
     cout << termcolor::reset << endl;
 
-
     // Call the Merge sort function.
     int merge_counter = merge_sort(arr, NUMBER);
     cout << termcolor::green << "\nMerge Sort: " << merge_counter << endl;
@@ -158,7 +157,6 @@ int bubble_Sort(int arr[], int NUMBER)
     cout << termcolor::green << time.Seconds() 
          << termcolor::reset
          << " seconds to sort the Arrays." << endl;
-    
     return counter;
 }
 
