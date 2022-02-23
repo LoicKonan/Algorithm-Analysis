@@ -60,7 +60,93 @@ int main()
     cout << "Array 3 sorted with Counting Sort: \n";
     printArray(myArray3);
 
-
     return 0;
 }
 
+void fillArray(int arr[])
+{
+    srand(time(NULL));
+    for (int i = 0; i < SIZE; i++)
+        arr[i] = rand() % 100;
+}
+
+void copyArray(int arr1[], int arr2[])
+{
+    for (int i = 0; i < SIZE; i++)
+        arr2[i] = arr1[i];
+}
+
+void printArray(int arr[])
+{
+    for (int i = 0; i < SIZE; i++)
+        cout << setw(4) << arr[i];
+    cout << "\n\n";
+}
+
+void swap(int &x, int &y)
+{
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+int bubbleSort(int arr[])
+{
+    int bubblecount = 0;
+    for (int i = 0; i < SIZE - 1; i++)
+    {
+        for (int j = 0; j < SIZE - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+                bubblecount++;
+            }
+        }
+    }
+    return bubblecount;
+}
+
+int partition(int a[], int beg, int end)
+{
+    int pivot = a[beg];
+    int i = beg + 1;
+    int j = end;
+    while (i <= j)
+    {
+        while (i <= end && a[i] <= pivot)
+            i++;
+        while (j >= beg && a[j] > pivot)
+            j--;
+        if (i < j)
+            swap(a[i], a[j]);
+    }
+    swap(a[beg], a[j]);
+    return j;
+}
+
+void quickSort(int a[], int p, int r)
+{
+    if (p < r)
+    {
+        int q = partition(a, p, r);
+        quickSort(a, p, q - 1);
+        quickSort(a, q + 1, r);
+    }
+}
+
+void countingsSort(int arr[])
+{
+    int max = arr[0];
+    for (int i = 1; i < SIZE; i++)
+        if (arr[i] > max)
+            max = arr[i];
+    int count[max + 1];
+    for (int i = 0; i <= max; i++)
+        count[i] = 0;
+    for (int i = 0; i < SIZE; i++)
+        count[arr[i]]++;
+    for (int i = 0, j = 0; i <= max; i++)
+        while (count[i]-- > 0)
+            arr[j++] = i;
+}
