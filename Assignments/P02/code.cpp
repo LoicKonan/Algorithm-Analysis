@@ -1,4 +1,4 @@
-// Implement 3 different sorting algorithms on arrays of size 5000. 
+// Implement 3 different sorting algorithms on arrays of size 10. 
 // You may choose the sorting algorithms, but select one sort from each 
 // runtime category: O(n2), O(n log n), O(n)
 
@@ -10,9 +10,18 @@
 
 
 #include <iostream>
-#include <random>
+#include <iomanip>
+#include <time.h>
 
 using namespace std;
 
-const int NUMBER = 5000;
+const int SIZE = 10;
+
+void fillArray(int arr[]);
+void copyArray(int arr1[], int arr2[]);
+void printArray(int arr[]);
+void swap(int &x, int &y);
+int bubbleSort(int arr[]);
+void selectionSort(int arr[]);
+void insertionSort(int arr[]);
 
