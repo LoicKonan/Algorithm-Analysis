@@ -22,12 +22,45 @@ void copyArray(int arr1[], int arr2[]);
 void printArray(int arr[]);
 void swap(int &x, int &y);
 int bubbleSort(int arr[]);
-void selectionSort(int arr[]);
 int partition(int a[], int beg, int end);
 void quickSort(int a[], int p, int r);
 void countingsSort(int arr[]);
 
 int main()
 {
-    
+    // Initialize the array to random values.
+    int myArray1[SIZE], myArray2[SIZE], myArray3[SIZE];
+    // Initialize the counter to zero and increment inside loops of the associated sort.
+    int bubblecount = 0;
+
+    // 
+    fillArray(myArray1);
+
+    // 
+    copyArray(myArray1, myArray2);
+    copyArray(myArray1, myArray3);
+
+    cout << "Array 1:  \n";
+    printArray(myArray1);
+
+    bubblecount = bubbleSort(myArray1);
+    cout << "Bubble count:  " << bubblecount << endl;
+    cout << "Array 1 sorted with Bubble Sort: \n";
+    printArray(myArray1);
+
+    cout << "Array 2:  \n";
+    printArray(myArray2);
+    quickSort(myArray2, 0, SIZE - 1);
+    cout << "Array 2 sorted with Quick Sort: \n";
+    printArray(myArray2);
+
+    cout << "Array 3:  \n";
+    printArray(myArray3);
+    countingsSort(myArray3);
+    cout << "Array 3 sorted with Counting Sort: \n";
+    printArray(myArray3);
+
+
+    return 0;
 }
+
