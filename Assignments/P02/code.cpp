@@ -53,3 +53,94 @@ int main()
 }
 
 
+void fillArray(int arr[])
+{
+  srand(time(NULL));
+  for(int i = 0; i < SIZE; i++)
+    arr[i] = rand() % 100;
+}
+void copyArray(int arr1[], int arr2[])
+{
+  for(int i = 0; i < SIZE; i++)
+    arr2[i] = arr1[i];
+}
+
+void printArray(int arr[])
+{
+  for(int i = 0; i < SIZE; i++)
+    cout << setw(4) << arr[i];
+  cout << "\n\n";
+}
+
+void swap(int &x, int &y)
+{
+  int temp = x;
+  x = y;
+  y = temp;
+}
+
+int bubbleSort(int arr[])
+{
+  int bubblecount = 0;
+  for(int i = 0; i < SIZE; i++)
+  {
+    for(int j = 0; j < SIZE - 1; j++)
+    {
+      if(arr[j] > arr[j+1])
+      {
+        swap(arr[j], arr[j+1]);
+        bubblecount++;
+      }
+    }
+  }
+  return bubblecount;
+}
+
+void selectionSort(int arr[])
+{
+  for(int i = 0; i < SIZE; i++)
+  {
+    int min = i;
+    for(int j = i + 1; j < SIZE; j++)
+    {
+      if(arr[j] < arr[min])
+        min = j;
+    }
+    swap(arr[i], arr[min]);
+  }
+}
+
+void insertionSort(int arr[])
+{
+  for(int i = 1; i < SIZE; i++)
+  {
+    int j = i;
+    while(j > 0 && arr[j] < arr[j-1])
+    {
+      swap(arr[j], arr[j-1]);
+      j--;
+    }
+  }
+}
+
+void radixSort(int arr[])
+{
+  int max = arr[0];
+  for(int i = 1; i < SIZE; i++)
+  {
+    if(arr[i] > max)
+      max = arr[i];
+  }
+  int exp = 1;
+  while(max/exp > 0)
+  {
+    int bucket[10] = {0};
+    for(int i = 0; i < SIZE; i++)
+      bucket[(arr[i]/exp)%10]++;
+    for(int i = 1; i < 10; i++)
+      bucket[i] += bucket[i-1];
+    for(int i = SIZE - 1; i >= 0; i--)
+      arr[bucket[(arr[i]/exp)%10]-- - 1] = arr[i];
+    exp *= 10;
+  }
+}
