@@ -70,7 +70,7 @@ void header();
 // Main function.
 int main()
 {
-
+    
 }
 
 // Function to fill the array.
@@ -206,7 +206,8 @@ void countSort(int arr[], int n, int exp)
         count[i] += count[i - 1];
  
     // Build the output array
-    for (i = n - 1; i >= 0; i--) {
+    for (i = n - 1; i >= 0; i--) 
+    {
         output[count[(arr[i] / exp) % 10] - 1] = arr[i];
         count[(arr[i] / exp) % 10]--;
     }
