@@ -108,7 +108,7 @@ int main()
     cout << "Bubble count:  "    << bubblecount << endl; 
     cout << "Time Complexity: "  << termcolor::green 
          << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
-    cout << "Array 1 sorted with Bubble Sort: \n";
+    cout << "Bubble Sort: \n";
     printArray(myArray1);
 
 
@@ -120,7 +120,7 @@ int main()
     cout << "QuickSort count:  " << quickcount << endl;
     cout << "Time Complexity: " << termcolor::green 
          << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
-    cout << "Array 2 sorted with Quick Sort: \n";
+    cout << "Quick Sort: \n";
     printArray(myArray2);
 
 
@@ -130,7 +130,7 @@ int main()
     cout << "RadixSort count:  " << RadixCount << endl;
     cout << "Time Complexity: " << termcolor::green 
          << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
-    cout << "Array 3 sorted with Radix Sort: \n";
+    cout << "Radix Sort: \n";
     printArray(myArray3);
 
     return 0;
@@ -272,6 +272,7 @@ void countSort(int arr[], int n, int exp)
     for (i = 1; i < 10; i++)
     {
         count[i] += count[i - 1];
+        RadixCount++;
     }
  
     // Build the output array
@@ -299,7 +300,6 @@ void radixsort(int arr[], int n)
     for (int exp = 1; m / exp > 0; exp *= 10)
         {
             countSort(arr, n, exp);
-            RadixCount++;
         }
 
 }
