@@ -51,8 +51,7 @@ private:
 
 public:
     Timer()
-    {
-    }
+    {}
 
     void Start(){
         start = Time::now();
@@ -62,20 +61,17 @@ public:
         end = Time::now();
     }
 
-    double Seconds(){
+    double Seconds()
+    {
         auto dur = end - start;
         auto secs = duration_cast<Fsec>(dur);
         return secs.count();
     }
 
-    long MilliSeconds(){
+    long MilliSeconds()
+    {
         auto dur = end - start;
         auto millis = duration_cast<Msec>(dur);
         return millis.count();
     }
-
-    // void Sleep(long x){
-    //     sleep_for(Msec(x));
-    // }
-
 };

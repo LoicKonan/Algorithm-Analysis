@@ -38,7 +38,7 @@
 
 using namespace std;
 
-const int _SIZE    = 100;
+const int _SIZE    = 5000;
 int quickcount     = 0;
 int RadixCount     = 0;
 
@@ -113,9 +113,7 @@ int main()
 
 
 
-    // Print the Original array Then handle the QuickSort.
-    // cout << "Array 2:  \n";
-    // printArray(myArray2);
+   
     clock.Start();
     quickSort(myArray2, 0, _SIZE - 1);
     clock.End();
@@ -126,9 +124,6 @@ int main()
     printArray(myArray2);
 
 
-    // Print the Original array Then handle the RadixSort.
-    // cout << "Array 3:  \n";
-    // printArray(myArray3);
     clock.Start();
     radixsort(myArray3, n);
     clock.End();
@@ -277,7 +272,6 @@ void countSort(int arr[], int n, int exp)
     for (i = 1; i < 10; i++)
     {
         count[i] += count[i - 1];
-        RadixCount++;
     }
  
     // Build the output array
@@ -305,6 +299,7 @@ void radixsort(int arr[], int n)
     for (int exp = 1; m / exp > 0; exp *= 10)
         {
             countSort(arr, n, exp);
+            RadixCount++;
         }
 
 }
