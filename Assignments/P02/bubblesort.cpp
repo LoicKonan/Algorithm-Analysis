@@ -22,7 +22,8 @@ int bubbleSort(int arr[]);
 void selectionSort(int arr[]);
 void insertionSort(int arr[]);
 
-int main() {
+int main() 
+{
   int myArray1[SIZE], myArray2[SIZE], myArray3[SIZE];
   int bubblecount = 0;
   fillArray(myArray1);

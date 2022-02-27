@@ -43,90 +43,27 @@ const int NUMBER = 50;
 // Function prototype to swap two integers.
 void swap(int &a, int &b);
 
-// Function prototype to
+// Function prototype for bubble sort.
 int bubble_Sort(int arr[], int NUMBER);
 
-// Function prototype to
-int selection_Sort(int arr[], int NUMBER);
-
-// Function prototype to
+// Function prototype to quick sort.
 int quick_Sort(int arr[], int NUMBER);
 
-// Function prototype to
-int merge_sort(int arr[], int NUMBER);
+// Function prototype to Radix Sort
+int radix_Sort(int arr[], int NUMBER);
 
-// Function prototype to
+// Function prototype to print the array.
 void printArray(int arr[], int NUMBER);
 
-// Function prototype to print the time.
-void printTime(int);
-
-// Function prototype to
+// Function prototype to print the header.
 void header(ofstream &outfile);
 
+// Main function.
 int main()
-{
-
-    ifstream infile;
-    ofstream outfile;
-
-    // Initialize the array to random values.
-    int arr[NUMBER];
-    
-    // set seed to time(0)
-    srand(time(0));
-
-    for (int i = 0; i < NUMBER; i++)
-    {
-        arr[i] = rand() % 5000;
-    }
-
-    // Print the array before sorting.
-    header(outfile);
-
-    cout  << termcolor::magenta << "Before sorting: \n";
-    printArray(arr, NUMBER);
-    cout  << termcolor::reset << endl;
+{}
 
 
-    // Call the Bubble sort function.
-    int bubble_counter = bubble_Sort(arr, NUMBER);
-    cout << termcolor::red << "\nBubble Sort: " << bubble_counter << endl;
-    printTime(bubble_counter);
-    printArray(arr, NUMBER);
-    cout << termcolor::reset << endl;
-
-
-    // Call the selection sort function.
-    int selection_counter = selection_Sort(arr, NUMBER);
-    cout << termcolor::yellow << "\nSelection Sort: " << selection_counter << endl;
-    printTime(selection_counter);
-    printArray(arr, NUMBER);
-    cout << termcolor::reset << endl;
-
-
-    // Call the Quick sort function.
-    int quick_sort_counter = quick_Sort(arr, NUMBER);
-    cout << termcolor::blue << "\nQuick Sort: " << quick_sort_counter << endl;
-    printTime(quick_sort_counter);
-    printArray(arr, NUMBER);
-    cout << termcolor::reset << endl;
-
-    // Call the Merge sort function.
-    int merge_counter = merge_sort(arr, NUMBER);
-    cout << termcolor::green << "\nMerge Sort: " << merge_counter << endl;
-    printTime(merge_counter);
-    printArray(arr, NUMBER);
-    cout << termcolor::reset << endl;
-
-    return 0;
-}
-
-void printTime(int counter)
-{
-    cout << termcolor::cyan << "Time: " << counter << " Milliseconds" << endl;
-}
-
+// Function to swap two integers.
 void swap(int &a, int &b)
 {
     int temp = a;
@@ -134,189 +71,31 @@ void swap(int &a, int &b)
     b = temp;
 }
 
-
+// Function for bubble sort.
 int bubble_Sort(int arr[], int NUMBER)
-{   
-    Timer time;                             // Create a timer.
-    time.Start();                           // Start the timer.
-
-    int counter = 0;                        // Initialize the counter.
-    for (int i = 0; i < NUMBER; i++)
+{
+    int i, j;
+    for (i = 0; i < NUMBER - 1; i++)
     {
-        for (int j = 0; j < NUMBER - 1; j++)
+        for (j = 0; j < NUMBER - i - 1; j++)
         {
             if (arr[j] > arr[j + 1])
             {
                 swap(arr[j], arr[j + 1]);
-                counter++;
             }
         }
     }
-
-    time.End();                             // End the timer.
-    cout << termcolor::green << time.Seconds() 
-         << termcolor::reset
-         << " seconds to sort the Arrays." << endl;
-    return counter;
+    return 0;
 }
 
-
-int selection_Sort(int arr[], int NUMBER)
-{
-    Timer time;                             // Create a timer.
-    time.Start();                           // Start the timer.
-
-    int counter = 0;
-    for (int i = 0; i < NUMBER; i++)
-    {
-        int min = i;
-        for (int j = i + 1; j < NUMBER; j++)
-        {
-            if (arr[j] < arr[min])
-            {
-                min = j;
-            }
-        }
-        swap(arr[i], arr[min]);
-        counter++;
-    }
-
-    time.End();                            // End the timer.
-    cout << termcolor::green << time.Seconds() 
-         << termcolor::reset
-         << " seconds to sort the Arrays." << endl;
-
-    return counter;
-
-}
-
-
-int merge_sort(int arr[], int NUMBER)
-{
-    Timer time;                             // Create a timer.
-    time.Start();                           // Start the timer.
-
-    int counter = 0;
-    int mid = NUMBER / 2;
-    int left[mid];
-    int right[NUMBER - mid];
-
-    for (int i = 0; i < NUMBER; i++)
-    {
-        if (i < mid)
-        {
-            left[i] = arr[i];
-        }
-        else
-        {
-            right[i - mid] = arr[i];
-        }
-    }
-
-    if (NUMBER > 1)
-    {
-        counter += merge_sort(left, mid);
-        counter += merge_sort(right, NUMBER - mid);
-    }
-
-    int i = 0;
-    int j = 0;
-    int k = 0;
-
-    while (i < mid && j < NUMBER - mid)
-    {
-        if (left[i] < right[j])
-        {
-            arr[k] = left[i];
-            i++;
-        }
-        else
-        {
-            arr[k] = right[j];
-            j++;
-        }
-        k++;
-        counter++;
-    }
-
-    while (i < mid)
-    {
-        arr[k] = left[i];
-        i++;
-        k++;
-        counter++;
-    }
-
-    while (j < NUMBER - mid)
-    {
-        arr[k] = right[j];
-        j++;
-        k++;
-        counter++;
-    }
-
-    time.End();                       // End the timer.
-    cout << termcolor::green << time.Seconds() 
-         << termcolor::reset
-         << " seconds to sort the Arrays." << endl;
-        
-    return counter;
-}
-
-
+// Function to quick sort.
 int quick_Sort(int arr[], int NUMBER)
-{
-    Timer time;                             // Create a timer.
-    time.Start();                           // Start the timer.
 
-    int counter = 0;
-    int pivot = arr[NUMBER - 1];
-    int i = 0;
-    int j = NUMBER - 1;
-    while (i < j)
-    {
-        while (arr[i] < pivot)
-        {
-            i++;
-            counter++;
-        }
-        while (arr[j] > pivot)
-        {
-            j--;
-            counter++;
-        }
-        if (i < j)
-        {
-            swap(arr[i], arr[j]);
-            counter++;
-        }
-    }
-    if (i - 1 > 0)
-    {
-        quick_Sort(arr, i - 1);
-    }
-    if (j + 1 < NUMBER - 1)
-    {
-        quick_Sort(arr + j + 1, NUMBER - j - 2);
-    }
+// Function to Radix Sort
+int radix_Sort(int arr[], int NUMBER);
 
-    time.End();                       // End the timer.
-    cout << termcolor::green << time.Seconds() 
-         << termcolor::reset
-         << " seconds to sort the Arrays." << endl;
-
-    return counter;
-}
-
-
-void printArray(int arr[], int NUMBER)
-{
-    for (int i = 0; i < NUMBER; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
+// Function to print the array.
+void printArray(int arr[], int NUMBER);
 
 void header(ofstream &outfile)
 {
