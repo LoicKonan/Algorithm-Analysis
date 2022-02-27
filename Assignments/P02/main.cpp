@@ -43,26 +43,29 @@ const int _SIZE = 50;
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
 
-// Function prototype to copy an array
+// Funtion prototype to copy the Arrays.
 void copyArray(int arr1[], int arr2[]);
 
-// Function prototype to swap two integers.
-void swap(int &a, int &b);
-
-// Function prototype for bubble sort.
-int bubble_Sort(int arr[], int NUMBER);
-
-// Function prototype to quick sort.
-int quick_Sort(int arr[], int NUMBER);
-
-// Function prototype to Radix Sort
-int radix_Sort(int arr[], int NUMBER);
-
-// Function prototype for countSort.
-void countSort(int arr[], int n, int exp);
-
-// Function prototype to print the array.
+// Function prototype to print the Arrays.
 void printArray(int arr[]);
+
+// Function prototype to swap the values of two integers.
+void swap(int &x, int &y);
+
+// Function prototype to sort the Arrays using Bubble Sort.
+int bubbleSort(int arr[]);
+
+// Function prototype for partitioning the Arrays.
+int partition (int arr[], int low, int high);
+
+// Function prototype to sort the Arrays using Quick Sort.
+void quickSort(int arr[], int low, int high);
+
+// Function prototype to sort the Arrays using Radix Sort.
+void radixsort(int arr[], int n);
+
+// Function prototype to sort the Arrays using Counting Sort.
+void countSort(int arr[], int n, int exp);
 
 // Function prototype to print the header.
 void header();
@@ -70,7 +73,45 @@ void header();
 // Main function.
 int main()
 {
-    
+    int myArray1[_SIZE];
+    int myArray2[_SIZE];
+    int myArray3[_SIZE];
+
+    int bubblecount    = 0;
+    int quickcount     = 0;
+    int CountingCount  = 0;
+
+
+    fillArray(myArray1);
+    copyArray(myArray1, myArray2);
+    copyArray(myArray1, myArray3);
+
+
+    cout << "Array 1:  \n";
+    printArray(myArray1);
+    bubblecount = bubbleSort(myArray1);
+    cout << "Bubble count:  " << bubblecount << endl;
+    cout << "Array 1 sorted with Bubble Sort: \n";
+    printArray(myArray1);
+
+
+    cout << "Array 2:  \n";
+    printArray(myArray2);
+    quickSort(myArray2, 0, _SIZE - 1);
+    cout << "QuickSort count:  " << quickcount << endl;
+    cout << "Array 2 sorted with Quick Sort: \n";
+    printArray(myArray2);
+
+    int n = sizeof(myArray3) / sizeof(myArray3[0]);
+
+    cout << "Array 3:  \n";
+    printArray(myArray3);
+    radixsort(myArray3, n);
+    cout << "radix count:  " << CountingCount << endl;
+    cout << "Array 3 sorted with Radix Sort: \n"; 
+    printArray(myArray3);
+
+    return 0;
 }
 
 // Function to fill the array.
