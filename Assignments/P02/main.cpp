@@ -39,6 +39,7 @@
 using namespace std;
 
 const int _SIZE = 10;
+int quickcount = 0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
@@ -56,7 +57,7 @@ void swap(int &x, int &y);
 int bubbleSort(int arr[]);
 
 // Function prototype for partitioning the Arrays.
-int partition (int arr[], int low, int high);
+int partition (int arr[], int low, int high, int &quickcount);
 
 // Function prototype to sort the Arrays using Quick Sort.
 void quickSort(int arr[], int low, int high);
@@ -80,7 +81,6 @@ int main()
 
     // Initialize the counters.
     int bubblecount    = 0;
-    int quickcount     = 0;
     int CountingCount  = 0;
 
     // n is the size of the array.
@@ -162,6 +162,7 @@ int bubbleSort(int arr[])
   bool swapped = true;
   int j = 0;
   int bubblecount = 0;
+
   // Continue to loop until
   // no swaps have occurred. 
   while (swapped)
@@ -202,6 +203,7 @@ int partition (int arr[], int low, int high)
  
     for (int j = low; j <= high - 1; j++)
     {
+        quickcount++;
         // If current element is smaller than the pivot
         if (arr[j] < pivot)
         {
