@@ -72,21 +72,31 @@ void header();
 
 // Main function.
 int main()
-{
+{   
+    // Initialize the arrays.
     int myArray1[_SIZE];
     int myArray2[_SIZE];
     int myArray3[_SIZE];
 
+    // Initialize the counters.
     int bubblecount    = 0;
     int quickcount     = 0;
     int CountingCount  = 0;
 
+    // n is the size of the array.
+    int n = sizeof(myArray3) / sizeof(myArray3[0]);
 
+    // Call the fillArrays function.
     fillArray(myArray1);
+
+    // Call the copyArrays function, and pass the arrays.
     copyArray(myArray1, myArray2);
     copyArray(myArray1, myArray3);
 
+    // Print the header.
+    header();
 
+    // Print the Original array Then handle the BubbleSort.
     cout << "Array 1:  \n";
     printArray(myArray1);
     bubblecount = bubbleSort(myArray1);
@@ -95,6 +105,7 @@ int main()
     printArray(myArray1);
 
 
+    // Print the Original array Then handle the QuickSort.
     cout << "Array 2:  \n";
     printArray(myArray2);
     quickSort(myArray2, 0, _SIZE - 1);
@@ -102,8 +113,8 @@ int main()
     cout << "Array 2 sorted with Quick Sort: \n";
     printArray(myArray2);
 
-    int n = sizeof(myArray3) / sizeof(myArray3[0]);
 
+    // Print the Original array Then handle the RadixSort.
     cout << "Array 3:  \n";
     printArray(myArray3);
     radixsort(myArray3, n);
