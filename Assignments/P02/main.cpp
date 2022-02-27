@@ -111,10 +111,9 @@ int main()
     // Print the header.
     header();
 
-
     int number = 20;
 
-    while(number)
+    for(int i = 0; i < number; i++)
     {
     
     bubble_time *= 1e-9;
@@ -146,8 +145,6 @@ int main()
     quickcount++;
     bubblecount++;
     
-    number--;
-
     }
     
     cout << "RadixCount: " << RadixCount << endl;
@@ -155,13 +152,13 @@ int main()
     cout << "Bubble Count: " << bubblecount << endl;
     cout << endl;
 
-    average_radix_Time = radix_time / 20;
-    average_quick_Time = quick_time / 20;
-    average_bubble_Time = bubble_time / 20;
+    average_radix_Time = radix_time / number;
+    average_quick_Time = quick_time / number;
+    average_bubble_Time = bubble_time / number;
 
-    average_radix_Count = RadixCount / 20;
-    average_quick_Count = quickcount / 20;
-    average_bubble_Count = bubblecount / 20;
+    average_radix_Count = RadixCount / number;
+    average_quick_Count = quickcount / number;
+    average_bubble_Count = bubblecount / number;
 
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
