@@ -102,8 +102,9 @@ int main()
     cout << "Array 1:  \n";
     printArray(myArray1);
 
-
+    clock.Start();
     bubblecount = bubbleSort(myArray1);
+    clock.End();
     cout << "Bubble count:  "    << bubblecount << endl; 
     cout << "Time Complexity: "  << termcolor::green 
          << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
@@ -277,7 +278,6 @@ void countSort(int arr[], int n, int exp)
     {
         count[i] += count[i - 1];
         RadixCount++;
-
     }
  
     // Build the output array
