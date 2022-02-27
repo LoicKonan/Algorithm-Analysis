@@ -80,8 +80,8 @@ int main()
     int myArray3[_SIZE];
 
     // Initialize the counters.
-    int bubblecount    = 0;
-    int CountingCount  = 0;
+    int bubblecount;
+    int CountingCount;
 
     // n is the size of the array.
     int n = sizeof(myArray3) / sizeof(myArray3[0]);
@@ -121,6 +121,7 @@ int main()
     cout << "radix count:  " << CountingCount << endl;
     cout << "Array 3 sorted with Radix Sort: \n"; 
     printArray(myArray3);
+
 
     return 0;
 }
@@ -172,7 +173,7 @@ int bubbleSort(int arr[])
     // Because bubbleSort puts the last value in the 
     // correct position eachtime through the loop, the 
     // limit of the inner loop decreases by one each
-    // iteration of the outer loop (_SIZE -j)
+    // iteration of the outer loop (_SIZE - j)
     for(int i = 1; i < _SIZE - j; i++)
     {
       bubblecount++;
@@ -277,6 +278,7 @@ void countSort(int arr[], int n, int exp)
 // The main function to that sorts arr[] of _SIZE n using Radix Sort
 void radixsort(int arr[], int n)
 {
+    int CountingCount  = 0;
     // Find the maximum number to know number of digits
     int m = getMax(arr, n);
  
@@ -284,7 +286,10 @@ void radixsort(int arr[], int n)
     // of passing digit number, exp is passed. exp is 10^i
     // where i is current digit number
     for (int exp = 1; m / exp > 0; exp *= 10)
-        countSort(arr, n, exp);
+        {
+            countSort(arr, n, exp);
+            CountingCount++;
+        }
 }
  
 
