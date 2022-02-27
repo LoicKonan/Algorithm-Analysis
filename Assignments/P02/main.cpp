@@ -33,20 +33,19 @@
 #include <fstream>
 #include <iomanip>
 #include <time.h>
-#include "Timer.hpp"
 #include "termcolor.hpp"
 #include <chrono>
 
 
 using namespace std;
 
-const int _SIZE    = 5000;
+const int _SIZE    = 100000;
 int quickcount     = 0;
 int RadixCount     = 0;
 
-double quick_time  = 0;
-double radix_time  = 0;
-double bubble_time = 0;
+double quick_time  = 0.0;
+double radix_time  = 0.0;
+double bubble_time = 0.0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
