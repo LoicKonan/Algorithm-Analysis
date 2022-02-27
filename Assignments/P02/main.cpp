@@ -38,7 +38,7 @@
 
 using namespace std;
 
-const int _SIZE   = 50;
+const int _SIZE   = 10;
 int quickcount    = 0;
 int CountingCount = 0;
 
