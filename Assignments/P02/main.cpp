@@ -38,11 +38,11 @@
 
 using namespace std;
 
-const int _SIZE    = 100;
+const int _SIZE    = 5000;
 const int SEED     = 20;
 
-int quickcount     = 0;
-int RadixCount     = 0;
+double quickcount  = 0;
+double RadixCount  = 0;
 
 double quick_time  = 0.0;
 double radix_time  = 0.0;
@@ -91,7 +91,7 @@ int main()
 
 
     // Initialize the counters.
-    int bubblecount;
+    double bubblecount;
 
     // n is the size of the array.
     int n = sizeof(myArray3) / sizeof(myArray3[0]);
@@ -117,7 +117,7 @@ int main()
     bubblecount = bubbleSort(myArray1);
     cout << "Bubble count:  "    << bubblecount << endl; 
     cout << "Time Complexity: "  << termcolor::green << fixed
-         << bubble_time << setprecision(9) << termcolor::reset << " sec\n" <<  endl;
+         << bubble_time << setprecision(3) << termcolor::reset << " sec\n" <<  endl;
 
 
 
@@ -125,14 +125,14 @@ int main()
     quickSort(myArray2, 0, _SIZE - 1);
     cout << "QuickSort count:  " << quickcount << endl;
     cout << "Time Complexity: " << termcolor::green << fixed 
-         << quick_time << setprecision(9) << termcolor::reset << " sec\n" <<  endl;
+         << quick_time << setprecision(3) << termcolor::reset << " sec\n" <<  endl;
 
 
     radix_time *= 1e-9;
     radixsort(myArray3, n);
     cout << "RadixSort count:  " << RadixCount << endl;
     cout << "Time Complexity: " << termcolor::green << fixed
-         << radix_time << setprecision(9) << termcolor::reset << " sec\n" <<  endl;
+         << radix_time << setprecision(3) << termcolor::reset << " sec\n" <<  endl;
     
     radix_time++;
     quick_time++;
@@ -144,45 +144,46 @@ int main()
     }
 
     // The average time complexity of the three algorithms.
-    radix_time /= number;
-    quick_time /= number;
+    radix_time  /= number;
+    quick_time  /= number;
     bubble_time /= number;
 
     // The average number of comparisons for the three algorithms.
-    RadixCount /= number;
-    quickcount /= number;
+    RadixCount  /= number;
+    quickcount  /= number;
     bubblecount /= number;
 
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
-         << bubble_time << setprecision(9) << termcolor::reset << " sec" <<  endl;
+         << bubble_time << setprecision(3) << termcolor::reset << " sec" <<  endl;
     cout << "Average Bubble Sort Count: " << bubblecount << endl << endl;
 
 
     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
-         << quick_time << setprecision(9) << termcolor::reset << " sec" <<  endl;
+         << quick_time << setprecision(3) << termcolor::reset << " sec" <<  endl;
     cout << "Average Quick Sort Count: " << quickcount << endl << endl;
 
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
-         << radix_time << setprecision(9) << termcolor::reset << " sec" <<  endl;
+         << radix_time << setprecision(3) << termcolor::reset << " sec" <<  endl;
     cout << "Average Radix Sort Count: " << RadixCount << endl << endl;
 
 
     return 0;
 }
 
-//Set & Display the seed value
+// Set the seed value
 void Seed() 
 {
-    srand(SEED);
+    for (int i = 0; i < SEED; i++)
+        srand(i);
 }
 
 // Function to fill the array.
 void fillArray(int arr[])
 {
   for(int i = 0; i < _SIZE; i++)
-    arr[i] = rand() % 100;
+    arr[i] = rand() % 5000;
 }
 
 // Function to copy an array.
