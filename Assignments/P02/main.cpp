@@ -28,7 +28,6 @@
 #include <ctime>
 #include <cstdlib>
 #include <cmath>
-#include <chrono>
 #include <random>
 #include <fstream>
 #include <iomanip>
@@ -39,7 +38,7 @@
 
 using namespace std;
 
-const int _SIZE    = 100000;
+const int _SIZE    = 5000;
 int quickcount     = 0;
 int RadixCount     = 0;
 
@@ -110,8 +109,8 @@ int main()
     bubble_time *= 1e-9;
     bubblecount = bubbleSort(myArray1);
     cout << "Bubble count:  "    << bubblecount << endl; 
-    cout << "Time Complexity: "  << termcolor::green 
-         << bubble_time << termcolor::reset << setprecision(9) << " sec\n" <<  endl;
+    cout << "Time Complexity: "  << termcolor::green << fixed
+         << bubble_time << setprecision(9) << termcolor::reset << " sec\n" <<  endl;
     // cout << "Bubble Sort: \n";
     // printArray(myArray1);
 
@@ -120,8 +119,8 @@ int main()
     quick_time *= 1e-9;
     quickSort(myArray2, 0, _SIZE - 1);
     cout << "QuickSort count:  " << quickcount << endl;
-    cout << "Time Complexity: " << termcolor::green 
-         << quick_time << termcolor::reset << setprecision(9) << " sec\n" <<  endl;
+    cout << "Time Complexity: " << termcolor::green << fixed 
+         << quick_time << setprecision(9) << termcolor::reset << " sec\n" <<  endl;
     // cout << "Quick Sort: \n";
     // printArray(myArray2);
 
@@ -129,8 +128,8 @@ int main()
     radix_time *= 1e-9;
     radixsort(myArray3, n);
     cout << "RadixSort count:  " << RadixCount << endl;
-    cout << "Time Complexity: " << termcolor::green 
-         << radix_time << termcolor::reset << setprecision(9) << " sec\n" <<  endl;
+    cout << "Time Complexity: " << termcolor::green << fixed
+         << radix_time << setprecision(9) << termcolor::reset << " sec\n" <<  endl;
     // cout << "Radix Sort: \n";
     // printArray(myArray3);
 
