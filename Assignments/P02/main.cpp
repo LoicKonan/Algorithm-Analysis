@@ -38,9 +38,9 @@
 
 using namespace std;
 
-const int _SIZE   = 10;
+const int _SIZE   = 25;
 int quickcount    = 0;
-int CountingCount = 0;
+int RadixCount = 0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
@@ -80,6 +80,8 @@ int main()
     int myArray2[_SIZE];
     int myArray3[_SIZE];
 
+    Timer clock;                                                    
+
     // Initialize the counters.
     int bubblecount;
 
@@ -96,6 +98,7 @@ int main()
     // Print the header.
     header();
 
+    clock.Start();                                 
     // Print the Original array Then handle the BubbleSort.
     cout << "Array 1:  \n";
     printArray(myArray1);
@@ -103,8 +106,11 @@ int main()
     cout << "Bubble count:  " << bubblecount << endl;
     cout << "Array 1 sorted with Bubble Sort: \n";
     printArray(myArray1);
+    clock.End();                                    
+    cout << "Bubble Sort took " << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
 
 
+    clock.Start();
     // Print the Original array Then handle the QuickSort.
     cout << "Array 2:  \n";
     printArray(myArray2);
@@ -112,16 +118,20 @@ int main()
     cout << "QuickSort count:  " << quickcount << endl;
     cout << "Array 2 sorted with Quick Sort: \n";
     printArray(myArray2);
+    clock.End();                                    
+    cout << "Quick Sort took " << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
 
 
+    clock.Start();
     // Print the Original array Then handle the RadixSort.
     cout << "Array 3:  \n";
     printArray(myArray3);
     radixsort(myArray3, n);
-    cout << "radix count:  " << CountingCount << endl;
+    cout << "radix count:  " << RadixCount << endl;
     cout << "Array 3 sorted with Radix Sort: \n"; 
     printArray(myArray3);
-
+    clock.End();                                    
+    cout << "Radix Sort took " << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
 
     return 0;
 }
@@ -260,7 +270,11 @@ void countSort(int arr[], int n, int exp)
     // Change count[i] so that count[i] now contains actual
     //  position of this digit in output[]
     for (i = 1; i < 10; i++)
+    {
         count[i] += count[i - 1];
+        RadixCount++;
+
+    }
  
     // Build the output array
     for (i = n - 1; i >= 0; i--) 
@@ -278,7 +292,6 @@ void countSort(int arr[], int n, int exp)
 // The main function that sorts arr[] of _SIZE n using Radix Sort
 void radixsort(int arr[], int n)
 {
-    int CountingCount  = 0;
     // Find the maximum number to know number of digits
     int m = getMax(arr, n);
  
@@ -288,7 +301,6 @@ void radixsort(int arr[], int n)
     for (int exp = 1; m / exp > 0; exp *= 10)
         {
             countSort(arr, n, exp);
-            CountingCount++;
         }
 }
  
