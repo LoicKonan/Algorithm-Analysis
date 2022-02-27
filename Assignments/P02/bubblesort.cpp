@@ -12,29 +12,50 @@ sort, and insertion sort.
 
 using namespace std;
 
-const int SIZE = 10;
+const int SIZE = 5000;
 
 void fillArray(int arr[]);
 void copyArray(int arr1[], int arr2[]);
 void printArray(int arr[]);
 void swap(int &x, int &y);
 int bubbleSort(int arr[]);
-void selectionSort(int arr[]);
-void insertionSort(int arr[]);
+
+int partition(int a[], int beg, int end);
+void quickSort(int a[], int p, int r);
+
+
+int radix_Sort(int arr[]);
 
 int main() 
 {
-  int myArray1[SIZE], myArray2[SIZE], myArray3[SIZE];
+  int myArray1[SIZE];
+  int myArray2[SIZE];
+  int myArray3[SIZE];
+
   int bubblecount = 0;
+  int quickcount = 0;
+  int radixcount = 0;
+
+  
   fillArray(myArray1);
   copyArray(myArray1, myArray2);
   copyArray(myArray1, myArray3);
+
   cout << "Array 1:  \n";
   printArray(myArray1);
+
+
   bubblecount = bubbleSort(myArray1);
   cout << "Bubble count:  " << bubblecount << endl;
   cout << "Array 1 sorted with Bubble Sort: \n";
   printArray(myArray1);
+
+
+  quickcount = quickSort(myArray2);
+  cout << "QuickSort count:  " << bubblecount << endl;
+  cout << "Array 2 sorted with Quick Sort: \n";
+  printArray(myArray2);
+
   cout << "Array 2:  \n";
   printArray(myArray2);
   cout << "Array 3:  \n";
@@ -48,6 +69,7 @@ void fillArray(int arr[])
   for(int i = 0; i < SIZE; i++)
     arr[i] = rand() % 100;
 }
+
 void copyArray(int arr1[], int arr2[])
 {
   for(int i = 0; i < SIZE; i++)
@@ -61,7 +83,6 @@ void printArray(int arr[])
   cout << "\n\n";
 }
 
-// Used with bubbleSort and selectionSort 
 // to swap two array values.
 void swap(int &x, int &y)
 {
@@ -98,4 +119,54 @@ int bubbleSort(int arr[])
     j++;
   }
   return c;
+}
+
+
+
+int Partition(int a[], int b, int e)          
+{
+  // Pivot position assigned to left most position
+  int p = b;
+  while(b < e)
+  {
+    // Scan from right
+    while(b < e && a[b] <= a[e])
+      e--;
+    // Swap values and update pivot position
+    // if needed.
+    if (a[b] > a[e])
+    {
+      swap(a[b],a[e]);
+      p = e;
+      b++;
+    }
+    // Scan from left
+    while(b < e && a[b] <= a[e])
+      b++;
+    // Swap values and update pivot position
+    // if needed.
+    if (a[b] > a[e])
+    {
+      swap(a[b], a[e]);
+      p = b;
+      e--;
+    }
+  }
+  // Return pivot position
+  return p;
+}
+
+
+void quickSort(int a[], int p, int r)
+{
+	int q;
+	if (p < r)
+	{
+    // Partition the array
+ 		q = Partition(a, p, r);   
+    // Recursively sort the array to the left of the pivot       
+		quickSort(a, p, q - 1);    
+    // Recursively sort the array to the right of the pivot      
+		quickSort(a, q + 1, r);			    
+	}
 }
