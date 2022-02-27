@@ -38,13 +38,18 @@
 
 using namespace std;
 
-const int _SIZE    = 5000;
+const int _SIZE    = 100;
+const int SEED     = 20;
+
 int quickcount     = 0;
 int RadixCount     = 0;
 
 double quick_time  = 0.0;
 double radix_time  = 0.0;
 double bubble_time = 0.0;
+
+//Function Prototypes
+void Seed();
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
@@ -101,13 +106,7 @@ int main()
     // n is the size of the array.
     int n = sizeof(myArray3) / sizeof(myArray3[0]);
 
-    // Call the fillArrays function.
-    fillArray(myArray1);
-
-    // Call the copyArrays function, and pass the arrays.
-    copyArray(myArray1, myArray2);
-    copyArray(myArray1, myArray3);
-
+    
     // Print the header.
     header();
 
@@ -115,6 +114,14 @@ int main()
 
     for(int i = 0; i < number; i++)
     {
+
+    // Call the fillArrays function.
+    fillArray(myArray1);
+
+    // Call the copyArrays function, and pass the arrays.
+    copyArray(myArray1, myArray2);
+    copyArray(myArray1, myArray3);
+
     
     bubble_time *= 1e-9;
     bubblecount = bubbleSort(myArray1);
@@ -144,7 +151,6 @@ int main()
     RadixCount++;
     quickcount++;
     bubblecount++;
-    
     }
 
     average_radix_Time = radix_time / number;
@@ -174,10 +180,15 @@ int main()
     return 0;
 }
 
+//Set & Display the seed value
+void Seed() 
+{
+    srand(SEED);
+}
+
 // Function to fill the array.
 void fillArray(int arr[])
 {
-  srand(time(0));
   for(int i = 0; i < _SIZE; i++)
     arr[i] = rand() % 100;
 }
