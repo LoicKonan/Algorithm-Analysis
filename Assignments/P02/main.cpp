@@ -149,7 +149,8 @@ void swap(int &x, int &y)
 int bubbleSort(int arr[])
 {
   bool swapped = true;
-  int j = 0, c = 0;
+  int j = 0;
+  int bubblecount = 0;
   // Continue to loop until
   // no swaps have occurred. 
   while (swapped)
@@ -162,7 +163,7 @@ int bubbleSort(int arr[])
     // iteration of the outer loop (_SIZE -j)
     for(int i = 1; i < _SIZE - j; i++)
     {
-      c++;
+      bubblecount++;
       // compare two side-by-side values
       // and swap if they are out of order
       if(arr[i-1] > arr[i])
@@ -173,7 +174,7 @@ int bubbleSort(int arr[])
     }
     j++;
   }
-  return c;
+  return bubblecount;
 }
 
  
@@ -185,7 +186,8 @@ of pivot */
 int partition (int arr[], int low, int high)
 {
     int pivot = arr[high]; // pivot
-    int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+    int i = (low - 1); // Index of smaller element and 
+                       // indicates the right position of pivot found so far
  
     for (int j = low; j <= high - 1; j++)
     {
@@ -259,8 +261,7 @@ void countSort(int arr[], int n, int exp)
         arr[i] = output[i];
 }
  
-// The main function to that sorts arr[] of _SIZE n using
-// Radix Sort
+// The main function to that sorts arr[] of _SIZE n using Radix Sort
 void radixsort(int arr[], int n)
 {
     // Find the maximum number to know number of digits
@@ -273,6 +274,7 @@ void radixsort(int arr[], int n)
         countSort(arr, n, exp);
 }
  
+
 // A utility function to print an array
 void print(int arr[], int n)
 {
