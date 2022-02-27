@@ -88,7 +88,7 @@ int main()
     int myArray2[_SIZE];
     int myArray3[_SIZE];
 
-    // Initialize the counters.
+    // Initialize the counter for bubble sort.
     double bubblecount;
 
     // n is the size of the array.
