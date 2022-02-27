@@ -35,12 +35,18 @@
 #include <time.h>
 #include "Timer.hpp"
 #include "termcolor.hpp"
+#include <chrono>
+
 
 using namespace std;
 
 const int _SIZE    = 5000;
 int quickcount     = 0;
 int RadixCount     = 0;
+
+double quick_time  = 0;
+double radix_time  = 0;
+double bubble_time = 0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
@@ -80,7 +86,6 @@ int main()
     int myArray2[_SIZE];
     int myArray3[_SIZE];
 
-    Timer clock;                                                    
 
     // Initialize the counters.
     int bubblecount;
@@ -100,38 +105,35 @@ int main()
 
     // Print the Original array Then handle the BubbleSort.
     cout << "Array 1:  \n";
-    printArray(myArray1);
+    // printArray(myArray1);
 
-    clock.Start();
+    
+    bubble_time *= 1e-9;
     bubblecount = bubbleSort(myArray1);
-    clock.End();
     cout << "Bubble count:  "    << bubblecount << endl; 
     cout << "Time Complexity: "  << termcolor::green 
-         << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
-    cout << "Bubble Sort: \n";
-    printArray(myArray1);
+         << bubble_time << termcolor::reset << setprecision(9) << " sec\n" <<  endl;
+    // cout << "Bubble Sort: \n";
+    // printArray(myArray1);
 
 
 
-   
-    clock.Start();
+    quick_time *= 1e-9;
     quickSort(myArray2, 0, _SIZE - 1);
-    clock.End();
     cout << "QuickSort count:  " << quickcount << endl;
     cout << "Time Complexity: " << termcolor::green 
-         << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
-    cout << "Quick Sort: \n";
-    printArray(myArray2);
+         << quick_time << termcolor::reset << setprecision(9) << " sec\n" <<  endl;
+    // cout << "Quick Sort: \n";
+    // printArray(myArray2);
 
 
-    clock.Start();
+    radix_time *= 1e-9;
     radixsort(myArray3, n);
-    clock.End();
     cout << "RadixSort count:  " << RadixCount << endl;
     cout << "Time Complexity: " << termcolor::green 
-         << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
-    cout << "Radix Sort: \n";
-    printArray(myArray3);
+         << radix_time << termcolor::reset << setprecision(9) << " sec\n" <<  endl;
+    // cout << "Radix Sort: \n";
+    // printArray(myArray3);
 
     return 0;
 }
@@ -170,6 +172,8 @@ void swap(int &x, int &y)
 // Function to sort the array using bubble sort.
 int bubbleSort(int arr[])
 {
+    auto start = chrono::high_resolution_clock::now();
+ 
     bool swapped = true;
     int j = 0;
     int bubblecount = 0;
@@ -197,6 +201,9 @@ int bubbleSort(int arr[])
         }
         j++;
     }
+    auto end = chrono::high_resolution_clock::now();
+
+    bubble_time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     return bubblecount;
 }
 
@@ -232,6 +239,8 @@ low --> Starting index,
 high --> Ending index */
 void quickSort(int arr[], int low, int high)
 {
+    auto start = chrono::high_resolution_clock::now();
+
     if (low < high)
     {
         /* pi is partitioning index, arr[p] is now
@@ -243,6 +252,10 @@ void quickSort(int arr[], int low, int high)
         quickSort(arr, low, pi - 1);
         quickSort(arr, pi + 1, high);
     }
+    
+    auto end = chrono::high_resolution_clock::now();
+    quick_time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+
 }
 
 
@@ -291,6 +304,8 @@ void countSort(int arr[], int n, int exp)
 // The main function that sorts arr[] of _SIZE n using Radix Sort
 void radixsort(int arr[], int n)
 {   
+    auto start = chrono::high_resolution_clock::now();
+
     // Find the maximum number to know number of digits
     int m = getMax(arr, n);
  
@@ -301,6 +316,11 @@ void radixsort(int arr[], int n)
         {
             countSort(arr, n, exp);
         }
+    
+    auto end = chrono::high_resolution_clock::now();
+
+    bubble_time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+
 
 }
  
