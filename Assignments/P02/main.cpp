@@ -93,16 +93,6 @@ int main()
     // Initialize the counters.
     int bubblecount;
 
-    // average time for each algorithm.
-    double average_radix_Time = 0.0;
-    double average_quick_Time = 0.0;
-    double average_bubble_Time = 0.0;
-
-    // average number of comparisons for each algorithm.
-    double average_radix_Count = 0.0;
-    double average_quick_Count = 0.0;
-    double average_bubble_Count = 0.0;
-
     // n is the size of the array.
     int n = sizeof(myArray3) / sizeof(myArray3[0]);
 
@@ -153,28 +143,30 @@ int main()
     bubblecount++;
     }
 
-    average_radix_Time = radix_time / number;
-    average_quick_Time = quick_time / number;
-    average_bubble_Time = bubble_time / number;
+    // The average time complexity of the three algorithms.
+    radix_time /= number;
+    quick_time /= number;
+    bubble_time /= number;
 
-    average_radix_Count = RadixCount / number;
-    average_quick_Count = quickcount / number;
-    average_bubble_Count = bubblecount / number;
+    // The average number of comparisons for the three algorithms.
+    RadixCount /= number;
+    quickcount /= number;
+    bubblecount /= number;
 
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
-         << average_bubble_Time << setprecision(9) << termcolor::reset << " sec" <<  endl;
-    cout << "Average Bubble Sort Count: " << average_bubble_Count << endl << endl;
+         << bubble_time << setprecision(9) << termcolor::reset << " sec" <<  endl;
+    cout << "Average Bubble Sort Count: " << bubblecount << endl << endl;
 
 
     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
-         << average_quick_Time << setprecision(9) << termcolor::reset << " sec" <<  endl;
-    cout << "Average Quick Sort Count: " << average_quick_Count << endl << endl;
+         << quick_time << setprecision(9) << termcolor::reset << " sec" <<  endl;
+    cout << "Average Quick Sort Count: " << quickcount << endl << endl;
 
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
-         << average_radix_Time << setprecision(9) << termcolor::reset << " sec" <<  endl;
-    cout << "Average Radix Sort Count: " << average_radix_Count << endl << endl;
+         << radix_time << setprecision(9) << termcolor::reset << " sec" <<  endl;
+    cout << "Average Radix Sort Count: " << RadixCount << endl << endl;
 
 
     return 0;
