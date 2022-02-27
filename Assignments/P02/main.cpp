@@ -38,7 +38,7 @@
 
 using namespace std;
 
-const int _SIZE = 50;
+const int _SIZE = 10;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
