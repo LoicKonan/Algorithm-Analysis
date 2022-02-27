@@ -1,10 +1,3 @@
-/****************************************
-Tina Johnson
-CMPS 5243
-This program will demonstrate n-squared
-sorting algorithms:  bubble sort, selection
-sort, and insertion sort.
-*******************************************/
 
 #include <iostream>
 #include <iomanip>
@@ -33,10 +26,10 @@ int main()
   int myArray3[SIZE];
 
   int bubblecount = 0;
-  int quickcount = 0;
-  int radixcount = 0;
+  int quickcount  = 0;
+  int radixcount  = 0;
 
-  
+
   fillArray(myArray1);
   copyArray(myArray1, myArray2);
   copyArray(myArray1, myArray3);
@@ -44,14 +37,15 @@ int main()
   cout << "Array 1:  \n";
   printArray(myArray1);
 
-
   bubblecount = bubbleSort(myArray1);
   cout << "Bubble count:  " << bubblecount << endl;
   cout << "Array 1 sorted with Bubble Sort: \n";
   printArray(myArray1);
 
 
-  quickcount = quickSort(myArray2);
+  cout << "Array 2:  \n";
+  printArray(myArray2);
+  quickSort(myArray2, 0, SIZE);
   cout << "QuickSort count:  " << bubblecount << endl;
   cout << "Array 2 sorted with Quick Sort: \n";
   printArray(myArray2);
