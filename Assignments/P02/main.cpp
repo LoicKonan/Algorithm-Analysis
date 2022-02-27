@@ -38,8 +38,9 @@
 
 using namespace std;
 
-const int _SIZE = 10;
-int quickcount = 0;
+const int _SIZE   = 50;
+int quickcount    = 0;
+int CountingCount = 0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
@@ -81,7 +82,6 @@ int main()
 
     // Initialize the counters.
     int bubblecount;
-    int CountingCount;
 
     // n is the size of the array.
     int n = sizeof(myArray3) / sizeof(myArray3[0]);
@@ -275,7 +275,7 @@ void countSort(int arr[], int n, int exp)
         arr[i] = output[i];
 }
  
-// The main function to that sorts arr[] of _SIZE n using Radix Sort
+// The main function that sorts arr[] of _SIZE n using Radix Sort
 void radixsort(int arr[], int n)
 {
     int CountingCount  = 0;
