@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int SIZE = 5;
+const int SIZE = 5000;
 
 void fillArray(int arr[]);
 void copyArray(int arr1[], int arr2[]);
@@ -14,10 +14,12 @@ void swap(int &x, int &y);
 
 int bubbleSort(int arr[]);
 
-int partition(int a[], int beg, int end);
-void quickSort(int a[], int p, int r);
+int partition (int arr[], int low, int high);
+void quickSort(int arr[], int low, int high);
 
-void countSort(int array[], int);
+void radixsort(int arr[], int n);
+
+void countSort(int arr[], int n, int exp);
 
 
 int main() 
@@ -26,8 +28,8 @@ int main()
   int myArray2[SIZE];
   int myArray3[SIZE];
 
-  int bubblecount = 0;
-  int quickcount  = 0;
+  int bubblecount    = 0;
+  int quickcount     = 0;
   int CountingCount  = 0;
 
 
@@ -46,7 +48,7 @@ int main()
 
   cout << "Array 2:  \n";
   printArray(myArray2);
-  quickSort(myArray2, 0, SIZE);
+  quickSort(myArray2, 0, SIZE - 1);
   cout << "QuickSort count:  " << quickcount << endl;
   cout << "Array 2 sorted with Quick Sort: \n";
   printArray(myArray2);
@@ -55,7 +57,7 @@ int main()
 
   cout << "Array 3:  \n";
   printArray(myArray3);
-  countSort(myArray3, n);
+  radixsort(myArray3, n);
   cout << "radix count:  " << CountingCount << endl;
   cout << "Array 3 sorted with Radix Sort: \n"; 
   printArray(myArray3);
@@ -123,99 +125,108 @@ int bubbleSort(int arr[])
 }
 
 
-int Partition(int a[], int b, int e)          
+
+ 
+/* This function takes last element as pivot, places
+the pivot element at its correct position in sorted
+array, and places all smaller (smaller than pivot)
+to left of pivot and all greater elements to right
+of pivot */
+int partition (int arr[], int low, int high)
 {
-  // Pivot position assigned to left most position
-  int p = b;
-  while(b < e)
-  {
-    // Scan from right
-    while(b < e && a[b] <= a[e])
-      e--;
-    // Swap values and update pivot position
-    // if needed.
-    if (a[b] > a[e])
+    int pivot = arr[high]; // pivot
+    int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+ 
+    for (int j = low; j <= high - 1; j++)
     {
-      swap(a[b],a[e]);
-      p = e;
-      b++;
+        // If current element is smaller than the pivot
+        if (arr[j] < pivot)
+        {
+            i++; // increment index of smaller element
+            swap(arr[i], arr[j]);
+        }
     }
-    // Scan from left
-    while(b < e && a[b] <= a[e])
-      b++;
-    // Swap values and update pivot position
-    // if needed.
-    if (a[b] > a[e])
+    swap(arr[i + 1], arr[high]);
+    return (i + 1);
+}
+ 
+/* The main function that implements QuickSort
+arr[] --> Array to be sorted,
+low --> Starting index,
+high --> Ending index */
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
     {
-      swap(a[b], a[e]);
-      p = b;
-      e--;
+        /* pi is partitioning index, arr[p] is now
+        at right place */
+        int pi = partition(arr, low, high);
+ 
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
     }
-  }
-  // Return pivot position
-  return p;
 }
 
-void quickSort(int a[], int p, int r)
+
+
+// A utility function to get maximum value in arr[]
+int getMax(int arr[], int n)
 {
-	int q;
-	if (p < r)
-	{
-    // Partition the array
- 		q = Partition(a, p, r);   
-    // Recursively sort the array to the left of the pivot       
-		quickSort(a, p, q - 1);    
-    // Recursively sort the array to the right of the pivot      
-		quickSort(a, q + 1, r);			    
-	}
+    int mx = arr[0];
+    for (int i = 1; i < n; i++)
+        if (arr[i] > mx)
+            mx = arr[i];
+    return mx;
 }
-
-void countSort(int array[], int SIZE) 
+ 
+// A function to do counting sort of arr[] according to
+// the digit represented by exp.
+void countSort(int arr[], int n, int exp)
 {
-  // The SIZE of count must be at least the (max+1) but
-  // we cannot assign declare it as int count(max+1) in C++ as
-  // it does not support dynamic memory allocation.
-  // So, its SIZE is provided statically.
-  int output[10];
-  int count[10];
-  int max = array[0];
-
-  // Find the largest element of the array
-  for (int i = 1; i < SIZE; i++) 
-  {
-    if (array[i] > max)
-      max = array[i];
-  }
-
-  // Initialize count array with all zeros.
-  for (int i = 0; i <= max; ++i) 
-  {
-    count[i] = 0;
-  }
-
-  // Store the count of each element
-  for (int i = 0; i < SIZE; i++) 
-  {
-    count[array[i]]++;
-  }
-
-  // Store the cummulative count of each array
-  for (int i = 1; i <= max; i++) 
-  {
-    count[i] += count[i - 1];
-  }
-
-  // Find the index of each element of the original array in count array, and
-  // place the elements in output array
-  for (int i = SIZE - 1; i >= 0; i--) 
-  {
-    output[count[array[i]] - 1] = array[i];
-    count[array[i]]--;
-  }
-
-  // Copy the sorted elements into original array
-  for (int i = 0; i < SIZE; i++) 
-  {
-    array[i] = output[i];
-  }
+    int output[n]; // output array
+    int i, count[10] = { 0 };
+ 
+    // Store count of occurrences in count[]
+    for (i = 0; i < n; i++)
+        count[(arr[i] / exp) % 10]++;
+ 
+    // Change count[i] so that count[i] now contains actual
+    //  position of this digit in output[]
+    for (i = 1; i < 10; i++)
+        count[i] += count[i - 1];
+ 
+    // Build the output array
+    for (i = n - 1; i >= 0; i--) {
+        output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+        count[(arr[i] / exp) % 10]--;
+    }
+ 
+    // Copy the output array to arr[], so that arr[] now
+    // contains sorted numbers according to current digit
+    for (i = 0; i < n; i++)
+        arr[i] = output[i];
 }
+ 
+// The main function to that sorts arr[] of size n using
+// Radix Sort
+void radixsort(int arr[], int n)
+{
+    // Find the maximum number to know number of digits
+    int m = getMax(arr, n);
+ 
+    // Do counting sort for every digit. Note that instead
+    // of passing digit number, exp is passed. exp is 10^i
+    // where i is current digit number
+    for (int exp = 1; m / exp > 0; exp *= 10)
+        countSort(arr, n, exp);
+}
+ 
+// A utility function to print an array
+void print(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+}
+ 
