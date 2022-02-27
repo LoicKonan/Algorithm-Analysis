@@ -103,11 +103,13 @@ int main()
     cout << "Array 1:  \n";
     printArray(myArray1);
     bubblecount = bubbleSort(myArray1);
-    cout << "Bubble count:  " << bubblecount << endl;
+    clock.End();                                    
+    cout << "Bubble count:  " << bubblecount << endl; 
+    cout << "Time: " << termcolor::green 
+         << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
     cout << "Array 1 sorted with Bubble Sort: \n";
     printArray(myArray1);
-    clock.End();                                    
-    cout << "Bubble Sort took " << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
+
 
 
     clock.Start();
@@ -115,11 +117,12 @@ int main()
     cout << "Array 2:  \n";
     printArray(myArray2);
     quickSort(myArray2, 0, _SIZE - 1);
+    clock.End();
     cout << "QuickSort count:  " << quickcount << endl;
+    cout << "Time: " << termcolor::green 
+         << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
     cout << "Array 2 sorted with Quick Sort: \n";
     printArray(myArray2);
-    clock.End();                                    
-    cout << "Quick Sort took " << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
 
 
     clock.Start();
@@ -127,11 +130,12 @@ int main()
     cout << "Array 3:  \n";
     printArray(myArray3);
     radixsort(myArray3, n);
-    cout << "radix count:  " << RadixCount << endl;
-    cout << "Array 3 sorted with Radix Sort: \n"; 
+    clock.End();
+    cout << "RadixSort count:  " << RadixCount << endl;
+    cout << "Time: " << termcolor::green 
+         << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
+    cout << "Array 3 sorted with Radix Sort: \n";
     printArray(myArray3);
-    clock.End();                                    
-    cout << "Radix Sort took " << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
 
     return 0;
 }
