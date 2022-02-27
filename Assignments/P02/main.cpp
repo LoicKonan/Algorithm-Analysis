@@ -146,11 +146,6 @@ int main()
     bubblecount++;
     
     }
-    
-    cout << "RadixCount: " << RadixCount << endl;
-    cout << "quickcout: " << quickcount << endl;
-    cout << "Bubble Count: " << bubblecount << endl;
-    cout << endl;
 
     average_radix_Time = radix_time / number;
     average_quick_Time = quick_time / number;
@@ -182,9 +177,9 @@ int main()
 // Function to fill the array.
 void fillArray(int arr[])
 {
-  srand(time(NULL));
+  srand(time(0));
   for(int i = 0; i < _SIZE; i++)
-    arr[i] = rand() % 5000;
+    arr[i] = rand() % 100;
 }
 
 // Function to copy an array.
@@ -326,6 +321,8 @@ void countSort(int arr[], int n, int exp)
     for (i = 1; i < 10; i++)
     {
         count[i] += count[i - 1];
+        RadixCount++;
+
     }
  
     // Build the output array
@@ -355,8 +352,6 @@ void radixsort(int arr[], int n)
     for (int exp = 1; m / exp > 0; exp *= 10)
         {
             countSort(arr, n, exp);
-                    RadixCount++;
-
         }
     
     auto end = chrono::high_resolution_clock::now();
