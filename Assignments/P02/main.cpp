@@ -38,9 +38,9 @@
 
 using namespace std;
 
-const int _SIZE   = 25;
-int quickcount    = 0;
-int RadixCount = 0;
+const int _SIZE    = 100;
+int quickcount     = 0;
+int RadixCount     = 0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
@@ -98,41 +98,41 @@ int main()
     // Print the header.
     header();
 
-    clock.Start();                                 
     // Print the Original array Then handle the BubbleSort.
     cout << "Array 1:  \n";
     printArray(myArray1);
+
+
     bubblecount = bubbleSort(myArray1);
-    clock.End();                                    
-    cout << "Bubble count:  " << bubblecount << endl; 
-    cout << "Time: " << termcolor::green 
+    cout << "Bubble count:  "    << bubblecount << endl; 
+    cout << "Time Complexity: "  << termcolor::green 
          << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
     cout << "Array 1 sorted with Bubble Sort: \n";
     printArray(myArray1);
 
 
 
-    clock.Start();
     // Print the Original array Then handle the QuickSort.
-    cout << "Array 2:  \n";
-    printArray(myArray2);
+    // cout << "Array 2:  \n";
+    // printArray(myArray2);
+    clock.Start();
     quickSort(myArray2, 0, _SIZE - 1);
     clock.End();
     cout << "QuickSort count:  " << quickcount << endl;
-    cout << "Time: " << termcolor::green 
+    cout << "Time Complexity: " << termcolor::green 
          << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
     cout << "Array 2 sorted with Quick Sort: \n";
     printArray(myArray2);
 
 
-    clock.Start();
     // Print the Original array Then handle the RadixSort.
-    cout << "Array 3:  \n";
-    printArray(myArray3);
+    // cout << "Array 3:  \n";
+    // printArray(myArray3);
+    clock.Start();
     radixsort(myArray3, n);
     clock.End();
     cout << "RadixSort count:  " << RadixCount << endl;
-    cout << "Time: " << termcolor::green 
+    cout << "Time Complexity: " << termcolor::green 
          << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
     cout << "Array 3 sorted with Radix Sort: \n";
     printArray(myArray3);
@@ -174,34 +174,34 @@ void swap(int &x, int &y)
 // Function to sort the array using bubble sort.
 int bubbleSort(int arr[])
 {
-  bool swapped = true;
-  int j = 0;
-  int bubblecount = 0;
+    bool swapped = true;
+    int j = 0;
+    int bubblecount = 0;
 
-  // Continue to loop until
-  // no swaps have occurred. 
-  while (swapped)
-  {
-    // Reset boolean flag
-    swapped = false;
-    // Because bubbleSort puts the last value in the 
-    // correct position eachtime through the loop, the 
-    // limit of the inner loop decreases by one each
-    // iteration of the outer loop (_SIZE - j)
-    for(int i = 1; i < _SIZE - j; i++)
+    // Continue to loop until
+    // no swaps have occurred. 
+    while (swapped)
     {
-      bubblecount++;
-      // compare two side-by-side values
-      // and swap if they are out of order
-      if(arr[i-1] > arr[i])
-      {
-        swapped = true;
-        swap(arr[i-1], arr[i]);
-      }
+        // Reset boolean flag
+        swapped = false;
+        // Because bubbleSort puts the last value in the 
+        // correct position eachtime through the loop, the 
+        // limit of the inner loop decreases by one each
+        // iteration of the outer loop (_SIZE - j)
+        for(int i = 1; i < _SIZE - j; i++)
+        {
+        bubblecount++;
+        // compare two side-by-side values
+        // and swap if they are out of order
+        if(arr[i-1] > arr[i])
+        {
+            swapped = true;
+            swap(arr[i-1], arr[i]);
+        }
+        }
+        j++;
     }
-    j++;
-  }
-  return bubblecount;
+    return bubblecount;
 }
 
  
@@ -295,7 +295,7 @@ void countSort(int arr[], int n, int exp)
  
 // The main function that sorts arr[] of _SIZE n using Radix Sort
 void radixsort(int arr[], int n)
-{
+{   
     // Find the maximum number to know number of digits
     int m = getMax(arr, n);
  
@@ -306,6 +306,7 @@ void radixsort(int arr[], int n)
         {
             countSort(arr, n, exp);
         }
+
 }
  
 
