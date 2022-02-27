@@ -38,7 +38,7 @@
 
 using namespace std;
 
-const int _SIZE    = 5000;
+const int _SIZE    = 10000;
 const int SEED     = 20;
 
 double quickcount  = 0;
