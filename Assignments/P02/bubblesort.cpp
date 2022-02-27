@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int SIZE = 5000;
+const int SIZE = 5;
 
 void fillArray(int arr[]);
 void copyArray(int arr1[], int arr2[]);
@@ -16,8 +16,7 @@ int bubbleSort(int arr[]);
 int partition(int a[], int beg, int end);
 void quickSort(int a[], int p, int r);
 
-
-int radix_Sort(int arr[]);
+int CountingsSort(int arr[]);
 
 int main() 
 {
@@ -27,16 +26,16 @@ int main()
 
   int bubblecount = 0;
   int quickcount  = 0;
-  int radixcount  = 0;
+  int CountingCount  = 0;
 
 
   fillArray(myArray1);
   copyArray(myArray1, myArray2);
   copyArray(myArray1, myArray3);
 
+
   cout << "Array 1:  \n";
   printArray(myArray1);
-
   bubblecount = bubbleSort(myArray1);
   cout << "Bubble count:  " << bubblecount << endl;
   cout << "Array 1 sorted with Bubble Sort: \n";
@@ -46,13 +45,16 @@ int main()
   cout << "Array 2:  \n";
   printArray(myArray2);
   quickSort(myArray2, 0, SIZE);
-  cout << "QuickSort count:  " << bubblecount << endl;
+  cout << "QuickSort count:  " << quickcount << endl;
   cout << "Array 2 sorted with Quick Sort: \n";
   printArray(myArray2);
 
-  cout << "Array 2:  \n";
-  printArray(myArray2);
+
   cout << "Array 3:  \n";
+  printArray(myArray3);
+  CountingsSort(myArray3);
+  cout << "radix count:  " << CountingCount << endl;
+  cout << "Array 3 sorted with Radix Sort: \n"; 
   printArray(myArray3);
   return 0;
 }
@@ -85,6 +87,7 @@ void swap(int &x, int &y)
   y = temp;
 }
 
+
 int bubbleSort(int arr[])
 {
   bool swapped = true;
@@ -114,7 +117,6 @@ int bubbleSort(int arr[])
   }
   return c;
 }
-
 
 
 int Partition(int a[], int b, int e)          
@@ -149,7 +151,6 @@ int Partition(int a[], int b, int e)
   // Return pivot position
   return p;
 }
-
 
 void quickSort(int a[], int p, int r)
 {
