@@ -37,7 +37,7 @@
 
 using namespace std;
 
-const int _SIZE = 10000;
+const int _SIZE = 5000;
 const int SEED = 20;
 
 double quickcount = 0;
@@ -77,6 +77,9 @@ void radixsort(int arr[], int n);
 // Function prototype to sort the Arrays using Counting Sort.
 void countSort(int arr[], int n, int exp);
 
+// Function prototype to selection sort with a separate counter and and timer.
+void selectionSort(int arr[], int n);
+
 // Function prototype to print the header.
 void header();
 
@@ -111,24 +114,24 @@ int main()
 
         bubble_time *= 1e-9;
         bubblecount = bubbleSort(myArray1);
-        cout << "Bubble count:  " << bubblecount << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
-             << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
-             << endl;
+        // cout << "Bubble count:  " << bubblecount << endl;
+        // cout << "Time Complexity: " << termcolor::green << fixed
+        //      << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
+        //      << endl;
 
         quick_time *= 1e-9;
         quickSort(myArray2, 0, _SIZE - 1);
-        cout << "QuickSort count:  " << quickcount << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
-             << quick_time << setprecision(3) << termcolor::reset << " sec\n"
-             << endl;
+        // cout << "QuickSort count:  " << quickcount << endl;
+        // cout << "Time Complexity: " << termcolor::green << fixed
+        //      << quick_time << setprecision(3) << termcolor::reset << " sec\n"
+        //      << endl;
 
         radix_time *= 1e-9;
         radixsort(myArray3, n);
-        cout << "RadixSort count:  " << RadixCount << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
-             << radix_time << setprecision(3) << termcolor::reset << " sec\n"
-             << endl;
+        // cout << "RadixSort count:  " << RadixCount << endl;
+        // cout << "Time Complexity: " << termcolor::green << fixed
+        //      << radix_time << setprecision(3) << termcolor::reset << " sec\n"
+        //      << endl;
 
         radix_time++;
         quick_time++;
@@ -317,7 +320,6 @@ void countSort(int arr[], int n, int exp)
     for (i = 1; i < 10; i++)
     {
         count[i] += count[i - 1];
-        RadixCount++;
     }
 
     // Build the output array
@@ -347,12 +349,21 @@ void radixsort(int arr[], int n)
     for (int exp = 1; m / exp > 0; exp *= 10)
     {
         countSort(arr, n, exp);
+        RadixCount++;
     }
 
     auto end = chrono::high_resolution_clock::now();
 
     bubble_time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
 }
+
+
+// Function to sort the array using selectionSort and counter.
+void selectionSort(int arr[], int n)
+{
+    
+}
+
 
 // A utility function to print an array
 void print(int arr[], int n)
