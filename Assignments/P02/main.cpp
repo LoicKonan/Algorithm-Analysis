@@ -77,9 +77,6 @@ void radixsort(int arr[], int n);
 // Function prototype to sort the Arrays using Counting Sort.
 void countSort(int arr[], int n, int exp);
 
-// Function prototype to selection sort with a separate counter and and timer.
-void selectionSort(int arr[], int n);
-
 // Function prototype to print the header.
 void header();
 
@@ -357,12 +354,6 @@ void radixsort(int arr[], int n)
     bubble_time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
 }
 
-
-// Function to sort the array using selectionSort and counter.
-void selectionSort(int arr[], int n)
-{
-    
-}
 
 
 // A utility function to print an array
