@@ -32,5 +32,8 @@
     "ostream": "cpp",
     "array": "cpp",
     "iomanip": "cpp"
-  }
+  },
+  "cSpell.words": [
+    "Konan"
+  ]
 }

@@ -53,7 +53,7 @@ void Seed();
 // Function prototype to fill the Arrays.
 void fillArray(int arr[]);
 
-// Funtion prototype to copy the Arrays.
+// Function prototype to copy the Arrays.
 void copyArray(int arr1[], int arr2[]);
 
 // Function prototype to print the Arrays.
