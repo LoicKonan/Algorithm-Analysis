@@ -114,24 +114,27 @@ int main()
         copyArray(myArray1, myArray2);
         copyArray(myArray1, myArray3);
 
+
+         radixsort(myArray3, n);
+        cout << "RadixSort count:  " << RadixCount << endl;
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << radix_time << setprecision(3) << termcolor::reset << " sec\n"
+             << endl;
+
+
         bubblecount = bubbleSort(myArray1);
-        // cout << "Bubble count:  " << bubblecount << endl;
-        // cout << "Time Complexity: " << termcolor::green << fixed
-        //      << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
-        //      << endl;
+        cout << "Bubble count:  " << bubblecount << endl;
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
+             << endl;
 
         quickSort(myArray2, 0, _SIZE - 1);
-        // cout << "QuickSort count:  " << quickcount << endl;
-        // cout << "Time Complexity: " << termcolor::green << fixed
-        //      << quick_time << setprecision(3) << termcolor::reset << " sec\n"
-        //      << endl;
+        cout << "QuickSort count:  " << quickcount << endl;
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << quick_time << setprecision(3) << termcolor::reset << " sec\n"
+             << endl;
 
-        radixsort(myArray3, n);
-        // cout << "RadixSort count:  " << RadixCount << endl;
-        // cout << "Time Complexity: " << termcolor::green << fixed
-        //      << radix_time << setprecision(3) << termcolor::reset << " sec\n"
-        //      << endl;
-
+       
         radix_time++;
         quick_time++;
         bubble_time++;
