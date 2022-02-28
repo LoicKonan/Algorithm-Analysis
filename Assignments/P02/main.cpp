@@ -4,15 +4,16 @@
  *    Email:            loickonan.lk@gmail.com
  *    Label:            Sorting Algorithms
  *    Title:            Program 2
- *    Course:           CMPS 5243, Spring number22, Dr. Johnson
- *    Semester:         Spring number22
+ *    Course:           CMPS 5243, Spring 2022, Dr. Johnson
+ *    Semester:         Spring 2022
  *    Description:
  *
  *                      This program implements the following sorting algorithms:
  *
- *                           - Selection Sort
- *                           - Bubble Sort
- *                           - QuickSort
+ *                           - RadixSort Sort O(N * M)
+ *                           - Bubble Sort    O(N ^ 2)
+ *                           - QuickSort      O(N log N)
+ *                          -  Count Sort     O(N + K)
  *
  *
  *    Files:
@@ -37,15 +38,15 @@
 
 using namespace std;
 
-const int _SIZE = 5000;
-const int SEED = 20;
+const int _SIZE    = 5000;
+const int SEED     = 20;
 
-double quickcount = 0;
-double RadixCount = 0;
+double quickcount  = 0;
+double RadixCount  = 0;
 
-double quick_time = 0.0;
-double radix_time = 0.0;
-double bubble_time = 0.0;
+auto quick_time = 0.0,
+radix_time  = 0.0,
+bubble_time = 0.0;
 
 // Function Prototypes
 void Seed();
@@ -77,6 +78,9 @@ void radixsort(int arr[], int n);
 // Function prototype to sort the Arrays using Counting Sort.
 void countSort(int arr[], int n, int exp);
 
+// Function prototype for selection sort the Arrays and and a counter to count the number of comparisons.
+int selectionSort(int arr[], int n, int &count);
+
 // Function prototype to print the header.
 void header();
 
@@ -99,6 +103,7 @@ int main()
 
     int number = 20;
 
+    // Run the each algorithm 20 times.
     for (int i = 0; i < number; i++)
     {
 
@@ -109,21 +114,18 @@ int main()
         copyArray(myArray1, myArray2);
         copyArray(myArray1, myArray3);
 
-        bubble_time *= 1e-9;
         bubblecount = bubbleSort(myArray1);
         // cout << "Bubble count:  " << bubblecount << endl;
         // cout << "Time Complexity: " << termcolor::green << fixed
         //      << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
         //      << endl;
 
-        quick_time *= 1e-9;
         quickSort(myArray2, 0, _SIZE - 1);
         // cout << "QuickSort count:  " << quickcount << endl;
         // cout << "Time Complexity: " << termcolor::green << fixed
         //      << quick_time << setprecision(3) << termcolor::reset << " sec\n"
         //      << endl;
 
-        radix_time *= 1e-9;
         radixsort(myArray3, n);
         // cout << "RadixSort count:  " << RadixCount << endl;
         // cout << "Time Complexity: " << termcolor::green << fixed
@@ -151,18 +153,15 @@ int main()
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
          << bubble_time << setprecision(3) << termcolor::reset << " sec" << endl;
-    cout << "Average Bubble Sort Count: "  << bubblecount << endl
-         << endl;
+    cout << "Average Bubble Sort Count: "  << bubblecount << endl << endl;
 
     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
-         << quick_time << setprecision(3) << termcolor::reset << " sec" << endl;
-    cout << "Average Quick Sort Count: "  << quickcount << endl
-         << endl;
+         << quick_time << " sec" << setprecision(3) << termcolor::reset    << endl;
+    cout << "Average Quick Sort Count: "  << quickcount << endl << endl;
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
-         << radix_time << setprecision(3) << termcolor::reset << " sec" << endl;
-    cout << "Average Radix Sort Count: "  << RadixCount << endl
-         << endl;
+         << radix_time << setprecision(3) << termcolor::reset   << " sec" << endl;
+    cout << "Average Radix Sort Count: "  << RadixCount << endl << endl;
 
     return 0;
 }
