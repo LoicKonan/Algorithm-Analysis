@@ -35,6 +35,34 @@ int main()
      cout << ("***********************************************************************") 
           << ("*****************************************") << "\n\n\n";
 
+// table header
+    cout << ("***********************************************************************") 
+         << ("*****************************************") << "\n\n";
+
+    cout << setw(colWidth) << "Iteration" << setw(colWidth) << "BubbleSort" << setw(colWidth) 
+         << "SelectionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
+         << "QuickSort" << setw(colWidth) << "RadixSort" << setw(colWidth) 
+         << "CountingSort" << setw(colWidth) << "\n\n";
+    
+    cout << ("***********************************************************************")
+         << ("*****************************************") << "\n\n";
+
+    // create table of data
+    int a = 1;
+    while (a <= 20)
+    {
+        cout <<setw(12)<< fixed << setprecision(0) << n << setprecision(6) 
+             << setw(colWidth)   << log10(a) << setw(colWidth) << sqrt(a) 
+             << setw(colWidth)   << log10(a) << setw(colWidth) << sqrt(a) 
+             << setw(colWidth)   << log10(a) << setw(colWidth) << sqrt(a) << "\n";
+        
+        a++;
+    }
+
+     cout << ("***********************************************************************") 
+          << ("*****************************************") << "\n\n\n";
+
+
 
 
      cout << ("\n\n\n***********************************************************************") 
@@ -45,7 +73,7 @@ int main()
     cout << setw(4*colWidth) << "(Milliseconds)\n";
 
     cout << ("***********************************************************************") 
-         << ("*****************************************") << "\n"; 
+         << ("*****************************************") << "\n\n"; 
     
     
     cout << setw(colWidth)  << "BubbleSort"    << setw(2.8*colWidth) <<  "111.11" 
