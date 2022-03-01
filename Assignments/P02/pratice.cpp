@@ -2,6 +2,8 @@
 #include <iomanip>
 #include <time.h>
 #include <chrono>
+#include "termcolor.hpp"
+
 
 using namespace std;
 using namespace std::chrono;
@@ -72,6 +74,10 @@ int main()
     double BubbleTime_taken = chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
     // convert time taken to sort the array from nanoseconds to seconds.
     BubbleTime_taken *= 1e-9;
+    
+    cout << "Time Complexity: " << termcolor::green << fixed
+             << BubbleTime_taken << setprecision(3) << termcolor::reset << " sec\n"
+             << endl;
 
 
     // Counting sort using myArray2
