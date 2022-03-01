@@ -21,7 +21,10 @@ int main()
 {
   // gives the details of the program
   heading();
-  int myArray1[SIZE], myArray2[SIZE], myArray3[SIZE];
+  int myArray1[SIZE], 
+      myArray2[SIZE], 
+      myArray3[SIZE];
+  
   int bubblecount = 0;    // mark number iterations performed by bubble sort
   int CountSortcount = 0; // mark number iterations performed by count sort
   int NumberOfRuns = 0;   // mark number of arrays generated and sorted
@@ -41,7 +44,6 @@ int main()
 
   for (int runs = 0; runs < 20; runs++)
   {
-
     SumBubbleSort = 0;
     SumMergeSort = 0;
     SumCountSort = 0;
@@ -59,52 +61,43 @@ int main()
     copyArray(myArray1, myArray2);
     copyArray(myArray1, myArray3);
 
+
+
     // Bubble sort using myArray1
     auto BubbleStart = chrono::high_resolution_clock::now();
-
     // unsync the I/O of C ++.
     ios_base::sync_with_stdio(false);
-
     bubblecount = bubbleSort(myArray1);
-
     auto BubbleEnd = chrono::high_resolution_clock::now();
-
     // Calculating total time taken by the program.
     double BubbleTime_taken = chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
-
     // convert time taken to sort the array from nanoseconds to seconds.
     BubbleTime_taken *= 1e-9;
 
+
     // Counting sort using myArray2
     auto CountStart = chrono::high_resolution_clock::now();
-
     // unsync the I/O of C and C++.
     ios_base::sync_with_stdio(false);
-
     CountSortcount = countSort(myArray2, SIZE);
-
     auto CountEnd = chrono::high_resolution_clock::now();
-
     // Calculating total time taken by the program.
     double CountTime_taken = chrono::duration_cast<chrono::nanoseconds>(CountEnd - CountStart).count();
     // convert time taken to sort the array from nanoseconds to seconds.
     CountTime_taken *= 1e-9;
 
+
     // Merge sort using myArray3);
-
     auto startMerge = chrono::high_resolution_clock::now();
-
     // unsync the I/O of  C++.
     ios_base::sync_with_stdio(false);
-
     mergeSort(myArray3, SIZE, MergeCount);
-
     auto EndMerge = chrono::high_resolution_clock::now();
-
     // Calculating total time taken by the program.
     double MergeTime_taken = chrono::duration_cast<chrono::nanoseconds>(EndMerge - startMerge).count();
     // convert time taken to sort the array from nanoseconds to seconds.
     MergeTime_taken *= 1e-9;
+
 
     // Total number of iterations taken for each algorithim to sort 20 arrays.
     SumBubbleSort += bubblecount;
