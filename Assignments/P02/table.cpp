@@ -9,8 +9,11 @@ int main()
 {
     int colWidth = 15;
     // table header
+
+     
     cout << ("***********************************************************************") 
          << ("*****************************************") << "\n\n";
+    cout << setw(4.4*colWidth) << "Time Complexity\n\n";
 
     cout << setw(colWidth) << "Iteration" << setw(colWidth) << "BubbleSort" << setw(colWidth) 
          << "SelectionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
@@ -38,6 +41,7 @@ int main()
 // table header
     cout << ("***********************************************************************") 
          << ("*****************************************") << "\n\n";
+    cout << setw(4.6*colWidth) << "Number of Comparisons \n\n";
 
     cout << setw(colWidth) << "Iteration" << setw(colWidth) << "BubbleSort" << setw(colWidth) 
          << "SelectionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
@@ -64,8 +68,8 @@ int main()
 
 
 
-
-     cout << ("\n\n\n***********************************************************************") 
+    cout << setw(4*colWidth)<< "Final Results\n";
+    cout << ("\n\n***********************************************************************") 
           << ("*****************************************") << "\n\n";
 
     cout << setw(colWidth) << "Algorithms" << "\t\t\t\t" << "Average Time Complexity" 
