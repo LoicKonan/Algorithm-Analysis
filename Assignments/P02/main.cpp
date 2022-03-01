@@ -10,10 +10,10 @@
  *
  *                      This program implements the following sorting algorithms:
  *
- *                           - RadixSort Sort O(N * M)
+ *                           - RadixSort Sort O(N)
  *                           - Bubble Sort    O(N ^ 2)
  *                           - QuickSort      O(N log N)
- *                          -  Count Sort     O(N + K)
+ *                          -  Count Sort     O(N)
  *
  *
  *    Files:
@@ -78,7 +78,8 @@ void radixsort(int arr[], int n);
 // Function prototype to sort the Arrays using Counting Sort.
 void countSort(int arr[], int n, int exp);
 
-// Function prototype for selection sort the Arrays and and a counter to count the number of comparisons.
+// Function prototype for selection sort the Arrays and and a counter 
+// to count the number of comparisons.
 int selectionSort(int arr[], int n, int &count);
 
 // Function prototype to print the header.
@@ -117,20 +118,20 @@ int main()
 
          radixsort(myArray3, n);
         cout << "RadixSort count:  " << RadixCount << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
+        cout << "Time Complexity: "  << termcolor::green << fixed
              << radix_time << setprecision(3) << termcolor::reset << " sec\n"
              << endl;
 
 
         bubblecount = bubbleSort(myArray1);
-        cout << "Bubble count:  " << bubblecount << endl;
+        cout << "Bubble count:  "   << bubblecount << endl;
         cout << "Time Complexity: " << termcolor::green << fixed
              << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
              << endl;
 
         quickSort(myArray2, 0, _SIZE - 1);
         cout << "QuickSort count:  " << quickcount << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
+        cout << "Time Complexity: "  << termcolor::green << fixed
              << quick_time << setprecision(3) << termcolor::reset << " sec\n"
              << endl;
 
