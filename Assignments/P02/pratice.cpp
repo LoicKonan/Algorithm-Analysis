@@ -6,7 +6,6 @@
 using namespace std;
 using namespace std::chrono;
 
-
 const int SIZE = 5000;//total number of elements in an array.
 void heading();//prints out program header and brief description of assignment
 void fillArray(int arr[],int seed);//generates an array of random numbers using Rand  and a srand  with seed 20.
@@ -16,32 +15,46 @@ void swap(int &x, int &y);//used by bubble sort to swap items in their correct o
 int bubbleSort(int arr[]);//perform bubble sort.
 int countSort(int array[],int SIZE);//perform counting sort.
 void mergeSort (int arr[],int SIZE,int& count);//perform merge sort.
-int MergeCount =0;//number iterations performed by merge sort.
+int MergeCount = 0;//number iterations performed by merge sort.
 
-int main() {
+int main() 
+{
   //gives the details of the program
   heading();
   int myArray1[SIZE], myArray2[SIZE], myArray3[SIZE];
   int bubblecount = 0;//mark number iterations performed by bubble sort
-  int CountSortcount=0;//mark number iterations performed by count sort
-  int NumberOfRuns =0;//mark number of arrays generated and sorted
-  int SumBubbleSort,SumMergeSort,SumCountSort;
-  double AverbubbleTime,AverMergeSortTime,SumMergeSortTime,SumBubblesortTime,AverCountSortTime,SumCountSortTime,AvCountSort,AvBubbleSort,AvMergeSort;
+  int CountSortcount = 0;//mark number iterations performed by count sort
+  int NumberOfRuns = 0;//mark number of arrays generated and sorted
+  int SumBubbleSort,
+      SumMergeSort,
+      SumCountSort;
 
-    for (int runs=0;runs<20;runs++)
+  double AverbubbleTime,
+        AverMergeSortTime,
+        SumMergeSortTime,
+        SumBubblesortTime,
+        AverCountSortTime,
+        SumCountSortTime,
+        AvCountSort,
+        AvBubbleSort,
+        AvMergeSort;
+
+    for (int runs = 0; runs < 20; runs++)
   {
     
-    SumBubbleSort=0;
-    SumMergeSort=0;
-    SumCountSort=0;
-    SumCountSortTime=0;
-    SumMergeSortTime=0;
-    SumBubblesortTime=0;
+    SumBubbleSort = 0;
+    SumMergeSort = 0;
+    SumCountSort = 0;
+    SumCountSortTime = 0;
+    SumMergeSortTime = 0;
+    SumBubblesortTime = 0;
     int seed;
-    seed+=20;
+    seed+= 20;
     NumberOfRuns+=1;
+
     //Generate an array of random numbers using a seed
     fillArray(myArray1,seed);
+
     //copy contents from the generated myarray1 to myArray2 and myArray3
     copyArray(myArray1, myArray2);
     copyArray(myArray1, myArray3);
@@ -57,9 +70,10 @@ int main() {
     auto BubbleEnd = chrono::high_resolution_clock::now();
   
      // Calculating total time taken by the program.
-      double BubbleTime_taken =chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
-      //convert time taken to sort the array from nanoseconds to seconds.
-      BubbleTime_taken *= 1e-9;
+    double BubbleTime_taken = chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
+    
+    //convert time taken to sort the array from nanoseconds to seconds.
+    BubbleTime_taken *= 1e-9;
       
     // Counting sort using myArray2
     auto CountStart = chrono::high_resolution_clock::now();
@@ -102,13 +116,12 @@ int main() {
      SumBubblesortTime+=BubbleTime_taken;
      SumMergeSortTime+=MergeTime_taken;
      SumCountSortTime+= CountTime_taken;
-   
-   
   }
+
   //average time taken for each algorithim to sort 20 arrays
-  AvBubbleSort=(SumBubbleSort/NumberOfRuns);
-  AvMergeSort =(SumMergeSort/NumberOfRuns);
-  AvCountSort=(SumCountSort/NumberOfRuns);
+  AvBubbleSort = (SumBubbleSort/NumberOfRuns);
+  AvMergeSort = (SumMergeSort/NumberOfRuns);
+  AvCountSort = (SumCountSort/NumberOfRuns);
   
   //average time taken for each algorithim to sort 20 arrays
   AverCountSortTime=(SumCountSortTime/NumberOfRuns);
@@ -126,8 +139,6 @@ int main() {
   cout << "3) COUNTING SORT ALGORITHM(using myArray2):  \n\n";
   cout << "Average  Time taken to sort 20 arrays is : " << fixed << setprecision(5) << AverCountSortTime<< " seconds\n";
   cout <<"Average number of iterations: "<<AvCountSort<< " \n";
-  
-  
   
   return 0;
  }
@@ -283,9 +294,6 @@ void mergeSort(int a[], int n,int &count )
     mergeSort(right, n-mid,MergeCount);
     // Merge the sub-arrays halves.
     merge(left, right, a, n,MergeCount );
-    
-  
- 
 }
 //End cited code
 
@@ -346,20 +354,5 @@ void mergeSort(int a[], int n,int &count )
 //End cited code
 void heading()
 {
-  cout << "Name : Mukembo Joseph Francis\n";
-  cout << "M#   : M20293484\n";
-  cout << "Class: CMPS 5243\n\n";
-  cout << "Topic: Experiment to determine the performance of  3 sorting \n";
-  cout << "algorithms of different runtime category on arrays of size 5000.\n\n";
-  cout << "Introduction:\n\n";
-  cout << "This program will implement 3 different sorting algorithms \n";
-  cout << "from each runtime category i.eBubble sort (O(n²)), Count sort\n";
-  cout<<  "(O(n)), Merge sort (O(nlogn))  on 20 randomly generated\n"; 
-  cout << "numbers arrays of size 5000 labeled myArray1,myArray2,myArray3.\n";
-  cout << "All these arrays have the same content for each run.\n";
-  cout << "The program measures the average number of iterations and time taken to \n";
-  cout << "execute the function for each sorting algorithm implemented"; 
-  cout << " in the program. \n";
-  cout << "We shall consider the algorithms below of different run time category:\n\n\n";
- 
+  
 }
