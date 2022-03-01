@@ -156,15 +156,15 @@ int main()
     bubblecount /= number;
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
-         << bubble_time << setprecision(3) << termcolor::reset << " sec" << endl;
+         << bubble_time/1000 << setprecision(3) << termcolor::reset << " sec" << endl;
     cout << "Average Bubble Sort Count: "  << bubblecount << endl << endl;
 
     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
-         << quick_time << " sec" << setprecision(3) << termcolor::reset    << endl;
+         << quick_time/1000 << " sec" << setprecision(3) << termcolor::reset    << endl;
     cout << "Average Quick Sort Count: "  << quickcount << endl << endl;
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
-         << radix_time << setprecision(3) << termcolor::reset   << " sec" << endl;
+         << radix_time/1000 << setprecision(3) << termcolor::reset   << " sec" << endl;
     cout << "Average Radix Sort Count: "  << RadixCount << endl << endl;
 
     return 0;
