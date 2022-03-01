@@ -13,7 +13,7 @@ int main()
      
     cout << ("***********************************************************************") 
          << ("*****************************************") << "\n\n";
-    cout << setw(4.4*colWidth) << "Time Complexity\n\n";
+    cout << setw(5*colWidth) << "Time Complexity per Iteration\n\n";
 
     cout << setw(colWidth) << "Iteration" << setw(colWidth) << "BubbleSort" << setw(colWidth) 
          << "SelectionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
@@ -41,7 +41,7 @@ int main()
 // table header
     cout << ("***********************************************************************") 
          << ("*****************************************") << "\n\n";
-    cout << setw(4.6p *colWidth) << "Number of Comparisons \n\n";
+    cout << setw(5*colWidth) << "Number of Comparisons per Iteration\n\n";
 
     cout << setw(colWidth) << "Iteration" << setw(colWidth) << "BubbleSort" << setw(colWidth) 
          << "SelectionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
@@ -55,7 +55,7 @@ int main()
     int a = 1;
     while (a <= 20)
     {
-        cout <<setw(12)<< fixed << setprecision(0) << n << setprecision(6) 
+        cout <<setw(12)<< fixed << setprecision(0) << a << setprecision(6) 
              << setw(colWidth)   << log10(a) << setw(colWidth) << sqrt(a) 
              << setw(colWidth)   << log10(a) << setw(colWidth) << sqrt(a) 
              << setw(colWidth)   << log10(a) << setw(colWidth) << sqrt(a) << "\n";
