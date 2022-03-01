@@ -41,6 +41,7 @@ int main()
       AvCountSort,
       AvBubbleSort,
       AvMergeSort;
+  int seed = 0;
 
   for (int runs = 0; runs < 20; runs++)
   {
@@ -50,9 +51,7 @@ int main()
     SumCountSortTime = 0;
     SumMergeSortTime = 0;
     SumBubblesortTime = 0;
-    int seed;
-    seed += 20;
-    NumberOfRuns += 1;
+    NumberOfRuns ++;
 
     // Generate an array of random numbers using a seed
     fillArray(myArray1, seed);
@@ -107,6 +106,8 @@ int main()
     SumBubblesortTime += BubbleTime_taken;
     SumMergeSortTime += MergeTime_taken;
     SumCountSortTime += CountTime_taken;
+    seed ++;
+
   }
 
   // average time taken for each algorithim to sort 20 arrays
