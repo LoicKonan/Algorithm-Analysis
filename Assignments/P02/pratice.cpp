@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <time.h>
 #include <chrono>
+#include "termcolor.hpp"
 
 using namespace std;
 using namespace std::chrono;
@@ -71,7 +72,8 @@ int main()
   
      // Calculating total time taken by the program.
     double BubbleTime_taken = chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
-    
+
+
     //convert time taken to sort the array from nanoseconds to seconds.
     BubbleTime_taken *= 1e-9;
       
@@ -98,7 +100,7 @@ int main()
      // unsync the I/O of  C++.
      ios_base::sync_with_stdio(false);
   
-      mergeSort(myArray3,SIZE,MergeCount);
+    mergeSort(myArray3,SIZE,MergeCount);
   
    auto EndMerge = chrono::high_resolution_clock::now();
   
@@ -354,5 +356,5 @@ void mergeSort(int a[], int n,int &count )
 //End cited code
 void heading()
 {
-  
+
 }
