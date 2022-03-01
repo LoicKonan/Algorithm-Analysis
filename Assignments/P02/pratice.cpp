@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <time.h>
 #include <chrono>
-#include "termcolor.hpp"
 
 
 using namespace std;
@@ -74,10 +73,8 @@ int main()
     double BubbleTime_taken = chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
     // convert time taken to sort the array from nanoseconds to seconds.
     BubbleTime_taken *= 1e-9;
-    
-    cout << "Time Complexity: " << termcolor::green << fixed
-             << BubbleTime_taken << setprecision(3) << termcolor::reset << " sec\n"
-             << endl;
+    cout << "\n\nBubble Sort Time Complexity: " << BubbleTime_taken << setprecision(3) << " sec\n";
+    cout << "\n\nBubble Sort Comparisons: " << bubblecount << setprecision(3) << "\n";
 
 
     // Counting sort using myArray2
@@ -90,6 +87,9 @@ int main()
     double CountTime_taken = chrono::duration_cast<chrono::nanoseconds>(CountEnd - CountStart).count();
     // convert time taken to sort the array from nanoseconds to seconds.
     CountTime_taken *= 1e-9;
+    cout << "Counting SortTime Complexity: " << CountTime_taken << setprecision(3) << " sec\n";
+    cout << "\nCounting Sort Comparisons: " << CountSortcount << setprecision(3) << "\n";
+
 
 
     // Merge sort using myArray3);
@@ -102,6 +102,9 @@ int main()
     double MergeTime_taken = chrono::duration_cast<chrono::nanoseconds>(EndMerge - startMerge).count();
     // convert time taken to sort the array from nanoseconds to seconds.
     MergeTime_taken *= 1e-9;
+    cout << "Merge Time Complexity: " << MergeTime_taken << setprecision(3) << " sec\n";
+    cout << "\nMerge Sort Comparisons: " << MergeCount << setprecision(3) << "\n\n\n";
+
 
 
     // Total number of iterations taken for each algorithim to sort 20 arrays.
