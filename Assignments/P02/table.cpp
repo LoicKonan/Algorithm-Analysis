@@ -41,7 +41,7 @@ int main()
 // table header
     cout << ("***********************************************************************") 
          << ("*****************************************") << "\n\n";
-    cout << setw(4.6*colWidth) << "Number of Comparisons \n\n";
+    cout << setw(4.6p *colWidth) << "Number of Comparisons \n\n";
 
     cout << setw(colWidth) << "Iteration" << setw(colWidth) << "BubbleSort" << setw(colWidth) 
          << "SelectionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
