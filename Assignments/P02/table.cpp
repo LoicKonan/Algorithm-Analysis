@@ -9,28 +9,61 @@ int main()
 {
     int colWidth = 15;
     // table header
-    cout << setfill('*') << setw(3 * colWidth) << "*" << "\n";
+    cout << ("***********************************************************************") 
+         << ("*****************************************") << "\n\n";
 
-    cout << setfill(' ') << fixed << "\n\n";
-
-    cout << setw(colWidth) << "Iterations: " << setw(colWidth) << "BubbleSort" 
-         << setw(colWidth) << "SelectionSort" << setw(colWidth) << "insertionSort"
-         << setw(colWidth) << "heapsort" << setw(colWidth) << "QuickSort" << setw(colWidth) 
-         << setw(colWidth) << "MergeSort" << setw(colWidth) << "RadixSort" << setw(colWidth) 
-         << setw(colWidth) << "CountingSort" << setw(colWidth);
+    cout << setw(colWidth) << "Iteration" << setw(colWidth) << "BubbleSort" << setw(colWidth) 
+         << "SelectionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
+         << "QuickSort" << setw(colWidth) << "RadixSort" << setw(colWidth) 
+         << "CountingSort" << setw(colWidth) << "\n\n";
     
-    cout << setfill('*') << setw(3 * colWidth) << "*" << "\n";
-    cout << setfill(' ') << fixed;
+    cout << ("***********************************************************************")
+         << ("*****************************************") << "\n\n";
 
     // create table of data
     int n = 1;
     while (n <= 20)
     {
-        cout << setprecision(0) << setw(colWidth) << n << setprecision(4) 
-            << setw(colWidth)   << log10(n) << setw(colWidth) << sqrt(n) << "\n";
+        cout <<setw(12)<< fixed << setprecision(0) << n << setprecision(6) 
+             << setw(colWidth)   << log10(n) << setw(colWidth) << sqrt(n) 
+             << setw(colWidth)   << log10(n) << setw(colWidth) << sqrt(n) 
+             << setw(colWidth)   << log10(n) << setw(colWidth) << sqrt(n) << "\n";
         
         n++;
     }
+
+     cout << ("***********************************************************************") 
+          << ("*****************************************") << "\n\n\n";
+
+
+
+     cout << ("\n\n\n***********************************************************************") 
+          << ("*****************************************") << "\n\n";
+
+    cout << setw(colWidth) << "Algorithms" << "\t\t\t\t" << "Average Time Complexity" 
+         << "\t\t\t\t" << "Average Comparisons\n\n";
+    cout << setw(4*colWidth) << "(Milliseconds)\n";
+
+    cout << ("***********************************************************************") 
+         << ("*****************************************") << "\n"; 
+    
+    
+    cout << setw(colWidth)  << "BubbleSort"    << setw(2.8*colWidth) <<  "111.11" 
+         << setw(2.8*colWidth) <<  "111.11"<< "\n\n"
+         << setw(colWidth)  << "SelectionSort" << setw(2.8*colWidth) << "111.11"  
+         << setw(2.8*colWidth) <<  "111.11"<< "\n\n"
+         << setw(colWidth)  << "MergeSort"     << setw(2.8*colWidth) << "111.11"  
+         << setw(2.8*colWidth) <<  "111.11"<< "\n\n"
+         << setw(colWidth)  << "QuickSort"     << setw(2.8*colWidth) << "111.11"  
+         << setw(2.8*colWidth) <<  "111.11"<< "\n\n"
+         << setw(colWidth)  << "RadixSort"     << setw(2.8*colWidth) << "111.11"  
+         << setw(2.8*colWidth) <<  "111.11"<< "\n\n"
+         << setw(colWidth)  << "CountingSort"  << setw(2.8*colWidth) << "111.11"  
+         << setw(2.8*colWidth) <<  "111.11"<< "\n\n";
+    
+    cout << ("***********************************************************************")
+         << ("*****************************************") << "\n\n";
+
 
     return 0;
 }
