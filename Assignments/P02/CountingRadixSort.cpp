@@ -1,10 +1,3 @@
-/****************************************
-Tina Johnson
-CMPS 5243
-This program will demonstrate O(n) sorting 
-algorithms, counting sort and radix sort.
-*******************************************/
-
 #include <iostream>
 #include <iomanip>
 #include <time.h>
