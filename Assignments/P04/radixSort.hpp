@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+// Number of comparisions
+int radixcount = 0;
+
 namespace RadixSort
 {
     using namespace std;
@@ -18,7 +21,7 @@ namespace RadixSort
     }
 
     // Using counting sort to sort the elements in the basis of significant places
-    void countingSort(int array[], int size, int place)
+    void countingSort(int array[], int size, int place, int &radixcount)
     {
         const int max = 10;
         int output[size];
@@ -40,6 +43,7 @@ namespace RadixSort
         {
             output[count[(array[i] / place) % 10] - 1] = array[i];
             count[(array[i] / place) % 10]--;
+            radixcount++;
         }
 
         for (int i = 0; i < size; i++)
@@ -47,13 +51,13 @@ namespace RadixSort
     }
 
     // Main function to implement radix sort
-    void radixsort(int array[], int size)
+    void radixsort(int array[], int size, int &radixcount)
     {
         // Get maximum element
         int max = getMax(array, size);
 
         // Apply counting sort to sort elements based on place value.
         for (int place = 1; max / place > 0; place *= 10)
-            countingSort(array, size, place);
+            countingSort(array, size, place, radixcount);
     }
 }
