@@ -5,9 +5,12 @@
 #include <vector>
 
 #include "countSort.hpp"
-#include "heapSort.hpp"
-#include "quickSort.hpp"
 #include "radixSort.hpp"
+
+#include "MergeSort.hpp"
+#include "quickSort.hpp"
+
+#include "SelectionSort.hpp"
 #include "BubbleSort.hpp"
 
 using namespace std;

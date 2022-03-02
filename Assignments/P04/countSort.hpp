@@ -6,7 +6,7 @@ namespace CountSort
 {
     using namespace std;
 
-    void countSort(int array[], int size,int maxVal=9) 
+    void countSort(int array[], int size,int maxVal = 9) 
     {
         // The size of count must be at least the (max+1) but
         // we cannot assign declare it as int count(max+1) in C++ as
