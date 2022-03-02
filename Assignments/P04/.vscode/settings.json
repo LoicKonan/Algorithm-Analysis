@@ -26,5 +26,9 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ]
+  ],
+  "files.associations": {
+    "chrono": "cpp",
+    "algorithm": "cpp"
+  }
 }

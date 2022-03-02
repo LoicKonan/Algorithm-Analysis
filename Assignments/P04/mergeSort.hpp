@@ -21,7 +21,7 @@ namespace MergeSort
     Given a left and right array, values are copied
     into larger array, a, of size n in sorted order.
     ****************************************************/
-    void merge(int lft[], int rt[], int a[], int n, int &count)
+    void merge(int lft[], int rt[], int a[], int n, int &MergeCount)
     {
         int i = 0, j = 0, k = 0;
         int lenLft = n / 2;
@@ -65,7 +65,7 @@ namespace MergeSort
         }
     }
 
-    void mergeSort(int a[], int n, int &count)
+    void mergeSort(int a[], int n, int &MergeCount)
     {
         MergeCount++;
         int i, mid, *left, *right;
