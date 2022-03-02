@@ -50,7 +50,7 @@
 using namespace std;
 
 // The size of the Arrays.
-const int _SIZE = 6000;
+const int _SIZE = 5000;
 
 // Initialize the counter for quickSort
 int quickcount = 0;
@@ -135,21 +135,18 @@ int main()
         copyArray(myArray1, myArray2);
         copyArray(myArray1, myArray3);
 
+
+
         // Start the clock for the Radix sort.
         auto startRadix = chrono::high_resolution_clock::now();
-        
         // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
-
         // Call the radixsort function, and pass the arrays.
         radixsort(myArray3, n, radixcount);
-        
         // End the clock for the Radix sort.
         auto endRadix = chrono::high_resolution_clock::now();
-        
         // Calculate the time for the Radix sort.
         radix_time = chrono::duration_cast<chrono::milliseconds>(endRadix - startRadix).count();
-        
         // Converting the time to seconds
         radix_time *= 1e-9;
         // Display the time for the Radix sort.
@@ -159,23 +156,40 @@ int main()
              << endl;
 
 
+
+        // Start the clock for the Quick sort.
+        auto startCount = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+        // Call the quickSort function, and pass the arrays.
+        count_count = CountSort::countSort(myArray3, n);
+        // End the clock for the Quick sort.
+        auto endCount = chrono::high_resolution_clock::now();
+        // Calculate the time for the Quick sort.
+        count_time = chrono::duration_cast<chrono::milliseconds>(endCount - startCount).count();
+        // Converting the time to seconds
+        count_time *= 1e-9;
+        // Display the time for the Quick sort.
+        cout << "QuickSort count:  " << count_count << endl;
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << quick_time << setprecision(6) << termcolor::reset << " sec\n"
+             << endl;
+
+
+
+
         // Start the clock for the Quick sort.
         auto startBubble = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
-
         // Call the bubbleSort function, and pass the arrays.
         bubblecount = bubbleSort(myArray1);
-        
         // End the clock for the Quick sort.
         auto endBubble = chrono::high_resolution_clock::now();
-
         // Calculate the time for the Bubble sort.
         bubble_time = chrono::duration_cast<chrono::milliseconds>(endBubble - startBubble).count();
-
         // Converting the time to seconds
         bubble_time *= 1e-9;
-
         // Display the time for the Bubble sort.
         cout << "Bubble count:  " << bubblecount << endl;
         cout << "Time Complexity: " << termcolor::green << fixed
@@ -188,53 +202,24 @@ int main()
         auto startQuick = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
-
         // Call the quickSort function, and pass the arrays.
         quickSort(myArray2, 0, _SIZE - 1, quickcount);
-
         // End the clock for the Quick sort.
         auto endQuick = chrono::high_resolution_clock::now();
-
         // Calculate the time for the Quick sort.
         quick_time = chrono::duration_cast<chrono::milliseconds>(endQuick - startQuick).count();
-
         // Converting the time to seconds
         quick_time *= 1e-9;
-
         // Display the time for the Quick sort.
         cout << "QuickSort count:  " << quickcount << endl;
         cout << "Time Complexity: " << termcolor::green << fixed
              << quick_time << setprecision(6) << termcolor::reset << " sec\n"
              << endl;
 
-
-        // Start the clock for the Quick sort.
-        auto startCount = chrono::high_resolution_clock::now();
-         // unsync the I/O of  C++.
-        ios_base::sync_with_stdio(false);
-
-        // Call the quickSort function, and pass the arrays.
-        count_count = CountSort::countSort(myArray3, n);
-
-        // End the clock for the Quick sort.
-        auto endCount = chrono::high_resolution_clock::now();
-
-        // Calculate the time for the Quick sort.
-        count_time = chrono::duration_cast<chrono::milliseconds>(endCount - startCount).count();
-
-        // Converting the time to seconds
-        count_time *= 1e-9;
-
-        // Display the time for the Quick sort.
-        cout << "QuickSort count:  " << count_count << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
-             << quick_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
-
+        
 
 
         // Getting the total time and total count of comparisons.
-       
         bubble_time++;
         insertion_time++;
         selection_time++;
@@ -247,11 +232,11 @@ int main()
         merge_time++;
 
 
+
         bubblecount++;
         insertioncount++;
         selectioncount++;
 
-        
         quickcount++;
         HeapCount++;
         MergeCount++;
@@ -306,7 +291,6 @@ int main()
             << endl;
 
         
-
     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
          << quick_time << " sec" << setprecision(6) << termcolor::reset << endl;
     cout << "Average Quick Sort Count: " << quickcount << endl
@@ -321,7 +305,6 @@ int main()
             << merge_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Merge Sort Count: " << MergeCount << endl
             << endl;
-
 
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
