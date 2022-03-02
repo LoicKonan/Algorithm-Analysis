@@ -26,12 +26,16 @@
  *
  ******************************************************************************/
 
-
-#include <chrono>
-#include <fstream>
 #include <iostream>
-#include <string>
+#include <chrono>
 #include <vector>
+#include <ctime>
+#include <cmath>
+#include <random>
+#include <iomanip>
+#include <time.h>
+
+
 
 #include "termcolor.hpp"
 
@@ -49,7 +53,6 @@
 using namespace std;
 using namespace std::chrono;
 
-
 // Function prototype to print the header.
 void header();
 
@@ -57,93 +60,130 @@ void header();
 void fillArray(int Array[], int seed);
 
 // Function prototype to copy the Array.
-void copyArray(int Array1[], int Array2[]);         
+void copyArray(int Array1[], int Array2[]);
 
 // Function prototype to print the Array.
-void printArray(int Array[]); 
+void printArray(int Array[]);
 
 // The Size of our Arrays.
 const int _SIZE = 5000;
 
 // Driver code
-int main() 
+int main()
 {
     // Display the header and Description of the program.
     header();
-    
+
     // Initialize the size(5000) of the arrays.
     int myArray1[_SIZE];
     int myArray2[_SIZE];
     int myArray3[_SIZE];
 
-    // Initialize the seed for the random number generator.
-    int seed = 0;
-
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average Time for bubble sort.
-    int bubble_count      = 0;
-    int bubble_sum        = 0;
+    int bubble_count = 0;
+    int bubble_sum = 0;
     double bubble_average = 0;
-    double bubble_time    = 0;
+    double bubble_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for selection sort.
-    int selection_count       = 0;
-    int selection_sum         = 0;
-    double selection_average  = 0;
+    int selection_count = 0;
+    int selection_sum = 0;
+    double selection_average = 0;
     double Avg_selection_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for insertion sort.
-    int insertion_count       = 0;
-    int insertion_sum         = 0;
-    double insertion_average  = 0;
+    int insertion_count = 0;
+    int insertion_sum = 0;
+    double insertion_average = 0;
     double Avg_insertion_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for count sort.
-    int count_count       = 0;
-    int count_sum         = 0;
-    double count_average  = 0;
+    int count_count = 0;
+    int count_sum = 0;
+    double count_average = 0;
     double Avg_count_time = 0;
 
     // Initialize the sum of the comparison, the average comparison
     // and the average for Heap sort.
-    int heap_sum         = 0;
-    double heap_average  = 0;
+    int heap_sum = 0;
+    double heap_average = 0;
     double Avg_heap_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for Quick sort.
-    int quick_sum         = 0;
-    double quick_average  = 0;
+    int quick_sum = 0;
+    double quick_average = 0;
     double Avg_quick_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for Radix sort.
-    int radix_sum         = 0;
-    double radix_average  = 0;
+    int radix_sum = 0;
+    double radix_average = 0;
     double Avg_radix_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for Merge sort.
-    int merge_sum         = 0;
-    double merge_average  = 0;
+    int merge_sum = 0;
+    double merge_average = 0;
     double Avg_merge_time = 0;
 
 
+    // run the loop 20 times.
+    int number = 20;
+
+    // Initialize the seed for the random number generator.
+    int seed = 0;
+
+
+    // Run the each algorithm 20 times.
+    for (int i = 0; i < number; i++)
+    {
+        // Call the fillArrays function.
+        fillArray(myArray1, seed);
+
+        // Call the copyArrays function, and pass the arrays.
+        copyArray(myArray1, myArray2);
+        copyArray(myArray1, myArray3);
+
+
+        // CountSort::countSort(copy, n, m);
+        // HeapSort::heapSort(copy, n);
+        // QuickSort::quickSort(copy, 0, n - 1);
+        // RadixSort::radixsort(copy, n);
 
 
 
-    // CountSort::countSort(copy, n, m);
-    // HeapSort::heapSort(copy, n);
-    // QuickSort::quickSort(copy, 0, n - 1);
-    // RadixSort::radixsort(copy, n);
+    }
 
+
+     // The average time complexity of the three algorithms.
+    Avg_radix_time  /= number;
+    Avg_quick_time  /= number;
+    bubble_time     /= number;
+
+    // The average number of comparisons for the three algorithms.
+    radixcount   /= number;
+    quickcount   /= number;
+    bubble_count /= number;
+
+    cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
+         << bubble_time << setprecision(3) << termcolor::reset << endl;
+    cout << "Average Bubble Sort Count: "  << bubble_count << endl << endl;
+
+    cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
+         << Avg_quick_time << setprecision(3) << termcolor::reset    << endl;
+    cout << "Average Quick Sort Count: "  << quickcount << endl << endl;
+
+    cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
+         << Avg_radix_time << setprecision(3) << termcolor::reset << endl;
+    cout << "Average Radix Sort Count: "  << radixcount << endl << endl;
 
     return 0;
 }
-
 
 
 
@@ -164,7 +204,7 @@ void copyArray(int Array1[], int Array2[])
     // Copy the array.
     for (int i = 0; i < _SIZE; i++)
         Array1[i] = Array2[i];
-}       
+}
 
 // Function prototype to print the Array.
 void printArray(int Array[])
@@ -174,7 +214,6 @@ void printArray(int Array[])
         cout << Array[i] << " ";
     cout << endl;
 }
-
 
 void header()
 {

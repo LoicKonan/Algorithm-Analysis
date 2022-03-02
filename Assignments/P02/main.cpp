@@ -105,7 +105,7 @@ int main()
     for (int i = 0; i < number; i++)
     {
         // Call the fillArrays function.
-        fillArray(myArray1);
+        fillArray(myArray1,seed);
 
         // Call the copyArrays function, and pass the arrays.
         copyArray(myArray1, myArray2);
@@ -140,7 +140,7 @@ int main()
         quickcount++;
         bubblecount++;
 
-        int seed ++;
+        seed++;
     }
 
     // The average time complexity of the three algorithms.
