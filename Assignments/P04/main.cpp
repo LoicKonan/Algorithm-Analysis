@@ -85,27 +85,48 @@ int main()
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for selection sort.
-    int selection_count   = 0;
-    int selection_sum     = 0;
-    int selection_average = 0;
-    int Avg_selection_time    = 0;
+    int selection_count    = 0;
+    int selection_sum      = 0;
+    int selection_average  = 0;
+    int Avg_selection_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for insertion sort.
-    int insertion_count   = 0;
-    int insertion_sum     = 0;
-    int insertion_average = 0;
-    int Avg_insertion_time    = 0;
-
+    int insertion_count    = 0;
+    int insertion_sum      = 0;
+    int insertion_average  = 0;
+    int Avg_insertion_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for count sort.
-    int count_count   = 0;
-    int count_sum     = 0;
-    int count_average = 0;
-    int Avg_count_time    = 0;
+    int count_count    = 0;
+    int count_sum      = 0;
+    int count_average  = 0;
+    int Avg_count_time = 0;
 
+    // Initialize the sum of the comparison, the average comparison
+    // and the average for Heap sort.
+    int heap_sum     = 0;
+    int heap_average = 0;
+    int heap_time    = 0;
 
+    // Initialize the comparison counter, the sum of the comparison, the average comparison
+    // and the average for Quick sort.
+    int quick_sum      = 0;
+    int quick_average  = 0;
+    int Avg_quick_time = 0;
+
+    // Initialize the comparison counter, the sum of the comparison, the average comparison
+    // and the average for Radix sort.
+    int radix_sum      = 0;
+    int radix_average  = 0;
+    int Avg_radix_time = 0;
+
+    // Initialize the comparison counter, the sum of the comparison, the average comparison
+    // and the average for Merge sort.
+    int merge_sum      = 0;
+    int merge_average  = 0;
+    int Avg_merge_time = 0;
 
 
 
