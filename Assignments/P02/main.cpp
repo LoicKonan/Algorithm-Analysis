@@ -4,7 +4,7 @@
  *    Email:            loickonan.lk@gmail.com
  *    Label:            Sorting Algorithms
  *    Title:            Program 2
- *    Course:           CMPS 5243, Spring 2022, Dr. Johnson
+ *    Course:           CMPS 6246, Spring 2022, Dr. Johnson
  *    Semester:         Spring 2022
  *    Description:
  *
@@ -33,16 +33,25 @@
 #include <fstream>
 #include <iomanip>
 #include <time.h>
-#include "termcolor.hpp"
 #include <chrono>
+
+
+#include "termcolor.hpp"
+#include "mergeSort.hpp"
+#include "heapSort.hpp"
+#include "countSort.hpp"
+
 
 using namespace std;
 
-const int _SIZE    = 5000;
+// The size of the Arrays.
+const int _SIZE = 6000;
 
-int quickcount  = 0;
-int radixcount  = 0;
+// Initialize the counter for quickSort
+int quickcount = 0;
 
+// Initialize the counter for RadixSort.
+int radixcount = 0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[], int seed);
@@ -63,17 +72,13 @@ int bubbleSort(int arr[]);
 int partition(int arr[], int low, int high, int &quickcount);
 
 // Function prototype to sort the Arrays using Quick Sort.
-void quickSort(int arr[], int low, int high);
+void quickSort(int arr[], int low, int high, int &quickcount);
 
 // Function prototype to sort the Arrays using Radix Sort.
 void radixsort(int arr[], int n, int &radixcount);
 
 // Function prototype to sort the Arrays using Counting Sort.
 void countSort(int arr[], int n, int exp, int &radixcount);
-
-// Function prototype for selection sort the Arrays and and a counter 
-// to count the number of comparisons.
-int selectionSort(int arr[], int n, int &count);
 
 // Function prototype to print the header.
 void header();
@@ -84,13 +89,20 @@ int main()
     // Initialize the arrays.
     int myArray1[_SIZE];
     int myArray2[_SIZE];
-    int myArray3[_SIZE];
+    int myArray6[_SIZE];
 
     // Initialize the counter for bubble sort.
-    double bubblecount;
+    int bubblecount,
+    selectioncount,
+    insertioncount,
+    count_count,
+    radix_time,
+    quick_time,
+    bubble_time,
+    count_time;
 
     // n is the size of the array.
-    int n = sizeof(myArray3) / sizeof(myArray3[0]);
+    int n = sizeof(myArray6) / sizeof(myArray6[0]);
 
     // Print the header.
     header();
@@ -98,86 +110,168 @@ int main()
     int number = 20;
     int seed = 0;
 
-        
-    auto quick_time = 0.0,
-    radix_time  = 0.0,
-    bubble_time = 0.0;
-
-
     // Run the each algorithm 20 times.
     for (int i = 0; i < number; i++)
     {
         // Call the fillArrays function.
-        fillArray(myArray1,seed);
+        fillArray(myArray1, seed);
 
         // Call the copyArrays function, and pass the arrays.
         copyArray(myArray1, myArray2);
-        copyArray(myArray1, myArray3);
+        copyArray(myArray1, myArray6);
 
+        // Start the clock for the Radix sort.
+        auto startRadix = chrono::high_resolution_clock::now();
+        
+        // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
 
-         radixsort(myArray3, n, radixcount);
+        // Call the radixsort function, and pass the arrays.
+        radixsort(myArray6, n, radixcount);
+        
+        // End the clock for the Radix sort.
+        auto endRadix = chrono::high_resolution_clock::now();
+        
+        // Calculate the time for the Radix sort.
+        radix_time = chrono::duration_cast<chrono::milliseconds>(endRadix - startRadix).count();
+        
+        // Converting the time to seconds
+        radix_time *= 1e-9;
+        // Display the time for the Radix sort.
         cout << "RadixSort count:  " << radixcount << endl;
-        cout << "Time Complexity: "  << termcolor::green << fixed
-             << radix_time << setprecision(3) << termcolor::reset << " sec\n"
-             << endl;
-
-
-        bubblecount = bubbleSort(myArray1);
-        cout << "Bubble count:  "   << bubblecount << endl;
         cout << "Time Complexity: " << termcolor::green << fixed
-             << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
+             << radix_time << setprecision(6) << termcolor::reset << " sec\n"
              << endl;
 
-        quickSort(myArray2, 0, _SIZE - 1);
+
+        // Start the clock for the Quick sort.
+        auto startBubble = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+
+        // Call the bubbleSort function, and pass the arrays.
+        bubblecount = bubbleSort(myArray1);
+        
+        // End the clock for the Quick sort.
+        auto endBubble = chrono::high_resolution_clock::now();
+
+        // Calculate the time for the Bubble sort.
+        bubble_time = chrono::duration_cast<chrono::milliseconds>(endBubble - startBubble).count();
+
+        // Converting the time to seconds
+        bubble_time *= 1e-9;
+
+        // Display the time for the Bubble sort.
+        cout << "Bubble count:  " << bubblecount << endl;
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << bubble_time << setprecision(6) << termcolor::reset << " sec\n"
+             << endl;
+
+
+
+        // Start the clock for the Quick sort.
+        auto startQuick = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+
+        // Call the quickSort function, and pass the arrays.
+        quickSort(myArray2, 0, _SIZE - 1, quickcount);
+
+        // End the clock for the Quick sort.
+        auto endQuick = chrono::high_resolution_clock::now();
+
+        // Calculate the time for the Quick sort.
+        quick_time = chrono::duration_cast<chrono::milliseconds>(endQuick - startQuick).count();
+
+        // Converting the time to seconds
+        quick_time *= 1e-9;
+
+        // Display the time for the Quick sort.
         cout << "QuickSort count:  " << quickcount << endl;
-        cout << "Time Complexity: "  << termcolor::green << fixed
-             << quick_time << setprecision(3) << termcolor::reset << " sec\n"
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << quick_time << setprecision(6) << termcolor::reset << " sec\n"
              << endl;
 
-       
+
+        // Start the clock for the Quick sort.
+        auto startCount = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+
+        // Call the quickSort function, and pass the arrays.
+        count_count = CountSort::countSort(myArray6, n);
+
+        // End the clock for the Quick sort.
+        auto endCount = chrono::high_resolution_clock::now();
+
+        // Calculate the time for the Quick sort.
+        count_time = chrono::duration_cast<chrono::milliseconds>(endCount - startCount).count();
+
+        // Converting the time to seconds
+        count_time *= 1e-9;
+
+        // Display the time for the Quick sort.
+        cout << "QuickSort count:  " << count_count << endl;
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << quick_time << setprecision(6) << termcolor::reset << " sec\n"
+             << endl;
+
+
+
+        // Getting the total time and total count of comparisons.
         radix_time++;
         quick_time++;
         bubble_time++;
+        count_time++;
 
         radixcount++;
         quickcount++;
         bubblecount++;
+        count_count++;
 
         seed++;
     }
 
     // The average time complexity of the three algorithms.
-    radix_time  /= number;
-    quick_time  /= number;
+    radix_time /= number;
+    quick_time /= number;
     bubble_time /= number;
+    count_time /= number;
 
     // The average number of comparisons for the three algorithms.
-    radixcount  /= number;
-    quickcount  /= number;
+    radixcount /= number;
+    quickcount /= number;
     bubblecount /= number;
+    count_count /= number;
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
-         << bubble_time/1000 << setprecision(3) << termcolor::reset << " sec" << endl;
-    cout << "Average Bubble Sort Count: "  << bubblecount << endl << endl;
+         << bubble_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    cout << "Average Bubble Sort Count: " << bubblecount << endl
+         << endl;
 
     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
-         << quick_time/1000 << " sec" << setprecision(3) << termcolor::reset    << endl;
-    cout << "Average Quick Sort Count: "  << quickcount << endl << endl;
+         << quick_time << " sec" << setprecision(6) << termcolor::reset << endl;
+    cout << "Average Quick Sort Count: " << quickcount << endl
+         << endl;
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
-         << radix_time/1000 << setprecision(3) << termcolor::reset   << " sec" << endl;
-    cout << "Average Radix Sort Count: "  << radixcount << endl << endl;
+         << radix_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    cout << "Average Radix Sort Count: " << radixcount << endl
+         << endl;
+
+    cout << "Average Time Complexity for Counting Sort: " << termcolor::green << fixed
+            << count_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    cout << "Average Counting Sort Count: " << count_count << endl
+            << endl;
 
     return 0;
 }
 
-
-
 void fillArray(int arr[], int seed)
 {
-  srand(seed);
-  for (int i = 0; i < _SIZE; i++)
-    arr[i] = rand() % 100;
+    srand(seed);
+    for (int i = 0; i < _SIZE; i++)
+        arr[i] = rand() % 100;
 }
 
 // Function to copy an array.
@@ -241,7 +335,7 @@ the pivot element at its correct position in sorted
 array, and places all smaller (smaller than pivot)
 to left of pivot and all greater elements to right
 of pivot */
-int partition(int arr[], int low, int high)
+int partition(int arr[], int low, int high, int &quickcount)
 {
     int pivot = arr[high]; // pivot
     int i = (low - 1);     // Index of smaller element and
@@ -265,18 +359,18 @@ int partition(int arr[], int low, int high)
 arr[] --> Array to be sorted,
 low --> Starting index,
 high --> Ending index */
-void quickSort(int arr[], int low, int high)
+void quickSort(int arr[], int low, int high, int &quickcount)
 {
     if (low < high)
     {
         /* pi is partitioning index, arr[p] is now
         at right place */
-        int pi = partition(arr, low, high);
+        int pi = partition(arr, low, high, quickcount);
 
         // Separately sort elements before
         // partition and after partition
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+        quickSort(arr, low, pi - 1, quickcount);
+        quickSort(arr, pi + 1, high, quickcount);
     }
 }
 
@@ -338,7 +432,6 @@ void radixsort(int arr[], int n, int &radixcount)
     }
 }
 
-
 // A utility function to print an array
 void print(int arr[], int n)
 {
@@ -354,7 +447,7 @@ void header()
     cout << "\n*    Email:            loickonan.lk@gmail.com";
     cout << "\n*    Label:            Sorting Algorithms";
     cout << "\n*    Title:            Program 2";
-    cout << "\n*    Course:           CMPS 5243,  Spring number22, Dr. Johnson";
+    cout << "\n*    Course:           CMPS 6246,  Spring number22, Dr. Johnson";
     cout << "\n*    Semester:         Spring number22";
     cout << "\n*    Description:";
     cout << "\n*";

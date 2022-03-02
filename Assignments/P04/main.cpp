@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <time.h>
 #include <chrono>
-#include "termcolor.hpp"
 
 
 using namespace std;
@@ -119,6 +118,8 @@ int main()
     seed ++;
 
   }
+
+  cout << SumBubbleSort << " " << SumMergeSort << " " << SumCountSort << endl;
 
   // average time taken for each algorithim to sort 20 arrays
   AvBubbleSort = (SumBubbleSort / NumberOfRuns);
