@@ -14,6 +14,9 @@ using namespace std;
 using namespace std::chrono;
 
 
+// The Size of our Arrays.
+const int _SIZE = 5000;
+
 // Driver code
 int main() 
 {

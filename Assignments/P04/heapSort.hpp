@@ -19,7 +19,8 @@ namespace HeapSort
             largest = right;
 
         // Swap and continue heapifying if root is not largest
-        if (largest != i) {
+        if (largest != i) 
+        {
             swap(arr[i], arr[largest]);
             heapify(arr, n, largest);
         }

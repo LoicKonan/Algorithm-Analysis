@@ -35,7 +35,7 @@ namespace CountSort
             count[array[i]]++;
         }
 
-        // Store the cummulative count of each array
+        // Store the cumulative count of each array
         for (int i = 1; i <= max; i++) 
         {
             count[i] += count[i - 1];

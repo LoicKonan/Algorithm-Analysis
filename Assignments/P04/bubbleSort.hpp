@@ -7,22 +7,47 @@ namespace BubbleSort
 {
     using namespace std;
 
-    void swap(int *xp, int *yp)
+    // to swap two array values.
+    void swap(int &x, int &y)
     {
-        int temp = *xp;
-        *xp = *yp;
-        *yp = temp;
+        int temp = x;
+        x = y;
+        y = temp;
     }
-    
-    // A function to implement bubble sort
-    void bubbleSort(int arr[], int n)
+
+    // Function prototype for the Bubble Sort.
+    int bubbleSort(int Array[])
     {
-        int i, j;
-        for (i = 0; i < n-1; i++)    
-        
-        // Last i elements are already in place
-        for (j = 0; j < n-i-1; j++)
-            if (arr[j] > arr[j+1])
-                swap(&arr[j], &arr[j+1]);
+        bool swapped = true;
+        int j = 0;
+
+        // Number of comparisons
+        int bubblecount = 0;
+
+        // Continue to loop until
+        // no swaps have occurred.
+        while (swapped)
+        {
+            // Reset boolean flag
+            swapped = false;
+            // Because bubbleSort puts the last
+            // value in the correct position each
+            // time through the loop, the limit of
+            // the inner loop decreases by one each
+            // iteration of the outer loop (SIZE -j)
+            for (int i = 1; i < _SIZE - j; i++)
+            {
+                bubblecount++;
+                // compare two side-by-side values
+                // and swap if they are out of order
+                if (Array[i - 1] > Array[i])
+                {
+                    swapped = true;
+                    swap(Array[i - 1], Array[i]);
+                }
+            }
+            j++;
+        }
+        return bubblecount;
     }
 }
