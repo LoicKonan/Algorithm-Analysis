@@ -145,8 +145,8 @@ int main()
         radix_time *= 1e-9;
         // Display the time for the Radix sort.
         cout << "RadixSort count:  " << radixcount << endl;
-        cout << "Radix Time Complexity: " << termcolor::green << fixed
-             << radix_time << setprecision(6) << termcolor::reset << " sec\n"
+        cout << "Radix Time Complexity: " << fixed << termcolor::green 
+             << radix_time << termcolor::reset << setprecision(6) << " sec\n"
              << endl;
 
 
