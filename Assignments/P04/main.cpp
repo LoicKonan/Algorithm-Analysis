@@ -68,13 +68,26 @@ const int _SIZE = 5000;
 // Driver code
 int main() 
 {
+    // Display the header and Description of the program.
     header();
-
     
-    // Initialize the size of the arrays.
+    // Initialize the size(5000) of the arrays.
     int myArray1[_SIZE];
     int myArray2[_SIZE];
     int myArray3[_SIZE];
+
+    // Initialize the counter for bubble sort.
+    double bubble_count;
+
+    // Initialize the counter for selection sort.
+    double selection_count;
+
+    // Initialize the counter for insertion sort.
+    double insertion_count;
+
+    // Initialize the counter for count sort.
+    double count_count;
+
 
 
     // CountSort::countSort(copy, n, m);

@@ -48,7 +48,7 @@ radix_time  = 0.0,
 bubble_time = 0.0;
 
 // Function prototype to fill the Arrays.
-void fillArray(int arr[], int seed);
+void fillArray(int arr[]);
 
 // Function prototype to copy the Arrays.
 void copyArray(int arr1[], int arr2[]);
@@ -140,7 +140,7 @@ int main()
         quickcount++;
         bubblecount++;
 
-        seed ++;
+        int seed ++;
     }
 
     // The average time complexity of the three algorithms.
