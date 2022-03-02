@@ -19,12 +19,12 @@ namespace SelectionSort
     {
         int selectioncount = 0;
         int minIndex;
-        for (int i = 0; i < _SIZE; i++)
+        for (int i = 0; i < SIZE; i++)
         {
             // Assume index of smallest value is in the
             // ith position (first value for that iteration)
             minIndex = i;
-            for (int j = i + 1; j < _SIZE; j++)
+            for (int j = i + 1; j < SIZE; j++)
             {
                 // If a smaller value is found, update minIndex
                 if (Array[j] < Array[minIndex])

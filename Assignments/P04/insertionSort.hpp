@@ -19,7 +19,7 @@ namespace InsertionSort
   {
     int insertioncount = 0;
     int i, j, temp;
-    for (i = 1; i < _SIZE; i++)
+    for (i = 1; i < SIZE; i++)
     {
       // Store the value to be inserted into
       // correct position.

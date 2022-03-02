@@ -35,8 +35,6 @@
 #include <iomanip>
 #include <time.h>
 
-
-
 #include "termcolor.hpp"
 
 #include "countSort.hpp"
@@ -66,7 +64,7 @@ void copyArray(int Array1[], int Array2[]);
 void printArray(int Array[]);
 
 // The Size of our Arrays.
-const int _SIZE = 5000;
+const int SIZE = 5000;
 
 // Driver code
 int main()
@@ -75,16 +73,20 @@ int main()
     header();
 
     // Initialize the size(5000) of the arrays.
-    int myArray1[_SIZE];
-    int myArray2[_SIZE];
-    int myArray3[_SIZE];
+    int myArray1[SIZE];
+    int myArray2[SIZE];
+    int myArray3[SIZE];
+    int myArray4[SIZE];
+    int myArray5[SIZE];
+    int myArray6[SIZE];
+    int myArray7[SIZE];
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average Time for bubble sort.
     int bubble_count = 0;
     int bubble_sum = 0;
     double bubble_average = 0;
-    double bubble_time = 0;
+    double Avg_bubble_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for selection sort.
@@ -131,17 +133,14 @@ int main()
     double merge_average = 0;
     double Avg_merge_time = 0;
 
-
     // run the loop 20 times.
     int number = 20;
 
     // Initialize the seed for the random number generator.
     int seed = 0;
 
-
     // n is the size of the array.
     int n = sizeof(myArray3) / sizeof(myArray3[0]);
-
 
     // Run the each algorithm 20 times.
     for (int i = 0; i < number; i++)
@@ -152,73 +151,104 @@ int main()
         // Call the copyArrays function, and pass the arrays.
         copyArray(myArray1, myArray2);
         copyArray(myArray1, myArray3);
-
+        copyArray(myArray1, myArray4);
+        copyArray(myArray1, myArray5);
+        copyArray(myArray1, myArray6);
+        copyArray(myArray1, myArray7);
 
         // CountSort::countSort(copy, n, m);
         // HeapSort::heapSort(copy, n);
         // QuickSort::quickSort(copy, 0, n - 1);
         // RadixSort::radixsort(copy, n);
 
-
-        RadixSort::radixsort(myArray3, n, radixcount);
+        auto RadixStart = chrono::high_resolution_clock::now();
+        // unsync the I/O of C and C++.
+        ios_base::sync_with_stdio(false);
+        RadixSort::radixsort(myArray3, SIZE, radixcount);
+        auto RadixEnd = chrono::high_resolution_clock::now();
+        // Calculating total time taken by the program.
+        double RadixTime_taken = chrono::duration_cast<chrono::nanoseconds>(RadixEnd - RadixStart).count();
+        // convert time taken to sort the array from nanoseconds to seconds.
+        RadixTime_taken *= 1e-9;
         cout << "RadixSort count:  " << radixcount << endl;
-        cout << "Time Complexity: "  << termcolor::green << fixed
-             << radix_time << setprecision(3) << termcolor::reset << " sec\n"
-             << endl;
-
-
-        bubble_count = BubbleSort::bubbleSort(myArray1);
-        cout << "Bubble count:  "   << bubble_count << endl;
         cout << "Time Complexity: " << termcolor::green << fixed
-             << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
-             << endl;
+             << RadixTime_taken << setprecision(3) << termcolor::reset<< endl;
 
-        QuickSort::quickSort(myArray2, 0, _SIZE - 1, quickcount);
+
+
+        // Bubble sort using myArray1
+        auto BubbleStart = chrono::high_resolution_clock::now();
+        // unsync the I/O of C ++.
+        ios_base::sync_with_stdio(false);
+        bubble_count = BubbleSort::bubbleSort(myArray1);
+        auto BubbleEnd = chrono::high_resolution_clock::now();
+        // Calculating total time taken by the program.
+        double BubbleTime_taken = chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
+        // convert time taken to sort the array from nanoseconds to seconds.
+        BubbleTime_taken *= 1e-9;
+        cout << "Bubble count:  " << bubble_count << endl;
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << BubbleTime_taken << setprecision(3) << termcolor::reset << endl;
+
+
+
+
+        auto QuickStart = chrono::high_resolution_clock::now();
+        // unsync the I/O of C ++.
+        ios_base::sync_with_stdio(false);
+        QuickSort::quickSort(myArray2, 0, SIZE - 1, quickcount);
+        auto QuickEnd = chrono::high_resolution_clock::now();
+        // Calculating total time taken by the program.
+        double QuickTime_taken = chrono::duration_cast<chrono::nanoseconds>(QuickEnd - QuickStart).count();
+        // convert time taken to sort the array from nanoseconds to seconds.
+        QuickTime_taken *= 1e-9;
         cout << "QuickSort count:  " << quickcount << endl;
-        cout << "Time Complexity: "  << termcolor::green << fixed
-             << quick_time << setprecision(3) << termcolor::reset << " sec\n"
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << QuickTime_taken << setprecision(3) << termcolor::reset << " sec\n"
              << endl;
 
-       
-        radix_time++;
-        quick_time++;
-        bubble_time++;
 
-        radixcount++;
-        quickcount++;
-        bubble_count++;
+        // Total number of iterations taken for each algorithim to sort 20 arrays.
+        bubble_sum += bubble_count;
+        merge_sum += MergeCount;
+        count_sum += count_count;
+        
+        
+        // Total time taken for each algorithim to sort 20 arrays.
+        Avg_bubble_time += BubbleTime_taken;
+        Avg_quick_time += QuickTime_taken;
+        Avg_radix_time += RadixTime_taken;
 
         seed++;
     }
 
-
-     // The average time complexity of the three algorithms.
-    Avg_radix_time  /= number;
-    Avg_quick_time  /= number;
-    bubble_time     /= number;
+    // The average time complexity of the three algorithms.
+    Avg_radix_time /= number;
+    Avg_quick_time /= number;
+    Avg_bubble_time /= number;
 
     // The average number of comparisons for the three algorithms.
-    radixcount   /= number;
-    quickcount   /= number;
+    radixcount /= number;
+    quickcount /= number;
     bubble_count /= number;
 
-
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
-         << bubble_time << setprecision(3) << termcolor::reset << endl;
-    cout << "Average Bubble Sort Count: "  << bubble_count << endl << endl;
+         << Avg_bubble_time << setprecision(3) << termcolor::reset << endl;
+    cout << "Average Bubble Sort Count: " << bubble_count << endl
+         << endl;
 
     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
-         << Avg_quick_time << setprecision(3) << termcolor::reset    << endl;
-    cout << "Average Quick Sort Count: "  << quickcount << endl << endl;
+         << Avg_quick_time << setprecision(3) << termcolor::reset << endl;
+    cout << "Average Quick Sort Count: " << quickcount << endl
+         << endl;
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
          << Avg_radix_time << setprecision(3) << termcolor::reset << endl;
-    cout << "Average Radix Sort Count: "  << radixcount << endl << endl;
+    cout << "Average Radix Sort Count: " << radixcount << endl
+         << endl;
 
     return 0;
 }
-
-
 
 // Function prototype to fill the Array.
 void fillArray(int Array[], int seed)
@@ -227,7 +257,7 @@ void fillArray(int Array[], int seed)
     srand(seed);
 
     // Fill the array with random numbers.
-    for (int i = 0; i < _SIZE; i++)
+    for (int i = 0; i < SIZE; i++)
         Array[i] = rand() % 100;
 }
 
@@ -235,7 +265,7 @@ void fillArray(int Array[], int seed)
 void copyArray(int Array1[], int Array2[])
 {
     // Copy the array.
-    for (int i = 0; i < _SIZE; i++)
+    for (int i = 0; i < SIZE; i++)
         Array1[i] = Array2[i];
 }
 
@@ -243,7 +273,7 @@ void copyArray(int Array1[], int Array2[])
 void printArray(int Array[])
 {
     // Print the array.
-    for (int i = 0; i < _SIZE; i++)
+    for (int i = 0; i < SIZE; i++)
         cout << Array[i] << " ";
     cout << endl;
 }

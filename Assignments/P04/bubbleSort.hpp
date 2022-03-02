@@ -35,7 +35,7 @@ namespace BubbleSort
             // time through the loop, the limit of
             // the inner loop decreases by one each
             // iteration of the outer loop (SIZE -j)
-            for (int i = 1; i < _SIZE - j; i++)
+            for (int i = 1; i < SIZE - j; i++)
             {
                 bubblecount++;
                 // compare two side-by-side values
