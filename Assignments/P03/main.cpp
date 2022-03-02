@@ -76,3 +76,33 @@ int main()
 {
     
 }
+
+void fillArray(int arr[], int seed)
+{
+  srand(seed);
+  for (int i = 0; i < _SIZE; i++)
+    arr[i] = rand() % 100;
+}
+
+// Function to copy an array.
+void copyArray(int arr1[], int arr2[])
+{
+    for (int i = 0; i < _SIZE; i++)
+        arr2[i] = arr1[i];
+}
+
+// Function to print.
+void printArray(int arr[])
+{
+    for (int i = 0; i < _SIZE; i++)
+        cout << setw(4) << arr[i];
+    cout << "\n\n";
+}
+
+// to swap two array values.
+void swap(int &x, int &y)
+{
+    int temp = x;
+    x = y;
+    y = temp;
+}
