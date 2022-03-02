@@ -94,20 +94,30 @@ int main()
     // Initialize the arrays.
     int myArray1[_SIZE];
     int myArray2[_SIZE];
-    int myArray6[_SIZE];
+    int myArray3[_SIZE];
 
     // Initialize the counter for bubble sort.
     int bubblecount,
-    selectioncount,
-    insertioncount,
-    count_count,
-    radix_time,
-    quick_time,
     bubble_time,
-    count_time;
+
+    selectioncount,    
+    selection_time,
+
+    insertion_time,
+    insertioncount,
+    
+    count_count,
+    count_time,
+
+    radix_time,
+
+    quick_time,
+    merge_time,
+    heap_time;
+
 
     // n is the size of the array.
-    int n = sizeof(myArray6) / sizeof(myArray6[0]);
+    int n = sizeof(myArray3) / sizeof(myArray3[0]);
 
     // Print the header.
     header();
@@ -123,7 +133,7 @@ int main()
 
         // Call the copyArrays function, and pass the arrays.
         copyArray(myArray1, myArray2);
-        copyArray(myArray1, myArray6);
+        copyArray(myArray1, myArray3);
 
         // Start the clock for the Radix sort.
         auto startRadix = chrono::high_resolution_clock::now();
@@ -132,7 +142,7 @@ int main()
         ios_base::sync_with_stdio(false);
 
         // Call the radixsort function, and pass the arrays.
-        radixsort(myArray6, n, radixcount);
+        radixsort(myArray3, n, radixcount);
         
         // End the clock for the Radix sort.
         auto endRadix = chrono::high_resolution_clock::now();
@@ -204,7 +214,7 @@ int main()
         ios_base::sync_with_stdio(false);
 
         // Call the quickSort function, and pass the arrays.
-        count_count = CountSort::countSort(myArray6, n);
+        count_count = CountSort::countSort(myArray3, n);
 
         // End the clock for the Quick sort.
         auto endCount = chrono::high_resolution_clock::now();
@@ -243,8 +253,8 @@ int main()
 
         
         quickcount++;
-        heapsortcount++;
-        mergesortcount++;
+        HeapCount++;
+        MergeCount++;
 
         count_count++;
         radixcount++;
@@ -275,8 +285,8 @@ int main()
     radixcount /= number;
 
     quickcount /= number;
-    heapsortcount /= number;
-    mergesortcount /= number;
+    HeapCount /= number;
+    MergeCount /= number;
 
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
@@ -304,12 +314,12 @@ int main()
 
     cout << "Average Time Complexity for Heap Sort: " << termcolor::green << fixed  
             << heap_time << setprecision(6) << termcolor::reset << " sec" << endl;
-    cout << "Average Heap Sort Count: " << heapsortcount << endl
+    cout << "Average Heap Sort Count: " << HeapCount << endl
             << endl;
 
     cout << "Average Time Complexity for Merge Sort: " << termcolor::green << fixed
             << merge_time << setprecision(6) << termcolor::reset << " sec" << endl;
-    cout << "Average Merge Sort Count: " << mergesortcount << endl
+    cout << "Average Merge Sort Count: " << MergeCount << endl
             << endl;
 
 
