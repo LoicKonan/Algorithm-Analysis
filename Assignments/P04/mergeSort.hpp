@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 int MergeCount = 0;
 
 namespace MergeSort

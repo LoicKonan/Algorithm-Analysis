@@ -1,7 +1,7 @@
 // Quick sort in C++
 // https://www.geeksforgeeks.org/bubble-sort/
 
-#include<iostream>
+#include <iostream>
 
 namespace BubbleSort
 {

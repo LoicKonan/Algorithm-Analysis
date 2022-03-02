@@ -1,11 +1,17 @@
-// Heap Sort in C++
+/****************************************
+Tina Johnson
+CMPS 5243
+This program will demonstrate the nlogn
+sorting algorithm, heap sort.
+*******************************************/
+
 #include <iostream>
 
-namespace HeapSort 
+namespace HeapSort
 {
     using namespace std;
 
-    void heapify(int arr[], int n, int i) 
+    void heapify(int arr[], int n, int i)
     {
         // Find largest among root, left child and right child
         int largest = i;
@@ -19,7 +25,7 @@ namespace HeapSort
             largest = right;
 
         // Swap and continue heapifying if root is not largest
-        if (largest != i) 
+        if (largest != i)
         {
             swap(arr[i], arr[largest]);
             heapify(arr, n, largest);
@@ -27,14 +33,14 @@ namespace HeapSort
     }
 
     // main function to do heap sort
-    void heapSort(int arr[], int n) 
+    void heapSort(int arr[], int n)
     {
         // Build max heap
         for (int i = n / 2 - 1; i >= 0; i--)
             heapify(arr, n, i);
 
         // Heap sort
-        for (int i = n - 1; i >= 0; i--) 
+        for (int i = n - 1; i >= 0; i--)
         {
             swap(arr[0], arr[i]);
 
@@ -42,4 +48,4 @@ namespace HeapSort
             heapify(arr, i, 0);
         }
     }
-}  
+}

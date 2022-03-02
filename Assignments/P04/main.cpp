@@ -1,3 +1,32 @@
+/*****************************************************************************
+ *
+ *    Author:           Loic Konan
+ *    Email:            loickonan.lk@gmail.com
+ *    Label:            Sorting Algorithms
+ *    Title:            Program 2
+ *    Course:           CMPS 5243, Spring 2022, Dr. Johnson
+ *    Semester:         Spring 2022
+ *    Description:
+ *
+ *                      This program implements the following sorting algorithms:
+ *
+ *                           - RadixSort Sort O(N)
+ *                           - Bubble Sort    O(N ^ 2)
+ *                           - QuickSort      O(N log N)
+ *                           -  Count Sort     O(N)
+ *                           -  R Sort      O(N log N)
+ *
+ *
+ *    Files:
+ *         main.cpp
+ *
+ *    Usage:
+ *           main.cpp          : driver program
+ *
+ *
+ ******************************************************************************/
+
+
 #include <chrono>
 #include <fstream>
 #include <iostream>
@@ -9,6 +38,7 @@
 
 #include "MergeSort.hpp"
 #include "quickSort.hpp"
+#include "HeapSort.hpp"
 
 #include "InsertionSort.hpp"
 #include "SelectionSort.hpp"
