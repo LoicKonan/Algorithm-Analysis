@@ -18,6 +18,11 @@ using namespace std::chrono;
 int main() 
 {
     
+    // CountSort::countSort(copy, n, m);
+    // HeapSort::heapSort(copy, n);
+    // QuickSort::quickSort(copy, 0, n - 1);
+    // RadixSort::radixsort(copy, n);
+
 
     return 0;
 }
