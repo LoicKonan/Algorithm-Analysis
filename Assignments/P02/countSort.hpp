@@ -6,8 +6,6 @@ namespace CountSort
 {
     using namespace std;
 
-    // Counting sort
-    // Citing counting sort from https://www.programiz.com/dsa/counting-sort
     int countSort(int array[], int SIZE)
     {
         // The size of count must be at least the (max+1) but

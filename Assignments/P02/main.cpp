@@ -41,22 +41,25 @@
 #include <chrono>
 
 
-#include "termcolor.hpp"
-#include "mergeSort.hpp"
-#include "heapSort.hpp"
-#include "countSort.hpp"
-
-
 using namespace std;
 
 // The size of the Arrays.
 const int _SIZE = 5000;
 
+
+#include "termcolor.hpp"
+#include "mergeSort.hpp"
+#include "heapSort.hpp"
+#include "countSort.hpp"
+#include "insertionSort.hpp"
+#include "selectionSort.hpp"
+#include "radixSort.hpp"
+#include "bubbleSort.hpp"
+
+
+
 // Initialize the counter for quickSort
 int quickcount = 0;
-
-// Initialize the counter for RadixSort.
-int radixcount = 0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[], int seed);
@@ -67,23 +70,12 @@ void copyArray(int arr1[], int arr2[]);
 // Function prototype to print the Arrays.
 void printArray(int arr[]);
 
-// Function prototype to swap the values of two integers.
-void swap(int &x, int &y);
-
-// Function prototype to sort the Arrays using Bubble Sort.
-int bubbleSort(int arr[]);
 
 // Function prototype for partitioning the Arrays.
 int partition(int arr[], int low, int high, int &quickcount);
 
 // Function prototype to sort the Arrays using Quick Sort.
 void quickSort(int arr[], int low, int high, int &quickcount);
-
-// Function prototype to sort the Arrays using Radix Sort.
-void radixsort(int arr[], int n, int &radixcount);
-
-// Function prototype to sort the Arrays using Counting Sort.
-void countSort(int arr[], int n, int exp, int &radixcount);
 
 // Function prototype to print the header.
 void header();
@@ -136,68 +128,200 @@ int main()
         copyArray(myArray1, myArray3);
 
 
+    
+        /****************************************************************
+         * 
+         *                     Radix Sort Below
+         * 
+         *
+         ****************************************************************/ 
 
         // Start the clock for the Radix sort.
         auto startRadix = chrono::high_resolution_clock::now();
         // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the radixsort function, and pass the arrays.
-        radixsort(myArray3, n, radixcount);
+        RadixSort::radixsort(myArray3, n, radixcount);
         // End the clock for the Radix sort.
         auto endRadix = chrono::high_resolution_clock::now();
         // Calculate the time for the Radix sort.
-        radix_time = chrono::duration_cast<chrono::milliseconds>(endRadix - startRadix).count();
+        radix_time = chrono::duration_cast<chrono::nanoseconds>(endRadix - startRadix).count();
         // Converting the time to seconds
         radix_time *= 1e-9;
         // Display the time for the Radix sort.
         cout << "RadixSort count:  " << radixcount << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
+        cout << "Radix Time Complexity: " << termcolor::green << fixed
              << radix_time << setprecision(6) << termcolor::reset << " sec\n"
              << endl;
 
 
+    
+        /****************************************************************
+         * 
+         *                     CountSort Below
+         * 
+         *
+         ****************************************************************/ 
 
-        // Start the clock for the Quick sort.
+        // Start the clock for the Countsort.
         auto startCount = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
-        // Call the quickSort function, and pass the arrays.
+        // Call the Count Sort function, and pass the arrays.
         count_count = CountSort::countSort(myArray3, n);
-        // End the clock for the Quick sort.
+        // End the clock for the Count sort.
         auto endCount = chrono::high_resolution_clock::now();
-        // Calculate the time for the Quick sort.
-        count_time = chrono::duration_cast<chrono::milliseconds>(endCount - startCount).count();
+        // Calculate the time for the Count sort.
+        count_time = chrono::duration_cast<chrono::nanoseconds>(endCount - startCount).count();
         // Converting the time to seconds
         count_time *= 1e-9;
-        // Display the time for the Quick sort.
+        // Display the time for the Count sort.
         cout << "QuickSort count:  " << count_count << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
+        cout << "Quick Time Complexity: " << termcolor::green << fixed
              << quick_time << setprecision(6) << termcolor::reset << " sec\n"
              << endl;
 
 
 
+        /****************************************************************
+         * 
+         *                     Bubble Sort Below
+         * 
+         *
+         ****************************************************************/ 
 
-        // Start the clock for the Quick sort.
+        // Start the clock for the Bubble sort.
         auto startBubble = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
-        // Call the bubbleSort function, and pass the arrays.
-        bubblecount = bubbleSort(myArray1);
-        // End the clock for the Quick sort.
+        // Call the bubble Sort function, and pass the arrays.
+        bubblecount = BubbleSort::bubbleSort(myArray1);
+        // End the clock for the Bubble sort.
         auto endBubble = chrono::high_resolution_clock::now();
         // Calculate the time for the Bubble sort.
-        bubble_time = chrono::duration_cast<chrono::milliseconds>(endBubble - startBubble).count();
+        bubble_time = chrono::duration_cast<chrono::nanoseconds>(endBubble - startBubble).count();
         // Converting the time to seconds
         bubble_time *= 1e-9;
         // Display the time for the Bubble sort.
         cout << "Bubble count:  " << bubblecount << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
+        cout << " Bubble Time Complexity: " << termcolor::green << fixed
              << bubble_time << setprecision(6) << termcolor::reset << " sec\n"
              << endl;
 
 
 
+        /****************************************************************
+         * 
+         *                     SeclectionSort Below
+         * 
+         *
+         ****************************************************************/ 
+        // Start the clock for the Selection sort.
+        auto startSelection = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+        // Call the Selection sort function, and pass the arrays.
+        selectioncount = SelectionSort::selectionSort(myArray1);
+        // End the clock for the Selection sort.
+        auto endSelection = chrono::high_resolution_clock::now();
+        // Calculate the time for the Selection sort.
+        selection_time = chrono::duration_cast<chrono::nanoseconds>(endSelection - startSelection).count();
+        // Converting the time to seconds
+        selection_time *= 1e-9;
+        // Display the time for the Selection sort.
+        cout << "Selection count:  " << selectioncount << endl;
+        cout << "Selection Time Complexity: " << termcolor::green << fixed
+             << selection_time << setprecision(6) << termcolor::reset << " sec\n"
+             << endl;
+
+
+
+        /****************************************************************
+         * 
+         *                     InsertionSort Below
+         * 
+         *
+         ****************************************************************/ 
+
+        // Start the clock for the Insertion sort.
+        auto startInsertion = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+        // Call the Insertion sort function, and pass the arrays.
+        insertioncount = InsertionSort::insertionSort(myArray1);
+        // End the clock for the Insertion sort.
+        auto endInsertion = chrono::high_resolution_clock::now();
+        // Calculate the time for the Insertion sort.
+        insertion_time = chrono::duration_cast<chrono::nanoseconds>(endInsertion - startInsertion).count();
+        // Converting the time to seconds
+        insertion_time *= 1e-9;
+        // Display the time for the Insertion sort.
+        cout << "Insertion count:  " << insertioncount << endl;
+        cout << "Insertion Time Complexity: " << termcolor::green << fixed
+             << insertion_time << setprecision(6) << termcolor::reset << " sec\n"
+             << endl;
+
+
+        /****************************************************************
+         * 
+         *                     MergeSort Below
+         * 
+         *
+         ****************************************************************/ 
+
+        // Start the clock for the Merge sort.
+        auto startMerge = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+        // Call the Merge sort function, and pass the arrays.
+        MergeSort::mergeSort(myArray1, n, MergeCount);
+        // End the clock for the Merge sort.
+        auto endMerge = chrono::high_resolution_clock::now();
+        // Calculate the time for the Merge sort.
+        merge_time = chrono::duration_cast<chrono::nanoseconds>(endMerge - startMerge).count();
+        // Converting the time to seconds
+        merge_time *= 1e-9;
+        // Display the time for the Merge sort.
+        cout << "Merge count:  " << MergeCount << endl;
+        cout << "Merge Time Complexity: " << termcolor::green << fixed
+             << merge_time << setprecision(6) << termcolor::reset << " sec\n"
+             << endl;
+
+
+
+        /****************************************************************
+         * 
+         *                     HeapSort Below
+         * 
+         *
+         ****************************************************************/ 
+
+        // Start the clock for the Heap sort.
+        auto startHeap = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+        // Call the Heap sort function, and pass the arrays.
+        HeapSort::heapSort(myArray1, n, HeapCount);
+        // End the clock for the Heap sort.
+        auto endHeap = chrono::high_resolution_clock::now();
+        // Calculate the time for the Heap sort.
+        heap_time = chrono::duration_cast<chrono::nanoseconds>(endHeap - startHeap).count();
+        // Converting the time to seconds
+        heap_time *= 1e-9;
+        // Display the time for the Heap sort.
+        cout << "Heap count:  " << HeapCount << endl;
+        cout << "Heap Time Complexity: " << termcolor::green << fixed
+             << heap_time << setprecision(6) << termcolor::reset << " sec\n"
+             << endl;
+  
+
+        /****************************************************************
+         * 
+         *                     QuickSort Below
+         * 
+         *
+         ****************************************************************/ 
+          
         // Start the clock for the Quick sort.
         auto startQuick = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
@@ -207,7 +331,7 @@ int main()
         // End the clock for the Quick sort.
         auto endQuick = chrono::high_resolution_clock::now();
         // Calculate the time for the Quick sort.
-        quick_time = chrono::duration_cast<chrono::milliseconds>(endQuick - startQuick).count();
+        quick_time = chrono::duration_cast<chrono::nanoseconds>(endQuick - startQuick).count();
         // Converting the time to seconds
         quick_time *= 1e-9;
         // Display the time for the Quick sort.
@@ -230,7 +354,6 @@ int main()
         quick_time++;
         heap_time++;
         merge_time++;
-
 
 
         bubblecount++;
@@ -342,46 +465,7 @@ void printArray(int arr[])
     cout << "\n\n";
 }
 
-// to swap two array values.
-void swap(int &x, int &y)
-{
-    int temp = x;
-    x = y;
-    y = temp;
-}
 
-// Function to sort the array using bubble sort.
-int bubbleSort(int arr[])
-{
-    bool swapped = true;
-    int j = 0;
-    int bubblecount = 0;
-
-    // Continue to loop until
-    // no swaps have occurred.
-    while (swapped)
-    {
-        // Reset boolean flag
-        swapped = false;
-        // Because bubbleSort puts the last value in the
-        // correct position eachtime through the loop, the
-        // limit of the inner loop decreases by one each
-        // iteration of the outer loop (_SIZE - j)
-        for (int i = 1; i < _SIZE - j; i++)
-        {
-            bubblecount++;
-            // compare two side-by-side values
-            // and swap if they are out of order
-            if (arr[i - 1] > arr[i])
-            {
-                swapped = true;
-                swap(arr[i - 1], arr[i]);
-            }
-        }
-        j++;
-    }
-    return bubblecount;
-}
 
 /* This function takes last element as pivot, places
 the pivot element at its correct position in sorted
@@ -427,63 +511,6 @@ void quickSort(int arr[], int low, int high, int &quickcount)
     }
 }
 
-// A utility function to get maximum value in arr[]
-int getMax(int arr[], int n)
-{
-    int mx = arr[0];
-    for (int i = 1; i < n; i++)
-        if (arr[i] > mx)
-            mx = arr[i];
-    return mx;
-}
-
-// A function to do counting sort of arr[] according to
-// the digit represented by exp.
-void countSort(int arr[], int n, int exp, int &radixcount)
-{
-    int output[n]; // output array
-    int i, count[10] = {0};
-
-    // Store count of occurrences in count[]
-    for (i = 0; i < n; i++)
-        count[(arr[i] / exp) % 10]++;
-
-    // Change count[i] so that count[i] now contains actual
-    //  position of this digit in output[]
-    for (i = 1; i < 10; i++)
-    {
-        count[i] += count[i - 1];
-    }
-
-    // Build the output array
-    for (i = n - 1; i >= 0; i--)
-    {
-        output[count[(arr[i] / exp) % 10] - 1] = arr[i];
-        count[(arr[i] / exp) % 10]--;
-        radixcount++;
-    }
-
-    // Copy the output array to arr[], so that arr[] now
-    // contains sorted numbers according to current digit
-    for (i = 0; i < n; i++)
-        arr[i] = output[i];
-}
-
-// The main function that sorts arr[] of _SIZE n using Radix Sort
-void radixsort(int arr[], int n, int &radixcount)
-{
-    // Find the maximum number to know number of digits
-    int m = getMax(arr, n);
-
-    // Do counting sort for every digit. Note that instead
-    // of passing digit number, exp is passed. exp is 10^i
-    // where i is current digit number
-    for (int exp = 1; m / exp > 0; exp *= 10)
-    {
-        countSort(arr, n, exp, radixcount);
-        radixcount++;
-    }
-}
 
 // A utility function to print an array
 void print(int arr[], int n)

@@ -38,5 +38,4 @@ namespace InsertionSort
     }
     return insertioncount;
   }
-
 }
