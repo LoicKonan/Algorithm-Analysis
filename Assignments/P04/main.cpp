@@ -17,13 +17,7 @@ using namespace std::chrono;
 // Driver code
 int main() 
 {
-    sortCompare SC;
-
-    for (int i = 0; i < SC.sortNames.size(); i++) {
-        SC.callSortMethod(SC.sortNames[i]);
-    }
-
-    cout << SC.sortNames[0] << endl;
+    
 
     return 0;
 }
