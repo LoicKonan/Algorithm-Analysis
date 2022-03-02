@@ -81,55 +81,55 @@ int main()
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average Time for bubble sort.
-    int bubble_count   = 0;
-    int bubble_sum     = 0;
-    int bubble_average = 0;
-    int bubble_time    = 0;
+    int bubble_count      = 0;
+    int bubble_sum        = 0;
+    double bubble_average = 0;
+    double bubble_time    = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for selection sort.
-    int selection_count    = 0;
-    int selection_sum      = 0;
-    int selection_average  = 0;
-    int Avg_selection_time = 0;
+    int selection_count       = 0;
+    int selection_sum         = 0;
+    double selection_average  = 0;
+    double Avg_selection_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for insertion sort.
-    int insertion_count    = 0;
-    int insertion_sum      = 0;
-    int insertion_average  = 0;
-    int Avg_insertion_time = 0;
+    int insertion_count       = 0;
+    int insertion_sum         = 0;
+    double insertion_average  = 0;
+    double Avg_insertion_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for count sort.
-    int count_count    = 0;
-    int count_sum      = 0;
-    int count_average  = 0;
-    int Avg_count_time = 0;
+    int count_count       = 0;
+    int count_sum         = 0;
+    double count_average  = 0;
+    double Avg_count_time = 0;
 
     // Initialize the sum of the comparison, the average comparison
     // and the average for Heap sort.
-    int heap_sum     = 0;
-    int heap_average = 0;
-    int heap_time    = 0;
+    int heap_sum         = 0;
+    double heap_average  = 0;
+    double Avg_heap_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for Quick sort.
-    int quick_sum      = 0;
-    int quick_average  = 0;
-    int Avg_quick_time = 0;
+    int quick_sum         = 0;
+    double quick_average  = 0;
+    double Avg_quick_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for Radix sort.
-    int radix_sum      = 0;
-    int radix_average  = 0;
-    int Avg_radix_time = 0;
+    int radix_sum         = 0;
+    double radix_average  = 0;
+    double Avg_radix_time = 0;
 
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average for Merge sort.
-    int merge_sum      = 0;
-    int merge_average  = 0;
-    int Avg_merge_time = 0;
+    int merge_sum         = 0;
+    double merge_average  = 0;
+    double Avg_merge_time = 0;
 
 
 
