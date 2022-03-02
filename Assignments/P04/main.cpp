@@ -139,6 +139,10 @@ int main()
     int seed = 0;
 
 
+    // n is the size of the array.
+    int n = sizeof(myArray3) / sizeof(myArray3[0]);
+
+
     // Run the each algorithm 20 times.
     for (int i = 0; i < number; i++)
     {
@@ -156,7 +160,35 @@ int main()
         // RadixSort::radixsort(copy, n);
 
 
+        RadixSort::radixsort(myArray3, n, radixcount);
+        cout << "RadixSort count:  " << radixcount << endl;
+        cout << "Time Complexity: "  << termcolor::green << fixed
+             << radix_time << setprecision(3) << termcolor::reset << " sec\n"
+             << endl;
 
+
+        bubble_count = BubbleSort::bubbleSort(myArray1);
+        cout << "Bubble count:  "   << bubble_count << endl;
+        cout << "Time Complexity: " << termcolor::green << fixed
+             << bubble_time << setprecision(3) << termcolor::reset << " sec\n"
+             << endl;
+
+        QuickSort::quickSort(myArray2, 0, _SIZE - 1, quickcount);
+        cout << "QuickSort count:  " << quickcount << endl;
+        cout << "Time Complexity: "  << termcolor::green << fixed
+             << quick_time << setprecision(3) << termcolor::reset << " sec\n"
+             << endl;
+
+       
+        radix_time++;
+        quick_time++;
+        bubble_time++;
+
+        radixcount++;
+        quickcount++;
+        bubble_count++;
+
+        seed++;
     }
 
 
@@ -169,6 +201,7 @@ int main()
     radixcount   /= number;
     quickcount   /= number;
     bubble_count /= number;
+
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
          << bubble_time << setprecision(3) << termcolor::reset << endl;
