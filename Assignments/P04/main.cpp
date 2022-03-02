@@ -76,6 +76,9 @@ int main()
     int myArray2[_SIZE];
     int myArray3[_SIZE];
 
+    // Initialize the seed for the random number generator.
+    int seed = 0;
+
     // Initialize the comparison counter, the sum of the comparison, the average comparison
     // and the average Time for bubble sort.
     int bubble_count   = 0;
@@ -127,6 +130,7 @@ int main()
     int merge_sum      = 0;
     int merge_average  = 0;
     int Avg_merge_time = 0;
+
 
 
 
