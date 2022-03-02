@@ -1,457 +1,353 @@
-/*****************************************************************************
- *
- *    Author:           Loic Konan
- *    Email:            loickonan.lk@gmail.com
- *    Label:            Sorting Algorithms
- *    Title:            Program 2
- *    Course:           CMPS 5243, Spring 2022, Dr. Johnson
- *    Semester:         Spring 2022
- *    Description:
- *
- *                      This program implements the following sorting algorithms:
- *
- *                           - RadixSort Sort O(N)
- *                           - Bubble Sort    O(N ^ 2)
- *                           - QuickSort      O(N log N)
- *                           -  Count Sort     O(N)
- *                           -  R Sort      O(N log N)
- *
- *
- *    Files:
- *         main.cpp
- *
- *    Usage:
- *           main.cpp          : driver program
- *
- *
- ******************************************************************************/
-
 #include <iostream>
-#include <chrono>
-#include <vector>
-#include <ctime>
-#include <cmath>
-#include <random>
 #include <iomanip>
 #include <time.h>
-
+#include <chrono>
 #include "termcolor.hpp"
+
 
 using namespace std;
 using namespace std::chrono;
 
-// Function prototype to print the header.
-void header();
+const int SIZE = 5000;                           // total number of elements in an array.
+void heading();                                  // prints out program header and brief description of assignment
+void fillArray(int arr[], int seed);             // generates an array of random numbers using Rand  and a srand  with seed 20.
+void copyArray(int arr1[], int arr2[]);          // copies content of array 1 to array 2 such that both have same contents each single iteration.
+void printArray(int arr[]);                      // prints array.
+void swap(int &x, int &y);                       // used by bubble sort to swap items in their correct order.
+int bubbleSort(int arr[]);                       // perform bubble sort.
+int countSort(int array[], int SIZE);            // perform counting sort.
+void mergeSort(int arr[], int SIZE, int &count); // perform merge sort.
+int MergeCount = 0;                              // number iterations performed by merge sort.
 
-// Function prototype to swap the values of two integers.
-void swap(int &x, int &y);
-
-// Function to get the largest element from an array
-int getMax(int array[], int n);
-
-// Function prototype for the Bubble Sort.
-int bubbleSort(int Array[]);
-
-// Function prototype to the partition function
-int Partition(int a[], int b, int e, int &quickcount);
-
-// Function prototype for quickSort.
-void quickSort(int a[], int p, int r, int &quickcount);
-
-// Using counting sort to sort the elements in the basis of significant places
-void countingSort(int array[], int size, int place, int &radixcount);
-
-// Function prototype to fill the Array.
-void fillArray(int Array[], int seed);
-
-// Function prototype to copy the Array.
-void copyArray(int Array1[], int Array2[]);
-
-// Function prototype to print the Array.
-void printArray(int Array[]);
-
-// The Size of our Arrays.
-const int SIZE = 5000;
-
-// Initialize the count for quickSort
-int quickcount = 0;
-
-// Initialize the count for Radix
-int radixcount = 0;
-
-// Driver code
 int main()
 {
-     // Display the header and Description of the program.
-     header();
+  // gives the details of the program
+  heading();
+  int myArray1[SIZE], 
+      myArray2[SIZE], 
+      myArray3[SIZE];
+  
+  int bubblecount = 0;    // mark number iterations performed by bubble sort
+  int CountSortcount = 0; // mark number iterations performed by count sort
+  int NumberOfRuns = 0;   // mark number of arrays generated and sorted
+  int SumBubbleSort,
+      SumMergeSort,
+      SumCountSort;
 
-     // Initialize the size(5000) of the arrays.
-     int myArray1[SIZE];
-     int myArray2[SIZE];
-     int myArray3[SIZE];
-     // int myArray4[SIZE];
-     // int myArray5[SIZE];
-     // int myArray6[SIZE];
-     // int myArray7[SIZE];
+  double AverbubbleTime,
+      AverMergeSortTime,
+      SumMergeSortTime,
+      SumBubblesortTime,
+      AverCountSortTime,
+      SumCountSortTime,
+      AvCountSort,
+      AvBubbleSort,
+      AvMergeSort;
+  int seed = 0;
 
-     // Initialize the comparison counter, the sum of the comparison, the average comparison
-     // and the average Time for bubble sort.
-     int bubble_count = 0;
-     int bubble_sum = 0;
-     double bubble_average = 0;
-     double Avg_bubble_time = 0;
+  for (int runs = 0; runs < 20; runs++)
+  {
+    SumBubbleSort = 0;
+    SumMergeSort = 0;
+    SumCountSort = 0;
+    SumCountSortTime = 0;
+    SumMergeSortTime = 0;
+    SumBubblesortTime = 0;
+    NumberOfRuns ++;
 
-     // Initialize the comparison counter, the sum of the comparison, the average comparison
-     // and the average for selection sort.
-     int selection_count = 0;
-     int selection_sum = 0;
-     double selection_average = 0;
-     double Avg_selection_time = 0;
+    // Generate an array of random numbers using a seed
+    fillArray(myArray1, seed);
 
-     // Initialize the comparison counter, the sum of the comparison, the average comparison
-     // and the average for insertion sort.
-     int insertion_count = 0;
-     int insertion_sum = 0;
-     double insertion_average = 0;
-     double Avg_insertion_time = 0;
-
-     // Initialize the comparison counter, the sum of the comparison, the average comparison
-     // and the average for count sort.
-     int count_count = 0;
-     int count_sum = 0;
-     double count_average = 0;
-     double Avg_count_time = 0;
-
-     // Initialize the sum of the comparison, the average comparison
-     // and the average for Heap sort.
-     int heap_sum = 0;
-     double heap_average = 0;
-     double Avg_heap_time = 0;
-
-     // Initialize the comparison counter, the sum of the comparison, the average comparison
-     // and the average for Quick sort.
-     int quick_sum = 0;
-     double quick_average = 0;
-     double Avg_quick_time = 0;
-
-     // Initialize the comparison counter, the sum of the comparison, the average comparison
-     // and the average for Radix sort.
-     int radix_sum = 0;
-     double radix_average = 0;
-     double Avg_radix_time = 0;
-
-     // Initialize the comparison counter, the sum of the comparison, the average comparison
-     // and the average for Merge sort.
-     int merge_sum = 0;
-     double merge_average = 0;
-     double Avg_merge_time = 0;
-
-     // run the loop 20 times.
-     int number = 20;
-
-     // Initialize the seed for the random number generator.
-     int seed = 0;
-;
-
-     // Run the each algorithm 20 times.
-     for (int i = 0; i < number; i++)
-     {
-          // Call the fillArrays function.
-          fillArray(myArray1, seed);
-
-          // Call the copyArrays function, and pass the arrays.
-          copyArray(myArray1, myArray2);
-          copyArray(myArray1, myArray3);
-         
-
-          auto RadixStart = chrono::high_resolution_clock::now();
-          // unsync the I/O of C and C++.
-          ios_base::sync_with_stdio(false);
-          radixsort(myArray3, SIZE, radixcount);
-          auto RadixEnd = chrono::high_resolution_clock::now();
-          // Calculating total time taken by the program.
-          double RadixTime_taken = chrono::duration_cast<chrono::nanoseconds>(RadixEnd - RadixStart).count();
-          // convert time taken to sort the array from nanoseconds to seconds.
-          RadixTime_taken *= 1e-9;
-          cout << "RadixSort count:  " << radixcount << endl;
-          cout << "Time Complexity: " << termcolor::green << fixed
-               << RadixTime_taken << setprecision(3) << termcolor::reset << endl;
-
-          // Bubble sort using myArray1
-          auto BubbleStart = chrono::high_resolution_clock::now();
-          // unsync the I/O of C ++.
-          ios_base::sync_with_stdio(false);
-          bubble_count = bubbleSort(myArray1);
-          auto BubbleEnd = chrono::high_resolution_clock::now();
-          // Calculating total time taken by the program.
-          double BubbleTime_taken = chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
-          // convert time taken to sort the array from nanoseconds to seconds.
-          BubbleTime_taken *= 1e-9;
-          cout << "Bubble count:  " << bubble_count << endl;
-          cout << "Time Complexity: " << termcolor::green << fixed
-               << BubbleTime_taken << setprecision(3) << termcolor::reset << endl;
+    // copy contents from the generated myarray1 to myArray2 and myArray3
+    copyArray(myArray1, myArray2);
+    copyArray(myArray1, myArray3);
 
 
-          auto QuickStart = chrono::high_resolution_clock::now();
-          // unsync the I/O of C ++.
-          ios_base::sync_with_stdio(false);
-          quickSort(myArray2, 0, SIZE - 1, quickcount);
-          auto QuickEnd = chrono::high_resolution_clock::now();
-          // Calculating total time taken by the program.
-          double QuickTime_taken = chrono::duration_cast<chrono::nanoseconds>(QuickEnd - QuickStart).count();
-          // convert time taken to sort the array from nanoseconds to seconds.
-          QuickTime_taken *= 1e-9;
-          cout << "QuickSort count:  " << quickcount << endl;
-          cout << "Time Complexity: " << termcolor::green << fixed
-               << QuickTime_taken << setprecision(3) << termcolor::reset << " sec\n"
-               << endl;
 
-          // Total number of iterations taken for each algorithim to sort 20 arrays.
-          bubble_sum += bubble_count;
-          radix_sum += radixcount;
-          count_sum += count_count;
+    // Bubble sort using myArray1
+    auto BubbleStart = chrono::high_resolution_clock::now();
+    // unsync the I/O of C ++.
+    ios_base::sync_with_stdio(false);
+    bubblecount = bubbleSort(myArray1);
+    auto BubbleEnd = chrono::high_resolution_clock::now();
+    // Calculating total time taken by the program.
+    double BubbleTime_taken = chrono::duration_cast<chrono::nanoseconds>(BubbleEnd - BubbleStart).count();
+    // convert time taken to sort the array from nanoseconds to seconds.
+    BubbleTime_taken *= 1e-9;
+    cout << "\n\nBubble Sort Time Complexity: " << BubbleTime_taken << setprecision(3) << " sec\n";
+    cout << "\n\nBubble Sort Comparisons: " << bubblecount << setprecision(3) << "\n";
 
-          // Total time taken for each algorithim to sort 20 arrays.
-          Avg_bubble_time += BubbleTime_taken;
-          Avg_quick_time += QuickTime_taken;
-          Avg_radix_time += RadixTime_taken;
 
-          seed++;
-     }
+    // Counting sort using myArray2
+    auto CountStart = chrono::high_resolution_clock::now();
+    // unsync the I/O of C and C++.
+    ios_base::sync_with_stdio(false);
+    CountSortcount = countSort(myArray2, SIZE);
+    auto CountEnd = chrono::high_resolution_clock::now();
+    // Calculating total time taken by the program.
+    double CountTime_taken = chrono::duration_cast<chrono::nanoseconds>(CountEnd - CountStart).count();
+    // convert time taken to sort the array from nanoseconds to seconds.
+    CountTime_taken *= 1e-9;
+    cout << "Counting SortTime Complexity: " << CountTime_taken << setprecision(3) << " sec\n";
+    cout << "\nCounting Sort Comparisons: " << CountSortcount << setprecision(3) << "\n";
 
-     // The average time complexity of the three algorithms.
-     Avg_radix_time /= number;
-     Avg_quick_time /= number;
-     Avg_bubble_time /= number;
 
-     // The average number of comparisons for the three algorithms.
-     radixcount /= number;
-     quickcount /= number;
-     bubble_count /= number;
 
-     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
-          << Avg_bubble_time << setprecision(3) << termcolor::reset << endl;
-     cout << "Average Bubble Sort Count: " << bubble_count << endl
-          << endl;
+    // Merge sort using myArray3);
+    auto startMerge = chrono::high_resolution_clock::now();
+    // unsync the I/O of  C++.
+    ios_base::sync_with_stdio(false);
+    mergeSort(myArray3, SIZE, MergeCount);
+    auto EndMerge = chrono::high_resolution_clock::now();
+    // Calculating total time taken by the program.
+    double MergeTime_taken = chrono::duration_cast<chrono::nanoseconds>(EndMerge - startMerge).count();
+    // convert time taken to sort the array from nanoseconds to seconds.
+    MergeTime_taken *= 1e-9;
+    cout << "Merge Time Complexity: " << MergeTime_taken << setprecision(3) << " sec\n";
+    cout << "\nMerge Sort Comparisons: " << MergeCount << setprecision(3) << "\n\n\n";
 
-     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
-          << Avg_quick_time << setprecision(3) << termcolor::reset << endl;
-     cout << "Average Quick Sort Count: " << quickcount << endl
-          << endl;
 
-     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
-          << Avg_radix_time << setprecision(3) << termcolor::reset << endl;
-     cout << "Average Radix Sort Count: " << radixcount << endl
-          << endl;
 
-     return 0;
+    // Total number of iterations taken for each algorithim to sort 20 arrays.
+    SumBubbleSort += bubblecount;
+    SumMergeSort += MergeCount;
+    SumCountSort += CountSortcount;
+    // Total time taken for each algorithim to sort 20 arrays.
+    SumBubblesortTime += BubbleTime_taken;
+    SumMergeSortTime += MergeTime_taken;
+    SumCountSortTime += CountTime_taken;
+    seed ++;
+
+  }
+
+  // average time taken for each algorithim to sort 20 arrays
+  AvBubbleSort = (SumBubbleSort / NumberOfRuns);
+  AvMergeSort = (SumMergeSort / NumberOfRuns);
+  AvCountSort = (SumCountSort / NumberOfRuns);
+
+  // average time taken for each algorithim to sort 20 arrays
+  AverCountSortTime = (SumCountSortTime / NumberOfRuns);
+  AverMergeSortTime = (SumMergeSortTime / NumberOfRuns);
+  AverbubbleTime = (SumBubblesortTime / NumberOfRuns);
+
+  cout << "1) BUBBLE SORT ALGORITHM(using myArray1):  \n\n";
+  cout << "Average Time taken to sort 20 arrays is: " << AverbubbleTime << " seconds\n";
+  cout << "Average number of iterations: " << AvBubbleSort << " \n\n";
+
+  cout << "2) MERGE SORT ALGORITHM(using myArray3): \n\n";
+  cout << "Average Time taken to sort 20 arrays is  : " << fixed << setprecision(5) << AverMergeSortTime << " seconds\n";
+  cout << "Average number of iterations: " << AvMergeSort << " \n\n";
+
+  cout << "3) COUNTING SORT ALGORITHM(using myArray2):  \n\n";
+  cout << "Average  Time taken to sort 20 arrays is : " << fixed << setprecision(5) << AverCountSortTime << " seconds\n";
+  cout << "Average number of iterations: " << AvCountSort << " \n";
+
+  return 0;
 }
 
-// Function prototype to fill the Array.
-void fillArray(int Array[], int seed)
+/**********************************************************************
+  Used to generate an array of random values using a seed
+************************************************************************/
+void fillArray(int arr[], int seed)
 {
-     // Seed the random number generator.
-     srand(seed);
-
-     // Fill the array with random numbers.
-     for (int i = 0; i < SIZE; i++)
-          Array[i] = rand() % 100;
+  srand(seed);
+  for (int i = 0; i < SIZE; i++)
+    arr[i] = rand() % 100;
 }
-
-// Function prototype to copy the Array.
-void copyArray(int Array1[], int Array2[])
+/**********************************************************************
+ Used to copy out  array values from the array generated to other
+ arrays that are to be used in the other sort algorithms to ensure
+ that all arrays have the same values for each run during sorting.
+************************************************************************/
+void copyArray(int arr1[], int arr2[])
 {
-     // Copy the array.
-     for (int i = 0; i < SIZE; i++)
-          Array1[i] = Array2[i];
+  for (int i = 0; i < SIZE; i++)
+    arr2[i] = arr1[i];
 }
-
-// Function prototype to print the Array.
-void printArray(int Array[])
+// Used to print out  array values.
+void printArray(int arr[])
 {
-     // Print the array.
-     for (int i = 0; i < SIZE; i++)
-          cout << Array[i] << " ";
-     cout << endl;
+  for (int i = 0; i < SIZE; i++)
+    cout << setw(4) << arr[i];
+  cout << "\n\n";
 }
 
-// Function prototype for the Bubble Sort.
-int bubbleSort(int Array[])
+// Used with bubble sort to swap two array values.
+void swap(int &m, int &n)
 {
-     bool swapped = true;
-     int j = 0;
-
-     // Number of comparisons
-     int bubblecount = 0;
-
-     // Continue to loop until
-     // no swaps have occurred.
-     while (swapped)
-     {
-          // Reset boolean flag
-          swapped = false;
-          // Because bubbleSort puts the last
-          // value in the correct position each
-          // time through the loop, the limit of
-          // the inner loop decreases by one each
-          // iteration of the outer loop (SIZE -j)
-          for (int i = 1; i < SIZE - j; i++)
-          {
-               bubblecount++;
-               // compare two side-by-side values
-               // and swap if they are out of order
-               if (Array[i - 1] > Array[i])
-               {
-                    swapped = true;
-                    swap(Array[i - 1], Array[i]);
-               }
-          }
-          j++;
-     }
-     return bubblecount;
+  int temp = m;
+  m = n;
+  n = temp;
 }
-
-// Function to get the largest element from an array
-int getMax(int array[], int n)
+// perform bubble sort
+// citing bubble sort from https://d2l.msutexas.edu/d2l/le/content/82590/viewContent/1191933/View
+int bubbleSort(int arr[])
 {
-     int max = array[0];
-     for (int i = 1; i < n; i++)
-          if (array[i] > max)
-               max = array[i];
-     return max;
+
+  bool swapped = true; // flag to determinine if a swap has been made
+  int j = 0, c = 0;
+  // Continue to loop until no swaps have occurred.
+  while (swapped)
+  {
+    // Reset boolean flag
+    swapped = false;
+    // Because bubbleSort puts the last  value in the correct position each time through the
+    // loop, the limit of the inner loop decreases by one each iteration of the outer loop (SIZE -j)
+    for (int i = 1; i < SIZE - j; i++)
+    {
+      c++;
+      // compare two side-by-side values
+      // and swap if they are out of order
+      if (arr[i - 1] > arr[i])
+      {
+        swapped = true;
+        swap(arr[i - 1], arr[i]);
+      }
+    }
+    j++;
+  }
+  return c;
 }
-
-// Using counting sort to sort the elements in the basis of significant places
-void countingSort(int array[], int size, int place, int &radixcount)
-{
-     const int max = 10;
-     int output[size];
-     int count[max];
-
-     for (int i = 0; i < max; ++i)
-          count[i] = 0;
-
-     // Calculate count of elements
-     for (int i = 0; i < size; i++)
-          count[(array[i] / place) % 10]++;
-
-     // Calculate cumulative count
-     for (int i = 1; i < max; i++)
-          count[i] += count[i - 1];
-
-     // Place the elements in sorted order
-     for (int i = size - 1; i >= 0; i--)
-     {
-          output[count[(array[i] / place) % 10] - 1] = array[i];
-          count[(array[i] / place) % 10]--;
-          radixcount++;
-     }
-
-     for (int i = 0; i < size; i++)
-          array[i] = output[i];
-}
-
-// Main function to implement radix sort
-void radixsort(int array[], int size, int &radixcount)
-{
-     // Get maximum element
-     int max = getMax(array, size);
-
-     // Apply counting sort to sort elements based on place value.
-     for (int place = 1; max / place > 0; place *= 10)
-          countingSort(array, size, place, radixcount);
-}
+// End cited code
 
 /***************************************************
-   Initially assigns the pivot position as the left-most
-   (sub)array position.  Array is modified so that all
-   values less than pivot are to the left of the pivot
-   and all values greater than pivot are moved to the
-   right of the pivot.  The pivot position is returned
-   to the calling function.
-   *****************************************************/
-
-int Partition(int a[], int b, int e, int &quickcount)
+Given a left and right array, values are copied
+into a larger array, a, of size n in sorted order.
+****************************************************/
+// citing mergesort https://d2l.msutexas.edu/d2l/le/content/82590/viewContent/1189940/View?ou=82590
+void merge(int left[], int right[], int a[], int n, int &count)
 {
-     // Pivot position assigned to left most position
-     int p = b;
-     while (b < e)
-     {
-          // Scan from right
-          while (b < e && a[b] <= a[e])
-          {
-               e--;
-               quickcount++;
-          }
+  // i - to mark the index of left sub-array (left)
+  // j - to mark the index of right sub-raay (right)
+  // k - to mark the index of merged sub-array (a)
+  int i = 0, j = 0, k = 0;
 
-          // Swap values and update pivot position
-          // if needed.
-          if (a[b] > a[e])
-          {
-               swap(a[b], a[e]);
-               p = e;
-               b++;
-          }
-
-          // Scan from left
-          while (b < e && a[b] <= a[e])
-          {
-               b++;
-               quickcount++;
-          }
-
-          // Swap values and update pivot position
-          // if needed.
-          if (a[b] > a[e])
-          {
-               swap(a[b], a[e]);
-               p = b;
-               e--;
-          }
-     }
-     // Return pivot position
-     return p;
+  int lenleft = n / 2;
+  int lenright = n - lenleft;
+  // Copy values in ascencing order into array a
+  // until end of either left or right array is
+  // reached.
+  while (i < lenleft && j < lenright)
+  {
+    if (left[i] < right[j])
+    {
+      a[k] = left[i];
+      i++;
+      k++;
+    }
+    else
+    {
+      a[k] = right[j];
+      j++;
+      k++;
+    }
+    MergeCount++;
+  }
+  // Copy any remaining values from the
+  // left array.
+  while (i < lenleft)
+  {
+    a[k] = left[i];
+    i++;
+    k++;
+    MergeCount++;
+  }
+  // Copy any remaining values from the
+  // right array.
+  while (j < lenright)
+  {
+    a[k] = right[j];
+    j++;
+    k++;
+    MergeCount++;
+  }
 }
 
-void quickSort(int a[], int p, int r, int &quickcount)
+void mergeSort(int a[], int n, int &count)
 {
-     if (p < r)
-     {
-          // Partition the array and get pivot position
-          int q = Partition(a, p, r, quickcount);
+  int i, mid, *left, *right;
+  MergeCount++;
 
-          // Sort left and right sub-arrays
-          quickSort(a, p, q - 1, quickcount);
-          quickSort(a, q + 1, r, quickcount);
-     }
+  if (n < 2)
+    return;    // base condition. If the array has less than two element, do nothing.
+  mid = n / 2; // find the mid index.
+  // Dynamically create two new sub-arrays to
+  // store the left and right halves of array.
+  left = new int[mid];
+  right = new int[n - mid];
+  // Copy into left and right arrays
+  for (i = 0; i < mid; i++) // creating left sub-array
+    left[i] = a[i];
+
+  for (i = mid; i < n; i++)
+    right[i - mid] = a[i];
+
+  // Recursively sort the left half of the sub-array.
+  mergeSort(left, mid, MergeCount);
+  // Recursively sort the right half of the sub-array.
+  mergeSort(right, n - mid, MergeCount);
+  // Merge the sub-arrays halves.
+  merge(left, right, a, n, MergeCount);
 }
+// End cited code
 
-void header()
+// Counting sort
+// Citing counting sort from https://www.programiz.com/dsa/counting-sort
+int countSort(int array[], int SIZE)
 {
-     cout << "*****************************************************************************\n";
-     cout << "*";
-     cout << "\n*    Author:           Loic Konan";
-     cout << "\n*    Email:            loickonan.lk@gmail.com";
-     cout << "\n*    Label:            Sorting Algorithms";
-     cout << "\n*    Title:            Program 2";
-     cout << "\n*    Course:           CMPS 5243,  Spring number22, Dr. Johnson";
-     cout << "\n*    Semester:         Spring number22";
-     cout << "\n*    Description:";
-     cout << "\n*";
-     cout << "\n*                  This program implements the following sorting algorithms:";
-     cout << "\n*";
-     cout << "\n*                     - Bubble Sort";
-     cout << "\n*                     - Selection Sort";
-     cout << "\n*                     - Merge Sort";
-     cout << "\n*";
-     cout << "\n*";
-     cout << "\n*;";
-     cout << "\n*    Files:";
-     cout << "\n*         main.cpp";
-     cout << "\n*";
-     cout << "\n*    Usage:";
-     cout << "\n*           main.cpp          : driver program";
-     cout << "\n*";
-     cout << "\n*";
-     cout << "\n******************************************************************************\n\n";
+  // The size of count must be at least the (max+1) but
+  // we cannot assign declare it as int count(max+1) in C++ as
+  // it does not support dynamic memory allocation.
+  // So, its size is provided statically.
+  int output[SIZE];
+  int count[SIZE];
+  int c = 0;
+  int max = array[0];
+
+  // Find the largest element of the array
+  for (int i = 1; i < SIZE; i++)
+  {
+    if (array[i] > max)
+      max = array[i];
+  }
+
+  // Initialize count array with all zeros.
+  for (int i = 0; i <= max; ++i)
+  {
+    count[i] = 0;
+  }
+
+  // Store the count of each element
+  for (int i = 0; i < SIZE; i++)
+  {
+    count[array[i]]++;
+    c++;
+  }
+
+  // Store the cummulative count of each array
+  for (int i = 1; i <= max; i++)
+  {
+    count[i] += count[i - 1];
+    c++;
+  }
+
+  // Find the index of each element of the original array in count array, and
+  // place the elements in output array
+  for (int i = SIZE - 1; i >= 0; i--)
+  {
+    output[count[array[i]] - 1] = array[i];
+    count[array[i]]--;
+    c++;
+  }
+
+  // Copy the sorted elements into original array
+  for (int i = 0; i < SIZE; i++)
+  {
+    array[i] = output[i];
+  }
+  return c;
+}
+// End cited code
+void heading()
+{
 }

@@ -40,15 +40,12 @@ using namespace std;
 
 const int _SIZE    = 5000;
 
-double quickcount  = 0;
-double RadixCount  = 0;
+int quickcount  = 0;
+int radixcount  = 0;
 
-auto quick_time = 0.0,
-radix_time  = 0.0,
-bubble_time = 0.0;
 
 // Function prototype to fill the Arrays.
-void fillArray(int arr[]);
+void fillArray(int arr[], int seed);
 
 // Function prototype to copy the Arrays.
 void copyArray(int arr1[], int arr2[]);
@@ -69,10 +66,10 @@ int partition(int arr[], int low, int high, int &quickcount);
 void quickSort(int arr[], int low, int high);
 
 // Function prototype to sort the Arrays using Radix Sort.
-void radixsort(int arr[], int n);
+void radixsort(int arr[], int n, int &radixcount);
 
 // Function prototype to sort the Arrays using Counting Sort.
-void countSort(int arr[], int n, int exp);
+void countSort(int arr[], int n, int exp, int &radixcount);
 
 // Function prototype for selection sort the Arrays and and a counter 
 // to count the number of comparisons.
@@ -101,6 +98,12 @@ int main()
     int number = 20;
     int seed = 0;
 
+        
+    auto quick_time = 0.0,
+    radix_time  = 0.0,
+    bubble_time = 0.0;
+
+
     // Run the each algorithm 20 times.
     for (int i = 0; i < number; i++)
     {
@@ -112,8 +115,8 @@ int main()
         copyArray(myArray1, myArray3);
 
 
-         radixsort(myArray3, n);
-        cout << "RadixSort count:  " << RadixCount << endl;
+         radixsort(myArray3, n, radixcount);
+        cout << "RadixSort count:  " << radixcount << endl;
         cout << "Time Complexity: "  << termcolor::green << fixed
              << radix_time << setprecision(3) << termcolor::reset << " sec\n"
              << endl;
@@ -136,7 +139,7 @@ int main()
         quick_time++;
         bubble_time++;
 
-        RadixCount++;
+        radixcount++;
         quickcount++;
         bubblecount++;
 
@@ -149,7 +152,7 @@ int main()
     bubble_time /= number;
 
     // The average number of comparisons for the three algorithms.
-    RadixCount  /= number;
+    radixcount  /= number;
     quickcount  /= number;
     bubblecount /= number;
 
@@ -163,7 +166,7 @@ int main()
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
          << radix_time/1000 << setprecision(3) << termcolor::reset   << " sec" << endl;
-    cout << "Average Radix Sort Count: "  << RadixCount << endl << endl;
+    cout << "Average Radix Sort Count: "  << radixcount << endl << endl;
 
     return 0;
 }
@@ -203,8 +206,6 @@ void swap(int &x, int &y)
 // Function to sort the array using bubble sort.
 int bubbleSort(int arr[])
 {
-    auto start = chrono::high_resolution_clock::now();
-
     bool swapped = true;
     int j = 0;
     int bubblecount = 0;
@@ -232,9 +233,6 @@ int bubbleSort(int arr[])
         }
         j++;
     }
-    auto end = chrono::high_resolution_clock::now();
-
-    bubble_time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     return bubblecount;
 }
 
@@ -269,8 +267,6 @@ low --> Starting index,
 high --> Ending index */
 void quickSort(int arr[], int low, int high)
 {
-    auto start = chrono::high_resolution_clock::now();
-
     if (low < high)
     {
         /* pi is partitioning index, arr[p] is now
@@ -282,9 +278,6 @@ void quickSort(int arr[], int low, int high)
         quickSort(arr, low, pi - 1);
         quickSort(arr, pi + 1, high);
     }
-
-    auto end = chrono::high_resolution_clock::now();
-    quick_time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
 }
 
 // A utility function to get maximum value in arr[]
@@ -299,7 +292,7 @@ int getMax(int arr[], int n)
 
 // A function to do counting sort of arr[] according to
 // the digit represented by exp.
-void countSort(int arr[], int n, int exp)
+void countSort(int arr[], int n, int exp, int &radixcount)
 {
     int output[n]; // output array
     int i, count[10] = {0};
@@ -320,6 +313,7 @@ void countSort(int arr[], int n, int exp)
     {
         output[count[(arr[i] / exp) % 10] - 1] = arr[i];
         count[(arr[i] / exp) % 10]--;
+        radixcount++;
     }
 
     // Copy the output array to arr[], so that arr[] now
@@ -329,10 +323,8 @@ void countSort(int arr[], int n, int exp)
 }
 
 // The main function that sorts arr[] of _SIZE n using Radix Sort
-void radixsort(int arr[], int n)
+void radixsort(int arr[], int n, int &radixcount)
 {
-    auto start = chrono::high_resolution_clock::now();
-
     // Find the maximum number to know number of digits
     int m = getMax(arr, n);
 
@@ -341,15 +333,10 @@ void radixsort(int arr[], int n)
     // where i is current digit number
     for (int exp = 1; m / exp > 0; exp *= 10)
     {
-        countSort(arr, n, exp);
-        RadixCount++;
+        countSort(arr, n, exp, radixcount);
+        radixcount++;
     }
-
-    auto end = chrono::high_resolution_clock::now();
-
-    bubble_time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
 }
-
 
 
 // A utility function to print an array
