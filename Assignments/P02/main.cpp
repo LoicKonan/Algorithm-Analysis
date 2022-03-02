@@ -13,11 +13,11 @@
  *                           -  RadixSort Sort  O(N)
  *                           -  Bubble Sort     O(N ^ 2)
  *                           -  QuickSort       O(N log N)
- *                           -  Count Sort     O(N)
- *                           -  Merge Sort     O(N log N)
- *                           -  Heap Sort      O(N log N)
- *                           -  Insertion Sort O(N ^ 2)
- *                           -  Selection Sort O(N ^ 2)
+ *                           -  Count Sort      O(N)
+ *                           -  Merge Sort      O(N log N)
+ *                           -  Heap Sort       O(N log N)
+ *                           -  Insertion Sort  O(N ^ 2)
+ *                           -  Selection Sort  O(N ^ 2)
  * 
  *
  *
@@ -51,7 +51,7 @@ const int _SIZE = 5000;
 #include "mergeSort.hpp"
 #include "heapSort.hpp"
 #include "countSort.hpp"
-#include "insertionSort.hpp"
+// #include "insertionSort.hpp"
 #include "selectionSort.hpp"
 #include "radixSort.hpp"
 #include "bubbleSort.hpp"
@@ -80,6 +80,11 @@ int main()
     int myArray1[_SIZE];
     int myArray2[_SIZE];
     int myArray3[_SIZE];
+    int myArray4[_SIZE];
+    // int myArray5[_SIZE];
+    int myArray6[_SIZE];
+    int myArray7[_SIZE];
+    int myArray8[_SIZE];
 
     // Initialize the counter for bubble sort.
     int bubblecount,
@@ -88,8 +93,8 @@ int main()
     selectioncount,    
     selection_time,
 
-    insertion_time,
-    insertioncount,
+    // insertion_time,
+    // insertioncount,
     
     count_count,
     count_time,
@@ -128,13 +133,12 @@ int main()
          * 
          *
          ****************************************************************/ 
-
         // Start the clock for the Radix sort.
         auto startRadix = chrono::high_resolution_clock::now();
         // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the radixsort function, and pass the arrays.
-        RadixSort::radixsort(myArray3, n, radixcount);
+        RadixSort::radixsort(myArray1, n, radixcount);
         // End the clock for the Radix sort.
         auto endRadix = chrono::high_resolution_clock::now();
         // Calculate the time for the Radix sort.
@@ -155,13 +159,12 @@ int main()
          * 
          *
          ****************************************************************/ 
-
         // Start the clock for the Countsort.
         auto startCount = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the Count Sort function, and pass the arrays.
-        count_count = CountSort::countSort(myArray3, n);
+        count_count = CountSort::countSort(myArray2, n);
         // End the clock for the Count sort.
         auto endCount = chrono::high_resolution_clock::now();
         // Calculate the time for the Count sort.
@@ -182,13 +185,12 @@ int main()
          * 
          *
          ****************************************************************/ 
-
         // Start the clock for the Bubble sort.
         auto startBubble = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the bubble Sort function, and pass the arrays.
-        bubblecount = BubbleSort::bubbleSort(myArray1);
+        bubblecount = BubbleSort::bubbleSort(myArray3);
         // End the clock for the Bubble sort.
         auto endBubble = chrono::high_resolution_clock::now();
         // Calculate the time for the Bubble sort.
@@ -214,7 +216,7 @@ int main()
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the Selection sort function, and pass the arrays.
-        selectioncount = SelectionSort::selectionSort(myArray1);
+        selectioncount = SelectionSort::selectionSort(myArray4);
         // End the clock for the Selection sort.
         auto endSelection = chrono::high_resolution_clock::now();
         // Calculate the time for the Selection sort.
@@ -229,30 +231,30 @@ int main()
 
 
 
-        /****************************************************************
+         /****************************************************************
          * 
          *                     InsertionSort Below
          * 
          *
          ****************************************************************/ 
+        // // Start the clock for the Insertion sort.
+        // auto startInsertion = chrono::high_resolution_clock::now();
+        //  // unsync the I/O of  C++.
+        // ios_base::sync_with_stdio(false);
+        // // Call the Insertion sort function, and pass the arrays.
+        // insertioncount = InsertionSort::insertionSort(myArray5);
+        // // End the clock for the Insertion sort.
+        // auto endInsertion = chrono::high_resolution_clock::now();
+        // // Calculate the time for the Insertion sort.
+        // insertion_time = chrono::duration_cast<chrono::nanoseconds>(endInsertion - startInsertion).count();
+        // // Converting the time to seconds
+        // insertion_time *= 1e-9;
+        // // Display the time for the Insertion sort.
+        // cout << "Insertion count:  " << insertioncount << endl;
+        // cout << "Insertion Time Complexity: " << termcolor::green << fixed
+        //      << insertion_time << setprecision(6) << termcolor::reset << " sec\n"
+        //      << endl;
 
-        // Start the clock for the Insertion sort.
-        auto startInsertion = chrono::high_resolution_clock::now();
-         // unsync the I/O of  C++.
-        ios_base::sync_with_stdio(false);
-        // Call the Insertion sort function, and pass the arrays.
-        insertioncount = InsertionSort::insertionSort(myArray1);
-        // End the clock for the Insertion sort.
-        auto endInsertion = chrono::high_resolution_clock::now();
-        // Calculate the time for the Insertion sort.
-        insertion_time = chrono::duration_cast<chrono::nanoseconds>(endInsertion - startInsertion).count();
-        // Converting the time to seconds
-        insertion_time *= 1e-9;
-        // Display the time for the Insertion sort.
-        cout << "Insertion count:  " << insertioncount << endl;
-        cout << "Insertion Time Complexity: " << termcolor::green << fixed
-             << insertion_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
 
 
         /****************************************************************
@@ -261,13 +263,12 @@ int main()
          * 
          *
          ****************************************************************/ 
-
         // Start the clock for the Merge sort.
         auto startMerge = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the Merge sort function, and pass the arrays.
-        MergeSort::mergeSort(myArray1, n, MergeCount);
+        MergeSort::mergeSort(myArray6, n, MergeCount);
         // End the clock for the Merge sort.
         auto endMerge = chrono::high_resolution_clock::now();
         // Calculate the time for the Merge sort.
@@ -288,13 +289,12 @@ int main()
          * 
          *
          ****************************************************************/ 
-
         // Start the clock for the Heap sort.
         auto startHeap = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the Heap sort function, and pass the arrays.
-        HeapSort::heapSort(myArray1, n, HeapCount);
+        HeapSort::heapSort(myArray7, n, HeapCount);
         // End the clock for the Heap sort.
         auto endHeap = chrono::high_resolution_clock::now();
         // Calculate the time for the Heap sort.
@@ -314,13 +314,12 @@ int main()
          * 
          *
          ****************************************************************/ 
-          
         // Start the clock for the Quick sort.
         auto startQuick = chrono::high_resolution_clock::now();
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the quickSort function, and pass the arrays.
-        QuickSort::quickSort(myArray2, 0, _SIZE - 1, quickcount);
+        QuickSort::quickSort(myArray8, 0, _SIZE - 1, quickcount);
         // End the clock for the Quick sort.
         auto endQuick = chrono::high_resolution_clock::now();
         // Calculate the time for the Quick sort.
@@ -338,7 +337,7 @@ int main()
 
         // Getting the total time and total count of comparisons.
         bubble_time++;
-        insertion_time++;
+        // insertion_time++;
         selection_time++;
         
         count_time++;
@@ -350,7 +349,7 @@ int main()
 
 
         bubblecount++;
-        insertioncount++;
+        // insertioncount++;
         selectioncount++;
 
         quickcount++;
@@ -366,7 +365,7 @@ int main()
     // The average time complexity of the three algorithms.
     
     bubble_time /= number;
-    insertion_time /= number;
+    // insertion_time /= number;
     selection_time /= number;
 
     count_time /= number;
@@ -379,7 +378,7 @@ int main()
     // The average number of comparisons for the three algorithms.
     
     bubblecount /= number;
-    insertioncount /= number;
+    // insertioncount /= number;
     selectioncount /= number;
 
     count_count /= number;
@@ -396,10 +395,10 @@ int main()
          << endl;
 
 
-    cout << "Average Time Complexity for Insertion Sort: " << termcolor::green << fixed
-            << insertion_time << setprecision(6) << termcolor::reset << " sec" << endl;
-    cout << "Average Insertion Sort Count: " << insertioncount << endl
-            << endl;
+    // cout << "Average Time Complexity for Insertion Sort: " << termcolor::green << fixed
+    //         << insertion_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    // cout << "Average Insertion Sort Count: " << insertioncount << endl
+    //         << endl;
 
     cout << "Average Time Complexity for Selection Sort: " << termcolor::green << fixed
             << selection_time << setprecision(6) << termcolor::reset << " sec" << endl;
