@@ -10,10 +10,15 @@
  *
  *                      This program implements the following sorting algorithms:
  *
- *                           - RadixSort Sort O(N)
- *                           - Bubble Sort    O(N ^ 2)
- *                           - QuickSort      O(N log N)
- *                          -  Count Sort     O(N)
+ *                           -  RadixSort Sort  O(N)
+ *                           -  Bubble Sort     O(N ^ 2)
+ *                           -  QuickSort       O(N log N)
+ *                           -  Count Sort     O(N)
+ *                           -  Merge Sort     O(N log N)
+ *                           -  Heap Sort      O(N log N)
+ *                           -  Insertion Sort O(N ^ 2)
+ *                           -  Selection Sort O(N ^ 2)
+ * 
  *
  *
  *    Files:
@@ -219,40 +224,95 @@ int main()
 
 
         // Getting the total time and total count of comparisons.
-        radix_time++;
-        quick_time++;
+       
         bubble_time++;
+        insertion_time++;
+        selection_time++;
+        
         count_time++;
+        radix_time++;
+        
+        quick_time++;
+        heap_time++;
+        merge_time++;
 
-        radixcount++;
-        quickcount++;
+
         bubblecount++;
+        insertioncount++;
+        selectioncount++;
+
+        
+        quickcount++;
+        heapsortcount++;
+        mergesortcount++;
+
         count_count++;
+        radixcount++;
 
         seed++;
     }
 
     // The average time complexity of the three algorithms.
-    radix_time /= number;
-    quick_time /= number;
+    
     bubble_time /= number;
+    insertion_time /= number;
+    selection_time /= number;
+
     count_time /= number;
+    radix_time /= number;
+    
+    quick_time /= number;
+    heap_time /= number;
+    merge_time /= number;
 
     // The average number of comparisons for the three algorithms.
-    radixcount /= number;
-    quickcount /= number;
+    
     bubblecount /= number;
+    insertioncount /= number;
+    selectioncount /= number;
+
     count_count /= number;
+    radixcount /= number;
+
+    quickcount /= number;
+    heapsortcount /= number;
+    mergesortcount /= number;
+
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
          << bubble_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Bubble Sort Count: " << bubblecount << endl
          << endl;
 
+
+    cout << "Average Time Complexity for Insertion Sort: " << termcolor::green << fixed
+            << insertion_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    cout << "Average Insertion Sort Count: " << insertioncount << endl
+            << endl;
+
+    cout << "Average Time Complexity for Selection Sort: " << termcolor::green << fixed
+            << selection_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    cout << "Average Selection Sort Count: " << selectioncount << endl
+            << endl;
+
+        
+
     cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
          << quick_time << " sec" << setprecision(6) << termcolor::reset << endl;
     cout << "Average Quick Sort Count: " << quickcount << endl
          << endl;
+
+    cout << "Average Time Complexity for Heap Sort: " << termcolor::green << fixed  
+            << heap_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    cout << "Average Heap Sort Count: " << heapsortcount << endl
+            << endl;
+
+    cout << "Average Time Complexity for Merge Sort: " << termcolor::green << fixed
+            << merge_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    cout << "Average Merge Sort Count: " << mergesortcount << endl
+            << endl;
+
+
 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
          << radix_time << setprecision(6) << termcolor::reset << " sec" << endl;
