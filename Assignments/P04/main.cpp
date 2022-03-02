@@ -33,6 +33,8 @@
 #include <string>
 #include <vector>
 
+#include "termcolor.hpp"
+
 #include "countSort.hpp"
 #include "radixSort.hpp"
 
@@ -58,7 +60,15 @@ const int _SIZE = 5000;
 // Driver code
 int main() 
 {
+    header();
+
     
+    // Initialize the size of the arrays.
+    int myArray1[_SIZE];
+    int myArray2[_SIZE];
+    int myArray3[_SIZE];
+
+
     // CountSort::countSort(copy, n, m);
     // HeapSort::heapSort(copy, n);
     // QuickSort::quickSort(copy, 0, n - 1);
