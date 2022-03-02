@@ -39,7 +39,6 @@
 using namespace std;
 
 const int _SIZE    = 5000;
-const int SEED     = 20;
 
 double quickcount  = 0;
 double RadixCount  = 0;
@@ -48,11 +47,8 @@ auto quick_time = 0.0,
 radix_time  = 0.0,
 bubble_time = 0.0;
 
-// Function Prototypes
-void Seed();
-
 // Function prototype to fill the Arrays.
-void fillArray(int arr[]);
+void fillArray(int arr[], int seed);
 
 // Function prototype to copy the Arrays.
 void copyArray(int arr1[], int arr2[]);
@@ -103,11 +99,11 @@ int main()
     header();
 
     int number = 20;
+    int seed = 0;
 
     // Run the each algorithm 20 times.
     for (int i = 0; i < number; i++)
     {
-
         // Call the fillArrays function.
         fillArray(myArray1);
 
@@ -143,6 +139,8 @@ int main()
         RadixCount++;
         quickcount++;
         bubblecount++;
+
+        seed ++;
     }
 
     // The average time complexity of the three algorithms.
@@ -170,18 +168,13 @@ int main()
     return 0;
 }
 
-// Set the seed value
-void Seed()
-{
-    for (int i = 0; i < SEED; i++)
-        srand(i);
-}
 
-// Function to fill the array.
-void fillArray(int arr[])
+
+void fillArray(int arr[], int seed)
 {
-    for (int i = 0; i < _SIZE; i++)
-        arr[i] = rand() % 5000;
+  srand(seed);
+  for (int i = 0; i < _SIZE; i++)
+    arr[i] = rand() % 100;
 }
 
 // Function to copy an array.
