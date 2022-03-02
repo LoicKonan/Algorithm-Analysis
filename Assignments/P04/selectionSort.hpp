@@ -15,8 +15,9 @@ namespace SelectionSort
         y = temp;
     }
 
-    void selectionSort(int Array[])
+    int selectionSort(int Array[])
     {
+        int selectioncount = 0;
         int minIndex;
         for (int i = 0; i < _SIZE; i++)
         {
@@ -28,11 +29,13 @@ namespace SelectionSort
                 // If a smaller value is found, update minIndex
                 if (Array[j] < Array[minIndex])
                     minIndex = j;
+                selectioncount++;
             }
             // If smallest number is already in correct position
             // no need to swap.
             if (i != minIndex)
                 swap(Array[i], Array[minIndex]);
         }
+        return selectioncount;
     }
 }
