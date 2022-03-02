@@ -29,7 +29,7 @@
  *
  *
  ******************************************************************************/
-
+#include "termcolor.hpp"
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -47,7 +47,6 @@ using namespace std;
 const int _SIZE = 5000;
 
 
-#include "termcolor.hpp"
 #include "mergeSort.hpp"
 #include "heapSort.hpp"
 #include "countSort.hpp"
