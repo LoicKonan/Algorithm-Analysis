@@ -24,11 +24,13 @@ namespace HeapSort
         if (left < n && arr[left] > arr[largest])
         {
             largest = left;
+            HeapCount++;
         }
 
         if (right < n && arr[right] > arr[largest])
         {
             largest = right;
+            HeapCount++;
         }
 
         // Swap and continue heapifying if root is not largest
@@ -36,6 +38,7 @@ namespace HeapSort
         {
             swap(arr[i], arr[largest]);
             heapify(arr, n, largest, HeapCount);
+            
         }
     }
 

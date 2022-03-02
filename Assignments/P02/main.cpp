@@ -51,7 +51,7 @@ const int _SIZE = 5000;
 #include "mergeSort.hpp"
 #include "heapSort.hpp"
 #include "countSort.hpp"
-// #include "insertionSort.hpp"
+#include "insertionSort.hpp"
 #include "selectionSort.hpp"
 #include "radixSort.hpp"
 #include "bubbleSort.hpp"
@@ -81,7 +81,7 @@ int main()
     int myArray2[_SIZE];
     int myArray3[_SIZE];
     int myArray4[_SIZE];
-    // int myArray5[_SIZE];
+    int myArray5[_SIZE];
     int myArray6[_SIZE];
     int myArray7[_SIZE];
     int myArray8[_SIZE];
@@ -93,8 +93,8 @@ int main()
     selectioncount,    
     selection_time,
 
-    // insertion_time,
-    // insertioncount,
+    insertion_time,
+    insertioncount,
     
     count_count,
     count_time,
@@ -237,23 +237,23 @@ int main()
          * 
          *
          ****************************************************************/ 
-        // // Start the clock for the Insertion sort.
-        // auto startInsertion = chrono::high_resolution_clock::now();
-        //  // unsync the I/O of  C++.
-        // ios_base::sync_with_stdio(false);
-        // // Call the Insertion sort function, and pass the arrays.
-        // insertioncount = InsertionSort::insertionSort(myArray5);
-        // // End the clock for the Insertion sort.
-        // auto endInsertion = chrono::high_resolution_clock::now();
-        // // Calculate the time for the Insertion sort.
-        // insertion_time = chrono::duration_cast<chrono::nanoseconds>(endInsertion - startInsertion).count();
-        // // Converting the time to seconds
-        // insertion_time *= 1e-9;
-        // // Display the time for the Insertion sort.
-        // cout << "Insertion count:  " << insertioncount << endl;
-        // cout << "Insertion Time Complexity: " << termcolor::green << fixed
-        //      << insertion_time << setprecision(6) << termcolor::reset << " sec\n"
-        //      << endl;
+        // Start the clock for the Insertion sort.
+        auto startInsertion = chrono::high_resolution_clock::now();
+         // unsync the I/O of  C++.
+        ios_base::sync_with_stdio(false);
+        // Call the Insertion sort function, and pass the arrays.
+        insertioncount = InsertionSort::insertionSort(myArray5);
+        // End the clock for the Insertion sort.
+        auto endInsertion = chrono::high_resolution_clock::now();
+        // Calculate the time for the Insertion sort.
+        insertion_time = chrono::duration_cast<chrono::nanoseconds>(endInsertion - startInsertion).count();
+        // Converting the time to seconds
+        insertion_time *= 1e-9;
+        // Display the time for the Insertion sort.
+        cout << "Insertion count:  " << insertioncount << endl;
+        cout << "Insertion Time Complexity: " << termcolor::green << fixed
+             << insertion_time << setprecision(6) << termcolor::reset << " sec\n"
+             << endl;
 
 
 
@@ -395,10 +395,10 @@ int main()
          << endl;
 
 
-    // cout << "Average Time Complexity for Insertion Sort: " << termcolor::green << fixed
-    //         << insertion_time << setprecision(6) << termcolor::reset << " sec" << endl;
-    // cout << "Average Insertion Sort Count: " << insertioncount << endl
-    //         << endl;
+    cout << "Average Time Complexity for Insertion Sort: " << termcolor::green << fixed
+            << insertion_time << setprecision(6) << termcolor::reset << " sec" << endl;
+    cout << "Average Insertion Sort Count: " << insertioncount << endl
+            << endl;
 
     cout << "Average Time Complexity for Selection Sort: " << termcolor::green << fixed
             << selection_time << setprecision(6) << termcolor::reset << " sec" << endl;
