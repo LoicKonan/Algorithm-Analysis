@@ -88,22 +88,20 @@ int main()
 
     // Initialize the counter for bubble sort.
     int bubblecount,
-    bubble_time,
-
     selectioncount,    
-    selection_time,
-
-    insertion_time,
     insertioncount,
+    count_count;
     
-    count_count,
-    count_time,
 
+    // Initialize the Timer.
+    double count_time,
     radix_time,
-
+    selection_time,
+    insertion_time,
     quick_time,
     merge_time,
-    heap_time;
+    heap_time,
+    bubble_time;
 
 
     // n is the size of the array.
@@ -337,7 +335,7 @@ int main()
 
         // Getting the total time and total count of comparisons.
         bubble_time++;
-        // insertion_time++;
+        insertion_time++;
         selection_time++;
         
         count_time++;
@@ -349,7 +347,7 @@ int main()
 
 
         bubblecount++;
-        // insertioncount++;
+        insertioncount++;
         selectioncount++;
 
         quickcount++;
@@ -364,30 +362,38 @@ int main()
 
     // The average time complexity of the three algorithms.
     
-    bubble_time /= number;
-    // insertion_time /= number;
+    bubble_time /= double(number);
+    insertion_time /= double(number);
     selection_time /= number;
 
-    count_time /= number;
-    radix_time /= number;
+    count_time /= double(number);
+    radix_time /= double(number);
     
-    quick_time /= number;
-    heap_time /= number;
-    merge_time /= number;
+    quick_time /= double(number);
+    heap_time /= double(number);
+    merge_time /= double(number);
 
     // The average number of comparisons for the three algorithms.
     
-    bubblecount /= number;
-    // insertioncount /= number;
-    selectioncount /= number;
+    bubblecount /= double(number);
+    insertioncount /= double(number);
+    selectioncount /= double(number);
 
-    count_count /= number;
-    radixcount /= number;
+    count_count /= double(number);
+    radixcount /= double(number);
 
-    quickcount /= number;
-    HeapCount /= number;
-    MergeCount /= number;
+    quickcount /= double(number);
+    HeapCount /= double(number);
+    MergeCount /= double(number);
 
+
+
+    cout << "\n\n****************************************************************\n"
+         << "* \n"
+         << "*                      Final Results Below\n"
+         << "* \n"
+         << "*\n"
+         << "****************************************************************\n"<< endl;
 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
          << bubble_time << setprecision(6) << termcolor::reset << " sec" << endl;
