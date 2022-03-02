@@ -53,6 +53,14 @@ using namespace std::chrono;
 // Function prototype to print the header.
 void header();
 
+// Function prototype to fill the Array.
+void fillArray(int Array[], int seed);
+
+// Function prototype to copy the Array.
+void copyArray(int Array1[], int Array2[]);         
+
+// Function prototype to print the Array.
+void printArray(int Array[]); 
 
 // The Size of our Arrays.
 const int _SIZE = 5000;
@@ -78,6 +86,36 @@ int main()
     return 0;
 }
 
+
+
+
+// Function prototype to fill the Array.
+void fillArray(int Array[], int seed)
+{
+    // Seed the random number generator.
+    srand(seed);
+
+    // Fill the array with random numbers.
+    for (int i = 0; i < _SIZE; i++)
+        Array[i] = rand() % 100;
+}
+
+// Function prototype to copy the Array.
+void copyArray(int Array1[], int Array2[])
+{
+    // Copy the array.
+    for (int i = 0; i < _SIZE; i++)
+        Array1[i] = Array2[i];
+}       
+
+// Function prototype to print the Array.
+void printArray(int Array[])
+{
+    // Print the array.
+    for (int i = 0; i < _SIZE; i++)
+        cout << Array[i] << " ";
+    cout << endl;
+}
 
 
 void header()
