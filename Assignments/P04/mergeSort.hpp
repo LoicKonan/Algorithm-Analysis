@@ -2,19 +2,20 @@
 // https://www.programiz.com/dsa/quick-sort
 
 #include <iostream>
-int MergeCount = 0;
 
+
+int MergeCount = 0;
 
 namespace MergeSort
 {
     using namespace std;
 
-    // function to swap elements
-    void swap(int *a, int *b)
+    // to swap two array values.
+    void swap(int &x, int &y)
     {
-        int t = *a;
-        *a = *b;
-        *b = t;
+        int temp = x;
+        x = y;
+        y = temp;
     }
 
     /***************************************************

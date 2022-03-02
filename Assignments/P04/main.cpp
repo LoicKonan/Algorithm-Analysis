@@ -10,11 +10,16 @@
 #include "MergeSort.hpp"
 #include "quickSort.hpp"
 
+#include "InsertionSort.hpp"
 #include "SelectionSort.hpp"
 #include "BubbleSort.hpp"
 
 using namespace std;
 using namespace std::chrono;
+
+
+// Function prototype to print the header.
+void header();
 
 
 // The Size of our Arrays.
@@ -31,4 +36,36 @@ int main()
 
 
     return 0;
+}
+
+
+
+void header()
+{
+    cout << "*****************************************************************************\n";
+    cout << "*";
+    cout << "\n*    Author:           Loic Konan";
+    cout << "\n*    Email:            loickonan.lk@gmail.com";
+    cout << "\n*    Label:            Sorting Algorithms";
+    cout << "\n*    Title:            Program 2";
+    cout << "\n*    Course:           CMPS 5243,  Spring number22, Dr. Johnson";
+    cout << "\n*    Semester:         Spring number22";
+    cout << "\n*    Description:";
+    cout << "\n*";
+    cout << "\n*                  This program implements the following sorting algorithms:";
+    cout << "\n*";
+    cout << "\n*                     - Bubble Sort";
+    cout << "\n*                     - Selection Sort";
+    cout << "\n*                     - Merge Sort";
+    cout << "\n*";
+    cout << "\n*";
+    cout << "\n*;";
+    cout << "\n*    Files:";
+    cout << "\n*         main.cpp";
+    cout << "\n*";
+    cout << "\n*    Usage:";
+    cout << "\n*           main.cpp          : driver program";
+    cout << "\n*";
+    cout << "\n*";
+    cout << "\n******************************************************************************\n\n";
 }
