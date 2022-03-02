@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+int quickcount = 0;
+
 namespace QuickSort
 {
     using namespace std;
@@ -15,51 +17,67 @@ namespace QuickSort
         y = temp;
     }
 
-    // function to rearrange array (find the partition point)
-    int partition(int array[], int low, int high)
+    /***************************************************
+    Initially assigns the pivot position as the left-most
+    (sub)array position.  Array is modified so that all
+    values less than pivot are to the left of the pivot
+    and all values greater than pivot are moved to the
+    right of the pivot.  The pivot position is returned
+    to the calling function.
+    *****************************************************/
+
+    int Partition(int a[], int b, int e, int &quickcount)
     {
-        // select the rightmost element as pivot
-        int pivot = array[high];
-
-        // pointer for greater element
-        int i = (low - 1);
-
-        // traverse each element of the array
-        // compare them with the pivot
-        for (int j = low; j < high; j++)
+        // Pivot position assigned to left most position
+        int p = b;
+        while (b < e)
         {
-            if (array[j] <= pivot)
+            // Scan from right
+            while (b < e && a[b] <= a[e])
             {
-                // if element smaller than pivot is found
-                // swap it with the greater element pointed by i
-                i++;
+                e--;
+                quickcount++;
+            }
 
-                // swap element at i with element at j
-                swap(&array[i], &array[j]);
+            // Swap values and update pivot position
+            // if needed.
+            if (a[b] > a[e])
+            {
+                swap(a[b], a[e]);
+                p = e;
+                b++;
+            }
+
+            // Scan from left
+            while (b < e && a[b] <= a[e])
+            {
+                b++;
+                quickcount++;
+            }
+
+            // Swap values and update pivot position
+            // if needed.
+            if (a[b] > a[e])
+            {
+                swap(a[b], a[e]);
+                p = b;
+                e--;
             }
         }
-
-        // swap pivot with the greater element at i
-        swap(&array[i + 1], &array[high]);
-
-        // return the partition point
-        return (i + 1);
+        // Return pivot position
+        return p;
     }
 
-    void quickSort(int array[], int low, int high)
+    void quickSort(int a[], int p, int r, int &quickcount)
     {
-        if (low < high)
+        if (p < r)
         {
-            // find the pivot element such that
-            // elements smaller than pivot are on left of pivot
-            // elements greater than pivot are on righ of pivot
-            int pi = partition(array, low, high);
+            // Partition the array and get pivot position
+            int q = Partition(a, p, r, quickcount);
 
-            // recursive call on the left of pivot
-            quickSort(array, low, pi - 1);
-
-            // recursive call on the right of pivot
-            quickSort(array, pi + 1, high);
+            // Sort left and right sub-arrays
+            quickSort(a, p, q - 1, quickcount);
+            quickSort(a, q + 1, r, quickcount);
         }
     }
 }
