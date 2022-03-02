@@ -55,11 +55,9 @@ const int _SIZE = 5000;
 #include "selectionSort.hpp"
 #include "radixSort.hpp"
 #include "bubbleSort.hpp"
+#include "quickSort.hpp"
 
 
-
-// Initialize the counter for quickSort
-int quickcount = 0;
 
 // Function prototype to fill the Arrays.
 void fillArray(int arr[], int seed);
@@ -71,14 +69,9 @@ void copyArray(int arr1[], int arr2[]);
 void printArray(int arr[]);
 
 
-// Function prototype for partitioning the Arrays.
-int partition(int arr[], int low, int high, int &quickcount);
-
-// Function prototype to sort the Arrays using Quick Sort.
-void quickSort(int arr[], int low, int high, int &quickcount);
-
 // Function prototype to print the header.
 void header();
+
 
 // Main function.
 int main()
@@ -327,7 +320,7 @@ int main()
          // unsync the I/O of  C++.
         ios_base::sync_with_stdio(false);
         // Call the quickSort function, and pass the arrays.
-        quickSort(myArray2, 0, _SIZE - 1, quickcount);
+        QuickSort::quickSort(myArray2, 0, _SIZE - 1, quickcount);
         // End the clock for the Quick sort.
         auto endQuick = chrono::high_resolution_clock::now();
         // Calculate the time for the Quick sort.
@@ -443,6 +436,7 @@ int main()
     return 0;
 }
 
+
 void fillArray(int arr[], int seed)
 {
     srand(seed);
@@ -463,52 +457,6 @@ void printArray(int arr[])
     for (int i = 0; i < _SIZE; i++)
         cout << setw(4) << arr[i];
     cout << "\n\n";
-}
-
-
-
-/* This function takes last element as pivot, places
-the pivot element at its correct position in sorted
-array, and places all smaller (smaller than pivot)
-to left of pivot and all greater elements to right
-of pivot */
-int partition(int arr[], int low, int high, int &quickcount)
-{
-    int pivot = arr[high]; // pivot
-    int i = (low - 1);     // Index of smaller element and
-                           // indicates the right position of pivot found so far
-
-    for (int j = low; j <= high - 1; j++)
-    {
-        quickcount++;
-        // If current element is smaller than the pivot
-        if (arr[j] < pivot)
-        {
-            i++; // increment index of smaller element
-            swap(arr[i], arr[j]);
-        }
-    }
-    swap(arr[i + 1], arr[high]);
-    return (i + 1);
-}
-
-/* The main function that implements QuickSort
-arr[] --> Array to be sorted,
-low --> Starting index,
-high --> Ending index */
-void quickSort(int arr[], int low, int high, int &quickcount)
-{
-    if (low < high)
-    {
-        /* pi is partitioning index, arr[p] is now
-        at right place */
-        int pi = partition(arr, low, high, quickcount);
-
-        // Separately sort elements before
-        // partition and after partition
-        quickSort(arr, low, pi - 1, quickcount);
-        quickSort(arr, pi + 1, high, quickcount);
-    }
 }
 
 
