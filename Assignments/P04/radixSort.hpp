@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-// Number of comparisions
+// Initialize the count for Radix 
 int radixcount = 0;
 
 namespace RadixSort

@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+// Initialize the count for quickSort
 int quickcount = 0;
 
 namespace QuickSort

@@ -76,17 +76,37 @@ int main()
     int myArray2[_SIZE];
     int myArray3[_SIZE];
 
-    // Initialize the counter for bubble sort.
-    double bubble_count;
+    // Initialize the comparison counter, the sum of the comparison, the average comparison
+    // and the average Time for bubble sort.
+    int bubble_count   = 0;
+    int bubble_sum     = 0;
+    int bubble_average = 0;
+    int bubble_time    = 0;
 
-    // Initialize the counter for selection sort.
-    double selection_count;
+    // Initialize the comparison counter, the sum of the comparison, the average comparison
+    // and the average for selection sort.
+    int selection_count   = 0;
+    int selection_sum     = 0;
+    int selection_average = 0;
+    int Avg_selection_time    = 0;
 
-    // Initialize the counter for insertion sort.
-    double insertion_count;
+    // Initialize the comparison counter, the sum of the comparison, the average comparison
+    // and the average for insertion sort.
+    int insertion_count   = 0;
+    int insertion_sum     = 0;
+    int insertion_average = 0;
+    int Avg_insertion_time    = 0;
 
-    // Initialize the counter for count sort.
-    double count_count;
+
+    // Initialize the comparison counter, the sum of the comparison, the average comparison
+    // and the average for count sort.
+    int count_count   = 0;
+    int count_sum     = 0;
+    int count_average = 0;
+    int Avg_count_time    = 0;
+
+
+
 
 
 
