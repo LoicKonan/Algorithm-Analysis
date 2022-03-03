@@ -367,7 +367,7 @@ int main()
 
 
 
-
+     // Print the results to the screen.
     cout << "\n\n\t\t\t****************************************************************\n"
          << "\t\t\t*                                                              *\n"
          << "\t\t\t*                      Final Results Below                     *\n"
@@ -385,17 +385,25 @@ int main()
          << ("********************************") << "\n\n"; 
     
     cout << fixed << setprecision(6)
-         << setw(Column_Width)  << "BubbleSort"    << setw(2.8*Column_Width) << bubble_time    << setw(2.8*Column_Width) <<  Average_bubblecount    << "\n\n"
-         << setw(Column_Width)  << "SelectionSort" << setw(2.8*Column_Width) << selection_time << setw(2.8*Column_Width) <<  Average_selectioncount << "\n\n"
-         << setw(Column_Width)  << "InsertionSort" << setw(2.8*Column_Width) << insertion_time << setw(2.8*Column_Width) <<  Average_insertioncount << "\n\n"
+         << setw(Column_Width)     << "BubbleSort"    << setw(2.8*Column_Width) << bubble_time    
+         << setw(2.8*Column_Width) <<  Average_bubblecount    << "\n\n"
+         << setw(Column_Width)     << "SelectionSort" << setw(2.8*Column_Width) << selection_time 
+         << setw(2.8*Column_Width) <<  Average_selectioncount << "\n\n"
+         << setw(Column_Width)     << "InsertionSort" << setw(2.8*Column_Width) << insertion_time 
+         << setw(2.8*Column_Width) <<  Average_insertioncount << "\n\n"
          
-         << setw(Column_Width)  << "QuickSort"     << setw(2.8*Column_Width) << quick_time     << setw(2.8*Column_Width) <<  Average_quickcount     << "\n\n"
-         << setw(Column_Width)  << "MergeSort"     << setw(2.8*Column_Width) << merge_time     << setw(2.8*Column_Width) <<  Average_MergeCount     << "\n\n"
-         << setw(Column_Width)  << "HeapSort"      << setw(2.8*Column_Width) << heap_time      << setw(2.8*Column_Width) <<  Average_HeapCount      << "\n\n"
+         << setw(Column_Width)     << "QuickSort"     << setw(2.8*Column_Width) << quick_time     
+         << setw(2.8*Column_Width) <<  Average_quickcount     << "\n\n"
+         << setw(Column_Width)     << "MergeSort"     << setw(2.8*Column_Width) << merge_time     
+         << setw(2.8*Column_Width) <<  Average_MergeCount     << "\n\n"
+         << setw(Column_Width)     << "HeapSort"      << setw(2.8*Column_Width) << heap_time      
+         << setw(2.8*Column_Width) <<  Average_HeapCount      << "\n\n"
 
 
-         << setw(Column_Width)  << "RadixSort"     << setw(2.8*Column_Width) << radix_time    << setw(2.8*Column_Width)  <<  Average_radixcount     << "\n\n"
-         << setw(Column_Width)  << "CountingSort"  << setw(2.8*Column_Width) << count_time    << setw(2.8*Column_Width)  << Average_countcount      << "\n\n";
+         << setw(Column_Width)     << "RadixSort"     << setw(2.8*Column_Width) << radix_time    
+         << setw(2.8*Column_Width) <<  Average_radixcount     << "\n\n"
+         << setw(Column_Width)     << "CountingSort"  << setw(2.8*Column_Width) << count_time    
+         << setw(2.8*Column_Width) << Average_countcount      << "\n\n";
     
     cout << ("***********************************************************************")
          << ("********************************") << "\n\n"; 
