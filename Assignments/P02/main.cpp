@@ -46,7 +46,10 @@ using namespace std;
 // The size of the Arrays.
 const int _SIZE = 5000;
 
+// To print colors.
 #include "termcolor.hpp"
+
+// Different sorting algorithms and Functions
 #include "mergeSort.hpp"
 #include "heapSort.hpp"
 #include "countSort.hpp"
