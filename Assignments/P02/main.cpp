@@ -293,47 +293,6 @@ int main()
         quick_time = chrono::duration_cast<chrono::nanoseconds>(endQuick - startQuick).count();
         // Converting the time to seconds
         quick_time *= 1e-9;
-        
-
-         cout << setw(colWidth-3)<< fixed << i << setprecision(6) 
-              << setw(colWidth)   << count_count    << setw(colWidth) << bubblecount 
-              << setw(colWidth)   << selectioncount << setw(colWidth) << insertioncount 
-              << setw(colWidth)   << MergeCount     << setw(colWidth) << HeapCount 
-              << setw(colWidth)   << quickcount     << setw(colWidth) << radixcount << "\n\n";
-
-
-         // Display the time for the Count sort.
-        // cout << termcolor::green << count_count << quick_time << "\n";
-
-
-         // Display the time for the Bubble sort.
-        // cout << termcolor::green << bubblecount << bubble_time << "\n";
-
-        
-
-         // Display the time for the Selection sort.
-        // cout << termcolor::green << selectioncount << selection_time << "\n";
-
-        
-        // Display the time for the Insertion sort.
-        // cout << termcolor::green << insertioncount << insertion_time << "\n";
-
-
-        // Display the time for the Merge sort.
-        // cout  << termcolor::green << MergeCount << merge_time << "\n";
-
-
-        // Display the time for the Heap sort.
-        // cout  << termcolor::green << HeapCount << heap_time << "\n";
-
-        
-        // Display the time for the Quick sort.
-        // cout  << termcolor::green << quickcount << quick_time << "\n";
-        
-
-         // Display the time for the Radix sort.
-        // cout  << termcolor::green << radixcount << radix_time << "\n";
-
 
 
         // The Time for the O(n^2) algorithms.
@@ -397,92 +356,37 @@ int main()
 
 
 
-    cout << "\n\n****************************************************************\n"
-         << "* \n"
-         << "*                      Final Results Below\n"
-         << "* \n"
-         << "*\n"
-         << "****************************************************************\n"<< endl;
+    cout << "\n\n\t\t\t****************************************************************\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t*                      Final Results Below                     *\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t****************************************************************\n";
+    cout << ("***********************************************************************") 
+         << ("********************************") << "\n\n"; 
+
+    cout << setw(colWidth) << "Algorithms" << "\t\t\t\t" << "Average Time Complexity" 
+         << "\t\t\t" << "Average Comparisons\n\n";
+    cout << setw(4*colWidth) << "(Milliseconds)\n";
+
+    cout << ("***********************************************************************") 
+         << ("********************************") << "\n\n"; 
+    
+    cout << fixed << setprecision(6)
+         << setw(colWidth)  << "BubbleSort"    << setw(2.8*colWidth) << bubble_time    << setw(2.8*colWidth) <<  Average_bubblecount    << "\n\n"
+         << setw(colWidth)  << "SelectionSort" << setw(2.8*colWidth) << selection_time << setw(2.8*colWidth) <<  Average_selectioncount << "\n\n"
+         << setw(colWidth)  << "InsertionSort" << setw(2.8*colWidth) << insertion_time << setw(2.8*colWidth) <<  Average_insertioncount << "\n\n"
+         
+         << setw(colWidth)  << "QuickSort"     << setw(2.8*colWidth) << quick_time     << setw(2.8*colWidth) <<  Average_quickcount     << "\n\n"
+         << setw(colWidth)  << "MergeSort"     << setw(2.8*colWidth) << merge_time     << setw(2.8*colWidth) <<  Average_MergeCount     << "\n\n"
+         << setw(colWidth)  << "HeapSort"      << setw(2.8*colWidth) << heap_time      << setw(2.8*colWidth) << Average_HeapCount       << "\n\n"
 
 
-        /****************************************************************
-         * 
-         *                     Bubble Sort Average Below
-         * 
-         *
-         ****************************************************************/ 
-    cout << termcolor::green <<  bubble_time << "\n";
-    cout << Average_bubblecount << "\n\n";
-
-
-        /****************************************************************
-         * 
-         *                     Insertion Sort Average Below
-         * 
-         *
-         ****************************************************************/ 
-    cout << termcolor::green << insertion_time << "\n";
-    cout << Average_insertioncount << "\n\n";
-
-
-        /****************************************************************
-         * 
-         *                     Selection Sort Average Below
-         * 
-         *
-         ****************************************************************/ 
-    cout << termcolor::green << selection_time << "\n";
-    cout << Average_selectioncount << "\n\n";
-        
-
-        /****************************************************************
-         * 
-         *                     QuickSort Average Below
-         * 
-         *
-         ****************************************************************/ 
-    cout << termcolor::green << quick_time << "\n";
-    cout << Average_quickcount << "\n\n";
-
-
-        /****************************************************************
-         * 
-         *                     HeapSort Average Below
-         * 
-         *
-         ****************************************************************/ 
-    cout << termcolor::green << heap_time << "\n";
-    cout << Average_HeapCount << "\n\n";
-
-
-        /****************************************************************
-         * 
-         *                     MergeSort Average Below
-         * 
-         *
-         ****************************************************************/ 
-    cout  << termcolor::green << merge_time << "\n";
-    cout << Average_MergeCount << "\n\n";
-
-
-        /****************************************************************
-         * 
-         *                     RadixSort Average Below
-         * 
-         *
-         ****************************************************************/ 
-    cout << termcolor::green << radix_time << "\n";
-    cout << Average_radixcount << "\n\n";
-
-
-        /****************************************************************
-         * 
-         *                     CountSort Average Below
-         * 
-         *
-         ****************************************************************/ 
-    cout << termcolor::green << count_time  << "\n";
-    cout << Average_countcount << "\n\n";
+         << setw(colWidth)  << "RadixSort"     << setw(2.8*colWidth) << radix_time    << setw(2.8*colWidth)  <<  Average_radixcount     << "\n\n"
+         << setw(colWidth)  << "CountingSort"  << setw(2.8*colWidth) << count_time    << setw(2.8*colWidth)  << Average_countcount      << "\n\n";
+    
+    cout << ("***********************************************************************")
+         << ("********************************") << "\n\n"; 
 
     return 0;
 }
