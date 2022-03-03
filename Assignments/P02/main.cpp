@@ -373,8 +373,8 @@ int main()
 
      // Calculate the average time complexity for all the algorithms.
      double Avg_bubble_time    = bubble_time    / number;
-     double Avg_selection_time = selection_time / number;
-     double Avg_insertion_time = insertion_time / number;
+     double Avg_selectiontime = selection_time / number;
+     double Avg_insertiontime = insertion_time / number;
 
      double Avg_count_time     = count_time     / number;
      double Avg_radix_time     = radix_time     / number;
@@ -418,14 +418,14 @@ int main()
           << ("********************************") << "\n\n";
 
      cout << fixed << setprecision(6)
-          << setw(width)        << "BubbleSort"      << setw(2.8 * width) 
-          << Avg_bubble_time    << setw(2.8 * width) << Avg_bubblecount << "\n\n"
+          << setw(width)       << "BubbleSort"       << setw(2.8 * width) 
+          << Avg_bubble_time   << setw(2.8 * width)  << Avg_bubblecount    << "\n\n"
 
-          << setw(width)        << "SelectionSort"   << setw(2.8 * width) 
-          << Avg_selection_time << setw(2.8 * width) << Avg_selectioncount << "\n\n"
+          << setw(width)       << "SelectionSort"    << setw(2.8 * width) 
+          << Avg_selectiontime << setw(2.8 * width)  << Avg_selectioncount << "\n\n"
 
-          << setw(width)        << "InsertionSort"   << setw(2.8 * width) 
-          << Avg_insertion_time << setw(2.8 * width) << Avg_insertioncount << "\n\n"
+          << setw(width)       << "InsertionSort"    << setw(2.8 * width) 
+          << Avg_insertiontime << setw(2.8 * width)  << Avg_insertioncount << "\n\n"
 
           << setw(width)       << "QuickSort"        << setw(2.8 * width) 
           << Avg_quick_time    << setw(2.8 * width)  << Avg_quickcount     << "\n\n"
