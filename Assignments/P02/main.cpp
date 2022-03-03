@@ -4,7 +4,7 @@
  *    Email:            loickonan.lk@gmail.com
  *    Label:            Sorting Algorithms
  *    Title:            Program 2
- *    Course:           CMPS 6246, Spring 2022, Dr. Johnson
+ *    Course:           CMPS 5243, Spring 2022, Dr. Johnson
  *    Semester:         Spring 2022
  *    Description:
  *
@@ -105,21 +105,7 @@ int main()
     int seed   = 0;
 
     // Variable to show the column width.
-    int colWidth = 15;
-
-    
-    // table header
-    cout << termcolor::green << ("\n\n***********************************************************************") 
-         << ("*******************************************************************") << "\n\n";
-    cout << setw(5*colWidth) << "Time Complexity & Number of Comparisons per Iteration\n\n";
-
-    cout << setw(colWidth) << "Iteration" << setw(colWidth) << "RadixSort" << setw(colWidth) 
-         << "CountingSort" << setw(colWidth)<< "InsertionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
-         << "QuickSort" << setw(colWidth) << "HeapSort" << setw(colWidth)<< "BubbleSort" << setw(colWidth) 
-         << "SelectionSort" << setw(colWidth) << "\n\n";
-    
-    cout << ("***********************************************************************")
-         << ("*******************************************************************") << termcolor::reset<< "\n\n";
+    int Column_Width = 15;
 
 
     // Run the each algorithm 20 times.
@@ -365,25 +351,25 @@ int main()
     cout << ("***********************************************************************") 
          << ("********************************") << "\n\n"; 
 
-    cout << setw(colWidth) << "Algorithms" << "\t\t\t\t" << "Average Time Complexity" 
+    cout << setw(Column_Width) << "Algorithms" << "\t\t\t\t" << "Average Time Complexity" 
          << "\t\t\t" << "Average Comparisons\n\n";
-    cout << setw(4*colWidth) << "(Milliseconds)\n";
+    cout << setw(4*Column_Width) << "(Milliseconds)\n";
 
     cout << ("***********************************************************************") 
          << ("********************************") << "\n\n"; 
     
     cout << fixed << setprecision(6)
-         << setw(colWidth)  << "BubbleSort"    << setw(2.8*colWidth) << bubble_time    << setw(2.8*colWidth) <<  Average_bubblecount    << "\n\n"
-         << setw(colWidth)  << "SelectionSort" << setw(2.8*colWidth) << selection_time << setw(2.8*colWidth) <<  Average_selectioncount << "\n\n"
-         << setw(colWidth)  << "InsertionSort" << setw(2.8*colWidth) << insertion_time << setw(2.8*colWidth) <<  Average_insertioncount << "\n\n"
+         << setw(Column_Width)  << "BubbleSort"    << setw(2.8*Column_Width) << bubble_time    << setw(2.8*Column_Width) <<  Average_bubblecount    << "\n\n"
+         << setw(Column_Width)  << "SelectionSort" << setw(2.8*Column_Width) << selection_time << setw(2.8*Column_Width) <<  Average_selectioncount << "\n\n"
+         << setw(Column_Width)  << "InsertionSort" << setw(2.8*Column_Width) << insertion_time << setw(2.8*Column_Width) <<  Average_insertioncount << "\n\n"
          
-         << setw(colWidth)  << "QuickSort"     << setw(2.8*colWidth) << quick_time     << setw(2.8*colWidth) <<  Average_quickcount     << "\n\n"
-         << setw(colWidth)  << "MergeSort"     << setw(2.8*colWidth) << merge_time     << setw(2.8*colWidth) <<  Average_MergeCount     << "\n\n"
-         << setw(colWidth)  << "HeapSort"      << setw(2.8*colWidth) << heap_time      << setw(2.8*colWidth) << Average_HeapCount       << "\n\n"
+         << setw(Column_Width)  << "QuickSort"     << setw(2.8*Column_Width) << quick_time     << setw(2.8*Column_Width) <<  Average_quickcount     << "\n\n"
+         << setw(Column_Width)  << "MergeSort"     << setw(2.8*Column_Width) << merge_time     << setw(2.8*Column_Width) <<  Average_MergeCount     << "\n\n"
+         << setw(Column_Width)  << "HeapSort"      << setw(2.8*Column_Width) << heap_time      << setw(2.8*Column_Width) << Average_HeapCount       << "\n\n"
 
 
-         << setw(colWidth)  << "RadixSort"     << setw(2.8*colWidth) << radix_time    << setw(2.8*colWidth)  <<  Average_radixcount     << "\n\n"
-         << setw(colWidth)  << "CountingSort"  << setw(2.8*colWidth) << count_time    << setw(2.8*colWidth)  << Average_countcount      << "\n\n";
+         << setw(Column_Width)  << "RadixSort"     << setw(2.8*Column_Width) << radix_time    << setw(2.8*Column_Width)  <<  Average_radixcount     << "\n\n"
+         << setw(Column_Width)  << "CountingSort"  << setw(2.8*Column_Width) << count_time    << setw(2.8*Column_Width)  << Average_countcount      << "\n\n";
     
     cout << ("***********************************************************************")
          << ("********************************") << "\n\n"; 
