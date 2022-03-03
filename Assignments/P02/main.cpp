@@ -391,24 +391,49 @@ int main()
          << "*\n"
          << "****************************************************************\n"<< endl;
 
+
+        /****************************************************************
+         * 
+         *                     Bubble Sort Average Below
+         * 
+         *
+         ****************************************************************/ 
     cout << "Average Time Complexity for Bubble Sort: " << termcolor::green << fixed
          << bubble_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Bubble Sort Count: " << bubblecount << endl
          << endl;
 
 
+        /****************************************************************
+         * 
+         *                     Insertion Sort Average Below
+         * 
+         *
+         ****************************************************************/ 
     cout << "Average Time Complexity for Insertion Sort: " << termcolor::green << fixed
             << insertion_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Insertion Sort Count: " << insertioncount << endl
             << endl;
 
 
+        /****************************************************************
+         * 
+         *                     Selection Sort Average Below
+         * 
+         *
+         ****************************************************************/ 
     cout << "Average Time Complexity for Selection Sort: " << termcolor::green << fixed
             << selection_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Selection Sort Count: " << selectioncount << endl
             << endl;
-
         
+
+        /****************************************************************
+         * 
+         *                     QuickSort Average Below
+         * 
+         *
+         ****************************************************************/ 
     cout << "Average Time Complexity for Quick Sort: ";
     cout << fixed  << termcolor::green << quick_time << " sec" 
          << setprecision(6) << termcolor::reset << endl;
@@ -416,23 +441,50 @@ int main()
          << endl;
 
 
+        /****************************************************************
+         * 
+         *                     HeapSort Average Below
+         * 
+         *
+         ****************************************************************/ 
     cout << "Average Time Complexity for Heap Sort: " << termcolor::green << fixed  
             << heap_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Heap Sort Count: " << HeapCount << endl
             << endl;
 
 
+        /****************************************************************
+         * 
+         *                     MergeSort Average Below
+         * 
+         *
+         ****************************************************************/ 
     cout << "Average Time Complexity for Merge Sort: " << termcolor::green << fixed
             << merge_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Merge Sort Count: " << MergeCount << endl
             << endl;
 
 
+        /****************************************************************
+         * 
+         *                     RadixSort Average Below
+         * 
+         *
+         ****************************************************************/ 
     cout << "Average Time Complexity for Radix Sort: " << termcolor::green << fixed
          << radix_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Radix Sort Count: " << radixcount << endl
          << endl;
 
+
+
+
+        /****************************************************************
+         * 
+         *                     CountSort Average Below
+         * 
+         *
+         ****************************************************************/ 
     cout << "Average Time Complexity for Counting Sort: " << termcolor::green << fixed
             << count_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Counting Sort Count: " << count_count << endl
