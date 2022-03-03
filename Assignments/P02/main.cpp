@@ -418,6 +418,7 @@ int main()
     double Average_HeapCount      = HeapCount      / double(number);
     double Average_MergeCount     = MergeCount     / double(number);
 
+//     cout << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
 
 
      // Print the results to the screen.
