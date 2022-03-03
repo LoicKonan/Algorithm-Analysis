@@ -104,6 +104,24 @@ int main()
     int number = 20;
     int seed   = 0;
 
+    // Variable to show the column width.
+    int colWidth = 15;
+
+    
+    // table header
+    cout << ("\n\n***********************************************************************") 
+         << ("*******************************************************************") << "\n\n";
+    cout << setw(5*colWidth) << "Time Complexity per Iteration\n\n";
+
+    cout << setw(colWidth) << "Iteration" << setw(colWidth) << "RadixSort" << setw(colWidth) 
+         << "CountingSort" << setw(colWidth)<< "InsertionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
+         << "QuickSort" << setw(colWidth) << "HeapSort" << setw(colWidth)<< "BubbleSort" << setw(colWidth) 
+         << "SelectionSort" << setw(colWidth) << "\n\n";
+    
+    cout << ("***********************************************************************")
+         << ("*******************************************************************") << "\n\n";
+
+
     // Run the each algorithm 20 times.
     for (int i = 0; i < number; i++)
     {
@@ -134,10 +152,7 @@ int main()
         radix_time = chrono::duration_cast<chrono::nanoseconds>(endRadix - startRadix).count();
         // Converting the time to seconds
         radix_time *= 1e-9;
-        // Display the time for the Radix sort.
-        cout << "RadixSort count:  " << radixcount << "\n";
-        cout << "Radix Time Complexity: " << fixed << termcolor::green 
-             << radix_time << termcolor::reset << setprecision(6) << "\n\n";
+
 
     
         /****************************************************************
@@ -158,11 +173,6 @@ int main()
         count_time = chrono::duration_cast<chrono::nanoseconds>(endCount - startCount).count();
         // Converting the time to seconds
         count_time *= 1e-9;
-        // Display the time for the Count sort.
-        cout << "QuickSort count:  " << count_count << endl;
-        cout << "Quick Time Complexity: " << termcolor::green << fixed
-             << quick_time << setprecision(6) << termcolor::reset << "\n\n";
-
 
 
         /****************************************************************
@@ -183,11 +193,7 @@ int main()
         bubble_time = chrono::duration_cast<chrono::nanoseconds>(endBubble - startBubble).count();
         // Converting the time to seconds
         bubble_time *= 1e-9;
-        // Display the time for the Bubble sort.
-        cout << "Bubble count:  " << bubblecount << endl;
-        cout << " Bubble Time Complexity: " << termcolor::green << fixed
-             << bubble_time << setprecision(6) << termcolor::reset << "\n\n";
-
+       
 
         /****************************************************************
          * 
@@ -207,11 +213,7 @@ int main()
         selection_time = chrono::duration_cast<chrono::nanoseconds>(endSelection - startSelection).count();
         // Converting the time to seconds
         selection_time *= 1e-9;
-        // Display the time for the Selection sort.
-        cout << "Selection count:  " << selectioncount << endl;
-        cout << "Selection Time Complexity: " << termcolor::green << fixed
-             << selection_time << setprecision(6) << termcolor::reset << "\n\n";
-
+       
 
          /****************************************************************
          * 
@@ -231,11 +233,6 @@ int main()
         insertion_time = chrono::duration_cast<chrono::nanoseconds>(endInsertion - startInsertion).count();
         // Converting the time to seconds
         insertion_time *= 1e-9;
-        // Display the time for the Insertion sort.
-        cout << "Insertion count:  " << insertioncount << endl;
-        cout << "Insertion Time Complexity: " << termcolor::green << fixed
-             << insertion_time << setprecision(6) << termcolor::reset << "\n\n";
-
 
 
         /****************************************************************
@@ -256,11 +253,7 @@ int main()
         merge_time = chrono::duration_cast<chrono::nanoseconds>(endMerge - startMerge).count();
         // Converting the time to seconds
         merge_time *= 1e-9;
-        // Display the time for the Merge sort.
-        cout << "Merge count:  " << MergeCount << endl;
-        cout << "Merge Time Complexity: " << termcolor::green << fixed
-             << merge_time << setprecision(6) << termcolor::reset << "\n\n";
-
+        
 
         /****************************************************************
          * 
@@ -280,11 +273,7 @@ int main()
         heap_time = chrono::duration_cast<chrono::nanoseconds>(endHeap - startHeap).count();
         // Converting the time to seconds
         heap_time *= 1e-9;
-        // Display the time for the Heap sort.
-        cout << "Heap count:  " << HeapCount << endl;
-        cout << "Heap Time Complexity: " << termcolor::green << fixed
-             << heap_time << setprecision(6) << termcolor::reset << "\n\n";
-
+        
 
         /****************************************************************
          * 
@@ -304,11 +293,51 @@ int main()
         quick_time = chrono::duration_cast<chrono::nanoseconds>(endQuick - startQuick).count();
         // Converting the time to seconds
         quick_time *= 1e-9;
-        // Display the time for the Quick sort.
-        cout << "QuickSort count:  " << quickcount << endl;
-        cout << "Time Complexity: " << termcolor::green << fixed
-             << quick_time << setprecision(6) << termcolor::reset << "\n\n";
         
+
+
+         // Display the time for the Count sort.
+        cout << count_count << termcolor::green << fixed << quick_time 
+             << setprecision(6) << termcolor::reset << "\n";
+
+
+
+         // Display the time for the Bubble sort.
+        cout << bubblecount << termcolor::green << fixed << bubble_time 
+             << setprecision(6) << termcolor::reset << "\n";
+
+        
+
+         // Display the time for the Selection sort.
+        cout << selectioncount << termcolor::green << fixed << selection_time 
+             << setprecision(6) << termcolor::reset << "\n";
+
+        
+        // Display the time for the Insertion sort.
+        cout << insertioncount << termcolor::green << fixed << insertion_time 
+             << setprecision(6) << termcolor::reset << "\n";
+
+
+
+        // Display the time for the Merge sort.
+        cout << MergeCount << termcolor::green << fixed << merge_time 
+             << setprecision(6) << termcolor::reset << "\n";
+
+
+        // Display the time for the Heap sort.
+        cout << HeapCount << termcolor::green << fixed << heap_time 
+        << setprecision(6) << termcolor::reset << "\n";
+
+        
+        // Display the time for the Quick sort.
+        cout << quickcount << termcolor::green << fixed << quick_time 
+             << setprecision(6) << termcolor::reset << "\n";
+        
+
+         // Display the time for the Radix sort.
+        cout << radixcount << fixed << termcolor::green << radix_time 
+             << termcolor::reset << setprecision(6) << "\n";
+
 
 
         // The Time for the O(n^2) algorithms.
