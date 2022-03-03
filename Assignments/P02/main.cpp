@@ -109,9 +109,9 @@ int main()
 
     
     // table header
-    cout << ("\n\n***********************************************************************") 
+    cout << termcolor::green << ("\n\n***********************************************************************") 
          << ("*******************************************************************") << "\n\n";
-    cout << setw(5*colWidth) << "Time Complexity per Iteration\n\n";
+    cout << setw(5*colWidth) << "Time Complexity & Number of Comparisons per Iteration\n\n";
 
     cout << setw(colWidth) << "Iteration" << setw(colWidth) << "RadixSort" << setw(colWidth) 
          << "CountingSort" << setw(colWidth)<< "InsertionSort" << setw(colWidth) << "MergeSort" << setw(colWidth) 
@@ -119,11 +119,11 @@ int main()
          << "SelectionSort" << setw(colWidth) << "\n\n";
     
     cout << ("***********************************************************************")
-         << ("*******************************************************************") << "\n\n";
+         << ("*******************************************************************") << termcolor::reset<< "\n\n";
 
 
     // Run the each algorithm 20 times.
-    for (int i = 0; i < number; i++)
+    for (int i = 1; i <= number; i++)
     {
         // Call the fillArrays function.
         FillArray::fillArray(myArray1, seed);
@@ -295,48 +295,44 @@ int main()
         quick_time *= 1e-9;
         
 
+         cout << setw(colWidth-3)<< fixed << i << setprecision(6) 
+              << setw(colWidth)   << count_count    << setw(colWidth) << bubblecount 
+              << setw(colWidth)   << selectioncount << setw(colWidth) << insertioncount 
+              << setw(colWidth)   << MergeCount     << setw(colWidth) << HeapCount 
+              << setw(colWidth)   << quickcount     << setw(colWidth) << radixcount << "\n\n";
+
 
          // Display the time for the Count sort.
-        cout << count_count << termcolor::green << fixed << quick_time 
-             << setprecision(6) << termcolor::reset << "\n";
-
+        // cout << termcolor::green << count_count << quick_time << "\n";
 
 
          // Display the time for the Bubble sort.
-        cout << bubblecount << termcolor::green << fixed << bubble_time 
-             << setprecision(6) << termcolor::reset << "\n";
+        // cout << termcolor::green << bubblecount << bubble_time << "\n";
 
         
 
          // Display the time for the Selection sort.
-        cout << selectioncount << termcolor::green << fixed << selection_time 
-             << setprecision(6) << termcolor::reset << "\n";
+        // cout << termcolor::green << selectioncount << selection_time << "\n";
 
         
         // Display the time for the Insertion sort.
-        cout << insertioncount << termcolor::green << fixed << insertion_time 
-             << setprecision(6) << termcolor::reset << "\n";
-
+        // cout << termcolor::green << insertioncount << insertion_time << "\n";
 
 
         // Display the time for the Merge sort.
-        cout << MergeCount << termcolor::green << fixed << merge_time 
-             << setprecision(6) << termcolor::reset << "\n";
+        // cout  << termcolor::green << MergeCount << merge_time << "\n";
 
 
         // Display the time for the Heap sort.
-        cout << HeapCount << termcolor::green << fixed << heap_time 
-        << setprecision(6) << termcolor::reset << "\n";
+        // cout  << termcolor::green << HeapCount << heap_time << "\n";
 
         
         // Display the time for the Quick sort.
-        cout << quickcount << termcolor::green << fixed << quick_time 
-             << setprecision(6) << termcolor::reset << "\n";
+        // cout  << termcolor::green << quickcount << quick_time << "\n";
         
 
          // Display the time for the Radix sort.
-        cout << radixcount << fixed << termcolor::green << radix_time 
-             << termcolor::reset << setprecision(6) << "\n";
+        // cout  << termcolor::green << radixcount << radix_time << "\n";
 
 
 
@@ -374,16 +370,16 @@ int main()
     }
 
     // Calculate the average time complexity for all the algorithms.
-    bubble_time    /= double(number);
-    insertion_time /= double(number);
-    selection_time /= double(number);
+    bubble_time    /= number;
+    insertion_time /= number;
+    selection_time /= number;
 
-    count_time     /= double(number);
-    radix_time     /= double(number);
+    count_time     /= number;
+    radix_time     /= number;
     
-    quick_time     /= double(number);
-    heap_time      /= double(number);
-    merge_time     /= double(number);
+    quick_time     /= number;
+    heap_time      /= number;
+    merge_time     /= number;
 
 
     // Calculate the average number of comparisons for all the algorithms.
@@ -391,7 +387,7 @@ int main()
     double Average_insertioncount = insertioncount / double(number);
     double Average_selectioncount = selectioncount / double(number);
 
-    double Average_countcount     = count_count     / double(number);
+    double Average_countcount     = count_count    / double(number);
     double Average_radixcount     = radixcount     / double(number);
 
     double Average_quickcount     = quickcount     / double(number);
@@ -415,9 +411,8 @@ int main()
          * 
          *
          ****************************************************************/ 
-    cout << "Average Time Complexity for Bubble Sort: " << termcolor::green 
-         << fixed << bubble_time << setprecision(6) << termcolor::reset << "\n";
-    cout << "Average Bubble Sort Count: " << Average_bubblecount << "\n\n";
+    cout << termcolor::green <<  bubble_time << "\n";
+    cout << Average_bubblecount << "\n\n";
 
 
         /****************************************************************
@@ -426,9 +421,8 @@ int main()
          * 
          *
          ****************************************************************/ 
-    cout << "Average Time Complexity for Insertion Sort: " << termcolor::green 
-         << fixed << insertion_time << setprecision(6) << termcolor::reset << "\n";
-    cout << "Average Insertion Sort Count: " << Average_insertioncount << "\n\n";
+    cout << termcolor::green << insertion_time << "\n";
+    cout << Average_insertioncount << "\n\n";
 
 
         /****************************************************************
@@ -437,9 +431,8 @@ int main()
          * 
          *
          ****************************************************************/ 
-    cout << "Average Time Complexity for Selection Sort: " << termcolor::green 
-         << fixed << selection_time << setprecision(6) << termcolor::reset << "\n";
-    cout << "Average Selection Sort Count: " << Average_selectioncount << "\n\n";
+    cout << termcolor::green << selection_time << "\n";
+    cout << Average_selectioncount << "\n\n";
         
 
         /****************************************************************
@@ -448,9 +441,8 @@ int main()
          * 
          *
          ****************************************************************/ 
-    cout << "Average Time Complexity for Quick Sort: " << fixed  
-         << termcolor::green << quick_time << setprecision(6) << termcolor::reset << "\n";
-    cout << "Average Quick Sort Count: " << Average_quickcount << "\n\n";
+    cout << termcolor::green << quick_time << "\n";
+    cout << Average_quickcount << "\n\n";
 
 
         /****************************************************************
@@ -459,9 +451,8 @@ int main()
          * 
          *
          ****************************************************************/ 
-    cout << "Average Time Complexity for Heap Sort: " << termcolor::green 
-         << fixed << heap_time << setprecision(6) << termcolor::reset << "\n";
-    cout << "Average Heap Sort Count: " << Average_HeapCount << "\n\n";
+    cout << termcolor::green << heap_time << "\n";
+    cout << Average_HeapCount << "\n\n";
 
 
         /****************************************************************
@@ -470,9 +461,8 @@ int main()
          * 
          *
          ****************************************************************/ 
-    cout << "Average Time Complexity for Merge Sort: " << termcolor::green 
-         << fixed << merge_time << setprecision(6) << termcolor::reset << "\n";
-    cout << "Average Merge Sort Count: " << Average_MergeCount << "\n\n";
+    cout  << termcolor::green << merge_time << "\n";
+    cout << Average_MergeCount << "\n\n";
 
 
         /****************************************************************
@@ -481,9 +471,8 @@ int main()
          * 
          *
          ****************************************************************/ 
-    cout << "Average Time Complexity for Radix Sort: " << termcolor::green 
-         << fixed << radix_time << setprecision(6) << termcolor::reset << "\n";
-    cout << "Average Radix Sort Count: " << Average_radixcount << "\n\n";
+    cout << termcolor::green << radix_time << "\n";
+    cout << Average_radixcount << "\n\n";
 
 
         /****************************************************************
@@ -492,9 +481,8 @@ int main()
          * 
          *
          ****************************************************************/ 
-    cout << "Average Time Complexity for Counting Sort: " << termcolor::green 
-         << fixed << count_time << setprecision(6) << termcolor::reset << "\n";
-    cout << "Average Counting Sort Count: " << Average_countcount << "\n\n";
+    cout << termcolor::green << count_time  << "\n";
+    cout << Average_countcount << "\n\n";
 
     return 0;
 }

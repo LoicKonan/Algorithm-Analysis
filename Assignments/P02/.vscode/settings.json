@@ -31,7 +31,8 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "array": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "cmath": "cpp"
   },
   "cSpell.words": [
     "CMPS",
