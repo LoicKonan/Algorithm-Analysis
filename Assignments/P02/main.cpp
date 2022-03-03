@@ -324,24 +324,57 @@ int main()
 
 
      // Print the Total TIME of each algorithm to the console.
-     cout << "Bubble Sort: "     << bubble_time    << " milliseconds" << endl;
-     cout << "Count Sort: "      << count_time     << " milliseconds" << endl;
-     cout << "Radix Sort: "      << radix_time     << " milliseconds" << endl;
-     cout << "Selection Sort: "  << selection_time << " milliseconds" << endl;
-     cout << "Insertion Sort: "  << insertion_time << " milliseconds" << endl;
-     cout << "Merge Sort: "      << merge_time     << " milliseconds" << endl;
-     cout << "Heap Sort: "       << heap_time      << " milliseconds" << endl;
-     cout << "Quick Sort: "      << quick_time     << " milliseconds" << endl;
+     
+    cout << "\n\n\t\t\t****************************************************************\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t*         Total time complexity for each algorithms            *\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t****************************************************************\n\n";
+     cout << "\t\t\t\t\tBubble Sort: "     << bubble_time    << " milliseconds" << endl;
+     cout << "\t\t\t\t\tCount Sort: "      << count_time     << " milliseconds" << endl;
+     cout << "\t\t\t\t\tRadix Sort: "      << radix_time     << " milliseconds" << endl;
+     cout << "\t\t\t\t\tSelection Sort: "  << selection_time << " milliseconds" << endl;
+     cout << "\t\t\t\t\tInsertion Sort: "  << insertion_time << " milliseconds" << endl;
+     cout << "\t\t\t\t\tMerge Sort: "      << merge_time     << " milliseconds" << endl;
+     cout << "\t\t\t\t\tHeap Sort: "       << heap_time      << " milliseconds" << endl;
+     cout << "\t\t\t\t\tQuick Sort: "      << quick_time     << " milliseconds" << endl;
+
+
 
      // Print the Total COUNTER of each algorithm to the console.
-     cout << "Bubble Sort: "     << bubblecount    << " times" << endl;
-     cout << "Count Sort: "      << count_count    << " times" << endl;
-     cout << "Radix Sort: "      << radixcount     << " times" << endl;
-     cout << "Selection Sort: "  << selectioncount << " times" << endl;
-     cout << "Insertion Sort: "  << insertioncount << " times" << endl;
-     cout << "Merge Sort: "      << MergeCount     << " times" << endl;
-     cout << "Heap Sort: "       << HeapCount      << " times" << endl;
-     cout << "Quick Sort: "      << quickcount     << " times" << endl;
+     
+    cout << "\n\n\t\t\t****************************************************************\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t*               Total Counter for each algorithms              *\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t*                                                              *\n"
+         << "\t\t\t****************************************************************\n\n";
+     cout << setw(3.5*Column_Width) << "Bubble Sort:"    
+          << setw(Column_Width)     << bubblecount << " times\n\n";
+
+     cout << setw(3.5*Column_Width) << "Selection Sort:" 
+          << setw(Column_Width) << selectioncount << " times\n\n";
+
+     cout << setw(3.5*Column_Width) << "Insertion Sort:" 
+          << setw(Column_Width) << insertioncount << " times\n\n";
+
+     cout << setw(3.5*Column_Width) << "Merge Sort:" 
+          << setw(Column_Width) << MergeCount << " times\n\n";
+
+     cout << setw(3.5*Column_Width) << "Heap Sort:" 
+          << setw(Column_Width) << HeapCount << " times\n\n";
+
+     cout << setw(3.5*Column_Width) << "Quick Sort:" 
+          << setw(Column_Width) << quickcount << " times\n\n";
+     
+     cout << setw(3.5*Column_Width) << "Count Sort:" 
+          << setw(Column_Width) << count_count << " times\n\n";
+          
+     cout << setw(3.5*Column_Width) << "Radix Sort:" 
+          << setw(Column_Width) << radixcount << " times\n\n";
+
+
 
 
     // Calculate the average time complexity for all the algorithms.
