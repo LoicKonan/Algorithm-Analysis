@@ -55,21 +55,10 @@ const int _SIZE = 5000;
 #include "radixSort.hpp"
 #include "bubbleSort.hpp"
 #include "quickSort.hpp"
-
-
-
-// Function prototype to fill the Arrays.
-void fillArray(int arr[], int seed);
-
-// Function prototype to copy the Arrays.
-void copyArray(int arr1[], int arr2[]);
-
-// Function prototype to print the Arrays.
-void printArray(int arr[]);
-
-
-// Function prototype to print the header.
-void header();
+#include "printArray.hpp"
+#include "header.hpp"
+#include "copyArray.hpp"
+#include "fillArray.hpp"
 
 
 // Main function.
@@ -107,7 +96,7 @@ int main()
     int n = sizeof(myArray3) / sizeof(myArray3[0]);
 
     // Print the header.
-    header();
+    Header::header();
 
     int number = 20;
     int seed = 0;
@@ -449,63 +438,3 @@ int main()
     return 0;
 }
 
-
-void fillArray(int arr[], int seed)
-{
-    srand(seed);
-    for (int i = 0; i < _SIZE; i++)
-        arr[i] = rand() % 100;
-}
-
-// Function to copy an array.
-void copyArray(int arr1[], int arr2[])
-{
-    for (int i = 0; i < _SIZE; i++)
-        arr2[i] = arr1[i];
-}
-
-// Function to print.
-void printArray(int arr[])
-{
-    for (int i = 0; i < _SIZE; i++)
-        cout << setw(4) << arr[i];
-    cout << "\n\n";
-}
-
-
-// A utility function to print an array
-void print(int arr[], int n)
-{
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-}
-
-void header()
-{
-    cout << "*****************************************************************************\n";
-    cout << "*";
-    cout << "\n*    Author:           Loic Konan";
-    cout << "\n*    Email:            loickonan.lk@gmail.com";
-    cout << "\n*    Label:            Sorting Algorithms";
-    cout << "\n*    Title:            Program 2";
-    cout << "\n*    Course:           CMPS 6246,  Spring number22, Dr. Johnson";
-    cout << "\n*    Semester:         Spring number22";
-    cout << "\n*    Description:";
-    cout << "\n*";
-    cout << "\n*                  This program implements the following sorting algorithms:";
-    cout << "\n*";
-    cout << "\n*                     - Bubble Sort";
-    cout << "\n*                     - Selection Sort";
-    cout << "\n*                     - Merge Sort";
-    cout << "\n*";
-    cout << "\n*";
-    cout << "\n*;";
-    cout << "\n*    Files:";
-    cout << "\n*         main.cpp";
-    cout << "\n*";
-    cout << "\n*    Usage:";
-    cout << "\n*           main.cpp          : driver program";
-    cout << "\n*";
-    cout << "\n*";
-    cout << "\n******************************************************************************\n\n";
-}
