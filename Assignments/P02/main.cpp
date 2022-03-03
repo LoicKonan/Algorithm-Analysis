@@ -96,13 +96,13 @@ int main()
 
 
     // n is the size of the array.
-    int n = sizeof(myArray3) / sizeof(myArray3[0]);
+    int n = sizeof(myArray1) / sizeof(myArray1[0]);
 
     // Print the header.
     Header::header();
 
     int number = 20;
-    int seed = 0;
+    int seed   = 0;
 
     // Run the each algorithm 20 times.
     for (int i = 0; i < number; i++)
@@ -135,11 +135,9 @@ int main()
         // Converting the time to seconds
         radix_time *= 1e-9;
         // Display the time for the Radix sort.
-        cout << "RadixSort count:  " << radixcount << endl;
+        cout << "RadixSort count:  " << radixcount << "\n";
         cout << "Radix Time Complexity: " << fixed << termcolor::green 
-             << radix_time << termcolor::reset << setprecision(6) << " sec\n"
-             << endl;
-
+             << radix_time << termcolor::reset << setprecision(6) << "\n\n";
 
     
         /****************************************************************
@@ -163,8 +161,7 @@ int main()
         // Display the time for the Count sort.
         cout << "QuickSort count:  " << count_count << endl;
         cout << "Quick Time Complexity: " << termcolor::green << fixed
-             << quick_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
+             << quick_time << setprecision(6) << termcolor::reset << "\n\n";
 
 
 
@@ -189,9 +186,7 @@ int main()
         // Display the time for the Bubble sort.
         cout << "Bubble count:  " << bubblecount << endl;
         cout << " Bubble Time Complexity: " << termcolor::green << fixed
-             << bubble_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
-
+             << bubble_time << setprecision(6) << termcolor::reset << "\n\n";
 
 
         /****************************************************************
@@ -215,9 +210,7 @@ int main()
         // Display the time for the Selection sort.
         cout << "Selection count:  " << selectioncount << endl;
         cout << "Selection Time Complexity: " << termcolor::green << fixed
-             << selection_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
-
+             << selection_time << setprecision(6) << termcolor::reset << "\n\n";
 
 
          /****************************************************************
@@ -241,8 +234,7 @@ int main()
         // Display the time for the Insertion sort.
         cout << "Insertion count:  " << insertioncount << endl;
         cout << "Insertion Time Complexity: " << termcolor::green << fixed
-             << insertion_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
+             << insertion_time << setprecision(6) << termcolor::reset << "\n\n";
 
 
 
@@ -267,9 +259,7 @@ int main()
         // Display the time for the Merge sort.
         cout << "Merge count:  " << MergeCount << endl;
         cout << "Merge Time Complexity: " << termcolor::green << fixed
-             << merge_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
-
+             << merge_time << setprecision(6) << termcolor::reset << "\n\n";
 
 
         /****************************************************************
@@ -293,9 +283,8 @@ int main()
         // Display the time for the Heap sort.
         cout << "Heap count:  " << HeapCount << endl;
         cout << "Heap Time Complexity: " << termcolor::green << fixed
-             << heap_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
-  
+             << heap_time << setprecision(6) << termcolor::reset << "\n\n";
+
 
         /****************************************************************
          * 
@@ -318,9 +307,7 @@ int main()
         // Display the time for the Quick sort.
         cout << "QuickSort count:  " << quickcount << endl;
         cout << "Time Complexity: " << termcolor::green << fixed
-             << quick_time << setprecision(6) << termcolor::reset << " sec\n"
-             << endl;
-
+             << quick_time << setprecision(6) << termcolor::reset << "\n\n";
         
 
 
@@ -358,29 +345,29 @@ int main()
     }
 
     // Calculate the average time complexity for all the algorithms.
-    bubble_time /= double(number);
+    bubble_time    /= double(number);
     insertion_time /= double(number);
     selection_time /= number;
 
-    count_time /= double(number);
-    radix_time /= double(number);
+    count_time     /= double(number);
+    radix_time     /= double(number);
     
-    quick_time /= double(number);
-    heap_time /= double(number);
-    merge_time /= double(number);
+    quick_time     /= double(number);
+    heap_time      /= double(number);
+    merge_time     /= double(number);
 
 
     // Calculate the average number of comparisons for all the algorithms.
-    bubblecount /= double(number);
+    bubblecount    /= double(number);
     insertioncount /= double(number);
     selectioncount /= double(number);
 
-    count_count /= double(number);
-    radixcount /= double(number);
+    count_count   /= double(number);
+    radixcount    /= double(number);
 
-    quickcount /= double(number);
-    HeapCount /= double(number);
-    MergeCount /= double(number);
+    quickcount    /= double(number);
+    HeapCount     /= double(number);
+    MergeCount    /= double(number);
 
 
 
