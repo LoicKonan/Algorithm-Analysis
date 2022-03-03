@@ -29,7 +29,7 @@
  *
  *
  ******************************************************************************/
-#include "termcolor.hpp"
+
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -46,7 +46,7 @@ using namespace std;
 // The size of the Arrays.
 const int _SIZE = 5000;
 
-
+#include "termcolor.hpp"
 #include "mergeSort.hpp"
 #include "heapSort.hpp"
 #include "countSort.hpp"
@@ -332,35 +332,40 @@ int main()
         
 
 
-        // Getting the total time and total count of comparisons.
+        // The Time for the O(n^2) algorithms.
         bubble_time++;
         insertion_time++;
         selection_time++;
+
+        // The Number of comparisons for the O(n log n) algorithms.
+        bubblecount++;
+        insertioncount++;
+        selectioncount++;
         
+        // The Time for the O(n) algorithms.
         count_time++;
         radix_time++;
+
+        // The Number of comparisons for the O(n) algorithms.
+        count_count++;
+        radixcount++;
         
+        // The Time for the O(nlogn) algorithms.
         quick_time++;
         heap_time++;
         merge_time++;
 
-
-        bubblecount++;
-        insertioncount++;
-        selectioncount++;
-
+        // The number of comparisons for  the O(nlogn) algorithms
         quickcount++;
         HeapCount++;
         MergeCount++;
 
-        count_count++;
-        radixcount++;
 
+        // Incrementing the seed for our random number generator.
         seed++;
     }
 
-    // The average time complexity of the three algorithms.
-    
+    // Calculate the average time complexity for all the algorithms.
     bubble_time /= double(number);
     insertion_time /= double(number);
     selection_time /= number;
@@ -372,8 +377,8 @@ int main()
     heap_time /= double(number);
     merge_time /= double(number);
 
-    // The average number of comparisons for the three algorithms.
-    
+
+    // Calculate the average number of comparisons for all the algorithms.
     bubblecount /= double(number);
     insertioncount /= double(number);
     selectioncount /= double(number);
@@ -405,21 +410,25 @@ int main()
     cout << "Average Insertion Sort Count: " << insertioncount << endl
             << endl;
 
+
     cout << "Average Time Complexity for Selection Sort: " << termcolor::green << fixed
             << selection_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Selection Sort Count: " << selectioncount << endl
             << endl;
 
         
-    cout << "Average Time Complexity for Quick Sort: " << termcolor::green << fixed
-         << quick_time << " sec" << setprecision(6) << termcolor::reset << endl;
+    cout << "Average Time Complexity for Quick Sort: ";
+    cout << fixed  << termcolor::green << quick_time << " sec" 
+         << setprecision(6) << termcolor::reset << endl;
     cout << "Average Quick Sort Count: " << quickcount << endl
          << endl;
+
 
     cout << "Average Time Complexity for Heap Sort: " << termcolor::green << fixed  
             << heap_time << setprecision(6) << termcolor::reset << " sec" << endl;
     cout << "Average Heap Sort Count: " << HeapCount << endl
             << endl;
+
 
     cout << "Average Time Complexity for Merge Sort: " << termcolor::green << fixed
             << merge_time << setprecision(6) << termcolor::reset << " sec" << endl;
