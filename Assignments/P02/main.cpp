@@ -322,6 +322,8 @@ int main()
         seed++;
     }
 
+
+     // Print the Total TIME of each algorithm to the console.
      cout << "Bubble Sort: "     << bubble_time    << " milliseconds" << endl;
      cout << "Count Sort: "      << count_time     << " milliseconds" << endl;
      cout << "Radix Sort: "      << radix_time     << " milliseconds" << endl;
@@ -330,6 +332,16 @@ int main()
      cout << "Merge Sort: "      << merge_time     << " milliseconds" << endl;
      cout << "Heap Sort: "       << heap_time      << " milliseconds" << endl;
      cout << "Quick Sort: "      << quick_time     << " milliseconds" << endl;
+
+     // Print the Total COUNTER of each algorithm to the console.
+     cout << "Bubble Sort: "     << bubblecount    << " times" << endl;
+     cout << "Count Sort: "      << count_count    << " times" << endl;
+     cout << "Radix Sort: "      << radixcount     << " times" << endl;
+     cout << "Selection Sort: "  << selectioncount << " times" << endl;
+     cout << "Insertion Sort: "  << insertioncount << " times" << endl;
+     cout << "Merge Sort: "      << MergeCount     << " times" << endl;
+     cout << "Heap Sort: "       << HeapCount      << " times" << endl;
+     cout << "Quick Sort: "      << quickcount     << " times" << endl;
 
 
     // Calculate the average time complexity for all the algorithms.
