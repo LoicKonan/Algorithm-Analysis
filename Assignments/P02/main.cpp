@@ -347,7 +347,7 @@ int main()
     // Calculate the average time complexity for all the algorithms.
     bubble_time    /= double(number);
     insertion_time /= double(number);
-    selection_time /= number;
+    selection_time /= double(number);
 
     count_time     /= double(number);
     radix_time     /= double(number);
