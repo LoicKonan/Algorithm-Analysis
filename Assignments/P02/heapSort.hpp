@@ -9,7 +9,6 @@ sorting algorithm, heap sort.
 
 int HeapCount = 0;
 
-
 namespace HeapSort
 {
     using namespace std;
@@ -38,7 +37,6 @@ namespace HeapSort
         {
             swap(arr[i], arr[largest]);
             heapify(arr, n, largest, HeapCount);
-            
         }
     }
 

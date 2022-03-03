@@ -10,5 +10,4 @@ namespace print
             cout << setw(4) << arr[i];
         cout << "\n\n";
     }
-
 }

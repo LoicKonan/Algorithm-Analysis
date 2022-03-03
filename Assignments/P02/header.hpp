@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
-
 namespace Header
 {
     void header()
@@ -43,7 +41,8 @@ namespace Header
         cout << "                     Finally The average time is calculated by dividing the total\n*";
         cout << "                     time by 20 \n*";
         cout << " \n*";
-        cout << " \n*";;
+        cout << " \n*";
+        ;
         cout << "\n*";
         cout << "\n*    Files:";
         cout << "\n*                  main.cpp";

@@ -10,5 +10,4 @@ namespace FillArray
         for (int i = 0; i < _SIZE; i++)
             arr[i] = rand() % 100;
     }
-
 }
