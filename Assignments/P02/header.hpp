@@ -12,7 +12,7 @@ namespace Header
         cout << "\n*    Label:            Sorting Algorithms";
         cout << "\n*    Title:            Program 2";
         cout << "\n*    Course:           CMPS 5246,  Spring number22, Dr. Johnson";
-        cout << "\n*    Semester:         Spring number22";
+        cout << "\n*    Semester:         Spring 2022";
         cout << "\n*    Description:";
         cout << "\n*";
         cout << "\n*                  This program implements the following sorting algorithms:";
