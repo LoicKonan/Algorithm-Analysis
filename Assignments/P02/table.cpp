@@ -94,9 +94,46 @@ int main()
          << setw(colWidth)  << "CountingSort"  << setw(2.8*colWidth) << "111.11"  
          << setw(2.8*colWidth) <<  "111.11"<< "\n\n";
     
-    cout << ("***********************************************************************")
-         << ("*****************************************") << "\n\n";
+//     cout << ("***********************************************************************")
+//          << ("*****************************************") << "\n\n";
 
+
+
+//     cout << ("\n\n***********************************************************************") 
+//          << ("*******************************************************************") << "\n\n";
+//     cout << setw(6*Column_Width) << "Time and Counter per Iteration\n\n";
+//     cout << setw(5*Column_Width+6) << "(milliseconds)\n\n";
+
+
+//     cout << setw(Column_Width-8) << "Loop"     << setw(Column_Width) << "BubbleSort" 
+//          << setw(Column_Width) << "SelectionSort" << setw(Column_Width) << "InsertionSort" 
+//          << setw(Column_Width) << "QuickSort"     << setw(Column_Width) << "HeapSort"
+//          << setw(Column_Width) << "MergeSort"     << setw(Column_Width) << "RadixSort"
+//          << setw(Column_Width) << "CountingSort"  << setw(Column_Width) << "\n\n";
+    
+//     cout << ("***********************************************************************")
+//          << ("*******************************************************************") << "\n\n";
+
+
+
+
+// cout << setw(6) << i        << setw(Column_Width) << bubblecount    
+//             << setw(Column_Width)  << selectioncount     << setw(Column_Width) 
+//             << insertioncount      << setw(Column_Width) << count_count    
+//             << setw(Column_Width)  << radixcount         << setw(Column_Width)
+//             << MergeCount          << setw(Column_Width) << HeapCount           
+//             << setw(Column_Width)  << quickcount         << setw(Column_Width) <<"\n";
+     
+//       cout  <<  setw(Column_Width) 
+//             << bubble_time         << " Msecs"    << setw(Column_Width-5) 
+//             << selection_time      << " Msecs"    << setw(Column_Width-5)     
+//             << insertion_time      << " Msecs"    << setw(Column_Width-5) 
+//             << count_time          << " Msecs"    << setw(Column_Width-5)
+//             << radix_time          << " Msecs"    << setw(Column_Width-5)     
+//             << merge_time          << " Msecs"    << setw(Column_Width-5) 
+//             << heap_time           << " Msecs"    << setw(Column_Width-5)     
+//             << quick_time          << " Msecs"    << setw(Column_Width-5) 
+//             << "\n\n\n";
 
     return 0;
 }
