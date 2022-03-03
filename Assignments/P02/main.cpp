@@ -125,10 +125,10 @@ int main()
      Header::header();
 
      int number = 20;
-     int seed = 0;
+     int seed   = 0;
 
      // Variable to show the column width.
-     int Column_Width = 15;
+     int width  = 15;
 
      // Run the each algorithm 20 times.
      for (int i = 1; i <= number; i++)
@@ -314,36 +314,36 @@ int main()
           << "\t\t\t*                                                              *\n"
           << "\t\t\t****************************************************************\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Bubble Sort:"
-          << setw(Column_Width) << bubble_time << " milliseconds"
+     cout << setw(3.5 * width) << "Bubble Sort:"
+          << setw(width) << bubble_time << " milliseconds"
           << "\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Count Sort:"
-          << setw(Column_Width) << count_time << " milliseconds"
+     cout << setw(3.5 * width) << "Count Sort:"
+          << setw(width) << count_time << " milliseconds"
           << "\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Radix Sort:"
-          << setw(Column_Width) << radix_time << " milliseconds"
+     cout << setw(3.5 * width) << "Radix Sort:"
+          << setw(width) << radix_time << " milliseconds"
           << "\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Selection Sort:"
-          << setw(Column_Width) << selection_time << " milliseconds"
+     cout << setw(3.5 * width) << "Selection Sort:"
+          << setw(width) << selection_time << " milliseconds"
           << "\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Insertion Sort:"
-          << setw(Column_Width) << insertion_time << " milliseconds"
+     cout << setw(3.5 * width) << "Insertion Sort:"
+          << setw(width) << insertion_time << " milliseconds"
           << "\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Merge Sort:"
-          << setw(Column_Width) << merge_time << " milliseconds"
+     cout << setw(3.5 * width) << "Merge Sort:"
+          << setw(width) << merge_time << " milliseconds"
           << "\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Heap Sort:"
-          << setw(Column_Width) << heap_time << " milliseconds"
+     cout << setw(3.5 * width) << "Heap Sort:"
+          << setw(width) << heap_time << " milliseconds"
           << "\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Quick Sort:"
-          << setw(Column_Width) << quick_time << " milliseconds"
+     cout << setw(3.5 * width) << "Quick Sort:"
+          << setw(width) << quick_time << " milliseconds"
           << "\n\n";
 
      // Print the Total COUNTER of each algorithm to the console.
@@ -354,53 +354,53 @@ int main()
           << "\t\t\t*                                                              *\n"
           << "\t\t\t****************************************************************\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Bubble Sort:"
-          << setw(Column_Width) << bubblecount << " times\n\n";
+     cout << setw(3.5 * width) << "Bubble Sort:"
+          << setw(width) << bubblecount << " times\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Selection Sort:"
-          << setw(Column_Width) << selectioncount << " times\n\n";
+     cout << setw(3.5 * width) << "Selection Sort:"
+          << setw(width) << selectioncount << " times\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Insertion Sort:"
-          << setw(Column_Width) << insertioncount << " times\n\n";
+     cout << setw(3.5 * width) << "Insertion Sort:"
+          << setw(width) << insertioncount << " times\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Merge Sort:"
-          << setw(Column_Width) << MergeCount << " times\n\n";
+     cout << setw(3.5 * width) << "Merge Sort:"
+          << setw(width) << MergeCount << " times\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Heap Sort:"
-          << setw(Column_Width) << HeapCount << " times\n\n";
+     cout << setw(3.5 * width) << "Heap Sort:"
+          << setw(width) << HeapCount << " times\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Quick Sort:"
-          << setw(Column_Width) << quickcount << " times\n\n";
+     cout << setw(3.5 * width) << "Quick Sort:"
+          << setw(width) << quickcount << " times\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Count Sort:"
-          << setw(Column_Width) << count_count << " times\n\n";
+     cout << setw(3.5 * width) << "Count Sort:"
+          << setw(width) << count_count << " times\n\n";
 
-     cout << setw(3.5 * Column_Width) << "Radix Sort:"
-          << setw(Column_Width) << radixcount << " times\n\n";
+     cout << setw(3.5 * width) << "Radix Sort:"
+          << setw(width) << radixcount << " times\n\n";
 
      // Calculate the average time complexity for all the algorithms.
-     double Average_bubble_time = bubble_time / number;
-     double Average_selection_time = selection_time / number;
-     double Average_insertion_time = insertion_time / number;
+     double Avg_bubble_time    = bubble_time    / number;
+     double Avg_selection_time = selection_time / number;
+     double Avg_insertion_time = insertion_time / number;
 
-     double Average_count_time = count_time / number;
-     double Average_radix_time = radix_time / number;
+     double Avg_count_time     = count_time     / number;
+     double Avg_radix_time     = radix_time     / number;
 
-     double Average_merge_time = merge_time / number;
-     double Average_heap_time = heap_time / number;
-     double Average_quick_time = quick_time / number;
+     double Avg_merge_time     = merge_time     / number;
+     double Avg_heap_time      = heap_time      / number;
+     double Avg_quick_time     = quick_time     / number;
 
      // Calculate the average number of comparisons for all the algorithms.
-     double Average_bubblecount = bubblecount / double(number);
-     double Average_insertioncount = insertioncount / double(number);
-     double Average_selectioncount = selectioncount / double(number);
+     double Avg_bubblecount    = bubblecount    / double(number);
+     double Avg_insertioncount = insertioncount / double(number);
+     double Avg_selectioncount = selectioncount / double(number);
 
-     double Average_countcount = count_count / double(number);
-     double Average_radixcount = radixcount / double(number);
+     double Avg_countcount     = count_count    / double(number);
+     double Avg_radixcount     = radixcount     / double(number);
 
-     double Average_quickcount = quickcount / double(number);
-     double Average_HeapCount = HeapCount / double(number);
-     double Average_MergeCount = MergeCount / double(number);
+     double Avg_quickcount     = quickcount     / double(number);
+     double Avg_HeapCount      = HeapCount      / double(number);
+     double Avg_MergeCount     = MergeCount     / double(number);
 
      //     cout << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
 
@@ -414,35 +414,40 @@ int main()
      cout << ("***********************************************************************")
           << ("********************************") << "\n\n";
 
-     cout << setw(Column_Width) << "Algorithms"
+     cout << setw(width) << "Algorithms"
           << "\t\t\t\t"
           << "Average Time Complexity"
           << "\t\t\t"
           << "Average Comparisons\n\n";
-     cout << setw(4 * Column_Width) << "(milliseconds)\n";
+     cout << setw(4 * width) << "(milliseconds)\n";
 
      cout << ("***********************************************************************")
           << ("********************************") << "\n\n";
 
      cout << fixed << setprecision(6)
-          << setw(Column_Width) << "BubbleSort" << setw(2.8 * Column_Width) << Average_bubble_time
-          << setw(2.8 * Column_Width) << Average_bubblecount << "\n\n"
-          << setw(Column_Width) << "SelectionSort" << setw(2.8 * Column_Width) << Average_selection_time
-          << setw(2.8 * Column_Width) << Average_selectioncount << "\n\n"
-          << setw(Column_Width) << "InsertionSort" << setw(2.8 * Column_Width) << Average_insertion_time
-          << setw(2.8 * Column_Width) << Average_insertioncount << "\n\n"
+          << setw(width) << "BubbleSort" << setw(2.8 * width) << Avg_bubble_time
+          << setw(2.8 * width) << Avg_bubblecount << "\n\n"
 
-          << setw(Column_Width) << "QuickSort" << setw(2.8 * Column_Width) << Average_quick_time
-          << setw(2.8 * Column_Width) << Average_quickcount << "\n\n"
-          << setw(Column_Width) << "MergeSort" << setw(2.8 * Column_Width) << Average_merge_time
-          << setw(2.8 * Column_Width) << Average_MergeCount << "\n\n"
-          << setw(Column_Width) << "HeapSort" << setw(2.8 * Column_Width) << Average_heap_time
-          << setw(2.8 * Column_Width) << Average_HeapCount << "\n\n"
+          << setw(width) << "SelectionSort" << setw(2.8 * width) << Avg_selection_time
+          << setw(2.8 * width) << Avg_selectioncount << "\n\n"
 
-          << setw(Column_Width) << "RadixSort" << setw(2.8 * Column_Width) << Average_radix_time
-          << setw(2.8 * Column_Width) << Average_radixcount << "\n\n"
-          << setw(Column_Width) << "CountingSort" << setw(2.8 * Column_Width) << Average_count_time
-          << setw(2.8 * Column_Width) << Average_countcount << "\n\n";
+          << setw(width) << "InsertionSort" << setw(2.8 * width) << Avg_insertion_time
+          << setw(2.8 * width) << Avg_insertioncount << "\n\n"
+
+          << setw(width) << "QuickSort" << setw(2.8 * width) << Avg_quick_time
+          << setw(2.8 * width) << Avg_quickcount << "\n\n"
+
+          << setw(width) << "MergeSort" << setw(2.8 * width) << Avg_merge_time
+          << setw(2.8 * width) << Avg_MergeCount << "\n\n"
+
+          << setw(width) << "HeapSort" << setw(2.8 * width) << Avg_heap_time
+          << setw(2.8 * width) << Avg_HeapCount << "\n\n"
+
+          << setw(width) << "RadixSort" << setw(2.8 * width) << Avg_radix_time
+          << setw(2.8 * width) << Avg_radixcount << "\n\n"
+
+          << setw(width) << "CountingSort" << setw(2.8 * width) << Avg_count_time
+          << setw(2.8 * width) << Avg_countcount << "\n\n";
 
      cout << ("***********************************************************************")
           << ("********************************") << "\n\n";
