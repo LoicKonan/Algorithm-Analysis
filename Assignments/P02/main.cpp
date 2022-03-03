@@ -105,11 +105,11 @@ int main()
     for (int i = 0; i < number; i++)
     {
         // Call the fillArrays function.
-        fillArray(myArray1, seed);
+        FillArray::fillArray(myArray1, seed);
 
         // Call the copyArrays function, and pass the arrays.
-        copyArray(myArray1, myArray2);
-        copyArray(myArray1, myArray3);
+        CopyArray::copyArray(myArray1, myArray2);
+        CopyArray::copyArray(myArray1, myArray3);
 
 
     
