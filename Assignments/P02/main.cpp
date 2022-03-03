@@ -1,4 +1,4 @@
-/*****************************************************************************
+/*********************************************************************************
  *
  *    Author:           Loic Konan
  *    Email:            loickonan.lk@gmail.com
@@ -19,17 +19,43 @@
  *                           -  Insertion Sort  O(N ^ 2)
  *                           -  Selection Sort  O(N ^ 2)
  * 
- *
- *
+ *                      Each algorithm is implemented in a separate .hpp file.
+ *                      The goal of this program is to compare the performance
+ *                      of each algorithm. 
+ *                      After 20 Iterations, I calculate the average time
+ *                      and counter it takes to sort the data of our Arrays of 
+ *                      size 5000 (random numbers). The counter for each sort 
+ *                      is first Initialize to zero and incremented inside the loops  
+ *                      of the associated sort, or I pass back the count using a 
+ *                      return statement or reference variable. I Use a system 
+ *                      clock timer to start the time immediately  before each 
+ *                      sort and end immediately after each sort. 
+ *                      Finally The average time is then calculated by 
+ *                      dividing the total time by 20
+ *                      
+ *                                    
  *    Files:
  *         main.cpp
+ *         radixSort.hpp
+ *         bubbleSort.hpp
+ *         quickSort.hpp
+ *         countSort.hpp
+ *         mergeSort.hpp
+ *         heapSort.hpp
+ *         insertionSort.hpp
+ *         selectionSort.hpp
+ *         printArray.hpp
+ *         header.hpp
+ *         copyArray.hpp
+ *         fillArray.hpp
+ *         termcolor.hpp
+ *  
  *
  *    Usage:
  *           main.cpp          : driver program
  *
  *
- ******************************************************************************/
-
+*********************************************************************************/
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -365,7 +391,7 @@ int main()
          
          << setw(Column_Width)  << "QuickSort"     << setw(2.8*Column_Width) << quick_time     << setw(2.8*Column_Width) <<  Average_quickcount     << "\n\n"
          << setw(Column_Width)  << "MergeSort"     << setw(2.8*Column_Width) << merge_time     << setw(2.8*Column_Width) <<  Average_MergeCount     << "\n\n"
-         << setw(Column_Width)  << "HeapSort"      << setw(2.8*Column_Width) << heap_time      << setw(2.8*Column_Width) << Average_HeapCount       << "\n\n"
+         << setw(Column_Width)  << "HeapSort"      << setw(2.8*Column_Width) << heap_time      << setw(2.8*Column_Width) <<  Average_HeapCount      << "\n\n"
 
 
          << setw(Column_Width)  << "RadixSort"     << setw(2.8*Column_Width) << radix_time    << setw(2.8*Column_Width)  <<  Average_radixcount     << "\n\n"
