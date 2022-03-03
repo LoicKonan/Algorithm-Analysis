@@ -68,6 +68,8 @@
 
 
 using namespace std;
+using namespace std::chrono;
+
 
 // The size of the Arrays.
 const int _SIZE = 5000;
@@ -161,10 +163,7 @@ int main()
         // End the clock for the Radix sort.
         auto endRadix = chrono::high_resolution_clock::now();
         // Calculate the time for the Radix sort.
-        radix_time = chrono::duration_cast<chrono::nanoseconds>(endRadix - startRadix).count();
-        // Converting the time to seconds
-        radix_time *= 1e-9;
-
+        radix_time = chrono::duration_cast<chrono::milliseconds>(endRadix - startRadix).count();
 
     
         /****************************************************************
@@ -182,9 +181,7 @@ int main()
         // End the clock for the Count sort.
         auto endCount = chrono::high_resolution_clock::now();
         // Calculate the time for the Count sort.
-        count_time = chrono::duration_cast<chrono::nanoseconds>(endCount - startCount).count();
-        // Converting the time to seconds
-        count_time *= 1e-9;
+        count_time = chrono::duration_cast<chrono::milliseconds>(endCount - startCount).count();
 
 
         /****************************************************************
@@ -202,9 +199,7 @@ int main()
         // End the clock for the Bubble sort.
         auto endBubble = chrono::high_resolution_clock::now();
         // Calculate the time for the Bubble sort.
-        bubble_time = chrono::duration_cast<chrono::nanoseconds>(endBubble - startBubble).count();
-        // Converting the time to seconds
-        bubble_time *= 1e-9;
+        bubble_time = chrono::duration_cast<chrono::milliseconds>(endBubble - startBubble).count();
        
 
         /****************************************************************
@@ -222,9 +217,7 @@ int main()
         // End the clock for the Selection sort.
         auto endSelection = chrono::high_resolution_clock::now();
         // Calculate the time for the Selection sort.
-        selection_time = chrono::duration_cast<chrono::nanoseconds>(endSelection - startSelection).count();
-        // Converting the time to seconds
-        selection_time *= 1e-9;
+        selection_time = chrono::duration_cast<chrono::milliseconds>(endSelection - startSelection).count();
        
 
          /****************************************************************
@@ -242,9 +235,7 @@ int main()
         // End the clock for the Insertion sort.
         auto endInsertion = chrono::high_resolution_clock::now();
         // Calculate the time for the Insertion sort.
-        insertion_time = chrono::duration_cast<chrono::nanoseconds>(endInsertion - startInsertion).count();
-        // Converting the time to seconds
-        insertion_time *= 1e-9;
+        insertion_time = chrono::duration_cast<chrono::milliseconds>(endInsertion - startInsertion).count();
 
 
         /****************************************************************
@@ -262,9 +253,7 @@ int main()
         // End the clock for the Merge sort.
         auto endMerge = chrono::high_resolution_clock::now();
         // Calculate the time for the Merge sort.
-        merge_time = chrono::duration_cast<chrono::nanoseconds>(endMerge - startMerge).count();
-        // Converting the time to seconds
-        merge_time *= 1e-9;
+        merge_time = chrono::duration_cast<chrono::milliseconds>(endMerge - startMerge).count();
         
 
         /****************************************************************
@@ -282,9 +271,7 @@ int main()
         // End the clock for the Heap sort.
         auto endHeap = chrono::high_resolution_clock::now();
         // Calculate the time for the Heap sort.
-        heap_time = chrono::duration_cast<chrono::nanoseconds>(endHeap - startHeap).count();
-        // Converting the time to seconds
-        heap_time *= 1e-9;
+        heap_time = chrono::duration_cast<chrono::milliseconds>(endHeap - startHeap).count();
         
 
         /****************************************************************
@@ -302,35 +289,30 @@ int main()
         // End the clock for the Quick sort.
         auto endQuick = chrono::high_resolution_clock::now();
         // Calculate the time for the Quick sort.
-        quick_time = chrono::duration_cast<chrono::nanoseconds>(endQuick - startQuick).count();
-        // Converting the time to seconds
-        quick_time *= 1e-9;
+        quick_time = chrono::duration_cast<chrono::milliseconds>(endQuick - startQuick).count();
 
 
-        // The Time for the O(n^2) algorithms.
+        // The Time and counter for the O(n^2) algorithms.
         bubble_time++;
         insertion_time++;
         selection_time++;
 
-        // The Number of comparisons for the O(n log n) algorithms.
         bubblecount++;
         insertioncount++;
         selectioncount++;
         
-        // The Time for the O(n) algorithms.
+        // The Time and counter for the O(n) algorithms.
         count_time++;
         radix_time++;
 
-        // The Number of comparisons for the O(n) algorithms.
         count_count++;
         radixcount++;
         
-        // The Time for the O(nlogn) algorithms.
+        // The Time and counter for the O(nlogn) algorithms.
         quick_time++;
         heap_time++;
         merge_time++;
 
-        // The number of comparisons for  the O(nlogn) algorithms
         quickcount++;
         HeapCount++;
         MergeCount++;
@@ -340,17 +322,28 @@ int main()
         seed++;
     }
 
-    // Calculate the average time complexity for all the algorithms.
-    bubble_time    /= number;
-    insertion_time /= number;
-    selection_time /= number;
+     cout << "Bubble Sort: "     << bubble_time    << " milliseconds" << endl;
+     cout << "Count Sort: "      << count_time     << " milliseconds" << endl;
+     cout << "Radix Sort: "      << radix_time     << " milliseconds" << endl;
+     cout << "Selection Sort: "  << selection_time << " milliseconds" << endl;
+     cout << "Insertion Sort: "  << insertion_time << " milliseconds" << endl;
+     cout << "Merge Sort: "      << merge_time     << " milliseconds" << endl;
+     cout << "Heap Sort: "       << heap_time      << " milliseconds" << endl;
+     cout << "Quick Sort: "      << quick_time     << " milliseconds" << endl;
 
-    count_time     /= number;
-    radix_time     /= number;
-    
-    quick_time     /= number;
-    heap_time      /= number;
-    merge_time     /= number;
+
+    // Calculate the average time complexity for all the algorithms.
+     double Average_bubble_time    = bubble_time    / number;
+     double Average_selection_time = selection_time / number;
+     double Average_insertion_time = insertion_time / number;
+          
+     double Average_count_time     = count_time     / number;
+     double Average_radix_time     = radix_time     / number;
+
+     double Average_merge_time     = merge_time     / number;
+     double Average_heap_time      = heap_time      / number;
+     double Average_quick_time     = quick_time     / number;
+
 
 
     // Calculate the average number of comparisons for all the algorithms.
@@ -379,30 +372,30 @@ int main()
 
     cout << setw(Column_Width) << "Algorithms" << "\t\t\t\t" << "Average Time Complexity" 
          << "\t\t\t" << "Average Comparisons\n\n";
-    cout << setw(4*Column_Width) << "(Milliseconds)\n";
+    cout << setw(4*Column_Width) << "(milliseconds)\n";
 
     cout << ("***********************************************************************") 
          << ("********************************") << "\n\n"; 
     
     cout << fixed << setprecision(6)
-         << setw(Column_Width)     << "BubbleSort"    << setw(2.8*Column_Width) << bubble_time    
+         << setw(Column_Width)     << "BubbleSort"    << setw(2.8*Column_Width) << Average_bubble_time    
          << setw(2.8*Column_Width) <<  Average_bubblecount    << "\n\n"
-         << setw(Column_Width)     << "SelectionSort" << setw(2.8*Column_Width) << selection_time 
+         << setw(Column_Width)     << "SelectionSort" << setw(2.8*Column_Width) << Average_selection_time 
          << setw(2.8*Column_Width) <<  Average_selectioncount << "\n\n"
-         << setw(Column_Width)     << "InsertionSort" << setw(2.8*Column_Width) << insertion_time 
+         << setw(Column_Width)     << "InsertionSort" << setw(2.8*Column_Width) << Average_insertion_time 
          << setw(2.8*Column_Width) <<  Average_insertioncount << "\n\n"
          
-         << setw(Column_Width)     << "QuickSort"     << setw(2.8*Column_Width) << quick_time     
+         << setw(Column_Width)     << "QuickSort"     << setw(2.8*Column_Width) << Average_quick_time     
          << setw(2.8*Column_Width) <<  Average_quickcount     << "\n\n"
-         << setw(Column_Width)     << "MergeSort"     << setw(2.8*Column_Width) << merge_time     
+         << setw(Column_Width)     << "MergeSort"     << setw(2.8*Column_Width) << Average_merge_time     
          << setw(2.8*Column_Width) <<  Average_MergeCount     << "\n\n"
-         << setw(Column_Width)     << "HeapSort"      << setw(2.8*Column_Width) << heap_time      
+         << setw(Column_Width)     << "HeapSort"      << setw(2.8*Column_Width) << Average_heap_time      
          << setw(2.8*Column_Width) <<  Average_HeapCount      << "\n\n"
 
 
-         << setw(Column_Width)     << "RadixSort"     << setw(2.8*Column_Width) << radix_time    
+         << setw(Column_Width)     << "RadixSort"     << setw(2.8*Column_Width) << Average_radix_time    
          << setw(2.8*Column_Width) <<  Average_radixcount     << "\n\n"
-         << setw(Column_Width)     << "CountingSort"  << setw(2.8*Column_Width) << count_time    
+         << setw(Column_Width)     << "CountingSort"  << setw(2.8*Column_Width) << Average_count_time    
          << setw(2.8*Column_Width) << Average_countcount      << "\n\n";
     
     cout << ("***********************************************************************")
