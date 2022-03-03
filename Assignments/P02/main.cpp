@@ -136,6 +136,19 @@ int main()
     int Column_Width = 15;
 
 
+    cout << ("\n\n***********************************************************************") 
+         << ("*******************************************************************") << "\n\n";
+    cout << setw(6*Column_Width) << "Time and Counter per Iteration\n\n";
+
+    cout << setw(Column_Width) << "Iteration"     << setw(Column_Width) << "BubbleSort" 
+         << setw(Column_Width) << "SelectionSort" << setw(Column_Width) << "InsertionSort" 
+         << setw(Column_Width) << "QuickSort"     << setw(Column_Width) << "HeapSort"
+         << setw(Column_Width) << "MergeSort"     << setw(Column_Width) << "RadixSort"
+         << setw(Column_Width) << "CountingSort"  << setw(Column_Width) << "\n\n";
+    
+    cout << ("***********************************************************************")
+         << ("*******************************************************************") << "\n\n";
+
     // Run the each algorithm 20 times.
     for (int i = 1; i <= number; i++)
     {
@@ -291,6 +304,18 @@ int main()
         // Calculate the time for the Quick sort.
         quick_time = chrono::duration_cast<chrono::milliseconds>(endQuick - startQuick).count();
 
+
+
+       cout << setw(6) << i       << setw(Column_Width) << bubblecount    
+            << setw(Column_Width) << selectioncount     << setw(Column_Width) 
+            << insertioncount     << setw(Column_Width) << count_count    
+            << setw(Column_Width) << MergeCount         << setw(Column_Width)
+            << HeapCount          << setw(Column_Width) << quickcount     
+            << setw(Column_Width) << "\n\n";
+            
+
+            << "/" << bubble_time     << "Msecs" 
+            
 
         // The Time and counter for the O(n^2) algorithms.
         bubble_time++;
