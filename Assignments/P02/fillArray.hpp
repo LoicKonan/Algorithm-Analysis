@@ -3,7 +3,7 @@ using namespace std;
 
 namespace FillArray
 {
-
+    // Using this function to fill the array with random numbers.
     void fillArray(int arr[], int seed)
     {
         srand(seed);
