@@ -418,8 +418,11 @@ int main()
           << ("********************************") << "\n\n";
 
      cout << fixed << setprecision(6)
-          << setw(width)       << "BubbleSort"       << setw(2.8 * width) 
+          << setw(width)       
+          << termcolor::green  << "BubbleSort"  << termcolor::reset
+          << setw(2.8 * width) 
           << Avg_bubble_time   << setw(2.8 * width)  << Avg_bubblecount    << "\n\n"
+
 
           << setw(width)       << "SelectionSort"    << setw(2.8 * width) 
           << Avg_selectiontime << setw(2.8 * width)  << Avg_selectioncount << "\n\n"
