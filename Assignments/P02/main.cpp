@@ -140,6 +140,11 @@ int main()
           // Call the copyArrays function, and pass the arrays.
           CopyArray::copyArray(myArray1, myArray2);
           CopyArray::copyArray(myArray1, myArray3);
+          CopyArray::copyArray(myArray1, myArray4);
+          CopyArray::copyArray(myArray1, myArray5);
+          CopyArray::copyArray(myArray1, myArray6);
+          CopyArray::copyArray(myArray1, myArray7);
+          CopyArray::copyArray(myArray1, myArray8);
 
           /****************************************************************
            *
