@@ -4,7 +4,7 @@
 
 #### Description
 
-- Implement 3 different sorting algorithms on arrays of **size 5000**. 
+- Implement at least 3 different sorting algorithms on arrays of **size 5000**. 
 - Sorting Algorithm from each runtime category: **O(n2), O(n log n), O(n)**.
 - Implement a separate **counter for each sort**.
 - **Use a system clock timer to start the time immediately** before each sort and end immediately after each sort.
@@ -25,7 +25,7 @@
 | :---: | -------------------------------------- | ------------------------------------------ |
 |   1   | [main.cpp](main.cpp)                   | The main cpp with comments and description |
 |   2   | [bubbleSort.hpp](bubbleSort.hpp)       | The bubble sort Algorithm                  |
-|   3   | [copyArray.hpp](copyArray.hpp])        | Function to copy arrays                    |
+|   3   | [copyArray.hpp](copyArray.hpp)         | Function to copy arrays                    |
 |   4   | [insertionSort.hpp](insertionSort.hpp) | The insertion sort Algorithm               |
 |   5   | [mergeSort.hpp](mergeSort.hpp)         | The merge sort Algorithm                   |
 |   6   | [quickSort.hpp](quickSort.hpp)         | The quick sort Algorithm                   |
