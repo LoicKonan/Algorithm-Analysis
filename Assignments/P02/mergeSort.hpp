@@ -2,8 +2,7 @@
 
 /**************************************************************************
 
-Tina Johnson
-CMPS 5243
+citation: Tina Johnson CMPS 5243
 
 This program will demonstrate the (n logn n) sorting algorithm of the 
 Merge sort.

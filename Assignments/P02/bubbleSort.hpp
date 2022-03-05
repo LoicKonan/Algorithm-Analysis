@@ -1,5 +1,5 @@
 // Counting sort in C++ programming
-// https://www.programiz.com/dsa/bubbleSort-sort
+// copyright: https://www.programiz.com/dsa/bubbleSort-sort
 #include <iostream>
 
 namespace BubbleSort

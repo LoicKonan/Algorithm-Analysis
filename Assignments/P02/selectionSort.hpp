@@ -1,5 +1,4 @@
-// Quick sort in C++
-// https://www.geeksforgeeks.org/bubble-sort/
+// copyright: https://www.geeksforgeeks.org/bubble-sort/
 
 #include <iostream>
 
