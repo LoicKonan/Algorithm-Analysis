@@ -32,9 +32,11 @@ namespace MergeSort
     ****************************************************/
     void merge(int lft[], int rt[], int a[], int n, int &MergeCount)
     {
+        // Initialize the variables.
         int i = 0, j = 0, k = 0;
         int lenLft = n / 2;
         int lenRt = n - lenLft;
+        
         // Copy values in ascencing order into array a
         // until end of either left or right array is
         // reached.
@@ -54,8 +56,7 @@ namespace MergeSort
             }
             MergeCount++;
         }
-        // Copy any remaining values from the
-        // left array.
+        // Copy any remaining values from the left array.
         while (i < lenLft)
         {
             a[k] = lft[i];
@@ -63,8 +64,7 @@ namespace MergeSort
             k++;
             MergeCount++;
         }
-        // Copy any remaining values from the
-        // right array.
+        // Copy any remaining values from the right array.
         while (j < lenRt)
         {
             a[k] = rt[j];
@@ -81,6 +81,7 @@ namespace MergeSort
         if (n >= 2)
         {
             mid = n / 2;
+
             // Dynamically create two new arrays to
             // store the left and right halves of array.
             left = new int[mid];
@@ -90,10 +91,13 @@ namespace MergeSort
                 left[i] = a[i];
             for (i = mid; i < n; i++)
                 right[i - mid] = a[i];
+           
             // Recursively sort the left half of the array.
             mergeSort(left, mid, MergeCount);
+            
             // Recursively sort the right half of the array.
             mergeSort(right, n - mid, MergeCount);
+            
             // Merge the array halves.
             merge(left, right, a, n, MergeCount);
         }
