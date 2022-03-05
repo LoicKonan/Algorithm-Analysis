@@ -1,9 +1,14 @@
+/*******************************************************
+
+This program will copy an array to another array
+
+********************************************************/
+
 #include <iostream>
 using namespace std;
 
 namespace CopyArray
 {
-
     // Function to copy an array.
     void copyArray(int arr1[], int arr2[])
     {
