@@ -318,17 +318,14 @@ int main()
           << setw(width)       << bubble_time       << " milliseconds"
           << "\n\n";
 
-     cout << setw(3.5 * width) << "Count Sort:"     << setw(width) 
-          << count_time        << " milliseconds"   << "\n\n";
-
-     cout << setw(3.5 * width) << "Radix Sort:"     << setw(width) 
-          << radix_time        << " milliseconds"   << "\n\n";
+     cout << setw(3.5 * width) << "Insertion Sort:" << setw(width) 
+          << insertion_time    << " milliseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Selection Sort:" << setw(width) 
           << selection_time    << " milliseconds"   << "\n\n";
 
-     cout << setw(3.5 * width) << "Insertion Sort:" << setw(width) 
-          << insertion_time    << " milliseconds"   << "\n\n";
+      cout << setw(3.5 * width) << "Quick Sort:"     << setw(width) 
+          << quick_time        << " milliseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Merge Sort:"     << setw(width) 
           << merge_time        << " milliseconds"   << "\n\n";
@@ -336,8 +333,12 @@ int main()
      cout << setw(3.5 * width) << "Heap Sort:"      << setw(width) 
           << heap_time         << " milliseconds"   << "\n\n";
 
-     cout << setw(3.5 * width) << "Quick Sort:"     << setw(width) 
-          << quick_time        << " milliseconds"   << "\n\n";
+     cout << setw(3.5 * width) << "Radix Sort:"     << setw(width) 
+          << radix_time        << " milliseconds"   << "\n\n";
+
+     cout << setw(3.5 * width) << "Count Sort:"     << setw(width) 
+          << count_time        << " milliseconds"   << "\n\n";
+   
 
      // Print the Total COUNTER of each algorithm to the console.
      cout << "\n\n\t\t\t****************************************************************\n"
@@ -350,11 +351,14 @@ int main()
      cout << setw(3.5 * width) << "Bubble Sort:"
           << setw(width)       << bubblecount    << " times\n\n";
 
+     cout << setw(3.5 * width) << "Insertion Sort:"
+          << setw(width)       << insertioncount << " times\n\n";
+
      cout << setw(3.5 * width) << "Selection Sort:"
           << setw(width)       << selectioncount << " times\n\n";
 
-     cout << setw(3.5 * width) << "Insertion Sort:"
-          << setw(width)       << insertioncount << " times\n\n";
+     cout << setw(3.5 * width) << "Quick Sort:"
+          << setw(width)       << quickcount     << " times\n\n";
 
      cout << setw(3.5 * width) << "Merge Sort:"
           << setw(width)       << MergeCount     << " times\n\n";
@@ -362,14 +366,12 @@ int main()
      cout << setw(3.5 * width) << "Heap Sort:"
           << setw(width)       << HeapCount      << " times\n\n";
 
-     cout << setw(3.5 * width) << "Quick Sort:"
-          << setw(width)       << quickcount     << " times\n\n";
+     cout << setw(3.5 * width) << "Radix Sort:"
+          << setw(width)       << radixcount     << " times\n\n";
 
      cout << setw(3.5 * width) << "Count Sort:"
           << setw(width)       << count_count    << " times\n\n";
-
-     cout << setw(3.5 * width) << "Radix Sort:"
-          << setw(width)       << radixcount     << " times\n\n";
+     
 
      // Calculate the average time complexity for all the algorithms.
      double Avg_bubble_time    = bubble_time    / number;
@@ -421,11 +423,11 @@ int main()
           << setw(width)       << "BubbleSort"       << setw(2.8 * width) 
           << Avg_bubble_time   << setw(2.8 * width)  << Avg_bubblecount    << "\n\n"
 
-          << setw(width)       << "SelectionSort"    << setw(2.8 * width) 
-          << Avg_selectiontime << setw(2.8 * width)  << Avg_selectioncount << "\n\n"
-
           << setw(width)       << "InsertionSort"    << setw(2.8 * width) 
           << Avg_insertiontime << setw(2.8 * width)  << Avg_insertioncount << "\n\n"
+
+          << setw(width)       << "SelectionSort"    << setw(2.8 * width) 
+          << Avg_selectiontime << setw(2.8 * width)  << Avg_selectioncount << "\n\n"
 
           << setw(width)       << "QuickSort"        << setw(2.8 * width) 
           << Avg_quick_time    << setw(2.8 * width)  << Avg_quickcount     << "\n\n"
