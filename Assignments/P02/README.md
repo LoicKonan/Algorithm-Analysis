@@ -8,7 +8,7 @@
 - Sorting Algorithm from each runtime category: **O(n2), O(n log n), O(n)**.
 - Implement a separate **counter for each sort**.
 - **Use a system clock timer to start the time immediately** before each sort and end immediately after each sort.
-- **Average the time and counter results over 20 runs**, using a different random seed for each run.
+- **Average the time and counter results over 20 iterations**, using a different random seed for each run.
 
 <h2 align="center"> Total time complexity for each algorithms </h2>
 <img src = "complexity.png">
