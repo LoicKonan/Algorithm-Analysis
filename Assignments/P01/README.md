@@ -11,11 +11,11 @@
 
 ### Files
 
-|   #   | File                     | Description                                |
-| :---: | ------------------------ | ------------------------------------------ |
-|   1   | [main.cpp](main.cpp)     | The main cpp with comments and description |
-|   2   | [infile.txt](infile.txt) | infile file                                |
-|   3   | [output.txt](output.txt) | output file                               |
+|   #   | File                         | Description                                |
+| :---: | ---------------------------- | ------------------------------------------ |
+|   1   | [main.cpp](main.cpp)         | The main cpp with comments and description |
+|   2   | [blobtest.txt](blobtest.txt) | infile file                                |
+|   3   | [output.txt](output.txt)     | output file                                |
 
 ### Instructions
 
