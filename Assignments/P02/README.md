@@ -10,15 +10,14 @@
 - **Use a system clock timer to start the time immediately** before each sort and end immediately after each sort.
 - **Average the time and counter results over 20 runs**, using a different random seed for each run.
 
-
 <h2 align="center"> Total time complexity for each algorithms </h2>
-> <img src = "complexity.png">
+<img src = "complexity.png">
 
 <h2 align="center"> Total Counter for each algorithms </h2>
-> <img src = "counter.png">
+<img src = "counter.png">
 
 <h2 align="center"> Final Results  </h2>
-> <img src = "result.png">
+<img src = "result.png">
 
 ### Files
 
