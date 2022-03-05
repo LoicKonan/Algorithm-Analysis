@@ -1,4 +1,4 @@
-// copyright: https://www.programiz.com/dsa/radixSort-sort
+// copyright: https://www.programiz.com/dsa/radix-sort
 #include <iostream>
 
 // Initialize the counter for RadixSort.

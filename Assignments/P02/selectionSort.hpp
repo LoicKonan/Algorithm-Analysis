@@ -1,5 +1,11 @@
-// copyright: https://www.geeksforgeeks.org/bubble-sort/
+/***********************************************************************************
+// copyright: https://www.geeksforgeeks.org/selection-sort/
 
+This program will demonstrate the (n ^ 2) sorting algorithm, Selection sort.
+This program will return the number of comparisons that occur in this
+algorithm.
+
+************************************************************************************/
 #include <iostream>
 
 namespace SelectionSort
@@ -16,6 +22,7 @@ namespace SelectionSort
 
     int selectionSort(int Array[])
     {
+        // Initialize the variables.
         int selectioncount = 0;
         int minIndex;
         for (int i = 0; i < _SIZE; i++)
