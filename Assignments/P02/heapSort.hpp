@@ -1,9 +1,12 @@
-/****************************************
+/**************************************************************************
+
 Tina Johnson
 CMPS 5243
-This program will demonstrate the nlogn
-sorting algorithm, heap sort.
-*******************************************/
+
+This program will demonstrate the (n log n) sorting algorithm of the heap sort.
+Using a global variable to determine the number of comparisons that will 
+occur in this algorithm.
+**************************************************************************/
 
 #include <iostream>
 
@@ -15,11 +18,12 @@ namespace HeapSort
 
     void heapify(int arr[], int n, int i, int &HeapCount)
     {
-        // Find largest among root, left child and right child
+        // Initialize each variable.
         int largest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
 
+        // Find largest among root, left child and right child
         if (left < n && arr[left] > arr[largest])
         {
             largest = left;

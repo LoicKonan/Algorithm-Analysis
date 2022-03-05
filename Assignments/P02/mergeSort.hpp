@@ -1,7 +1,15 @@
-// Quick sort in C++
-// https://www.programiz.com/dsa/quick-sort
-
 #include <iostream>
+
+/**************************************************************************
+
+Tina Johnson
+CMPS 5243
+
+This program will demonstrate the (n logn n) sorting algorithm of the 
+Merge sort.
+Using a global variable to determine the number of comparisons that will 
+occur in this algorithm.
+**************************************************************************/
 
 // Initialize the count for MergeSort
 int MergeCount = 0;

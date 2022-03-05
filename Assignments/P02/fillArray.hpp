@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 
+/****************************************
+This program will help me fill each array
+with random numbers, using the seed 
+variable.
+*******************************************/
 namespace FillArray
 {
     // Using this function to fill the array with random numbers.
