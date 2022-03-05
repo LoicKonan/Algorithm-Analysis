@@ -72,7 +72,7 @@ using namespace std::chrono;
 // The size of the Arrays.
 const int _SIZE = 5000;
 
-// To print colors.
+// To print the results in different colors.
 #include "termcolor.hpp"
 
 // Different sorting algorithms and Functions
