@@ -322,8 +322,8 @@ int main()
           seed++;
      }
 
-     // Print the Total TIME of each algorithm to the console.
-
+     // Print the Total TIME of each algorithm to the console in yellow.
+     cout << termcolor::bright_yellow;
      cout << "\n\n\t\t\t****************************************************************\n"
           << "\t\t\t*                                                              *\n"
           << "\t\t\t*         Total time complexity for each algorithms            *\n"
@@ -353,10 +353,13 @@ int main()
           << radix_time        << " microseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Count Sort:"     << setw(width) 
-          << count_time        << " microseconds"   << "\n\n";
+          << count_time        << " microseconds"   << "\n\n"          
+          << termcolor::reset << " \n";
+
    
 
-     // Print the Total COUNTER of each algorithm to the console.
+     // Print the Total COUNTER of each algorithm to the console in cyan.
+     cout << termcolor::bright_cyan;
      cout << "\n\n\t\t\t****************************************************************\n"
           << "\t\t\t*                                                              *\n"
           << "\t\t\t*               Total Counter for each algorithms              *\n"
@@ -386,7 +389,8 @@ int main()
           << setw(width)       << radixcount     << " times\n\n";
 
      cout << setw(3.5 * width) << "Count Sort:"
-          << setw(width)       << count_count    << " times\n\n";
+          << setw(width)       << count_count    << " times\n\n"
+          << termcolor::reset  << " \n";
      
 
      // Calculate the average time complexity for all the algorithms.
@@ -414,7 +418,8 @@ int main()
      double Avg_MergeCount     = MergeCount     / double(number);
 
 
-     // Print the results to the screen.
+     // Print the results to the screen in green.
+     cout << termcolor::bright_green;
      cout << "\n\n\t\t\t****************************************************************\n"
           << "\t\t\t*                                                              *\n"
           << "\t\t\t*                      Final Results Below                     *\n"
@@ -460,7 +465,9 @@ int main()
           << Avg_count_time    << setw(2.8 * width)  << Avg_countcount     << "\n\n";
 
      cout << ("***********************************************************************")
-          << ("********************************") << "\n\n";
+          << ("********************************")     << "\n\n"  
+          << termcolor::reset   << " \n";
+;
 
      return 0;
 }
