@@ -38,7 +38,7 @@ namespace Header
         cout << "                     The goal of this program is to compare the performance\n*";
         cout << "                     of each algorithm.\n*";
         cout << "                     After 20 Iterations, I calculate the average time\n*";
-        cout << "                     and counter it takes to to sort the data of our Arrays of\n*";
+        cout << "                     and counter it takes to sort the data of our Arrays of\n*";
         cout << "                     size 5000 (random numbers). The counter for each sort\n*";
         cout << "                     is first Initialize to zero and incremented inside the loops\n*";
         cout << "                     of the associated sort, or I pass back the count using a \n*";
