@@ -155,7 +155,7 @@ int main()
           // End the clock for the Radix sort.
           auto endRadix = chrono::high_resolution_clock::now();
           // Calculate the time for the Radix sort.
-          radix_time = chrono::duration_cast<chrono::milliseconds>(endRadix - startRadix).count();
+          radix_time = chrono::duration_cast<chrono::nanoseconds>(endRadix - startRadix).count();
 
           /****************************************************************
            *
@@ -172,7 +172,7 @@ int main()
           // End the clock for the Count sort.
           auto endCount = chrono::high_resolution_clock::now();
           // Calculate the time for the Count sort.
-          count_time = chrono::duration_cast<chrono::milliseconds>(endCount - startCount).count();
+          count_time = chrono::duration_cast<chrono::nanoseconds>(endCount - startCount).count();
 
           /****************************************************************
            *
@@ -189,7 +189,7 @@ int main()
           // End the clock for the Bubble sort.
           auto endBubble = chrono::high_resolution_clock::now();
           // Calculate the time for the Bubble sort.
-          bubble_time = chrono::duration_cast<chrono::milliseconds>(endBubble - startBubble).count();
+          bubble_time = chrono::duration_cast<chrono::nanoseconds>(endBubble - startBubble).count();
 
           /****************************************************************
            *
@@ -206,7 +206,7 @@ int main()
           // End the clock for the Selection sort.
           auto endSelection = chrono::high_resolution_clock::now();
           // Calculate the time for the Selection sort.
-          selection_time = chrono::duration_cast<chrono::milliseconds>(endSelection - startSelection).count();
+          selection_time = chrono::duration_cast<chrono::nanoseconds>(endSelection - startSelection).count();
 
           /****************************************************************
            *
@@ -223,7 +223,7 @@ int main()
           // End the clock for the Insertion sort.
           auto endInsertion = chrono::high_resolution_clock::now();
           // Calculate the time for the Insertion sort.
-          insertion_time = chrono::duration_cast<chrono::milliseconds>(endInsertion - startInsertion).count();
+          insertion_time = chrono::duration_cast<chrono::nanoseconds>(endInsertion - startInsertion).count();
 
           /****************************************************************
            *
@@ -240,7 +240,7 @@ int main()
           // End the clock for the Merge sort.
           auto endMerge = chrono::high_resolution_clock::now();
           // Calculate the time for the Merge sort.
-          merge_time = chrono::duration_cast<chrono::milliseconds>(endMerge - startMerge).count();
+          merge_time = chrono::duration_cast<chrono::nanoseconds>(endMerge - startMerge).count();
 
           /****************************************************************
            *
@@ -257,7 +257,7 @@ int main()
           // End the clock for the Heap sort.
           auto endHeap = chrono::high_resolution_clock::now();
           // Calculate the time for the Heap sort.
-          heap_time = chrono::duration_cast<chrono::milliseconds>(endHeap - startHeap).count();
+          heap_time = chrono::duration_cast<chrono::nanoseconds>(endHeap - startHeap).count();
 
           /****************************************************************
            *
@@ -274,7 +274,7 @@ int main()
           // End the clock for the Quick sort.
           auto endQuick = chrono::high_resolution_clock::now();
           // Calculate the time for the Quick sort.
-          quick_time = chrono::duration_cast<chrono::milliseconds>(endQuick - startQuick).count();
+          quick_time = chrono::duration_cast<chrono::nanoseconds>(endQuick - startQuick).count();
 
           // The Time and counter for the O(n^2) algorithms.
           bubble_time++;
@@ -314,30 +314,29 @@ int main()
           << "\t\t\t*                                                              *\n"
           << "\t\t\t****************************************************************\n\n";
 
-     cout << setw(3.5 * width) << "Bubble Sort:"
-          << setw(width)       << bubble_time       << " milliseconds"
-          << "\n\n";
+     cout << setw(3.5 * width) << "Bubble Sort:"    << setw(width)       
+          << bubble_time       << " nanoseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Insertion Sort:" << setw(width) 
-          << insertion_time    << " milliseconds"   << "\n\n";
+          << insertion_time    << " nanoseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Selection Sort:" << setw(width) 
-          << selection_time    << " milliseconds"   << "\n\n";
+          << selection_time    << " nanoseconds"   << "\n\n";
 
       cout << setw(3.5 * width) << "Quick Sort:"     << setw(width) 
-          << quick_time        << " milliseconds"   << "\n\n";
+          << quick_time        << " nanoseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Merge Sort:"     << setw(width) 
-          << merge_time        << " milliseconds"   << "\n\n";
+          << merge_time        << " nanoseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Heap Sort:"      << setw(width) 
-          << heap_time         << " milliseconds"   << "\n\n";
+          << heap_time         << " nanoseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Radix Sort:"     << setw(width) 
-          << radix_time        << " milliseconds"   << "\n\n";
+          << radix_time        << " nanoseconds"   << "\n\n";
 
      cout << setw(3.5 * width) << "Count Sort:"     << setw(width) 
-          << count_time        << " milliseconds"   << "\n\n";
+          << count_time        << " nanoseconds"   << "\n\n";
    
 
      // Print the Total COUNTER of each algorithm to the console.
@@ -397,7 +396,7 @@ int main()
      double Avg_HeapCount      = HeapCount      / double(number);
      double Avg_MergeCount     = MergeCount     / double(number);
 
-     //     cout << termcolor::green << clock.MilliSeconds() << termcolor::reset << " MilliSeconds\n";
+     //     cout << termcolor::green << clock.nanoseconds() << termcolor::reset << " nanoseconds\n";
 
      // Print the results to the screen.
      cout << "\n\n\t\t\t****************************************************************\n"
@@ -414,7 +413,7 @@ int main()
           << "Average Time Complexity"
           << "\t\t\t"
           << "Average Comparisons\n\n";
-     cout << setw(4 * width) << "(milliseconds)\n";
+     cout << setw(4 * width) << "(nanoseconds)\n";
 
      cout << ("***********************************************************************")
           << ("********************************") << "\n\n";
