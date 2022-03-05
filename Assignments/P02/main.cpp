@@ -137,7 +137,7 @@ int main()
           // Call the fillArrays function.
           FillArray::fillArray(myArray1, seed);
 
-          // Call the copyArrays function, and pass the arrays.
+          // Make sure that the arrays hold identical values before sorting.          
           CopyArray::copyArray(myArray1, myArray2);
           CopyArray::copyArray(myArray1, myArray3);
           CopyArray::copyArray(myArray1, myArray4);
@@ -323,7 +323,7 @@ int main()
           HeapCount++;
           MergeCount++;
 
-          // Incrementing the seed for our random number generator.
+          // Incrementing the seed, using a different random seed for each run
           seed++;
      }
 
