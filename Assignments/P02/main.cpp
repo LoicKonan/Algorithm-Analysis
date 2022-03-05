@@ -1,4 +1,4 @@
-/*******************************************************************************************************
+/****************************************************************************************************
  *
  *    Author:           Loic Konan
  *    Email:            loickonan.lk@gmail.com
@@ -55,7 +55,7 @@
  *           main.cpp          : driver program
  *
  *
- *******************************************************************************************************/
+ ****************************************************************************************************/
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -315,7 +315,7 @@ int main()
           << "\t\t\t****************************************************************\n\n";
 
      cout << setw(3.5 * width) << "Bubble Sort:"
-          << setw(width) << bubble_time << " milliseconds"
+          << setw(width)       << bubble_time       << " milliseconds"
           << "\n\n";
 
      cout << setw(3.5 * width) << "Count Sort:"     << setw(width) 
@@ -373,8 +373,8 @@ int main()
 
      // Calculate the average time complexity for all the algorithms.
      double Avg_bubble_time    = bubble_time    / number;
-     double Avg_selectiontime = selection_time / number;
-     double Avg_insertiontime = insertion_time / number;
+     double Avg_selectiontime = selection_time  / number;
+     double Avg_insertiontime = insertion_time  / number;
 
      double Avg_count_time     = count_time     / number;
      double Avg_radix_time     = radix_time     / number;
@@ -418,11 +418,8 @@ int main()
           << ("********************************") << "\n\n";
 
      cout << fixed << setprecision(6)
-          << setw(width)       
-          << termcolor::green  << "BubbleSort"  << termcolor::reset
-          << setw(2.8 * width) 
+          << setw(width)       << "BubbleSort"       << setw(2.8 * width) 
           << Avg_bubble_time   << setw(2.8 * width)  << Avg_bubblecount    << "\n\n"
-
 
           << setw(width)       << "SelectionSort"    << setw(2.8 * width) 
           << Avg_selectiontime << setw(2.8 * width)  << Avg_selectioncount << "\n\n"
