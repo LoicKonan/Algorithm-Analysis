@@ -1,4 +1,11 @@
-// copyright: https://www.programiz.com/dsa/radix-sort
+/***********************************************************************************
+copyright: https://www.programiz.com/dsa/radix-sort
+
+This program will demonstrate the (n) sorting algorithm, Radix sort.
+Using a global variable to determine the number of comparisons that will occur in
+this algorithm.
+
+************************************************************************************/
 #include <iostream>
 
 // Initialize the counter for RadixSort.
