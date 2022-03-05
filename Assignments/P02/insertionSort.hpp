@@ -1,12 +1,12 @@
 /**************************************************************************
 
-Tina Johnson
-CMPS 5243
+Tina Johnson CMPS 5243
 
 This program will demonstrate the (n ^ 2) sorting algorithm of the 
 Insertion sort.
 This program will return the number of comparisons that occur in this
 algorithm.
+
 **************************************************************************/
 
 #include <iostream>

@@ -1,6 +1,13 @@
-// https://www.programiz.com/dsa/counting-sort
+/**************************************************************************
 
+https://www.programiz.com/dsa/counting-sort
 
+This program will demonstrate the (n ^ 2) sorting algorithm of the 
+Counting sort.
+This program will return the number of comparisons that occur in this
+algorithm.
+
+**************************************************************************/
 
 #include <iostream>
 

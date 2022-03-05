@@ -1,5 +1,12 @@
-// copyright: https://www.programiz.com/dsa/bubbleSort-sort
+/**************************************************************************
 
+copyright: https://www.programiz.com/dsa/bubble-sort
+
+This program will demonstrate the (n ^ 2) sorting algorithm of the Bubble sort.
+This program will return the number of comparisons that occur in this
+algorithm.
+
+**************************************************************************/
 
 
 #include <iostream>
