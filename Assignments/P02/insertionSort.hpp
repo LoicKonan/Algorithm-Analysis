@@ -1,6 +1,3 @@
-
-#include <iostream>
-
 /**************************************************************************
 
 Tina Johnson
@@ -11,6 +8,9 @@ Insertion sort.
 This program will return the number of comparisons that occur in this
 algorithm.
 **************************************************************************/
+
+#include <iostream>
+
 namespace InsertionSort
 {
   using namespace std;

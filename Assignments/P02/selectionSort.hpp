@@ -1,5 +1,5 @@
 /***********************************************************************************
-// copyright: https://www.geeksforgeeks.org/selection-sort/
+copyright: https://www.geeksforgeeks.org/selection-sort/
 
 This program will demonstrate the (n ^ 2) sorting algorithm, Selection sort.
 This program will return the number of comparisons that occur in this

@@ -1,8 +1,14 @@
+/*******************************************************************
+copyright: Tina Johnson CMPS 5243
+
+This program print the arrays to te console
+
+*******************************************************************/
+
 #include <iostream>
 
 namespace print
 {
-
     // Function to print.
     void printArray(int arr[])
     {
