@@ -18,7 +18,7 @@ namespace Header
         cout << "\n*    Email:            loickonan.lk@gmail.com";
         cout << "\n*    Label:            Sorting Algorithms";
         cout << "\n*    Title:            Program 2";
-        cout << "\n*    Course:           CMPS 5246,  Spring number22, Dr. Johnson";
+        cout << "\n*    Course:           CMPS 5243, Dr. Johnson";
         cout << "\n*    Semester:         Spring 2022";
         cout << "\n*    Description:";
         cout << "\n*";

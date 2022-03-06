@@ -4,7 +4,7 @@
  *    Email:            loickonan.lk@gmail.com
  *    Label:            Sorting Algorithms
  *    Title:            Program 2
- *    Course:           CMPS 5243, Spring 2022, Dr. Johnson
+ *    Course:           CMPS 5243, Dr. Johnson
  *    Semester:         Spring 2022
  *    Description:
  *
