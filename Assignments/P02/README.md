@@ -4,7 +4,7 @@
 
 #### Description
 
-- Implement at least 3 different sorting algorithms on arrays of **size 5000**. 
+- Implement at least 3 different sorting algorithms on arrays of **size 5000**.
 - Sorting Algorithm from each runtime category: **O(n2), O(n log n), O(n)**.
 - Implement a separate **counter for each sort**.
 - **Use a system clock timer to start the time immediately** before each sort and end immediately after each sort.
