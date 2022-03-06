@@ -15,5 +15,4 @@ namespace CopyArray
         for (int i = 0; i < _SIZE; i++)
             arr2[i] = arr1[i];
     }
-
 }

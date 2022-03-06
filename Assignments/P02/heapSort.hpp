@@ -1,4 +1,4 @@
-/**************************************************************************
+/******************************************************************************
 
 Tina Johnson CMPS 5243
 
@@ -6,7 +6,7 @@ This program will demonstrate the (n log n) sorting algorithm of the heap sort.
 Using a global variable to determine the number of comparisons that will 
 occur in this algorithm.
 
-**************************************************************************/
+******************************************************************************/
 
 #include <iostream>
 
