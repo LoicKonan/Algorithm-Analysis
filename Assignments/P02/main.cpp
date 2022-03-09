@@ -362,7 +362,7 @@ int main()
 
      cout << setw(3.5 * width) << "Count Sort:"     << setw(width) 
           << count_time        << " microseconds"   << "\n\n"          
-          << termcolor::reset << " \n";
+          << termcolor::reset  << " \n";
 
    
 
@@ -473,8 +473,8 @@ int main()
           << Avg_count_time    << setw(2.8 * width)  << Avg_countcount     << "\n\n";
 
      cout << ("***********************************************************************")
-          << ("********************************")     << "\n\n"  
-          << termcolor::reset   << " \n";
+          << ("********************************")    << "\n\n"  
+          << termcolor::reset  << " \n";
 ;
 
      return 0;
