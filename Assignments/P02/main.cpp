@@ -102,7 +102,7 @@ int main()
      int myArray7[_SIZE];
      int myArray8[_SIZE];
 
-     // Initialize the counter for bubble sort.
+     // Initialize the counter.
      int bubblecount,
          selectioncount,
          insertioncount,
