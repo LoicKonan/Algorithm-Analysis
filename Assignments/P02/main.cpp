@@ -102,21 +102,23 @@ int main()
      int myArray7[_SIZE];
      int myArray8[_SIZE];
 
-     // Initialize the counter.
-     int bubblecount,
-         selectioncount,
-         insertioncount,
-         count_count;
+     // Initialize the counter for the algorithm that are not recursive.
+     int 
+          bubblecount,
+          selectioncount,
+          insertioncount,
+          count_count;
 
      // Initialize the Timer.
-     double count_time,
-         radix_time,
-         selection_time,
-         insertion_time,
-         quick_time,
-         merge_time,
-         heap_time,
-         bubble_time;
+     double 
+          count_time,
+          radix_time,
+          selection_time,
+          insertion_time,
+          quick_time,
+          merge_time,
+          heap_time,
+          bubble_time;
 
      // n is the size of the array.
      int n = sizeof(myArray1) / sizeof(myArray1[0]);
