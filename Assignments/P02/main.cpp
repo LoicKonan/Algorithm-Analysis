@@ -93,14 +93,15 @@ const int _SIZE = 5000;
 int main()
 {
      // Initialize the arrays.
-     int myArray1[_SIZE];
-     int myArray2[_SIZE];
-     int myArray3[_SIZE];
-     int myArray4[_SIZE];
-     int myArray5[_SIZE];
-     int myArray6[_SIZE];
-     int myArray7[_SIZE];
-     int myArray8[_SIZE];
+     int 
+          myArray1[_SIZE],
+          myArray2[_SIZE],
+          myArray3[_SIZE],
+          myArray4[_SIZE],
+          myArray5[_SIZE],
+          myArray6[_SIZE],
+          myArray7[_SIZE],
+          myArray8[_SIZE];
 
      // Initialize the counter for the algorithm that are not recursive.
      int 
