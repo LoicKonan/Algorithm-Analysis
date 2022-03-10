@@ -53,7 +53,10 @@ namespace RadixSort
         // Copy the output array to arr[], so that arr[] now
         // contains sorted numbers according to current digit
         for (i = 0; i < n; i++)
+        {
             arr[i] = output[i];
+            radixcount++;
+        }
     }
 
     // The main function that sorts arr[] of _SIZE n using Radix Sort

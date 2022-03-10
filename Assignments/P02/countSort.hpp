@@ -30,6 +30,7 @@ namespace CountSort
         {
             if (array[i] > max)
                 max = array[i];
+                comparisons++;
         }
 
         // Initialize count array with all zeros.
