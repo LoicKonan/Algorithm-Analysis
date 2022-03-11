@@ -9,6 +9,7 @@
 - Implement a separate **counter for each sort**.
 - **Use a system clock timer to start the time immediately** before each sort and end immediately after each sort.
 - **Average the time and counter results over 20 iterations**, using a different random seed for each run.
+- I used a function to fill the arrays with **random numbers From 0 to 1000.**
 
 <h2 align="center"> Total time complexity for each algorithms </h2>
 <img src = "complexity.png">
