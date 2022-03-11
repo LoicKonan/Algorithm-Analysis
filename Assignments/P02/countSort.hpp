@@ -19,7 +19,9 @@ namespace CountSort
         // The _SIZE of count must be at least the (max+1) but
         // we cannot assign declare it as int count(max+1) in C++ as
         // it does not support dynamic memory allocation.
-        // So, its _SIZE is provided statically . I believe this solved the problem.
+        // So, its _SIZE is provided statically . 
+        // I believe this solved the problem.
+        
         int output[5001];
         int count[5001];
         int comparisons = 0;

@@ -10,7 +10,8 @@ using namespace std;
 
 namespace FillArray
 {
-    // Using this function to fill the array with random numbers.
+    // Using this function to fill the array with random numbers
+    // From 0 to 1000.
     void fillArray(int arr[], int seed)
     {
         srand(seed);
