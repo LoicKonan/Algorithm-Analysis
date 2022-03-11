@@ -70,7 +70,7 @@ using namespace std;
 using namespace std::chrono;
 
 // The size of the Arrays.
-const int _SIZE = 10;
+const int _SIZE = 20;
 
 // To print the results in different colors.
 #include "termcolor.hpp"
@@ -127,9 +127,9 @@ int main()
      // Print the header.
      Header::header();
 
-     // Initialize the loop control variable and the seed.
+     // Initialize the number of iterations and the seed.
      int number = 20;
-     int seed   = 10;
+     int seed   = 1;
 
      // Variable to show the column width.
      int width  = 15;
@@ -306,7 +306,6 @@ int main()
           // print::printArray(myArray6);
 
 
-
           /****************************************************************
            *
            *                     HeapSort Below
@@ -360,6 +359,13 @@ int main()
           // print::printArray(myArray8);
 
 
+          /****************************************************************
+           *
+           *                 Incrementing Variable Below
+           *
+           *
+           ****************************************************************/
+       
          
           // The Time and counter for the O(n^2) algorithms.
           bubble_time++;
