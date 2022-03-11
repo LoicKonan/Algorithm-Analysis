@@ -68,7 +68,9 @@ namespace CountSort
         for (int i = 0; i < _SIZE; i++)
         {
             array[i] = output[i];
+            comparisons++;
         }
+
         return comparisons;
     }
 }

@@ -41,7 +41,6 @@ namespace RadixSort
         {
             count[i] += count[i - 1];
             radixcount++;
-
         }
 
         // Build the output array
