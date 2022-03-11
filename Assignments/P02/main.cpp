@@ -70,7 +70,7 @@ using namespace std;
 using namespace std::chrono;
 
 // The size of the Arrays.
-const int _SIZE = 5000;
+const int _SIZE = 10;
 
 // To print the results in different colors.
 #include "termcolor.hpp"
@@ -92,9 +92,10 @@ const int _SIZE = 5000;
 // Main function.
 int main()
 {
+     int myArray1 [] = {756, 200, 15, 195, 410, 253, 963, 7, 144, 820};
      // Initialize the arrays.
      int 
-          myArray1[_SIZE],
+          // myArray1[_SIZE],
           myArray2[_SIZE],
           myArray3[_SIZE],
           myArray4[_SIZE],
@@ -128,7 +129,7 @@ int main()
      Header::header();
 
      // Initialize the number of iterations and the seed.
-     int number = 20;
+     int number = 1;
      int seed   = 1;
 
      // Variable to show the column width.
@@ -138,7 +139,7 @@ int main()
      for (int i = 1; i <= number; i++)
      {
           // Call the fillArrays function.
-          FillArray::fillArray(myArray1, seed);
+          // FillArray::fillArray(myArray1, seed);
 
           // Make sure that the arrays hold identical values before sorting.          
           CopyArray::copyArray(myArray1, myArray2);
@@ -156,8 +157,8 @@ int main()
            *
            ****************************************************************/
 
-          // cout << "\n\n\n " << i << " myArray1 Before the RadixSort: " << endl;
-          // print::printArray(myArray1);
+          cout << "\n\n\n " << i << " myArray1 Before the RadixSort: " << endl;
+          print::printArray(myArray1);
 
           // Start the clock for the Radix sort.
           auto startRadix = chrono::high_resolution_clock::now();
@@ -171,8 +172,8 @@ int main()
           // Calculate the time for the Radix sort.
           radix_time = chrono::duration_cast<chrono::microseconds>(endRadix - startRadix).count();
 
-          // cout << i << ": After the myArray1 RadixSort: " << endl;
-          // print::printArray(myArray1);
+          cout << i << ": After the myArray1 RadixSort: " << endl;
+          print::printArray(myArray1);
 
 
           /****************************************************************
@@ -182,8 +183,8 @@ int main()
            *
            ****************************************************************/
          
-          // cout << "\n\nmyArray2 Before the countSort: " << endl;
-          // print::printArray(myArray2);
+          cout << "\n\nmyArray2 Before the countSort: " << endl;
+          print::printArray(myArray2);
 
           // Start the clock for the Countsort.
           auto startCount = chrono::high_resolution_clock::now();
@@ -197,8 +198,8 @@ int main()
           // Calculate the time for the Count sort.
           count_time = chrono::duration_cast<chrono::microseconds>(endCount - startCount).count();
 
-          // cout << i << ": After the myArray2 countSort: " << endl;
-          // print::printArray(myArray2);
+          cout << i << ": After the myArray2 countSort: " << endl;
+          print::printArray(myArray2);
 
          
           /****************************************************************
@@ -208,8 +209,8 @@ int main()
            *
            ****************************************************************/
          
-          // cout << i << "\n\nmyArray3 Before BubbleSort: " << endl;
-          // print::printArray(myArray3);
+          cout << i << "\n\nmyArray3 Before BubbleSort: " << endl;
+          print::printArray(myArray3);
 
           // Start the clock for the Bubble sort.
           auto startBubble = chrono::high_resolution_clock::now();
@@ -223,8 +224,8 @@ int main()
           // Calculate the time for the Bubble sort.
           bubble_time = chrono::duration_cast<chrono::microseconds>(endBubble - startBubble).count();
 
-          // cout << i << ": After the myArray3 BubbleSort: " << endl;
-          // print::printArray(myArray3);
+          cout << i << ": After the myArray3 BubbleSort: " << endl;
+          print::printArray(myArray3);
 
 
           /****************************************************************
@@ -234,8 +235,8 @@ int main()
            *
            ****************************************************************/
          
-          // cout << i << "\n\nmyArray4 Before SeclectionSort: " << endl;
-          // print::printArray(myArray4);
+          cout << i << "\n\nmyArray4 Before SeclectionSort: " << endl;
+          print::printArray(myArray4);
 
           // Start the clock for the Selection sort.
           auto startSelection = chrono::high_resolution_clock::now();
@@ -249,8 +250,8 @@ int main()
           // Calculate the time for the Selection sort.
           selection_time = chrono::duration_cast<chrono::microseconds>(endSelection - startSelection).count();
           
-          // cout << i << ": After the myArray4 SeclectionSort: " << endl;
-          // print::printArray(myArray4);
+          cout << i << ": After the myArray4 SeclectionSort: " << endl;
+          print::printArray(myArray4);
 
 
 
@@ -261,8 +262,8 @@ int main()
            *
            ****************************************************************/
          
-          // cout << i << "\n\nmyArray5 Before InsertionSort: " << endl;
-          // print::printArray(myArray5);
+          cout << i << "\n\nmyArray5 Before InsertionSort: " << endl;
+          print::printArray(myArray5);
 
           // Start the clock for the Insertion sort.
           auto startInsertion = chrono::high_resolution_clock::now();
@@ -276,8 +277,8 @@ int main()
           // Calculate the time for the Insertion sort.
           insertion_time = chrono::duration_cast<chrono::microseconds>(endInsertion - startInsertion).count();
           
-          // cout << i << ": After the myArray5 InsertionSort: " << endl;
-          // print::printArray(myArray5);
+          cout << i << ": After the myArray5 InsertionSort: " << endl;
+          print::printArray(myArray5);
 
 
           /****************************************************************
@@ -287,8 +288,8 @@ int main()
            *
            ****************************************************************/
 
-          // cout << i << "\n\nmyArray6 Before MergeSort: " << endl;
-          // print::printArray(myArray6);
+          cout << i << "\n\nmyArray6 Before MergeSort: " << endl;
+          print::printArray(myArray6);
 
           // Start the clock for the Merge sort.
           auto startMerge = chrono::high_resolution_clock::now();
@@ -302,8 +303,8 @@ int main()
           // Calculate the time for the Merge sort.
           merge_time = chrono::duration_cast<chrono::microseconds>(endMerge - startMerge).count();
 
-          // cout << i << ": After the myArray6 MergeSort: " << endl;
-          // print::printArray(myArray6);
+          cout << i << ": After the myArray6 MergeSort: " << endl;
+          print::printArray(myArray6);
 
 
           /****************************************************************
@@ -313,8 +314,8 @@ int main()
            *
            ****************************************************************/
          
-          // cout << i << "\n\nmyArray7 Before HeapSort: " << endl;
-          // print::printArray(myArray7);
+          cout << i << "\n\nmyArray7 Before HeapSort: " << endl;
+          print::printArray(myArray7);
 
           // Start the clock for the Heap sort.
           auto startHeap = chrono::high_resolution_clock::now();
@@ -328,8 +329,8 @@ int main()
           // Calculate the time for the Heap sort.
           heap_time = chrono::duration_cast<chrono::microseconds>(endHeap - startHeap).count();
 
-          // cout << i << ": After the myArray7 HeapSort: " << endl;
-          // print::printArray(myArray7);
+          cout << i << ": After the myArray7 HeapSort: " << endl;
+          print::printArray(myArray7);
 
 
           /****************************************************************
@@ -339,8 +340,8 @@ int main()
            *
            ****************************************************************/
          
-          // cout << i << "\n\nmyArray8 Before QuickSort: " << endl;
-          // print::printArray(myArray8);
+          cout << i << "\n\nmyArray8 Before QuickSort: " << endl;
+          print::printArray(myArray8);
 
 
           // Start the clock for the Quick sort.
@@ -355,8 +356,9 @@ int main()
           // Calculate the time for the Quick sort.
           quick_time = chrono::duration_cast<chrono::microseconds>(endQuick - startQuick).count();
 
-          // cout << i << ": After the myArray8 QuickSort: " << endl;
-          // print::printArray(myArray8);
+          cout << i << ": After the myArray8 QuickSort: " << endl;
+          print::printArray(myArray8);
+
 
 
           /****************************************************************
@@ -541,7 +543,6 @@ int main()
      cout << ("***********************************************************************")
           << ("********************************")    << "\n\n"  
           << termcolor::reset  << " \n";
-;
 
      return 0;
 }

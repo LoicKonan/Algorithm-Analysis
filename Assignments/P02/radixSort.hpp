@@ -40,6 +40,8 @@ namespace RadixSort
         for (i = 1; i < 10; i++)
         {
             count[i] += count[i - 1];
+            radixcount++;
+
         }
 
         // Build the output array
