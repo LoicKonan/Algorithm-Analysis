@@ -21,9 +21,12 @@ namespace CountSort
         // it does not support dynamic memory allocation.
         // So, its _SIZE is provided statically . 
         // I believe this solved the problem.
+
+        // This will fix the problem for the countsort algorithm.
+        int REAL_SIZE = _SIZE + 1;
         
-        int output[5001];
-        int count[5001];
+        int output[REAL_SIZE];
+        int count[REAL_SIZE];
         int comparisons = 0;
         int max = array[0];
 

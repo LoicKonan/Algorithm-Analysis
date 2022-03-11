@@ -70,7 +70,7 @@ using namespace std;
 using namespace std::chrono;
 
 // The size of the Arrays.
-const int _SIZE = 20;
+const int _SIZE = 5000;
 
 // To print the results in different colors.
 #include "termcolor.hpp"
