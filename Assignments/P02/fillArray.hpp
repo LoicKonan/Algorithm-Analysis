@@ -15,6 +15,6 @@ namespace FillArray
     {
         srand(seed);
         for (int i = 0; i < _SIZE; i++)
-            arr[i] = rand() % 100;
+            arr[i] = rand() % 1000;
     }
 }

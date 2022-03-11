@@ -155,7 +155,12 @@ int main()
            *
            *
            ****************************************************************/
+
+          cout << i << "Before the countSort: " << endl;
+          print::printArray(myArray2);
+
           // Start the clock for the Radix sort.
+
           auto startRadix = chrono::high_resolution_clock::now();
 
           // Call the radixsort function, and pass the arrays.
@@ -166,6 +171,10 @@ int main()
          
           // Calculate the time for the Radix sort.
           radix_time = chrono::duration_cast<chrono::microseconds>(endRadix - startRadix).count();
+
+          cout << i << ": After the countSort: " << endl;
+          print::printArray(myArray2);
+
 
 
           /****************************************************************
