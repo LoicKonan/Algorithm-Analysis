@@ -36,7 +36,7 @@ namespace RadixSort
             count[(arr[i] / exp) % 10]++;
 
         // Change count[i] so that count[i] now contains actual
-        //  position of this digit in output[]
+        // position of this digit in output[]
         for (i = 1; i < 10; i++)
         {
             count[i] += count[i - 1];

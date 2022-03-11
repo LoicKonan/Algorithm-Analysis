@@ -92,7 +92,7 @@ const int _SIZE = 10;
 // Main function.
 int main()
 {
-     int myArray1 [] = {756, 200, 15, 195, 410, 253, 963, 7, 144, 820};
+     int myArray1 [] = {7, 2, 5, 9, 4, 3, 6, 7, 1, 8};
      // Initialize the arrays.
      int 
           // myArray1[_SIZE],
