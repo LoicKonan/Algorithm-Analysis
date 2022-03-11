@@ -21,7 +21,8 @@
  *
  *                      Each algorithm is implemented in a separate .hpp file.
  *                      The goal of this program is to compare the performance
- *                      of each algorithm.
+ *                      of each algorithm. I used a function to fill the arrays 
+ *                      with random numbers From 0 to 1000.
  *                      After 20 Iterations, I calculate the average time
  *                      and counter it takes to sort the data of our Arrays of
  *                      size 5000 (random numbers). The counter for each sort

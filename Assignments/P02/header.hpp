@@ -36,7 +36,8 @@ namespace Header
         cout << " \n*";
         cout << "                     Each algorithm is implemented in a separate .hpp file.\n*";
         cout << "                     The goal of this program is to compare the performance\n*";
-        cout << "                     of each algorithm.\n*";
+        cout << "                     of each algorithm. I used a function to fill the arrays\n*";
+        cout << "                     with random numbers From 0 to 1000.\n";
         cout << "                     After 20 Iterations, I calculate the average time\n*";
         cout << "                     and counter it takes to sort the data of our Arrays of\n*";
         cout << "                     size 5000 (random numbers). The counter for each sort\n*";
