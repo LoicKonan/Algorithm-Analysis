@@ -14,19 +14,19 @@ namespace CountSort
 {
     using namespace std;
 
-    int countSort(int array[], int SIZE)
+    int countSort(int array[], int _SIZE)
     {
-        // The size of count must be at least the (max+1) but
+        // The _SIZE of count must be at least the (max+1) but
         // we cannot assign declare it as int count(max+1) in C++ as
         // it does not support dynamic memory allocation.
-        // So, its size is provided statically.
-        int output[SIZE];
-        int count[SIZE];
+        // So, its _SIZE is provided statically . I believe this solved the problem.
+        int output[5001];
+        int count[5001];
         int comparisons = 0;
         int max = array[0];
 
         // Find the largest element of the array
-        for (int i = 1; i < SIZE; i++)
+        for (int i = 1; i < _SIZE; i++)
         {
             if (array[i] > max)
                 max = array[i];
@@ -40,7 +40,7 @@ namespace CountSort
         }
 
         // Store the count of each element
-        for (int i = 0; i < SIZE; i++)
+        for (int i = 0; i < _SIZE; i++)
         {
             count[array[i]]++;
             comparisons++;
@@ -55,7 +55,7 @@ namespace CountSort
 
         // Find the index of each element of the original array in count array, and
         // place the elements in output array
-        for (int i = SIZE - 1; i >= 0; i--)
+        for (int i = _SIZE - 1; i >= 0; i--)
         {
             output[count[array[i]] - 1] = array[i];
             count[array[i]]--;
@@ -63,7 +63,7 @@ namespace CountSort
         }
 
         // Copy the sorted elements into original array
-        for (int i = 0; i < SIZE; i++)
+        for (int i = 0; i < _SIZE; i++)
         {
             array[i] = output[i];
         }

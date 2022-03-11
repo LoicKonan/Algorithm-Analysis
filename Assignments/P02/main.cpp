@@ -128,7 +128,7 @@ int main()
      Header::header();
 
      // Initialize the loop control variable and the seed.
-     int number = 20;
+     int number = 1;
      int seed   = 0;
 
      // Variable to show the column width.
@@ -159,7 +159,7 @@ int main()
           auto startRadix = chrono::high_resolution_clock::now();
 
           // Call the radixsort function, and pass the arrays.
-          RadixSort::radixsort(myArray1, n, radixcount);
+          RadixSort::radixsort(myArray2, n, radixcount);
          
           // End the clock for the Radix sort.
           auto endRadix = chrono::high_resolution_clock::now();
@@ -174,11 +174,14 @@ int main()
            *
            *
            ****************************************************************/
+          cout << "\n\nBefore the countSort: " << endl;
+          print::printArray(myArray1);
+
           // Start the clock for the Countsort.
           auto startCount = chrono::high_resolution_clock::now();
           
           // Call the Count Sort function, and pass the arrays.
-          count_count = CountSort::countSort(myArray2, n);
+          count_count = CountSort::countSort(myArray1, n);
 
           // End the clock for the Count sort.
           auto endCount = chrono::high_resolution_clock::now();
@@ -186,7 +189,10 @@ int main()
           // Calculate the time for the Count sort.
           count_time = chrono::duration_cast<chrono::microseconds>(endCount - startCount).count();
 
+          cout << i << ": After the countSort: " << endl;
+          print::printArray(myArray1);
 
+         
           /****************************************************************
            *
            *                     Bubble Sort Below
