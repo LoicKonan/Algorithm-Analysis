@@ -128,7 +128,7 @@ int main()
      Header::header();
 
      // Initialize the loop control variable and the seed.
-     int number = 1;
+     int number = 20;
      int seed   = 10;
 
      // Variable to show the column width.
@@ -138,7 +138,7 @@ int main()
      for (int i = 1; i <= number; i++)
      {
           // Call the fillArrays function.
-          // FillArray::fillArray(myArray1, seed);
+          FillArray::fillArray(myArray1, seed);
 
           // Make sure that the arrays hold identical values before sorting.          
           CopyArray::copyArray(myArray1, myArray2);
