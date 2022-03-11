@@ -13,7 +13,6 @@ int quickcount = 0;
 
 namespace QuickSort
 {
-
     /* This function takes last element as pivot, places
     the pivot element at its correct position in sorted
     array, and places all smaller (smaller than pivot)
