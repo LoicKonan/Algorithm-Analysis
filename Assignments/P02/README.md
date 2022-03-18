@@ -35,7 +35,7 @@
 |   9   | [header.hpp](header.hpp)               | The header file for the sorting algorithms |
 |  10   | [countSort.hpp](countSort.hpp)         | The count sort Algorithm                   |
 |  11   | [radixSort.hpp](radixSort.hpp)         | The radix sort Algorithm                   |
-|  12   | [printArray.hpp](printArray.hpp)       | Prints the arrays                           |
+|  12   | [printArray.hpp](printArray.hpp)       | Prints the arrays                          |
 |  13   | [termcolor.hpp](termcolor.hpp)         | Prints color                               |
 |  14   | [fillArray.hpp](fillArray.hpp)         | Function to fill arrays                    |
 
