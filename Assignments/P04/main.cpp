@@ -9,8 +9,8 @@ using namespace std;
 struct node
 {
    string name;
-   node *prev;
-   node *next;
+   node  *prev;
+   node  *next;
 }*header = NULL, *tail = NULL; //declare global names header and tail
 
 //function adds name to double linked list
@@ -19,26 +19,26 @@ void addName(string name)
    //code here
    if(header == NULL) //when empty header
    {
-       header = new node;//allocate new node
+       header  = new node;//allocate new node
        header -> name = name;//store name to list
-       header -> next = header->prev = NULL;//set prev and next to null
-       tail   = header;//header is also referred by tail
+       header -> next = header -> prev = NULL;//set prev and next to null
+       tail    = header;//header is also referred by tail
    }
-   else if(name<header->name) //when smaller new name
+   else if(name < header -> name) //when smaller new name
    {
-       header->prev           = new node;//allocate new node before header
-       header->prev->name     = name;//store name
-       header->prev->next     = header;//connect prev of header to header
-                    header    = header->prev;//new header is new node(prev of header)
-       header->prev           = NULL;//again set prev of header is NULL
+       header -> prev           = new node;//allocate new node before header
+       header -> prev->name     = name;//store name
+       header -> prev->next     = header;//connect prev of header to header
+                    header      = header->prev;//new header is new node(prev of header)
+       header -> prev           = NULL;//again set prev of header is NULL
    }
-   else if(name>tail->name) //when greater new name than tail
+   else if(name > tail->name) //when greater new name than tail
    {
-       tail->next       = new node;//allocate new node after tail
-       tail->next->name = name;//store name
-       tail->next->prev = tail;//connect next of tail to tail
-                tail    = tail->next;//new tail is going to tail now
-       tail->next       = NULL;//again set tail next is null
+       tail -> next         = new node;//allocate new node after tail
+       tail -> next -> name = name;//store name
+       tail -> next -> prev = tail;//connect next of tail to tail
+                tail        = tail->next;//new tail is going to tail now
+       tail -> next         = NULL;//again set tail next is null
    }
    else //some where in middle
    {
@@ -49,9 +49,9 @@ void addName(string name)
        }
        //when temp name greater than name loop is stopped
        node *nn = new node; //allocate new node nn
-       nn   -> name = name;//store name
-       temp ->  prev -> next = nn;//connect nn is before temp
-       nn   ->  prev = temp -> prev;
+       nn   ->  name = name;//store name
+       temp ->  prev -> next =  nn;//connect nn is before temp
+       nn   ->  prev = temp  -> prev;
        nn   ->  next = temp;
        temp ->  prev = nn;
    }
@@ -61,7 +61,7 @@ void addName(string name)
 string convertLower(string st)
 {
    string nst = " ";//new string
-   for(unsigned int i = 0;i < strlen(st.c_str());i++) //repeat string
+   for(unsigned int i = 0; i < strlen(st.c_str()); i++) //repeat string
        if(st[i] >= 65 && st[i] <= 90) //when upper case found
            nst +=tolower(st[i]);//convert lower and add to new string
           
@@ -126,7 +126,7 @@ int main()
    ofstream outfile("output.txt"); //open file for writing
    node *temp = header;
 
-   while(temp!=NULL)//traverse forward
+   while(temp != NULL)//traverse forward
    {
        cout    << temp -> name << endl;
        outfile << temp -> name << endl;
