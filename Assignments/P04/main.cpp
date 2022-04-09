@@ -124,52 +124,20 @@ int main()
        {
            addName(line);//add function with line as argument
        }
-    	//cout << line << endl;
     }
 }
 
 
-
-//    while(!infile.eof()) //repeat until end of file
-//    {
-//        if(line == "delete") //when command delete is found
-//        {
-//            infile >> name;//read name to delete
-//            deleteName(name);//call delete function
-//        }
-//        else
-//        {
-//            addName(line);//add function with line as argument
-//        }
-//        infile >> line;//reading the next line or word
-//    }
-
    infile.close();//close the file
   
    //print order in ascending
-   ofstream outfile("output.txt"); //open file for writing
    node *temp = header;
 
    while(temp != NULL)//traverse forward
    {
        cout    << temp -> name << endl;
-       outfile << temp -> name << endl;
-       temp = temp -> next;
+       temp    = temp  -> next;
    }
-  
-   cout    << "================" << endl;
-   outfile << "================" << endl;
-   temp = tail;
-
-   while(temp != NULL)//traverse reverse
-   {
-       cout    << temp-> name << endl;
-       outfile << temp-> name << endl;
-
-       temp = temp->prev;//previous moving
-   }
-
-   outfile.close();//close the file
-  
+   
    return 0;
 }
