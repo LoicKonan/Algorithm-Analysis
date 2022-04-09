@@ -100,6 +100,35 @@ void deleteName(string name)
    }
 }
 
+
+
+/*
+ * Function: printMenu
+ *
+ * Description: Prints a menu to the user and asks for letter
+ * choices based on the menu.
+ *
+ * Return: A single Character from the user;
+ */
+char printMenu() {
+	char input;
+
+	printf("*** Menu ***\n");
+	printf("A: Add Record\n");
+	printf("P: Print Records\n");
+	printf("F: Find Record\n");
+	printf("E: Edit Record\n");
+	printf("D: Delete Record\n");
+	printf("Q: Quit\n");
+	printf("\nEnter Choice: ");
+	input = getchar(); //get character input
+	getchar(); //flush the newline/carrage return
+
+	return input;
+}
+
+
+
 int main()
 {
    ifstream infile("input.txt");//open file for reading
@@ -141,3 +170,4 @@ int main()
    
    return 0;
 }
+
