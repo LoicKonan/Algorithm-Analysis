@@ -1,53 +1,19 @@
-872-238-3894
-872-535-2389
-872-535-8928
-940-238-8913
-940-323-2389
-940-324-2936
-940-445-2323
-940-912-7890
-Adams
-Chao
-Daisy
-Daniels
-Donald
-Duck
-Duck
-Jack
-John
-Julium
-Lee
-McDonald
-McDonald
-Mickey
-Mouse
-Ronald
-Samuel
-Smith
+Adams Samuel 940-324-2936
+Daniels Jack 940-445-2323
+Duck Daisy 940-912-7890
+Duck Donald 940-323-2389
+Lee Chao 940-234-2785
+McDonald Julium 872-535-8928
+McDonald Ronald 872-535-2389
+Mouse Mickey 940-238-8913
+Smith John 872-238-3894
 ================
-Smith
-Samuel
-Ronald
-Mouse
-Mickey
-McDonald
-McDonald
-Lee
-Julium
-John
-Jack
-Duck
-Duck
-Donald
-Daniels
-Daisy
-Chao
-Adams
-940-912-7890
-940-445-2323
-940-324-2936
-940-323-2389
-940-238-8913
-872-535-8928
-872-535-2389
-872-238-3894
+Smith John 872-238-3894
+Mouse Mickey 940-238-8913
+McDonald Ronald 872-535-2389
+McDonald Julium 872-535-8928
+Lee Chao 940-234-2785
+Duck Donald 940-323-2389
+Duck Daisy 940-912-7890
+Daniels Jack 940-445-2323
+Adams Samuel 940-324-2936

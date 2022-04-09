@@ -105,10 +105,17 @@ int main()
    ifstream infile("input.txt");//open file for reading
    string line, name = "";
   
-   infile >> line;//reading first line or word
-   while(!infile.eof()) //repeat until end of file
-   {
-       if(line == "delete") //when command delete is found
+   //infile >> line;//reading first line or word
+
+   if (infile.is_open())
+{
+	string line;
+	while (getline(infile, line))
+    {
+    	// note that the newline character is not included
+        // in the getline() function
+
+         if(line == "delete") //when command delete is found
        {
            infile >> name;//read name to delete
            deleteName(name);//call delete function
@@ -117,8 +124,25 @@ int main()
        {
            addName(line);//add function with line as argument
        }
-       infile >> line;//reading the next line or word
-   }
+    	//cout << line << endl;
+    }
+}
+
+
+
+//    while(!infile.eof()) //repeat until end of file
+//    {
+//        if(line == "delete") //when command delete is found
+//        {
+//            infile >> name;//read name to delete
+//            deleteName(name);//call delete function
+//        }
+//        else
+//        {
+//            addName(line);//add function with line as argument
+//        }
+//        infile >> line;//reading the next line or word
+//    }
 
    infile.close();//close the file
   
