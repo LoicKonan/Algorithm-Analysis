@@ -110,7 +110,8 @@ void deleteName(string name)
  *
  * Return: A single Character from the user;
  */
-char printMenu() {
+char printMenu() 
+{
 	char input;
 
 	printf("*** Menu ***\n");
@@ -156,6 +157,7 @@ int main()
     }
 }
 
+printMenu();//call print menu function
 
    infile.close();//close the file
   
