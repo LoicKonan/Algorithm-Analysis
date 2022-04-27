@@ -3,13 +3,15 @@
 #include <iostream>
 using namespace std;
 
-struct node {
+struct node 
+{
   int key;
   struct node *left, *right;
 };
 
 // Create a node
-struct node *newNode(int item) {
+struct node *newNode(int item) 
+{
   struct node *temp = (struct node *)malloc(sizeof(struct node));
   temp->key = item;
   temp->left = temp->right = NULL;
@@ -19,7 +21,8 @@ struct node *newNode(int item) {
 // Inorder Traversal
 void inorder(struct node *root) 
 {
-  if (root != NULL) {
+  if (root != NULL) 
+  {
     // Traverse left
     inorder(root->left);
 
@@ -34,7 +37,8 @@ void inorder(struct node *root)
 // postorder Traversal
 void postorder(struct node *root) 
 {
-  if (root != NULL) {
+  if (root != NULL) 
+  {
     // Traverse left
     postorder(root->left);
 
@@ -49,7 +53,8 @@ void postorder(struct node *root)
 // Preorder Traversal
 void preorder(struct node *root) 
 {
-  if (root != NULL) {
+  if (root != NULL) 
+  {
     // Traverse root
     cout << root->key << " -> ";
 
@@ -61,10 +66,9 @@ void preorder(struct node *root)
   }
 }
 
-
-
 // Insert a node
-struct node *insert(struct node *node, int key) {
+struct node *insert(struct node *node, int key) 
+{
   // Return a new node if the tree is empty
   if (node == NULL) return newNode(key);
 
@@ -78,7 +82,8 @@ struct node *insert(struct node *node, int key) {
 }
 
 // Find the inorder successor
-struct node *minValueNode(struct node *node) {
+struct node *minValueNode(struct node *node) 
+{
   struct node *current = node;
 
   // Find the leftmost leaf
@@ -89,22 +94,29 @@ struct node *minValueNode(struct node *node) {
 }
 
 // Deleting a node
-struct node *deleteNode(struct node *root, int key) {
+struct node *deleteNode(struct node *root, int key) 
+{
   // Return if the tree is empty
   if (root == NULL) return root;
 
   // Find the node to be deleted
   if (key < root->key)
     root->left = deleteNode(root->left, key);
+  
   else if (key > root->key)
     root->right = deleteNode(root->right, key);
-  else {
+  
+  else 
+  {
     // If the node is with only one child or no child
-    if (root->left == NULL) {
+    if (root->left == NULL) 
+    {
       struct node *temp = root->right;
       free(root);
       return temp;
-    } else if (root->right == NULL) {
+    } 
+    else if (root->right == NULL) 
+    {
       struct node *temp = root->left;
       free(root);
       return temp;
