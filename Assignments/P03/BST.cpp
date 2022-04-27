@@ -17,7 +17,8 @@ struct node *newNode(int item) {
 }
 
 // Inorder Traversal
-void inorder(struct node *root) {
+void inorder(struct node *root) 
+{
   if (root != NULL) {
     // Traverse left
     inorder(root->left);
@@ -29,6 +30,38 @@ void inorder(struct node *root) {
     inorder(root->right);
   }
 }
+
+// postorder Traversal
+void postorder(struct node *root) 
+{
+  if (root != NULL) {
+    // Traverse left
+    postorder(root->left);
+
+    // Traverse right
+    postorder(root->right);
+
+    // Traverse root
+    cout << root->key << " -> ";
+  }
+}
+
+// Preorder Traversal
+void preorder(struct node *root) 
+{
+  if (root != NULL) {
+    // Traverse root
+    cout << root->key << " -> ";
+
+    // Traverse left
+    preorder(root->left);
+
+    // Traverse right
+    preorder(root->right);
+  }
+}
+
+
 
 // Insert a node
 struct node *insert(struct node *node, int key) {
@@ -90,7 +123,8 @@ struct node *deleteNode(struct node *root, int key) {
 }
 
 // Driver code
-int main() {
+int main() 
+{
   struct node *root = NULL;
   root = insert(root, 8);
   root = insert(root, 3);
@@ -101,11 +135,21 @@ int main() {
   root = insert(root, 14);
   root = insert(root, 4);
 
-  cout << "Inorder traversal: ";
+  cout << "Inorder traversal:   ";
   inorder(root);
+  cout << endl;
+    
+  cout << "postorder traversal: ";
+  postorder(root);
+  cout << endl;
 
-  cout << "\nAfter deleting 10\n";
-  root = deleteNode(root, 10);
-  cout << "Inorder traversal: ";
-  inorder(root);
+  cout << "preorder traversal:  ";
+  preorder(root);
+  cout << endl;
+
+//   cout << "\nAfter deleting 10\n";
+//   root = deleteNode(root, 10);
+
+//   cout << "Inorder traversal: ";
+//   inorder(root);
 }
