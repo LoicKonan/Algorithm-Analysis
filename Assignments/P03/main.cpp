@@ -11,7 +11,7 @@ using namespace std;
 using namespace std::chrono;
 
 // The size of the Arrays.
-const int _SIZE = 5000;
+const int _SIZE = 10;
 
 #include "printArray.hpp"
 #include "header.hpp"
