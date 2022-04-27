@@ -43,7 +43,8 @@ class RedBlackTree
   // Inorder
   void inOrderHelper(NodePtr node) 
   {
-    if (node != TNULL) {
+    if (node != TNULL) 
+    {
       inOrderHelper(node->left);
       cout << node->data << " ";
       inOrderHelper(node->right);
@@ -533,9 +534,16 @@ int main()
   bst.insert(75);
   bst.insert(57);
 
+  bst.insert(15);
+  bst.insert(480);
+  bst.insert(6);
+  bst.insert(320);
+  bst.insert(71);
+  bst.insert(47);
+
   bst.printTree();
-  cout << endl
-     << "After deleting" << endl;
-  bst.deleteNode(40);
-  bst.printTree();
+  // cout << endl
+  //    << "After deleting" << endl;
+  // bst.deleteNode(40);
+  // bst.printTree();
 }
