@@ -1,4 +1,3 @@
-
 // AVL tree implementation in C++
 
 #pragma once

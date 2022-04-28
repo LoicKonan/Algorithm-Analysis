@@ -221,15 +221,15 @@ class RedBlackTree
       } 
       else 
       {
-        rbTransplant(y, y->right);
-        y->right = z->right;
-        y->right->parent = y;
+        rbTransplant(y, y -> right);
+        y -> right = z -> right;
+        y -> right -> parent = y;
       }
 
       rbTransplant(z, y);
-      y->left = z->left;
-      y->left->parent = y;
-      y->color = z->color;
+      y -> left = z -> left;
+      y -> left -> parent = y;
+      y -> color = z -> color;
     }
     delete z;
 
@@ -243,18 +243,18 @@ class RedBlackTree
   void insertFix(NodePtr k) 
   {
     NodePtr u;
-    while (k->parent->color == 1) 
+    while (k -> parent -> color == 1) 
     {
-      if (k->parent == k->parent->parent->right) 
+      if (k -> parent == k -> parent -> parent -> right) 
       {
-        u = k->parent->parent->left;
+        u = k -> parent -> parent -> left;
 
-        if (u->color == 1) 
+        if (u -> color == 1) 
         {
-          u->color = 0;
-          k->parent->color = 0;
-          k->parent->parent->color = 1;
-          k = k->parent->parent;
+          u -> color = 0;
+          k -> parent -> color = 0;
+          k -> parent -> parent -> color = 1;
+          k = k -> parent -> parent;
         } 
         else 
         {
