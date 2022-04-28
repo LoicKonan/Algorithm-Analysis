@@ -269,7 +269,8 @@ avl_node *avlTree:: Search(avl_node * root, int target){
 }
 
 
-int main() {
+int main() 
+{
   BSTree b;
   avlTree avl, avl2;
   int num, num2, x;
