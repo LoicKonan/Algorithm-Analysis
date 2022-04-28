@@ -19,7 +19,7 @@ int main()
   }
 
   // b.inOrderPrint();
-  cout << "Height of BST is " << Tree.CalcH() << endl;
+  cout << "Height of BST is " << Tree.Cal_Height() << endl;
   // cout << "Insert count for Bst is " << BCTR << endl;
 
   cout << "\n\n";

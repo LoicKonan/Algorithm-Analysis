@@ -41,5 +41,5 @@ public:
     void Find(int x);
     void inOrderPrint();
     void insert(int x);
-    int CalcH();
+    int Cal_Height();
 };

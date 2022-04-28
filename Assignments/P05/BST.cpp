@@ -86,7 +86,7 @@ void BST::insert(int x)
     insert_Node(root, x);
 }
 
-int BST::CalcH()
+int BST::Cal_Height()
 {
 
     int height = Tree_Height(root);
