@@ -3,9 +3,6 @@
 #include <iostream>
 using namespace std;
 
-// int BCTR = 0;
-// int BFCT = 0;
-
 class BST
 {
 private:

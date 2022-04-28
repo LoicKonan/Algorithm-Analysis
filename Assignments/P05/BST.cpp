@@ -3,9 +3,12 @@
 #include <iostream>
 using namespace std;
 
+int BCTR = 0;
+int BFCT = 0;
+
 void BST::insert_Node(Node *&ptr, int x)
 {
-    // BCTR++;
+    BCTR++;
 
     if (ptr == nullptr)
         ptr = new Node(x);
@@ -49,12 +52,12 @@ void BST::Find(Node *&ptr, int x)
     }
     else if (x <= ptr->data)
     {
-        // BFCT += 1;
+        BFCT += 1;
         Find(ptr->left, x);
     }
     else
     {
-        // BFCT += 1;
+        BFCT += 1;
         Find(ptr->right, x);
     }
 }
