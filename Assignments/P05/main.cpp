@@ -6,11 +6,11 @@ using namespace std;
 
 int main()
 {
-    RedBlackTree Tree_two;
-    BST Tree_One;
+    RedBlackTree RB_Tree;
+    BST Binary_Tree;
 
-    Tree_One.insert(500);
-    Tree_two.insert(500);
+    Binary_Tree.insert(500);
+    RB_Tree.insert(500);
 
     int number;
     cout << "The Random numbers: ";
@@ -18,56 +18,56 @@ int main()
     {
         number = rand() % 100;
         cout << number << " ";
-        Tree_two.insert(number);
-        Tree_One.insert(number);
+        RB_Tree.insert(number);
+        Binary_Tree.insert(number);
     }
 
     cout << "\n\nRB Below: \n";
 
-    Tree_two.printTree();
+    RB_Tree.printTree();
     cout << endl;
 
     cout << endl;
-    Tree_two.preorder();
+    RB_Tree.preorder();
     cout << endl;
 
-    Tree_two.inorder();
+    RB_Tree.inorder();
     cout << endl;
 
-    Tree_two.postorder();
+    RB_Tree.postorder();
     cout << endl;
 
     cout << "\nRed Black Tree Below: \n";
 
-    cout << "\nHeight of Red Black Tree is " << Tree_two.Cal_Height() << endl;
+    cout << "\nHeight of Red Black Tree is " << RB_Tree.Cal_Height() << endl;
     cout << "Number of steps for inserting random numbers is: " << insertion_Steps_RB << endl;
     cout << "Number of steps for searching random numbers is: " << searching_Steps_RB << "\n\n";
 
-    Tree_two.Find(66);
+    RB_Tree.Find(66);
 
-    cout << "\n\nHeight of Red Black Tree is " << Tree_two.Cal_Height() << endl;
+    cout << "\n\nHeight of Red Black Tree is " << RB_Tree.Cal_Height() << endl;
     cout << "Number of steps for inserting random numbers is: " << insertion_Steps_RB << endl;
     cout << "Number of steps for searching random numbers is: " << searching_Steps_RB << endl;
 
-    Tree_two.insert(855);
+    RB_Tree.insert(855);
 
 
     cout << "\n\nBST Below: \n";
     cout << endl;
-    Tree_One.preorderPrint();
+    Binary_Tree.preorderPrint();
 
-    Tree_One.inOrderPrint();
-    Tree_One.postorderPrint();
+    Binary_Tree.inOrderPrint();
+    Binary_Tree.postorderPrint();
 
-    cout << "\nHeight of BST is " << Tree_One.Cal_Height() << endl;
+    cout << "\nHeight of BST is " << Binary_Tree.Cal_Height() << endl;
     cout << "Number of steps for inserting random numbers is: " << insertion_Steps << endl;
     cout << "Number of steps for searching random numbers is: " << searching_Steps << "\n\n";
 
-    Tree_One.Find(66);
+    Binary_Tree.Find(66);
 
-    cout << "\n\nHeight of BST is " << Tree_One.Cal_Height() << endl;
+    cout << "\n\nHeight of BST is " << Binary_Tree.Cal_Height() << endl;
     cout << "Number of steps for inserting random numbers is: " << insertion_Steps << endl;
     cout << "Number of steps for searching random numbers is: " << searching_Steps << endl;
 
-    Tree_One.insert(855);
+    Binary_Tree.insert(855);
 }
