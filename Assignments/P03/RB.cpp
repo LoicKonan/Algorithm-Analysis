@@ -175,18 +175,18 @@ class RedBlackTree
     NodePtr x, y;
     while (node != TNULL) 
     {
-      if (node->data == key) 
+      if (node -> data == key) 
       {
         z = node;
       }
 
-      if (node->data <= key) 
+      if (node -> data <= key) 
       {
-        node = node->right;
+        node = node -> right;
       } 
       else 
       {
-        node = node->left;
+        node = node -> left;
       }
     }
 
@@ -197,27 +197,27 @@ class RedBlackTree
     }
 
     y = z;
-    int y_original_color = y->color;
+    int y_original_color = y -> color;
 
-    if (z->left == TNULL) 
+    if (z -> left == TNULL) 
     {
-      x = z->right;
-      rbTransplant(z, z->right);
+      x = z -> right;
+      rbTransplant(z, z -> right);
     } 
-    else if (z->right == TNULL) 
+    else if (z -> right == TNULL) 
     {
-      x = z->left;
-      rbTransplant(z, z->left);
+      x = z -> left;
+      rbTransplant(z, z -> left);
     } 
     else 
     {
-      y = minimum(z->right);
-      y_original_color = y->color;
-      x = y->right;
+      y = minimum(z -> right);
+      y_original_color = y -> color;
+      x = y -> right;
 
-      if (y->parent == z) 
+      if (y -> parent == z) 
       {
-        x->parent = y;
+        x -> parent = y;
       } 
       else 
       {
@@ -258,37 +258,37 @@ class RedBlackTree
         } 
         else 
         {
-          if (k == k->parent->left) 
+          if (k == k -> parent -> left) 
           {
-            k = k->parent;
+            k = k -> parent;
             rightRotate(k);
           }
-          k->parent->color = 0;
-          k->parent->parent->color = 1;
-          leftRotate(k->parent->parent);
+          k -> parent  -> color = 0;
+          k -> parent  -> parent -> color = 1;
+          leftRotate(k -> parent -> parent);
         }
       } 
       else 
       {
-        u = k->parent->parent->right;
+        u = k -> parent -> parent -> right;
 
-        if (u->color == 1) 
+        if (u -> color == 1) 
         {
-          u->color = 0;
-          k->parent->color = 0;
-          k->parent->parent->color = 1;
-          k = k->parent->parent;
+          u -> color = 0;
+          k -> parent-> color = 0;
+          k -> parent-> parent -> color = 1;
+          k = k -> parent -> parent;
         } 
         else 
-        {
-          if (k == k->parent->right) 
+        { 
+          if (k == k -> parent -> right) 
           {
-            k = k->parent;
+            k = k -> parent;
             leftRotate(k);
           }
-          k->parent->color = 0;
-          k->parent->parent->color = 1;
-          rightRotate(k->parent->parent);
+          k -> parent -> color = 0;
+          k -> parent -> parent   -> color = 1;
+          rightRotate(k -> parent -> parent);
         }
       }
       if (k == root) 
@@ -315,10 +315,10 @@ class RedBlackTree
         indent += "|  ";
       }
 
-      string sColor = root->color ? "RED" : "BLACK";
-      cout << root->data << "(" << sColor << ")" << endl;
-      printHelper(root->left, indent, false);
-      printHelper(root->right, indent, true);
+      string sColor = root -> color ? "RED" : "BLACK";
+      cout << root -> data << "(" << sColor << ")" << endl;
+      printHelper(root -> left, indent, false);
+      printHelper(root -> right, indent, true);
     }
   }
 
@@ -527,26 +527,26 @@ class RedBlackTree
   }
 };
 
-int main() 
-{
-  RedBlackTree bst;
-  bst.insert(55);
-  bst.insert(40);
-  bst.insert(65);
-  bst.insert(60);
-  bst.insert(75);
-  bst.insert(57);
+// int main() 
+// {
+//   RedBlackTree bst;
+//   bst.insert(55);
+//   bst.insert(40);
+//   bst.insert(65);
+//   bst.insert(60);
+//   bst.insert(75);
+//   bst.insert(57);
 
-  bst.insert(15);
-  bst.insert(480);
-  bst.insert(6);
-  bst.insert(320);
-  bst.insert(71);
-  bst.insert(47);
+//   bst.insert(15);
+//   bst.insert(480);
+//   bst.insert(6);
+//   bst.insert(320);
+//   bst.insert(71);
+//   bst.insert(47);
 
-  bst.printTree();
+//   bst.printTree();
   // cout << endl
   //    << "After deleting" << endl;
   // bst.deleteNode(40);
   // bst.printTree();
-}
+// }
