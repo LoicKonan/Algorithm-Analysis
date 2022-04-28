@@ -33,10 +33,15 @@ public:
         root = nullptr;
     }
 
+    void Print_preorder(Node *ptr);
     void Print_inorder(Node *ptr);
+    void Print_postorder(Node *ptr);
+
 
     void Find(int x);
     void inOrderPrint();
+    void preorderPrint();
+    void postorderPrint();
     void insert(int x);
     int Cal_Height();
 };
