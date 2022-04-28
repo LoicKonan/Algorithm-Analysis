@@ -5,6 +5,8 @@
 #include <iostream>
 using namespace std;
 
+int BCTR=0;
+
 struct node 
 {
   int key;
@@ -71,6 +73,8 @@ void preorder(struct node *root)
 // Insert a node
 struct node *insert(struct node *node, int key) 
 {
+  int BCTR = 0;
+
   // Return a new node if the tree is empty
   if (node == NULL) return newNode(key);
 
@@ -137,33 +141,33 @@ struct node *deleteNode(struct node *root, int key)
 }
 
 // Driver code
-int main() 
-{
-  struct node *root = NULL;
-  root = insert(root, 8);
-  root = insert(root, 3);
-  root = insert(root, 1);
-  root = insert(root, 6);
-  root = insert(root, 7);
-  root = insert(root, 10);
-  root = insert(root, 14);
-  root = insert(root, 4);
+// int main() 
+// {
+//   struct node *root = NULL;
+//   root = insert(root, 8);
+//   root = insert(root, 3);
+//   root = insert(root, 1);
+//   root = insert(root, 6);
+//   root = insert(root, 7);
+//   root = insert(root, 10);
+//   root = insert(root, 14);
+//   root = insert(root, 4);
 
-  cout << "Inorder traversal:   ";
-  inorder(root);
-  cout << endl;
+//   cout << "Inorder traversal:   ";
+//   inorder(root);
+//   cout << endl;
     
-  cout << "postorder traversal: ";
-  postorder(root);
-  cout << endl;
+//   cout << "postorder traversal: ";
+//   postorder(root);
+//   cout << endl;
 
-  cout << "preorder traversal:  ";
-  preorder(root);
-  cout << endl;
+//   cout << "preorder traversal:  ";
+//   preorder(root);
+//   cout << endl;
 
 //   cout << "\nAfter deleting 10\n";
 //   root = deleteNode(root, 10);
 
 //   cout << "Inorder traversal: ";
 //   inorder(root);
-}
+// }

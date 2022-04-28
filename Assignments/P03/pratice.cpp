@@ -7,7 +7,8 @@ int ACTR=0;
 int BalCost=0;
 int CTR=0;
 
-class BSTree {
+class BSTree 
+{
 private:
 struct Node {
   int data;

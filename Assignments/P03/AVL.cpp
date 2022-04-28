@@ -5,6 +5,7 @@
 #include <iostream>
 using namespace std;
 
+int ACTR = 0;
 class Node 
 {
   public:
@@ -78,6 +79,7 @@ int getBalanceFactor(Node *N)
 // Insert a node
 Node *insertNode(Node *node, int key) 
 {
+  ++ACTR;
   // Find the correct postion and insert the node
   if (node == NULL)
     return (newNode(key));
