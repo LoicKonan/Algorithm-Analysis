@@ -26,8 +26,5 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ],
-  "cSpell.words": [
-    "inorder"
   ]
 }

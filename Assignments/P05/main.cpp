@@ -1,33 +1,35 @@
 #include <iostream>
+#include "BST.h"
+
 using namespace std;
 
-#include "BSTree.h"
-
-
-
-
-int main() 
+int main()
 {
-  BSTree b;
-  int num, num2, x;
+
+  BST Tree;
+  int number;
+
   // b.insert(250);
-  for (int i = 0; i < 10; i++) 
+
+  for (int i = 0; i < 10; i++)
   {
-    num = rand() % 100;
-    num2 = rand() % 1000;
-    cout << num << " " << endl;
-    b.insert(num);
+    number = rand() % 100;
+    cout << number << " " << endl;
+    Tree.insert(number);
   }
 
- // b.inOrderPrint();
-  cout << "Height of BST is " << b.CalcH() << endl;
-  cout << "Insert count for Bst is " << BCTR << endl;
+  // b.inOrderPrint();
+  cout << "Height of BST is " << Tree.CalcH() << endl;
+  // cout << "Insert count for Bst is " << BCTR << endl;
 
   cout << "\n\n";
   cout << endl;
-  cout << CTR << endl;
-  b.Find(35);
-  cout << BFCT << endl;
-  //r.inOrderPrint();
-  //cout << "Height is " << r.treeHeight();
+
+  // cout << BCTR << endl;
+
+  Tree.Find(35);
+
+  // cout << BFCT << endl;
+  // r.inOrderPrint();
+  // cout << "Height is " << r.treeHeight();
 }

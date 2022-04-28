@@ -1,27 +1,42 @@
-#pragma once
-#ifndef BSTree
-#define BSTree
+#pragma
 
 #include <iostream>
 using namespace std;
 
-class BSTree
+// int BCTR = 0;
+// int BFCT = 0;
+
+class BST
 {
 private:
-    struct Node;
+    struct Node
+    {
+        int data;
+        Node *left;
+        Node *right;
+
+        Node(int x)
+        {
+            data = x;
+            left = right = nullptr;
+        }
+    };
 
     Node *root;
 
-    void insertNode(Node *&ptr, int x);
+    void insert_Node(Node *&ptr, int x);
 
-    int CalcHeight(Node *&ptr);
+    int Tree_Height(Node *&ptr);
 
     void Find(Node *&ptr, int x);
 
 public:
-    BSTree();
+    BST()
+    {
+        root = nullptr;
+    }
 
-    void print(Node *ptr);
+    void Print_inorder(Node *ptr);
 
     void Find(int x);
     void inOrderPrint();

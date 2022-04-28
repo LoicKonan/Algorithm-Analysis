@@ -1,123 +1,94 @@
-#include "BSTree.h"
+#include "BST.h"
 
 #include <iostream>
 using namespace std;
 
-
-int BCTR = 0;
-int BFCT = 0;
-
-class BSTree
+void BST::insert_Node(Node *&ptr, int x)
 {
-private:
-    struct Node
-    {
-        int data;
-        Node *left;
-        Node *right;
+    // BCTR++;
 
-        Node(int x)
+    if (ptr == nullptr)
+        ptr = new Node(x);
+    else if (x <= ptr->data)
+        insert_Node(ptr->left, x);
+    else
+        insert_Node(ptr->right, x);
+}
+
+int BST::Tree_Height(Node *&ptr)
+{
+    if (ptr)
+    {
+        int left = 1 + Tree_Height(ptr->left);
+        int right = 1 + Tree_Height(ptr->right);
+        if (left > right)
         {
-            data = x;
-            left = right = nullptr;
-        }
-    };
-
-    Node *root;
-
-    void insertNode(Node *&ptr, int x)
-    {
-        BCTR++;
-
-        if (ptr == nullptr)
-            ptr = new Node(x);
-        else if (x <= ptr->data)
-            insertNode(ptr->left, x);
-        else
-            insertNode(ptr->right, x);
-    }
-
-    int CalcHeight(Node *&ptr)
-    {
-        if (ptr)
-        {
-            int left = 1 + CalcHeight(ptr->left);
-            int right = 1 + CalcHeight(ptr->right);
-            if (left > right)
-            {
-                return left;
-            }
-            else
-            {
-                return right;
-            }
+            return left;
         }
         else
         {
-            return 0;
+            return right;
         }
     }
-
-    void Find(Node *&ptr, int x)
+    else
     {
-
-        if (ptr == NULL)
-        {
-            cout << "Not found" << endl;
-        }
-        else if (x == ptr->data)
-        {
-            cout << "found" << endl;
-        }
-        else if (x <= ptr->data)
-        {
-             BFCT+=1;
-            Find(ptr->left, x);
-        }
-        else
-        {
-             BFCT+=1;
-            Find(ptr->right, x);
-        }
+        return 0;
     }
+}
 
-public:
-    BSTree() 
-    { 
-        root = nullptr; 
-    }
+void BST::Find(Node *&ptr, int x)
+{
 
-    void print(Node *ptr)
+    if (ptr == NULL)
     {
-
-        if (ptr)
-        {
-            print(ptr->left);
-            cout << ptr->data << " ";
-            print(ptr->right);
-        }
+        cout << "Not found" << endl;
     }
-
-    void Find(int x)
+    else if (x == ptr->data)
     {
-        Find(root, x);
+        cout << "found" << endl;
     }
-
-    void inOrderPrint()
+    else if (x <= ptr->data)
     {
-        print(root);
-        cout << endl;
+        // BFCT += 1;
+        Find(ptr->left, x);
     }
-
-    void insert(int x) 
-    { 
-        insertNode(root, x); 
-    }
-
-    int CalcH()
+    else
     {
-
-        int height = CalcHeight(root);
-        return height;
+        // BFCT += 1;
+        Find(ptr->right, x);
     }
-};
+}
+
+void BST::Print_inorder(Node *ptr)
+{
+
+    if (ptr)
+    {
+        Print_inorder(ptr->left);
+        cout << ptr->data << " ";
+        Print_inorder(ptr->right);
+    }
+}
+
+void BST::Find(int x)
+{
+    Find(root, x);
+}
+
+void BST::inOrderPrint()
+{
+    Print_inorder(root);
+    cout << endl;
+}
+
+void BST::insert(int x)
+{
+    insert_Node(root, x);
+}
+
+int BST::CalcH()
+{
+
+    int height = Tree_Height(root);
+    return height;
+}
