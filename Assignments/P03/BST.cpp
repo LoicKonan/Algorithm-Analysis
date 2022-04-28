@@ -13,8 +13,8 @@ struct node
 struct node *newNode(int item) 
 {
   struct node *temp = (struct node *)malloc(sizeof(struct node));
-  temp->key = item;
-  temp->left = temp->right = NULL;
+  temp -> key  = item;
+  temp -> left = temp -> right = NULL;
   return temp;
 }
 
@@ -24,13 +24,13 @@ void inorder(struct node *root)
   if (root != NULL) 
   {
     // Traverse left
-    inorder(root->left);
+    inorder(root -> left);
 
     // Traverse root
-    cout << root->key << " -> ";
+    cout << root -> key << " -> ";
 
     // Traverse right
-    inorder(root->right);
+    inorder(root -> right);
   }
 }
 
@@ -40,13 +40,13 @@ void postorder(struct node *root)
   if (root != NULL) 
   {
     // Traverse left
-    postorder(root->left);
+    postorder(root -> left);
 
     // Traverse right
-    postorder(root->right);
+    postorder(root -> right);
 
     // Traverse root
-    cout << root->key << " -> ";
+    cout << root -> key << " -> ";
   }
 }
 
@@ -56,13 +56,13 @@ void preorder(struct node *root)
   if (root != NULL) 
   {
     // Traverse root
-    cout << root->key << " -> ";
+    cout << root -> key << " -> ";
 
     // Traverse left
-    preorder(root->left);
+    preorder(root -> left);
 
     // Traverse right
-    preorder(root->right);
+    preorder(root -> right);
   }
 }
 
@@ -73,10 +73,10 @@ struct node *insert(struct node *node, int key)
   if (node == NULL) return newNode(key);
 
   // Traverse to the right place and insert the node
-  if (key < node->key)
-    node->left = insert(node->left, key);
+  if (key < node -> key)
+    node -> left = insert(node  -> left, key);
   else
-    node->right = insert(node->right, key);
+    node -> right = insert(node -> right, key);
 
   return node;
 }
@@ -87,8 +87,8 @@ struct node *minValueNode(struct node *node)
   struct node *current = node;
 
   // Find the leftmost leaf
-  while (current && current->left != NULL)
-    current = current->left;
+  while (current && current -> left != NULL)
+    current = current -> left;
 
   return current;
 }
@@ -100,36 +100,36 @@ struct node *deleteNode(struct node *root, int key)
   if (root == NULL) return root;
 
   // Find the node to be deleted
-  if (key < root->key)
-    root->left = deleteNode(root->left, key);
+  if (key < root -> key)
+    root -> left = deleteNode(root  -> left, key);
   
-  else if (key > root->key)
-    root->right = deleteNode(root->right, key);
+  else if (key > root -> key)
+    root -> right = deleteNode(root -> right, key);
   
   else 
   {
     // If the node is with only one child or no child
-    if (root->left == NULL) 
+    if (root -> left == NULL) 
     {
-      struct node *temp = root->right;
+      struct node *temp = root -> right;
       free(root);
       return temp;
     } 
-    else if (root->right == NULL) 
+    else if (root -> right == NULL) 
     {
-      struct node *temp = root->left;
+      struct node *temp = root -> left;
       free(root);
       return temp;
     }
 
     // If the node has two children
-    struct node *temp = minValueNode(root->right);
+    struct node *temp = minValueNode(root -> right);
 
     // Place the inorder successor in position of the node to be deleted
-    root->key = temp->key;
+    root -> key = temp -> key;
 
     // Delete the inorder successor
-    root->right = deleteNode(root->right, temp->key);
+    root -> right = deleteNode(root -> right, temp -> key);
   }
   return root;
 }
