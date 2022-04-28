@@ -1,5 +1,7 @@
 // Binary Search Tree operations in C++
 
+#pragma once
+
 #include <iostream>
 using namespace std;
 
