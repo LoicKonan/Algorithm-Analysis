@@ -248,7 +248,7 @@ int RedBlackTree::Tree_Height(Node *&ptr)
 {
     if (ptr)
     {
-        int left = 1 + Tree_Height(ptr->left);
+        int left  = 1 + Tree_Height(ptr->left);
         int right = 1 + Tree_Height(ptr->right);
 
         if (left > right)
