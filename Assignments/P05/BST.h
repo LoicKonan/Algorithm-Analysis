@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+
 int insertion_Steps = 0;
 int searching_Steps = 0; 
 
@@ -38,6 +39,7 @@ public:
     void Print_preorder(Node *ptr);
     void Print_inorder(Node *ptr);
     void Print_postorder(Node *ptr);
+
 
     void Find(int x);
     void inOrderPrint();
@@ -90,11 +92,12 @@ void BST::Find(Node *&ptr, int x)
 
     if (ptr == NULL)
     {
-        cout << "Sorry couldn't find the number: '" << x << "' in the tree.\n";
+        // cout << "Sorry couldn't find the number: '" << x << "' in the tree.\n";
+
     }
     else if (x == ptr->data)
     {
-        cout << "Found the number: '" << x << "' in the tree.\n";
+        // cout << "Found the number: '" << x << "' in the tree.\n";
     }
     else if (x <= ptr->data)
     {

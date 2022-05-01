@@ -1,75 +1,41 @@
-#include "RB.h"
 #include "BST.h"
-
 #include <iostream>
+using namespace std;
+#include <iostream>
+
 using namespace std;
 
 int main()
 {
-    RedBlackTree RB_Tree;
-    BST Binary_Tree;
 
-    Binary_Tree.insert(50);
-    RB_Tree.insert(50);
+  BST Tree_One;
+  int number;
 
-    int number, key;
-    cout << "The Random numbers: ";
-    for (int i = 0; i < 10; i++)
-    {
-        number = rand() % 100;
-        cout << number << " ";
-        RB_Tree.insert(number);
-        Binary_Tree.insert(number);
-    }
+  Tree_One.insert(50);
 
-    cout << "\n\nRB Below: \n";
+  for (int i = 0; i < 10; i++)
+  {
+    number = rand() % 100;
+    cout << number << " " << endl;
+    Tree_One.insert(number);
+  }
 
-    RB_Tree.printTree();
-    cout << endl;
-
-    cout << endl;
-    RB_Tree.preorder();
-    cout << endl;
-
-    RB_Tree.inorder();
-    cout << endl;
-
-    RB_Tree.postorder();
-    cout << endl;
-
-    cout << "\nRed Black Tree Below: \n";
-
-    cout << "\nHeight of Red Black Tree is " << RB_Tree.Cal_Height() << endl;
-    cout << "Number of steps for inserting random numbers is: " << insertion_Steps_RB << endl;
-    cout << "Number of steps for searching random numbers is: " << searching_Steps_RB << "\n\n";
-
-    cout << "What number do you want to search for? ";
-    cin >> key;
-    RB_Tree.Find(key);
-
-    cout << "\n\nHeight of Red Black Tree is " << RB_Tree.Cal_Height() << endl;
-    cout << "Number of steps for inserting random numbers is: " << insertion_Steps_RB << endl;
-    cout << "Number of steps for searching random numbers is: " << searching_Steps_RB << endl;
-
-    RB_Tree.insert(25);
+  cout << endl;
+  Tree_One.inOrderPrint();
+  Tree_One.preorderPrint();
+  Tree_One.postorderPrint();
 
 
-    cout << "\n\nBinary Search Tree Below: \n";
-    cout << endl;
-    Binary_Tree.preorderPrint();
+  cout << "\nHeight of BST is " << Tree_One.Cal_Height() << endl;
+  cout << "Number of steps for insertion of random numbers is: " << insertion_Steps << endl;
+  cout << "Number of steps for searching of random numbers is: " << searching_Steps << "\n\n";
 
-    Binary_Tree.inOrderPrint();
-    Binary_Tree.postorderPrint();
+  Tree_One.Find(2);
 
-    cout << "\nHeight of BST is " << Binary_Tree.Cal_Height() << endl;
-    cout << "Number of steps for inserting random numbers is: " << insertion_Steps << endl;
-    cout << "Number of steps for searching random numbers is: " << searching_Steps << "\n\n";
+  cout << "\n\nHeight of BST is " << Tree_One.Cal_Height() << endl;
+  cout << "Number of steps for insertion of random numbers is: " << insertion_Steps << endl;
+  cout << "Number of steps for searching of random numbers is: " << searching_Steps << endl;
 
-    Binary_Tree.Find(key);
+  Tree_One.insert(5);
 
-    cout << "\n\nHeight of BST is " << Binary_Tree.Cal_Height() << endl;
-    cout << "Number of steps for inserting random numbers is: " << insertion_Steps << endl;
-    cout << "Number of steps for searching random numbers is: " << searching_Steps << endl;
-
-    Binary_Tree.insert(25);
 }

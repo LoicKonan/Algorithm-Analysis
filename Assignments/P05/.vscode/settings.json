@@ -26,11 +26,5 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ],
-  "cSpell.words": [
-    "inorder"
-  ],
-  "files.associations": {
-    "iostream": "cpp"
-  }
+  ]
 }
