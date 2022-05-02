@@ -14,7 +14,7 @@ struct Node
     Node *parent;
     Node *left;
     Node *right;
-    int color;
+    int   color;
 };
 
 typedef Node *NodePtr;
