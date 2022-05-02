@@ -24,8 +24,8 @@ int main()
 
     cout << "\n\nRB Below: \n";
 
-    // RB_Tree.printTree();
-    // cout << endl;
+    RB_Tree.printTree();
+    cout << endl;
 
     cout << endl;
     RB_Tree.preorder();
